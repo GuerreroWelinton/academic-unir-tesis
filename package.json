@@ -6,18 +6,14 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "lint": "ng lint",
+    "storybook": "ng run ui:storybook",
+    "prepare": "husky"
   },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
+  "lint-staged": {
+    "*.{ts,js,html,css,scss,md,json}": [
+      "prettier --write"
     ]
   },
   "private": true,
@@ -33,22 +29,25 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
+    "@angular-devkit/architect": "^0.2101.0",
+    "@angular-devkit/build-angular": "^21.1.0",
+    "@angular-devkit/core": "^21.1.0",
     "@angular/build": "^21.1.2",
     "@angular/cli": "^21.1.2",
     "@angular/compiler-cli": "^21.1.0",
-    "jsdom": "^27.1.0",
-    "ng-packagr": "^21.1.0",
-    "typescript": "~5.9.2",
-    "vitest": "^4.0.8",
-    "storybook": "^10.2.4",
-    "@storybook/angular": "^10.2.4",
+    "@angular/platform-browser-dynamic": "^21.1.0",
+    "@compodoc/compodoc": "^1.2.1",
     "@storybook/addon-a11y": "^10.2.4",
     "@storybook/addon-docs": "^10.2.4",
     "@storybook/addon-onboarding": "^10.2.4",
-    "@angular-devkit/build-angular": "^21.1.0",
-    "@angular-devkit/architect": "^0.2101.0",
-    "@angular-devkit/core": "^21.1.0",
-    "@angular/platform-browser-dynamic": "^21.1.0",
-    "@compodoc/compodoc": "^1.2.1"
+    "@storybook/angular": "^10.2.4",
+    "husky": "^9.1.7",
+    "jsdom": "^27.1.0",
+    "lint-staged": "^16.2.7",
+    "ng-packagr": "^21.1.0",
+    "prettier": "^3.8.1",
+    "storybook": "^10.2.4",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
   }
 }
