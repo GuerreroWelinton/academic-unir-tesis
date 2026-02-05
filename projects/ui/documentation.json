@@ -18,7 +18,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); align-items: center; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"sm\" [disabled]=\"false\" label=\"Small\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Medium\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"lg\" [disabled]=\"false\" label=\"Large\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+        "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div style=\"display: flex; gap: var(--zg-spacing-8); align-items: center; flex-wrap: wrap;\">\n        <zg-button variant=\"primary\" size=\"sm\" [disabled]=\"false\" label=\"Small\"></zg-button>\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Medium\"></zg-button>\n        <zg-button variant=\"primary\" size=\"lg\" [disabled]=\"false\" label=\"Large\"></zg-button>\n      </div>\n    `,\n  }),\n}"
       },
       {
         "name": "AllVariants",
@@ -28,7 +28,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Primary\"></zg-button>\r\n        <zg-button variant=\"secondary\" size=\"md\" [disabled]=\"false\" label=\"Secondary\"></zg-button>\r\n        <zg-button variant=\"ghost\" size=\"md\" [disabled]=\"false\" label=\"Ghost\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+        "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div style=\"display: flex; gap: var(--zg-spacing-8); flex-wrap: wrap;\">\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Primary\"></zg-button>\n        <zg-button variant=\"secondary\" size=\"md\" [disabled]=\"false\" label=\"Secondary\"></zg-button>\n        <zg-button variant=\"ghost\" size=\"md\" [disabled]=\"false\" label=\"Ghost\"></zg-button>\n      </div>\n    `,\n  }),\n}"
       },
       {
         "name": "Disabled",
@@ -38,7 +38,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: true,\r\n    label: 'Disabled Button',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    disabled: true,\n    label: 'Disabled Button',\n  },\n}"
       },
       {
         "name": "Ghost",
@@ -48,7 +48,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'ghost',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Ghost Button',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    variant: 'ghost',\n    size: 'md',\n    disabled: false,\n    label: 'Ghost Button',\n  },\n}"
       },
       {
         "name": "Large",
@@ -58,7 +58,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'lg',\r\n    disabled: false,\r\n    label: 'Large Button',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'lg',\n    disabled: false,\n    label: 'Large Button',\n  },\n}"
       },
       {
         "name": "meta",
@@ -68,7 +68,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ButtonComponent>",
-        "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'ghost'],\r\n      description: 'Visual style of the button',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Size of the button',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is disabled',\r\n    },\r\n  },\r\n}"
+        "defaultValue": "{\n  title: 'Components/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'ghost'],\n      description: 'Visual style of the button',\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n    },\n  },\n}"
       },
       {
         "name": "preview",
@@ -88,7 +88,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Primary Button',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    disabled: false,\n    label: 'Primary Button',\n  },\n}"
       },
       {
         "name": "Secondary",
@@ -98,7 +98,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'secondary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Secondary Button',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    variant: 'secondary',\n    size: 'md',\n    disabled: false,\n    label: 'Secondary Button',\n  },\n}"
       },
       {
         "name": "Small",
@@ -108,7 +108,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'sm',\r\n    disabled: false,\r\n    label: 'Small Button',\r\n  },\r\n}"
+        "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'sm',\n    disabled: false,\n    label: 'Small Button',\n  },\n}"
       }
     ],
     "functions": [],
@@ -136,7 +136,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); align-items: center; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"sm\" [disabled]=\"false\" label=\"Small\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Medium\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"lg\" [disabled]=\"false\" label=\"Large\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+          "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div style=\"display: flex; gap: var(--zg-spacing-8); align-items: center; flex-wrap: wrap;\">\n        <zg-button variant=\"primary\" size=\"sm\" [disabled]=\"false\" label=\"Small\"></zg-button>\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Medium\"></zg-button>\n        <zg-button variant=\"primary\" size=\"lg\" [disabled]=\"false\" label=\"Large\"></zg-button>\n      </div>\n    `,\n  }),\n}"
         },
         {
           "name": "AllVariants",
@@ -146,7 +146,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Primary\"></zg-button>\r\n        <zg-button variant=\"secondary\" size=\"md\" [disabled]=\"false\" label=\"Secondary\"></zg-button>\r\n        <zg-button variant=\"ghost\" size=\"md\" [disabled]=\"false\" label=\"Ghost\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+          "defaultValue": "{\n  render: (args) => ({\n    props: args,\n    template: `\n      <div style=\"display: flex; gap: var(--zg-spacing-8); flex-wrap: wrap;\">\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Primary\"></zg-button>\n        <zg-button variant=\"secondary\" size=\"md\" [disabled]=\"false\" label=\"Secondary\"></zg-button>\n        <zg-button variant=\"ghost\" size=\"md\" [disabled]=\"false\" label=\"Ghost\"></zg-button>\n      </div>\n    `,\n  }),\n}"
         },
         {
           "name": "Disabled",
@@ -156,7 +156,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: true,\r\n    label: 'Disabled Button',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    disabled: true,\n    label: 'Disabled Button',\n  },\n}"
         },
         {
           "name": "Ghost",
@@ -166,7 +166,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'ghost',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Ghost Button',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    variant: 'ghost',\n    size: 'md',\n    disabled: false,\n    label: 'Ghost Button',\n  },\n}"
         },
         {
           "name": "Large",
@@ -176,7 +176,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'lg',\r\n    disabled: false,\r\n    label: 'Large Button',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'lg',\n    disabled: false,\n    label: 'Large Button',\n  },\n}"
         },
         {
           "name": "meta",
@@ -186,7 +186,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ButtonComponent>",
-          "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'ghost'],\r\n      description: 'Visual style of the button',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Size of the button',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is disabled',\r\n    },\r\n  },\r\n}"
+          "defaultValue": "{\n  title: 'Components/Button',\n  component: ButtonComponent,\n  tags: ['autodocs'],\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'ghost'],\n      description: 'Visual style of the button',\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n    },\n  },\n}"
         },
         {
           "name": "Primary",
@@ -196,7 +196,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Primary Button',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    disabled: false,\n    label: 'Primary Button',\n  },\n}"
         },
         {
           "name": "Secondary",
@@ -206,7 +206,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'secondary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Secondary Button',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    variant: 'secondary',\n    size: 'md',\n    disabled: false,\n    label: 'Secondary Button',\n  },\n}"
         },
         {
           "name": "Small",
@@ -216,7 +216,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'sm',\r\n    disabled: false,\r\n    label: 'Small Button',\r\n  },\r\n}"
+          "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'sm',\n    disabled: false,\n    label: 'Small Button',\n  },\n}"
         }
       ],
       "projects/ui/.storybook/preview.ts": [

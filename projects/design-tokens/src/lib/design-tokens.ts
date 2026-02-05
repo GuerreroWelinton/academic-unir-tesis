@@ -350,19 +350,21 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
 export function resetTheme(element?: HTMLElement): void {
   const target = element || document.documentElement;
 
-  // Remove all zg-* custom properties
-  const allTokens = [
-    ...Object.values(DesignTokens.color),
-    DesignTokens.typography.fontFamilyBase,
-    DesignTokens.typography.fontFamilySecondary,
-    ...Object.values(DesignTokens.spacing),
-    ...Object.values(DesignTokens.radius),
-    ...Object.values(DesignTokens.shadow),
-    ...Object.values(DesignTokens.transition),
-    ...Object.values(DesignTokens.button),
-  ];
+  // Get all inline styles and remove any that start with --zg-
+  // This is more robust than maintaining a hardcoded list
+  const inlineStyles = target.style;
+  const propertiesToRemove: string[] = [];
 
-  allTokens.forEach((tokenName) => {
-    target.style.removeProperty(tokenName);
+  // Collect all --zg-* properties
+  for (let i = 0; i < inlineStyles.length; i++) {
+    const propertyName = inlineStyles[i];
+    if (propertyName.startsWith('--zg-')) {
+      propertiesToRemove.push(propertyName);
+    }
+  }
+
+  // Remove all collected properties
+  propertiesToRemove.forEach((propertyName) => {
+    target.style.removeProperty(propertyName);
   });
 }

@@ -258,95 +258,16 @@
   // BUTTON TOKENS
   // ============================================
 
-  --zg-button-bg-primary: linear-gradient(to right, var(--zg-green-400), var(--zg-green-800));
-  --zg-button-bg-secondary: linear-gradient(to right, var(--zg-green-100), var(--zg-green-500));
-  --zg-button-color-primary: var(--zg-neutral-100);
+  --zg-button-bg-primary: linear-gradient(
+    to right,
+    var(--zg-color-primary-light),
+    var(--zg-color-primary)
+  );
+  --zg-button-bg-secondary: linear-gradient(
+    to right,
+    var(--zg-color-secondary),
+    var(--zg-color-primary-light)
+  );
+  --zg-button-color-primary: var(--zg-color-text-inverse);
   --zg-button-radius: var(--zg-radius-base);
-}
-
-// ============================================
-// THEME VARIANTS
-// ============================================
-
-/**
- * Dark Mode Theme
- * Override primitives to create dark theme
- */
-.dark {
-  // Override primitive neutrals for dark mode
-  --zg-neutral-100: #ffffff;
-  --zg-neutral-200: #0e0e11;
-  --zg-neutral-300: #18181b;
-  --zg-neutral-400: #27272a;
-  --zg-neutral-500: #ffffff;
-  --zg-neutral-600: #808080;
-  --zg-neutral-700: #a1a1aa;
-  --zg-neutral-800: #d7d7d7;
-  --zg-neutral-900: #ffffff;
-
-  // Override primitive greens for dark mode
-  --zg-green-800: #002d16;
-  --zg-green-900: #001a0d;
-
-  // Override semantic bg-dark
-  --zg-color-bg-dark: var(--zg-neutral-300);
-
-  // Override button gradient
-  --zg-button-bg-primary: linear-gradient(to left, var(--zg-green-400), var(--zg-green-800));
-}
-
-/**
- * Alternative Theme One (Yellow/Gold theme)
- * Change primitives to create completely different color scheme
- */
-.theme-one {
-  // Override green primitives with yellow scale
-  --zg-green-800: #ffd028;
-  --zg-green-700: #f7d547;
-  --zg-green-500: #ffeb3b;
-  --zg-green-400: #19bfbf;
-  --zg-green-100: #ffeb3b;
-
-  // Override neutrals (inverted)
-  --zg-neutral-100: #000000;
-  --zg-neutral-200: #434343;
-  --zg-neutral-300: #333333;
-  --zg-neutral-400: #666666;
-  --zg-neutral-500: #808080;
-  --zg-neutral-600: #999999;
-  --zg-neutral-700: #cccccc;
-  --zg-neutral-800: #f5f5f5;
-  --zg-neutral-900: #ffffff;
-
-  // Override button
-  --zg-button-bg-primary: var(--zg-neutral-100);
-  --zg-button-color-primary: var(--zg-green-800);
-}
-
-/**
- * Alternative Theme Two (Blue theme)
- * Change primitives to create blue-based color scheme
- */
-.theme-two {
-  // Override green primitives with blue scale
-  --zg-green-800: #0cb7f2;
-  --zg-green-700: #1aa3d9;
-  --zg-green-500: #8fe3ff;
-  --zg-green-400: #73a834;
-  --zg-green-100: #00e5ff;
-
-  // Override neutrals (dark base)
-  --zg-neutral-100: #222426;
-  --zg-neutral-200: #3a3b3c;
-  --zg-neutral-300: #434343;
-  --zg-neutral-400: #666666;
-  --zg-neutral-500: #808080;
-  --zg-neutral-600: #999999;
-  --zg-neutral-700: #cccccc;
-  --zg-neutral-800: #f5f5f5;
-  --zg-neutral-900: #ffffff;
-
-  // Override button
-  --zg-button-bg-primary: var(--zg-neutral-100);
-  --zg-button-color-primary: var(--zg-green-800);
 }

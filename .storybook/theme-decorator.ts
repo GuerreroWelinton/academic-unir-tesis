@@ -4,8 +4,7 @@
  */
 
 import type { Decorator } from '@storybook/angular';
-import { createTheme } from '@zg/design-tokens';
-import { CLIENT_THEMES, type ClientId } from '../src/themes/client-themes';
+import { applyClientTheme, type ClientId } from '../src/themes/client-themes';
 
 /**
  * Global theme decorator for Storybook
@@ -15,9 +14,8 @@ export const withTheme: Decorator = (story, context) => {
   const clientId = (context.globals['client'] as ClientId) || 'casino1';
   const variant = (context.globals['theme'] as string) || 'light';
 
-  // Apply theme before rendering story
-  const theme = CLIENT_THEMES[clientId]?.[variant] || CLIENT_THEMES['casino1']['light'];
-  createTheme(theme);
+  // Apply theme (handles reset + createTheme internally)
+  applyClientTheme(clientId, variant);
 
   return story();
 };

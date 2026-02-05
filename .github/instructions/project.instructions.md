@@ -67,6 +67,28 @@ DESIGN TOKENS (OBLIGATORIOS)
   - typography (sizes + weights),
   - radius (sm/md/lg).
 - Los componentes deben consumir tokens (ej. var(--zg-color-primary)) y no valores fijos.
+  SINCRONIZACIÓN SCSS ↔ TypeScript (OBLIGATORIO)
+
+Cuando agregues nuevos tokens en `src/styles/_tokens.scss`, debes seguir estas reglas:
+
+**✅ SÍ requiere actualización en TypeScript (design-tokens.ts):**
+
+- **Tokens SEMÁNTICOS (CAPA 2)** - Tokens con significado de intención:
+  - Ejemplos: `--zg-color-primary`, `--zg-color-border`, `--zg-spacing-8`, `--zg-button-bg-primary`
+  - Acción: Agregar al objeto `DesignTokens` en `projects/design-tokens/src/lib/design-tokens.ts`
+  - Motivo: Permite acceso type-safe desde TypeScript y habilita theming dinámico
+
+**❌ NO requiere actualización en TypeScript:**
+
+- **Tokens PRIMITIVOS (CAPA 1)** - Escalas de color base:
+  - Ejemplos: `--zg-green-800`, `--zg-purple-500`, `--zg-neutral-200`
+  - Motivo: Ya se manejan dinámicamente en `createTheme()` mediante conversión automática camelCase → kebab-case
+  - Ejemplo: `primitives: { purple500: '#9c27b0' }` → se convierte automáticamente a `--zg-purple-500`
+
+**Regla práctica:**
+
+- Si el token tiene prefijo semántico (`--zg-color-*`, `--zg-spacing-*`, `--zg-button-*`, etc.) → Agregar a DesignTokens
+- Si es solo una escala primitiva (`--zg-[color]-[número]`) → No hace falta
 
 ESTRUCTURA Y ORGANIZACIÓN DEL REPO (OBLIGATORIA)
 
