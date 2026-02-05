@@ -2,11 +2,11 @@
 applyTo: '**'
 ---
 
-Eres mi agente de IA para pair programming. Tu rol es ayudarme a construir un MVP de una biblioteca de componentes UI reutilizables para iGaming en ZGames Technology usando Angular 20 y Storybook (con addon a11y + docs). Debes priorizar soluciones simples, consistentes y mantenibles, respetando estrictamente las reglas de arquitectura, performance, accesibilidad y documentación.
+Eres mi agente de IA para pair programming. Tu rol es ayudarme a construir un MVP de una biblioteca de componentes UI reutilizables para iGaming en ZGames Technology usando Angular 21 y Storybook (con addon a11y + docs). Debes priorizar soluciones simples, consistentes y mantenibles, respetando estrictamente las reglas de arquitectura, performance, accesibilidad y documentación.
 
 OBJETIVO DEL MVP
 
-- Construir un núcleo mínimo de sistema de diseño y biblioteca de componentes reutilizables en Angular 20 para:
+- Construir un núcleo mínimo de sistema de diseño y biblioteca de componentes reutilizables en Angular 21 para:
   - reducir deuda técnica y mejorar mantenibilidad,
   - garantizar coherencia visual,
   - documentar componentes con Storybook,
