@@ -11,130 +11,64 @@
   "miscellaneous": {
     "variables": [
       {
+        "name": "AllSizes",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); align-items: center; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"sm\" [disabled]=\"false\" label=\"Small\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Medium\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"lg\" [disabled]=\"false\" label=\"Large\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+      },
+      {
         "name": "AllVariants",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\">\r\n        <div style=\"display: flex; gap: 1rem;\">\r\n          <button style=\"\r\n            background: var(--zg-color-primary);\r\n            color: var(--zg-color-text-inverse);\r\n            padding: var(--zg-spacing-3) var(--zg-spacing-6);\r\n            border-radius: var(--zg-radius-base);\r\n            border: none;\r\n            cursor: pointer;\r\n          \">Primary</button>\r\n\r\n          <button style=\"\r\n            background: var(--zg-color-secondary);\r\n            color: var(--zg-color-text-inverse);\r\n            padding: var(--zg-spacing-3) var(--zg-spacing-6);\r\n            border-radius: var(--zg-radius-base);\r\n            border: none;\r\n            cursor: pointer;\r\n          \">Secondary</button>\r\n\r\n          <button style=\"\r\n            background: var(--zg-color-error);\r\n            color: var(--zg-color-text-inverse);\r\n            padding: var(--zg-spacing-3) var(--zg-spacing-6);\r\n            border-radius: var(--zg-radius-base);\r\n            border: none;\r\n            cursor: pointer;\r\n          \">Error</button>\r\n        </div>\r\n\r\n        <p style=\"color: var(--zg-color-text-secondary); font-size: var(--zg-font-size-sm);\">\r\n          💡 Change Client and Theme in the toolbar to see different brands!\r\n        </p>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
-        "rawdescription": "Example: Show multiple variants side by side",
-        "description": "<p>Example: Show multiple variants side by side</p>\n"
+        "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Primary\"></zg-button>\r\n        <zg-button variant=\"secondary\" size=\"md\" [disabled]=\"false\" label=\"Secondary\"></zg-button>\r\n        <zg-button variant=\"ghost\" size=\"md\" [disabled]=\"false\" label=\"Ghost\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
       },
       {
-        "name": "Casino1Theme",
+        "name": "Disabled",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    label: 'Casino 1 Branded Button',\r\n    variant: 'primary',\r\n  },\r\n  parameters: {\r\n    // This story always shows Casino 1 theme\r\n    globals: {\r\n      client: 'casino1',\r\n      theme: 'light',\r\n    },\r\n  },\r\n}",
-        "rawdescription": "Example: Force specific theme for this story",
-        "description": "<p>Example: Force specific theme for this story</p>\n"
+        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: true,\r\n    label: 'Disabled Button',\r\n  },\r\n}"
       },
       {
-        "name": "Default",
+        "name": "Ghost",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    label: 'Click me',\r\n    variant: 'primary',\r\n    size: 'md',\r\n  },\r\n}",
-        "rawdescription": "Default button\r\nTry changing the Client and Theme in the Storybook toolbar!",
-        "description": "<p>Default button\nTry changing the Client and Theme in the Storybook toolbar!</p>\n"
+        "defaultValue": "{\r\n  args: {\r\n    variant: 'ghost',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Ghost Button',\r\n  },\r\n}"
       },
       {
         "name": "Large",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/stories/button.stories.ts",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    size: 'large',\r\n    label: 'Button',\r\n  },\r\n}"
-      },
-      {
-        "name": "LoggedIn",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/stories/header.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
-      },
-      {
-        "name": "LoggedIn",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/stories/page.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
-      },
-      {
-        "name": "LoggedOut",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/stories/header.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{}"
-      },
-      {
-        "name": "LoggedOut",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/stories/page.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{}"
+        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'lg',\r\n    disabled: false,\r\n    label: 'Large Button',\r\n  },\r\n}"
       },
       {
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/stories/button.stories.ts",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Meta<ButtonComponent>",
-        "defaultValue": "{\r\n  title: 'Example/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    backgroundColor: {\r\n      control: 'color',\r\n    },\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\r\n  args: { onClick: fn() },\r\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/stories/header.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<HeaderComponent>",
-        "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/stories/page.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<PageComponent>",
-        "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<ButtonComponent>",
-        "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    label: {\r\n      control: 'text',\r\n      description: 'Button text',\r\n    },\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'ghost'],\r\n      description: 'Button variant',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Button size',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Disabled state',\r\n    },\r\n  },\r\n  // Optional: Override theme for this specific story\r\n  parameters: {\r\n    // You can force a specific client/theme for documentation\r\n    // client: 'casino1',\r\n    // theme: 'dark',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'ghost'],\r\n      description: 'Visual style of the button',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Size of the button',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is disabled',\r\n    },\r\n  },\r\n}"
       },
       {
         "name": "preview",
@@ -150,53 +84,31 @@
         "name": "Primary",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/stories/button.stories.ts",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    primary: true,\r\n    label: 'Button',\r\n  },\r\n}"
-      },
-      {
-        "name": "Primary",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    label: 'Primary Action',\r\n    variant: 'primary',\r\n    size: 'md',\r\n  },\r\n}",
-        "rawdescription": "Primary button - works with all client themes",
-        "description": "<p>Primary button - works with all client themes</p>\n"
+        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Primary Button',\r\n  },\r\n}"
       },
       {
         "name": "Secondary",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/stories/button.stories.ts",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  args: {\r\n    variant: 'secondary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Secondary Button',\r\n  },\r\n}"
       },
       {
         "name": "Small",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/stories/button.stories.ts",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    size: 'small',\r\n    label: 'Button',\r\n  },\r\n}"
-      },
-      {
-        "name": "TestStory",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/stories/button.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    primary: false,\r\n    label: 'Button',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'sm',\r\n    disabled: false,\r\n    label: 'Small Button',\r\n  },\r\n}"
       }
     ],
     "functions": [],
@@ -206,40 +118,7 @@
         "ctype": "miscellaneous",
         "subtype": "typealias",
         "rawtype": "StoryObj<ButtonComponent>",
-        "file": "projects/ui/src/stories/button.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "description": "",
-        "kind": 184
-      },
-      {
-        "name": "Story",
-        "ctype": "miscellaneous",
-        "subtype": "typealias",
-        "rawtype": "StoryObj<HeaderComponent>",
-        "file": "projects/ui/src/stories/header.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "description": "",
-        "kind": 184
-      },
-      {
-        "name": "Story",
-        "ctype": "miscellaneous",
-        "subtype": "typealias",
-        "rawtype": "StoryObj<PageComponent>",
-        "file": "projects/ui/src/stories/page.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "description": "",
-        "kind": 184
-      },
-      {
-        "name": "Story",
-        "ctype": "miscellaneous",
-        "subtype": "typealias",
-        "rawtype": "StoryObj<ButtonComponent>",
-        "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+        "file": "projects/ui/src/lib/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -248,190 +127,96 @@
     ],
     "enumerations": [],
     "groupedVariables": {
-      "projects/ui/src/lib/examples/button-theme-example.stories.ts": [
+      "projects/ui/src/lib/button/button.stories.ts": [
+        {
+          "name": "AllSizes",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); align-items: center; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"sm\" [disabled]=\"false\" label=\"Small\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Medium\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"lg\" [disabled]=\"false\" label=\"Large\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+        },
         {
           "name": "AllVariants",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; flex-direction: column;\">\r\n        <div style=\"display: flex; gap: 1rem;\">\r\n          <button style=\"\r\n            background: var(--zg-color-primary);\r\n            color: var(--zg-color-text-inverse);\r\n            padding: var(--zg-spacing-3) var(--zg-spacing-6);\r\n            border-radius: var(--zg-radius-base);\r\n            border: none;\r\n            cursor: pointer;\r\n          \">Primary</button>\r\n\r\n          <button style=\"\r\n            background: var(--zg-color-secondary);\r\n            color: var(--zg-color-text-inverse);\r\n            padding: var(--zg-spacing-3) var(--zg-spacing-6);\r\n            border-radius: var(--zg-radius-base);\r\n            border: none;\r\n            cursor: pointer;\r\n          \">Secondary</button>\r\n\r\n          <button style=\"\r\n            background: var(--zg-color-error);\r\n            color: var(--zg-color-text-inverse);\r\n            padding: var(--zg-spacing-3) var(--zg-spacing-6);\r\n            border-radius: var(--zg-radius-base);\r\n            border: none;\r\n            cursor: pointer;\r\n          \">Error</button>\r\n        </div>\r\n\r\n        <p style=\"color: var(--zg-color-text-secondary); font-size: var(--zg-font-size-sm);\">\r\n          💡 Change Client and Theme in the toolbar to see different brands!\r\n        </p>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
-          "rawdescription": "Example: Show multiple variants side by side",
-          "description": "<p>Example: Show multiple variants side by side</p>\n"
+          "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Primary\"></zg-button>\r\n        <zg-button variant=\"secondary\" size=\"md\" [disabled]=\"false\" label=\"Secondary\"></zg-button>\r\n        <zg-button variant=\"ghost\" size=\"md\" [disabled]=\"false\" label=\"Ghost\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
         },
         {
-          "name": "Casino1Theme",
+          "name": "Disabled",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    label: 'Casino 1 Branded Button',\r\n    variant: 'primary',\r\n  },\r\n  parameters: {\r\n    // This story always shows Casino 1 theme\r\n    globals: {\r\n      client: 'casino1',\r\n      theme: 'light',\r\n    },\r\n  },\r\n}",
-          "rawdescription": "Example: Force specific theme for this story",
-          "description": "<p>Example: Force specific theme for this story</p>\n"
+          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: true,\r\n    label: 'Disabled Button',\r\n  },\r\n}"
         },
         {
-          "name": "Default",
+          "name": "Ghost",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    label: 'Click me',\r\n    variant: 'primary',\r\n    size: 'md',\r\n  },\r\n}",
-          "rawdescription": "Default button\r\nTry changing the Client and Theme in the Storybook toolbar!",
-          "description": "<p>Default button\nTry changing the Client and Theme in the Storybook toolbar!</p>\n"
+          "defaultValue": "{\r\n  args: {\r\n    variant: 'ghost',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Ghost Button',\r\n  },\r\n}"
         },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<ButtonComponent>",
-          "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    label: {\r\n      control: 'text',\r\n      description: 'Button text',\r\n    },\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'ghost'],\r\n      description: 'Button variant',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Button size',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Disabled state',\r\n    },\r\n  },\r\n  // Optional: Override theme for this specific story\r\n  parameters: {\r\n    // You can force a specific client/theme for documentation\r\n    // client: 'casino1',\r\n    // theme: 'dark',\r\n  },\r\n}"
-        },
-        {
-          "name": "Primary",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    label: 'Primary Action',\r\n    variant: 'primary',\r\n    size: 'md',\r\n  },\r\n}",
-          "rawdescription": "Primary button - works with all client themes",
-          "description": "<p>Primary button - works with all client themes</p>\n"
-        }
-      ],
-      "projects/ui/src/stories/button.stories.ts": [
         {
           "name": "Large",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/stories/button.stories.ts",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    size: 'large',\r\n    label: 'Button',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'lg',\r\n    disabled: false,\r\n    label: 'Large Button',\r\n  },\r\n}"
         },
         {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/stories/button.stories.ts",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Meta<ButtonComponent>",
-          "defaultValue": "{\r\n  title: 'Example/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    backgroundColor: {\r\n      control: 'color',\r\n    },\r\n  },\r\n  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args\r\n  args: { onClick: fn() },\r\n}"
+          "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'ghost'],\r\n      description: 'Visual style of the button',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Size of the button',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is disabled',\r\n    },\r\n  },\r\n}"
         },
         {
           "name": "Primary",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/stories/button.stories.ts",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    primary: true,\r\n    label: 'Button',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Primary Button',\r\n  },\r\n}"
         },
         {
           "name": "Secondary",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/stories/button.stories.ts",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    label: 'Button',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  args: {\r\n    variant: 'secondary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Secondary Button',\r\n  },\r\n}"
         },
         {
           "name": "Small",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/stories/button.stories.ts",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    size: 'small',\r\n    label: 'Button',\r\n  },\r\n}"
-        },
-        {
-          "name": "TestStory",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/stories/button.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    primary: false,\r\n    label: 'Button',\r\n  },\r\n}"
-        }
-      ],
-      "projects/ui/src/stories/header.stories.ts": [
-        {
-          "name": "LoggedIn",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/stories/header.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  args: {\n    user: {\n      name: 'Jane Doe',\n    },\n  },\n}"
-        },
-        {
-          "name": "LoggedOut",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/stories/header.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{}"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/stories/header.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<HeaderComponent>",
-          "defaultValue": "{\n  title: 'Example/Header',\n  component: HeaderComponent,\n  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs\n  tags: ['autodocs'],\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n  args: {\n    onLogin: fn(),\n    onLogout: fn(),\n    onCreateAccount: fn(),\n  },\n}"
-        }
-      ],
-      "projects/ui/src/stories/page.stories.ts": [
-        {
-          "name": "LoggedIn",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/stories/page.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const loginButton = canvas.getByRole('button', { name: /Log in/i });\n    await expect(loginButton).toBeInTheDocument();\n    await userEvent.click(loginButton);\n    await expect(loginButton).not.toBeInTheDocument();\n\n    const logoutButton = canvas.getByRole('button', { name: /Log out/i });\n    await expect(logoutButton).toBeInTheDocument();\n  },\n}"
-        },
-        {
-          "name": "LoggedOut",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/stories/page.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{}"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/stories/page.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<PageComponent>",
-          "defaultValue": "{\n  title: 'Example/Page',\n  component: PageComponent,\n  parameters: {\n    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout\n    layout: 'fullscreen',\n  },\n}"
+          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'sm',\r\n    disabled: false,\r\n    label: 'Small Button',\r\n  },\r\n}"
         }
       ],
       "projects/ui/.storybook/preview.ts": [
@@ -450,52 +235,13 @@
     "groupedFunctions": {},
     "groupedEnumerations": {},
     "groupedTypeAliases": {
-      "projects/ui/src/stories/button.stories.ts": [
+      "projects/ui/src/lib/button/button.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
           "rawtype": "StoryObj<ButtonComponent>",
-          "file": "projects/ui/src/stories/button.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 184
-        }
-      ],
-      "projects/ui/src/stories/header.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<HeaderComponent>",
-          "file": "projects/ui/src/stories/header.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 184
-        }
-      ],
-      "projects/ui/src/stories/page.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<PageComponent>",
-          "file": "projects/ui/src/stories/page.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 184
-        }
-      ],
-      "projects/ui/src/lib/examples/button-theme-example.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<ButtonComponent>",
-          "file": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+          "file": "projects/ui/src/lib/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -510,7 +256,7 @@
     "children": []
   },
   "coverage": {
-    "count": 18,
+    "count": 0,
     "status": "low",
     "files": [
       {
@@ -524,67 +270,47 @@
         "status": "low"
       },
       {
-        "filePath": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "AllSizes",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "AllVariants",
-        "coveragePercent": 100,
-        "coverageCount": "1/1",
-        "status": "very-good"
-      },
-      {
-        "filePath": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "Casino1Theme",
-        "coveragePercent": 100,
-        "coverageCount": "1/1",
-        "status": "very-good"
-      },
-      {
-        "filePath": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "Default",
-        "coveragePercent": 100,
-        "coverageCount": "1/1",
-        "status": "very-good"
-      },
-      {
-        "filePath": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "meta",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
       },
       {
-        "filePath": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "Primary",
-        "coveragePercent": 100,
-        "coverageCount": "1/1",
-        "status": "very-good"
-      },
-      {
-        "filePath": "projects/ui/src/lib/examples/button-theme-example.stories.ts",
-        "type": "type alias",
-        "linktype": "miscellaneous",
-        "linksubtype": "typealias",
-        "name": "Story",
+        "name": "Disabled",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
       },
       {
-        "filePath": "projects/ui/src/stories/button.stories.ts",
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Ghost",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
@@ -594,7 +320,7 @@
         "status": "low"
       },
       {
-        "filePath": "projects/ui/src/stories/button.stories.ts",
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
@@ -604,7 +330,7 @@
         "status": "low"
       },
       {
-        "filePath": "projects/ui/src/stories/button.stories.ts",
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
@@ -614,7 +340,7 @@
         "status": "low"
       },
       {
-        "filePath": "projects/ui/src/stories/button.stories.ts",
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
@@ -624,7 +350,7 @@
         "status": "low"
       },
       {
-        "filePath": "projects/ui/src/stories/button.stories.ts",
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
@@ -634,97 +360,7 @@
         "status": "low"
       },
       {
-        "filePath": "projects/ui/src/stories/button.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "TestStory",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/stories/button.stories.ts",
-        "type": "type alias",
-        "linktype": "miscellaneous",
-        "linksubtype": "typealias",
-        "name": "Story",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/stories/header.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "LoggedIn",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/stories/header.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "LoggedOut",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/stories/header.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "meta",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/stories/header.stories.ts",
-        "type": "type alias",
-        "linktype": "miscellaneous",
-        "linksubtype": "typealias",
-        "name": "Story",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/stories/page.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "LoggedIn",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/stories/page.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "LoggedOut",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/stories/page.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "meta",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/stories/page.stories.ts",
+        "filePath": "projects/ui/src/lib/button/button.stories.ts",
         "type": "type alias",
         "linktype": "miscellaneous",
         "linksubtype": "typealias",

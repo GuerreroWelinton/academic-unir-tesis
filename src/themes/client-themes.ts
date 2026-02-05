@@ -57,10 +57,10 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
   casino1: {
     light: {
       primitives: {
-        green800: '#d32f2f', // Use red as "primary"
+        green800: '#d32f2f',
         green500: '#c62828',
         green400: '#f44336',
-        orange500: '#ffd700', // Gold accent
+        orange500: '#ffd700',
         neutral200: '#fafafa',
       },
     },
@@ -79,10 +79,10 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
   casino2: {
     light: {
       primitives: {
-        green800: '#00796b', // Teal as "primary"
+        green800: '#00796b',
         green500: '#004d40',
         green400: '#00897b',
-        orange500: '#0cb7f2', // Blue accent
+        orange500: '#0cb7f2',
         neutral200: '#e0f7fa',
       },
     },
@@ -101,10 +101,10 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
   casino3: {
     light: {
       primitives: {
-        green800: '#6a1b9a', // Purple as "primary"
+        green800: '#6a1b9a',
         green500: '#8e24aa',
         green400: '#9c27b0',
-        orange500: '#ffd028', // Yellow accent
+        orange500: '#ffd028',
         yellow500: '#ffeb3b',
         neutral200: '#f3e5f5',
       },
@@ -118,11 +118,10 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
         neutral900: '#ffffff',
       },
     },
-    // Example custom variant
     custom: {
       primitives: {
         green800: '#9c27b0',
-        green100: '#ffeb3b', // Bright yellow highlight
+        green100: '#ffeb3b',
         neutral200: '#000000',
         neutral900: '#ffffff',
       },

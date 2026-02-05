@@ -1,0 +1,24 @@
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--zg-spacing-16);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  h1 {
+    font-size: var(--zg-font-size-4xl);
+    font-weight: var(--zg-font-weight-bold);
+    color: var(--zg-color-text-primary);
+    margin-bottom: var(--zg-spacing-8);
+  }
+
+  p {
+    font-size: var(--zg-font-size-lg);
+    color: var(--zg-color-text-secondary);
+    margin-bottom: var(--zg-spacing-16);
+  }
+}

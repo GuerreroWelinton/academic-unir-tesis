@@ -1,59 +1,209 @@
-# ZgUi
+# ZGames UI Library
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
+A modern, accessible, and themeable Angular component library for iGaming applications built with Angular 21 and Storybook.
 
-## Development server
+## 📋 Overview
 
-To start a local development server, run:
+This is an MVP of a reusable UI component library for ZGames Technology. The library follows Angular best practices, prioritizes accessibility (WCAG), and provides a consistent design system with multi-client theming capabilities.
+
+## 🏗️ Architecture
+
+### Design Tokens
+
+The library uses a **2-layer design token system**:
+
+1. **Primitives** (`--zg-green-800`, `--zg-neutral-200`, etc.): Raw color scales and base values
+2. **Semantic tokens** (`--zg-color-primary`, `--zg-color-success`, etc.): Intention-based tokens that reference primitives
+
+All design tokens are defined as CSS variables in [src/styles/\_tokens.scss](src/styles/_tokens.scss).
+
+### Component Pattern
+
+All components follow the **Container-Presentation Pattern**:
+
+- **Dumb Components** (inside `projects/ui/`): Purely presentational, receive data via `@Input()`, emit events via `@Output()`
+- **Smart Components** (in consumer apps): Handle business logic, orchestrate data, and connect to services
+
+All components are:
+
+- **Standalone Components**
+- Use `ChangeDetectionStrategy.OnPush`
+- Follow strict TypeScript typing
+- Documented with Storybook stories
+
+### Multi-Client Theming
+
+The library supports **runtime theme switching** for multiple casino clients. Each client can have multiple theme variants (light, dark, custom).
+
+- Client themes are configured in [src/themes/client-themes.ts](src/themes/client-themes.ts)
+- Themes can override semantic tokens and primitives
+- Storybook includes a toolbar to preview all client themes
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Angular CLI 21+
+
+### Installation
 
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Development server
 
 ```bash
-ng generate component component-name
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Navigate to `http://localhost:4200/` to see the demo app.
+
+### Storybook
 
 ```bash
-ng generate --help
+npm run storybook
 ```
 
-## Building
+Open `http://localhost:6006/` to explore the component library.
 
-To build the project run:
+## 📦 Project Structure
+
+```
+zg-ui/
+├── projects/
+│   ├── design-tokens/        # Design token system (CSS variables + TS API)
+│   │   └── src/lib/
+│   │       └── design-tokens.ts     # createTheme(), resetTheme(), token accessors
+│   └── ui/                    # Component library
+│       └── src/lib/
+│           └── button/        # Example: Button component
+│               ├── button.component.ts
+│               ├── button.component.scss
+│               ├── button.component.spec.ts
+│               └── button.stories.ts
+├── src/
+│   ├── styles/
+│   │   └── _tokens.scss       # Single source of truth for design tokens
+│   └── themes/
+│       └── client-themes.ts   # Multi-client theme configurations
+├── .storybook/
+│   └── theme-decorator.ts     # Storybook theme switcher
+└── README.md
+```
+
+## 🎨 Components
+
+### Button
+
+A flexible button component with multiple variants and sizes.
+
+**API:**
+
+- `@Input() variant`: `'primary' | 'secondary' | 'ghost'`
+- `@Input() size`: `'sm' | 'md' | 'lg'`
+- `@Input() disabled`: `boolean`
+- `@Input() label`: `string`
+- `@Output() clicked`: `EventEmitter<MouseEvent>`
+
+**Usage:**
+
+```typescript
+import { ZgButtonComponent } from '@zg/ui';
+
+@Component({
+  imports: [ZgButtonComponent],
+  template: `
+    <zg-button
+      variant="primary"
+      size="md"
+      label="Click me"
+      (clicked)="handleClick($event)">
+    </zg-button>
+  `
+})
+```
+
+## 🎨 Design Tokens
+
+### Color System
+
+- **Primary**: Green scale for primary actions
+- **Success**: Green tones for positive feedback
+- **Warning**: Orange/yellow for warnings
+- **Error**: Red tones for errors
+- **Neutral**: Gray scale for text and surfaces
+
+### Typography Scale
+
+Font sizes from `xs` (12px) to `5xl` (48px) using ~1.2x ratio.
+
+### Spacing Scale
+
+Consistent spacing from `4` to `64` using 4px base unit.
+
+## 🌈 Theming
+
+### Applying a Client Theme
+
+```typescript
+import { applyClientTheme } from './themes/client-themes';
+
+// Apply a theme at runtime
+applyClientTheme('casino1', 'dark');
+```
+
+### Creating a Custom Theme
+
+```typescript
+import { createTheme, Theme } from '@zg/design-tokens';
+
+const myTheme: Theme = {
+  colorPrimary: '#00ff00',
+  colorSuccess: '#00cc00',
+  // ... other semantic tokens
+  primitives: {
+    green800: '#006600', // Override primitives
+  },
+};
+
+createTheme(myTheme);
+```
+
+## 🧪 Testing
+
+Run unit tests with Vitest:
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📚 Documentation
 
-## Running unit tests
+- **Storybook**: Run `npm run storybook` for interactive component documentation
+- **Type Documentation**: Run `npm run compodoc` for generated API documentation
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+## 🛠️ Building the Library
 
 ```bash
-ng test
+npm run build:design-tokens
+npm run build:ui
 ```
 
-## Running end-to-end tests
+## ♿ Accessibility
 
-For end-to-end (e2e) testing, run:
+All components are built with accessibility in mind:
 
-```bash
-ng e2e
-```
+- Proper ARIA attributes
+- Keyboard navigation support
+- Focus management
+- Sufficient color contrast (validated with Storybook addon-a11y)
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 📝 Contributing
 
-## Additional Resources
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📄 License
+
+[MIT License](LICENSE)

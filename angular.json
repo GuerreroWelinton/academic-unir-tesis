@@ -29,9 +29,7 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -104,13 +102,9 @@
             "configDir": "projects/ui/.storybook",
             "browserTarget": "ui:build",
             "compodoc": true,
-            "compodocArgs": [
-              "-e",
-              "json",
-              "-d",
-              "projects/ui"
-            ],
-            "port": 6006
+            "compodocArgs": ["-e", "json", "-d", "projects/ui"],
+            "port": 6006,
+            "styles": ["src/styles/_tokens.scss"]
           }
         },
         "build-storybook": {
@@ -119,13 +113,9 @@
             "configDir": "projects/ui/.storybook",
             "browserTarget": "ui:build",
             "compodoc": true,
-            "compodocArgs": [
-              "-e",
-              "json",
-              "-d",
-              "projects/ui"
-            ],
-            "outputDir": "dist/storybook/ui"
+            "compodocArgs": ["-e", "json", "-d", "projects/ui"],
+            "outputDir": "dist/storybook/ui",
+            "styles": ["src/styles/_tokens.scss"]
           }
         }
       }

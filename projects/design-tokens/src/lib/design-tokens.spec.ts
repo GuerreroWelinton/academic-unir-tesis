@@ -1,13 +1,12 @@
 import {
+  createTheme,
   DesignTokens,
   getTokenValue,
-  setTokenValue,
-  createTheme,
   resetTheme,
+  setTokenValue,
 } from './design-tokens';
 
 describe('DesignTokens', () => {
-  // Clean up after each test
   afterEach(() => {
     resetTheme();
   });
@@ -28,7 +27,6 @@ describe('DesignTokens', () => {
 
   describe('getTokenValue', () => {
     it('should get token value from document', () => {
-      // Set a test value
       document.documentElement.style.setProperty('--test-token', '#ff0000');
       const value = getTokenValue('--test-token');
       expect(value).toBe('#ff0000');
@@ -193,14 +191,11 @@ describe('DesignTokens', () => {
         },
       });
 
-      // Verify values were set
       expect(document.documentElement.style.getPropertyValue('--zg-color-primary')).toBe('#ff0000');
       expect(document.documentElement.style.getPropertyValue('--zg-spacing-4')).toBe('2rem');
 
-      // Reset theme
       resetTheme();
 
-      // Values should be removed
       expect(document.documentElement.style.getPropertyValue('--zg-color-primary')).toBe('');
       expect(document.documentElement.style.getPropertyValue('--zg-spacing-4')).toBe('');
     });

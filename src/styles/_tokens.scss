@@ -9,13 +9,6 @@
  * - Components consume SEMANTIC tokens only
  */
 
-// Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
 :root {
   // ============================================
   // LAYER 1: PRIMITIVE TOKENS (Raw Color Scales)
@@ -162,10 +155,8 @@
   // ============================================
 
   // Font families (company fonts)
-  --zg-font-family-base: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --zg-font-family-secondary: 'Teko', sans-serif;
-  --zg-font-family-tertiary: 'Roboto', sans-serif;
-  --zg-font-family-accent: 'Kaushan Script', cursive;
+  --zg-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --zg-font-family-secondary: 'Teko', sans-serif; // Headings / Titles
 
   // Font sizes (Harmonic scale - ~1.2x ratio for better visual hierarchy)
   --zg-font-size-xs: 0.75rem; // 12px - Small labels, captions

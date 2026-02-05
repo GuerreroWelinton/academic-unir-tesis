@@ -8,5 +8,14 @@ export {
   setTokenValue,
   createTheme,
   resetTheme,
+  // Types
   type Theme,
+  type PrimitiveTokens,
+  type SemanticColorTokens,
+  type TypographyTokens,
+  type SpacingTokens,
+  type RadiusTokens,
+  type ShadowTokens,
+  type TransitionTokens,
+  type ButtonTokens,
 } from './lib/design-tokens';

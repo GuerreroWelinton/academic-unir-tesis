@@ -4,6 +4,10 @@
  * These values correspond to CSS variables defined in src/styles/_tokens.scss
  */
 
+import type { Theme } from './design-tokens.types';
+
+export * from './design-tokens.types';
+
 /**
  * Design token names for programmatic access
  * Use these constants when you need to reference token names in TypeScript
@@ -11,14 +15,23 @@
 export const DesignTokens = {
   // Color tokens
   color: {
+    // Primary brand colors
     primary: '--zg-color-primary',
     primaryHover: '--zg-color-primary-hover',
     primaryActive: '--zg-color-primary-active',
     primaryLight: '--zg-color-primary-light',
     primaryLighter: '--zg-color-primary-lighter',
+
+    // Secondary colors
     secondary: '--zg-color-secondary',
     secondaryHover: '--zg-color-secondary-hover',
     secondaryActive: '--zg-color-secondary-active',
+
+    // Accent & Highlight
+    accent: '--zg-color-accent',
+    highlight: '--zg-color-highlight',
+
+    // Semantic feedback colors
     success: '--zg-color-success',
     successLight: '--zg-color-success-light',
     warning: '--zg-color-warning',
@@ -27,34 +40,54 @@ export const DesignTokens = {
     errorLight: '--zg-color-error-light',
     info: '--zg-color-info',
     infoLight: '--zg-color-info-light',
+
+    // iGaming specific colors
+    betBuilder: '--zg-color-bet-builder',
+    live: '--zg-color-live',
+    favorite: '--zg-color-favorite',
+    betOpen: '--zg-color-bet-open',
+    betWon: '--zg-color-bet-won',
+    betLost: '--zg-color-bet-lost',
+    betOther: '--zg-color-bet-other',
+
+    // Surface & UI colors
     surface: '--zg-color-surface',
     surfaceAlt: '--zg-color-surface-alt',
     surfaceHover: '--zg-color-surface-hover',
     border: '--zg-color-border',
     borderDark: '--zg-color-border-dark',
+
+    // Text colors
     textPrimary: '--zg-color-text-primary',
     textSecondary: '--zg-color-text-secondary',
     textDisabled: '--zg-color-text-disabled',
     textInverse: '--zg-color-text-inverse',
+    textInfo: '--zg-color-text-info',
+
+    // Background colors
     bgPrimary: '--zg-color-bg-primary',
     bgSecondary: '--zg-color-bg-secondary',
     bgDark: '--zg-color-bg-dark',
     bgOverlay: '--zg-color-bg-overlay',
+    bgCard: '--zg-color-bg-card',
+    bgHeader: '--zg-color-bg-header',
   },
 
   // Typography tokens
   typography: {
     fontFamilyBase: '--zg-font-family-base',
-    fontFamilyMono: '--zg-font-family-mono',
+    fontFamilySecondary: '--zg-font-family-secondary',
     fontSize: {
       xs: '--zg-font-size-xs',
       sm: '--zg-font-size-sm',
       base: '--zg-font-size-base',
+      md: '--zg-font-size-md',
       lg: '--zg-font-size-lg',
       xl: '--zg-font-size-xl',
       '2xl': '--zg-font-size-2xl',
       '3xl': '--zg-font-size-3xl',
       '4xl': '--zg-font-size-4xl',
+      '5xl': '--zg-font-size-5xl',
     },
     fontWeight: {
       light: '--zg-font-weight-light',
@@ -126,6 +159,14 @@ export const DesignTokens = {
     base: '--zg-transition-base',
     slow: '--zg-transition-slow',
   },
+
+  // Button tokens
+  button: {
+    bgPrimary: '--zg-button-bg-primary',
+    bgSecondary: '--zg-button-bg-secondary',
+    colorPrimary: '--zg-button-color-primary',
+    radius: '--zg-button-radius',
+  },
 } as const;
 
 /**
@@ -158,130 +199,6 @@ export function getTokenValue(tokenName: string, element?: HTMLElement): string 
 export function setTokenValue(tokenName: string, value: string, element?: HTMLElement): void {
   const target = element || document.documentElement;
   target.style.setProperty(tokenName, value);
-}
-
-/**
- * Theme configuration type
- * Defines the structure for theme overrides
- */
-export interface Theme {
-  // LAYER 1: Primitive color scales (recommended for theming)
-  primitives?: {
-    // Green scale
-    green950?: string;
-    green900?: string;
-    green800?: string;
-    green700?: string;
-    green600?: string;
-    green500?: string;
-    green400?: string;
-    green300?: string;
-    green200?: string;
-    green100?: string;
-    green50?: string;
-    // Orange scale
-    orange900?: string;
-    orange800?: string;
-    orange700?: string;
-    orange600?: string;
-    orange500?: string;
-    orange400?: string;
-    orange300?: string;
-    orange200?: string;
-    orange100?: string;
-    // Red scale
-    red900?: string;
-    red800?: string;
-    red700?: string;
-    red600?: string;
-    red500?: string;
-    red400?: string;
-    red300?: string;
-    red200?: string;
-    red100?: string;
-    red50?: string;
-    // Yellow scale
-    yellow900?: string;
-    yellow800?: string;
-    yellow700?: string;
-    yellow600?: string;
-    yellow500?: string;
-    yellow400?: string;
-    yellow300?: string;
-    yellow200?: string;
-    yellow100?: string;
-    // Blue scale
-    blue900?: string;
-    blue800?: string;
-    blue700?: string;
-    blue600?: string;
-    blue500?: string;
-    blue400?: string;
-    blue300?: string;
-    blue200?: string;
-    blue100?: string;
-    // Neutral scale
-    neutral100?: string;
-    neutral200?: string;
-    neutral300?: string;
-    neutral400?: string;
-    neutral500?: string;
-    neutral600?: string;
-    neutral700?: string;
-    neutral800?: string;
-    neutral900?: string;
-  };
-
-  // LAYER 2: Semantic tokens (use only if you need specific overrides)
-  color?: {
-    primary?: string;
-    primaryHover?: string;
-    primaryActive?: string;
-    primaryLight?: string;
-    primaryLighter?: string;
-    secondary?: string;
-    secondaryHover?: string;
-    secondaryActive?: string;
-    success?: string;
-    successLight?: string;
-    warning?: string;
-    warningLight?: string;
-    error?: string;
-    errorLight?: string;
-    info?: string;
-    infoLight?: string;
-    surface?: string;
-    surfaceAlt?: string;
-    surfaceHover?: string;
-    border?: string;
-    borderDark?: string;
-    textPrimary?: string;
-    textSecondary?: string;
-    textDisabled?: string;
-    textInverse?: string;
-    bgPrimary?: string;
-    bgSecondary?: string;
-    bgDark?: string;
-    bgOverlay?: string;
-  };
-  typography?: {
-    fontFamilyBase?: string;
-    fontFamilyMono?: string;
-  };
-  spacing?: {
-    [key: string]: string;
-  };
-  radius?: {
-    [key: string]: string;
-  };
-  shadow?: {
-    [key: string]: string;
-  };
-  transition?: {
-    fast?: string;
-    base?: string;
-    slow?: string;
-  };
 }
 
 /**
@@ -352,10 +269,10 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
         overrides.typography.fontFamilyBase,
       );
     }
-    if (overrides.typography.fontFamilyMono) {
+    if (overrides.typography.fontFamilySecondary) {
       target.style.setProperty(
-        DesignTokens.typography.fontFamilyMono,
-        overrides.typography.fontFamilyMono,
+        DesignTokens.typography.fontFamilySecondary,
+        overrides.typography.fontFamilySecondary,
       );
     }
   }
@@ -407,6 +324,18 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
       }
     });
   }
+
+  // Apply button overrides
+  if (overrides.button) {
+    Object.entries(overrides.button).forEach(([key, value]) => {
+      if (value !== undefined) {
+        const tokenName = DesignTokens.button[key as keyof typeof DesignTokens.button];
+        if (tokenName) {
+          target.style.setProperty(tokenName, value);
+        }
+      }
+    });
+  }
 }
 
 /**
@@ -425,11 +354,12 @@ export function resetTheme(element?: HTMLElement): void {
   const allTokens = [
     ...Object.values(DesignTokens.color),
     DesignTokens.typography.fontFamilyBase,
-    DesignTokens.typography.fontFamilyMono,
+    DesignTokens.typography.fontFamilySecondary,
     ...Object.values(DesignTokens.spacing),
     ...Object.values(DesignTokens.radius),
     ...Object.values(DesignTokens.shadow),
     ...Object.values(DesignTokens.transition),
+    ...Object.values(DesignTokens.button),
   ];
 
   allTokens.forEach((tokenName) => {
