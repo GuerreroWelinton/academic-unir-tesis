@@ -1,37 +1,28 @@
 /**
  * Client Theme Configurations
- * Each client can have multiple theme variants (light, dark, etc.)
+ * Each client can have multiple theme variants with flexible naming
  */
 
 import type { Theme } from '@zg/design-tokens';
 
 /**
- * Theme variant type
- */
-export type ThemeVariant = 'light' | 'dark' | 'custom';
-
-/**
  * Client theme configuration
- * Each client can have multiple variants
+ * Flexible record allowing any theme variant names (light, dark, christmas, promo-gold, etc.)
  */
-export interface ClientThemeConfig {
-  light: Theme;
-  dark?: Theme;
-  custom?: Theme;
-}
+export type ClientThemeConfig = Record<string, Theme>;
 
 /**
  * Available clients
  */
-export type ClientId = 'zgames' | 'casino1' | 'casino2' | 'casino3';
+export type ClientId = 'casino1' | 'casino2';
 
 /**
  * Client themes registry
  * Define all client themes here
  */
 export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
-  // Default ZGames brand
-  zgames: {
+  // Casino 1 (ZGames) - Default brand
+  casino1: {
     light: {
       primitives: {
         green800: '#114b2a',
@@ -51,54 +42,22 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
         neutral900: '#ffffff',
       },
     },
-  },
-
-  // Casino 1 - Red/Gold theme
-  casino1: {
-    light: {
+    christmas: {
       primitives: {
-        green800: '#d32f2f',
-        green500: '#c62828',
-        green400: '#f44336',
-        orange500: '#ffd700',
-        neutral200: '#fafafa',
-      },
-    },
-    dark: {
-      primitives: {
-        green800: '#8b0000',
-        green500: '#d32f2f',
-        neutral200: '#1a0000',
-        neutral300: '#2d0000',
-        neutral900: '#ffffff',
+        green800: '#0f5132',
+        green500: '#198754',
+        green400: '#00c42e',
+        red500: '#dc3545',
+        red600: '#bb2d3b',
+        orange500: '#ffc107',
+        neutral200: '#f8f9fa',
+        neutral900: '#0a3622',
       },
     },
   },
 
-  // Casino 2 - Blue/Teal theme
+  // Casino 2 - Purple/Yellow theme
   casino2: {
-    light: {
-      primitives: {
-        green800: '#00796b',
-        green500: '#004d40',
-        green400: '#00897b',
-        orange500: '#0cb7f2',
-        neutral200: '#e0f7fa',
-      },
-    },
-    dark: {
-      primitives: {
-        green800: '#004d40',
-        green500: '#00796b',
-        neutral200: '#001a1a',
-        neutral300: '#002d2d',
-        neutral900: '#ffffff',
-      },
-    },
-  },
-
-  // Casino 3 - Purple/Yellow theme
-  casino3: {
     light: {
       primitives: {
         green800: '#6a1b9a',
@@ -118,12 +77,16 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
         neutral900: '#ffffff',
       },
     },
-    custom: {
+    christmas: {
       primitives: {
-        green800: '#9c27b0',
-        green100: '#ffeb3b',
-        neutral200: '#000000',
-        neutral900: '#ffffff',
+        green800: '#165b33',
+        green500: '#2e7d32',
+        green400: '#4caf50',
+        red500: '#c62828',
+        red600: '#b71c1c',
+        orange500: '#ffd700',
+        neutral200: '#fff8e1',
+        neutral900: '#1b5e20',
       },
     },
   },
@@ -132,30 +95,30 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
 /**
  * Get theme configuration for a specific client and variant
  * @param clientId - The client identifier
- * @param variant - Theme variant (light, dark, custom)
+ * @param variant - Theme variant name (e.g., 'light', 'dark', 'christmas', 'promo-gold')
  * @returns Theme configuration
  */
-export function getClientTheme(clientId: ClientId, variant: ThemeVariant = 'light'): Theme {
+export function getClientTheme(clientId: ClientId, variant: string = 'light'): Theme {
   const clientThemes = CLIENT_THEMES[clientId];
-  return clientThemes[variant] || clientThemes.light;
+  return clientThemes[variant] || CLIENT_THEMES['casino1']['light'];
 }
 
 /**
  * Get available variants for a client
  * @param clientId - The client identifier
- * @returns Array of available theme variants
+ * @returns Array of available theme variant names
  */
-export function getAvailableVariants(clientId: ClientId): ThemeVariant[] {
+export function getAvailableVariants(clientId: ClientId): string[] {
   const clientThemes = CLIENT_THEMES[clientId];
-  return Object.keys(clientThemes) as ThemeVariant[];
+  return Object.keys(clientThemes);
 }
 
 /**
  * Apply client theme to document
  * @param clientId - The client identifier
- * @param variant - Theme variant
+ * @param variant - Theme variant name
  */
-export function applyClientTheme(clientId: ClientId, variant: ThemeVariant = 'light'): void {
+export function applyClientTheme(clientId: ClientId, variant: string = 'light'): void {
   const theme = getClientTheme(clientId, variant);
 
   // Import dynamically to avoid circular dependency

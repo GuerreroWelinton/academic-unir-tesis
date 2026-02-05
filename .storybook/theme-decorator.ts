@@ -5,18 +5,18 @@
 
 import type { Decorator } from '@storybook/angular';
 import { createTheme } from '@zg/design-tokens';
-import { CLIENT_THEMES, type ClientId, type ThemeVariant } from '../src/themes/client-themes';
+import { CLIENT_THEMES, type ClientId } from '../src/themes/client-themes';
 
 /**
  * Global theme decorator for Storybook
  * Add this to .storybook/preview.ts
  */
 export const withTheme: Decorator = (story, context) => {
-  const clientId = (context.globals['client'] as ClientId) || 'zgames';
-  const variant = (context.globals['theme'] as ThemeVariant) || 'light';
+  const clientId = (context.globals['client'] as ClientId) || 'casino1';
+  const variant = (context.globals['theme'] as string) || 'light';
 
   // Apply theme before rendering story
-  const theme = CLIENT_THEMES[clientId]?.[variant] || CLIENT_THEMES.zgames.light;
+  const theme = CLIENT_THEMES[clientId]?.[variant] || CLIENT_THEMES['casino1']['light'];
   createTheme(theme);
 
   return story();
@@ -30,14 +30,12 @@ export const globalTypes = {
   client: {
     name: 'Client',
     description: 'Select client brand',
-    defaultValue: 'zgames',
+    defaultValue: 'casino1',
     toolbar: {
       icon: 'globe',
       items: [
-        { value: 'zgames', title: 'ZGames (Default)' },
-        { value: 'casino1', title: 'Casino 1 (Red/Gold)' },
-        { value: 'casino2', title: 'Casino 2 (Blue/Teal)' },
-        { value: 'casino3', title: 'Casino 3 (Purple/Yellow)' },
+        { value: 'casino1', title: 'Casino 1 (Green)' },
+        { value: 'casino2', title: 'Casino 2 (Purple)' },
       ],
       dynamicTitle: true,
     },
@@ -51,7 +49,7 @@ export const globalTypes = {
       items: [
         { value: 'light', title: 'Light' },
         { value: 'dark', title: 'Dark' },
-        { value: 'custom', title: 'Custom' },
+        { value: 'christmas', title: 'Christmas' },
       ],
       dynamicTitle: true,
     },

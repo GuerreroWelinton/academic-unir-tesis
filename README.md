@@ -120,6 +120,7 @@ import { applyClientTheme } from './themes/client-themes';
 
 // Apply a theme at runtime
 applyClientTheme('casino1', 'dark');
+applyClientTheme('casino2', 'christmas');
 ```
 
 ### Creating a Custom Theme
