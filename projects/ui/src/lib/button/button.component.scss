@@ -1,0 +1,89 @@
+/**
+ * Button Component Styles
+ * Uses design tokens for all styling values
+ */
+
+.zg-button {
+  // Base styles
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--zg-font-family-base);
+  font-weight: var(--zg-font-weight-medium);
+  border: none;
+  border-radius: var(--zg-button-radius);
+  cursor: pointer;
+  transition: all var(--zg-transition-fast);
+  white-space: nowrap;
+  user-select: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--zg-color-primary);
+    outline-offset: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  // Variants
+  &--primary {
+    background: var(--zg-button-bg-primary);
+    color: var(--zg-button-color-primary);
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.1);
+    }
+
+    &:active:not(:disabled) {
+      filter: brightness(0.95);
+    }
+  }
+
+  &--secondary {
+    background: var(--zg-button-bg-secondary);
+    color: var(--zg-button-color-primary);
+
+    &:hover:not(:disabled) {
+      filter: brightness(1.1);
+    }
+
+    &:active:not(:disabled) {
+      filter: brightness(0.95);
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: var(--zg-color-primary);
+    border: 1px solid var(--zg-color-border);
+
+    &:hover:not(:disabled) {
+      background: var(--zg-color-surface-hover);
+    }
+
+    &:active:not(:disabled) {
+      background: var(--zg-color-surface-alt);
+    }
+  }
+
+  // Sizes
+  &--sm {
+    padding: var(--zg-spacing-2) var(--zg-spacing-4);
+    font-size: var(--zg-font-size-sm);
+    min-height: 2rem;
+  }
+
+  &--md {
+    padding: var(--zg-spacing-3) var(--zg-spacing-6);
+    font-size: var(--zg-font-size-base);
+    min-height: 2.5rem;
+  }
+
+  &--lg {
+    padding: var(--zg-spacing-4) var(--zg-spacing-8);
+    font-size: var(--zg-font-size-lg);
+    min-height: 3rem;
+  }
+}

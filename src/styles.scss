@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Import design tokens - Single source of truth for design system
+@import './styles/tokens';
+
+// Global resets and base styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--zg-font-family-base);
+  font-size: var(--zg-font-size-base);
+  font-weight: var(--zg-font-weight-regular);
+  line-height: var(--zg-line-height-normal);
+  color: var(--zg-color-text-primary);
+  background-color: var(--zg-color-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

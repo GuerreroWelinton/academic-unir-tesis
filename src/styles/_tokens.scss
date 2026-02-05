@@ -1,0 +1,361 @@
+/**
+ * ZGames UI Design Tokens
+ * Single source of truth for design system values
+ * All components MUST consume these tokens instead of hardcoded values
+ *
+ * Architecture:
+ * - Layer 1: PRIMITIVES (raw color scales)
+ * - Layer 2: SEMANTIC (intention-based tokens that map to primitives)
+ * - Components consume SEMANTIC tokens only
+ */
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  // ============================================
+  // LAYER 1: PRIMITIVE TOKENS (Raw Color Scales)
+  // ============================================
+  // These are the base colors without semantic meaning.
+  // Change these to create themes. Components should NOT use these directly.
+
+  // Green scale (brand colors)
+  --zg-green-950: #051810;
+  --zg-green-900: #0a2c18;
+  --zg-green-800: #114b2a;
+  --zg-green-700: #186b3c;
+  --zg-green-600: #1f8b4e;
+  --zg-green-500: #42c148;
+  --zg-green-400: #00c42e;
+  --zg-green-300: #5cd662;
+  --zg-green-200: #8fe789;
+  --zg-green-100: #d4fd2b;
+  --zg-green-50: #e8ffe5;
+
+  // Orange scale (bet builder, accents)
+  --zg-orange-900: #992900;
+  --zg-orange-800: #cc3700;
+  --zg-orange-700: #ff4500;
+  --zg-orange-600: #ff5a1f;
+  --zg-orange-500: #ff7000;
+  --zg-orange-400: #ff9347;
+  --zg-orange-300: #ffb380;
+  --zg-orange-200: #ffd4b3;
+  --zg-orange-100: #fff0e6;
+
+  // Red scale (error, danger, live)
+  --zg-red-900: #8b0000;
+  --zg-red-800: #b30000;
+  --zg-red-700: #e1070e;
+  --zg-red-600: #ff0000;
+  --zg-red-500: #ff3333;
+  --zg-red-400: #ff6666;
+  --zg-red-300: #ff9999;
+  --zg-red-200: #ffcccc;
+  --zg-red-100: #f8d7da;
+  --zg-red-50: #fff5f5;
+
+  // Yellow scale (warning, favorite)
+  --zg-yellow-900: #7a5f0a;
+  --zg-yellow-800: #9c7a0d;
+  --zg-yellow-700: #c49910;
+  --zg-yellow-600: #f7c30e;
+  --zg-yellow-500: #ffd43b;
+  --zg-yellow-400: #ffe066;
+  --zg-yellow-300: #ffeb99;
+  --zg-yellow-200: #fef3c7;
+  --zg-yellow-100: #fffbeb;
+
+  // Blue scale (info)
+  --zg-blue-900: #1a3f5c;
+  --zg-blue-800: #1e4d6f;
+  --zg-blue-700: #256182;
+  --zg-blue-600: #2d75a0;
+  --zg-blue-500: #3b82f6;
+  --zg-blue-400: #60a5fa;
+  --zg-blue-300: #93c5fd;
+  --zg-blue-200: #bfdbfe;
+  --zg-blue-100: #dbeafe;
+
+  // Neutral scale (grays)
+  --zg-neutral-100: #ffffff;
+  --zg-neutral-200: #fafafa;
+  --zg-neutral-300: #f5f5f5;
+  --zg-neutral-400: #e4e4e7;
+  --zg-neutral-500: #cccccc;
+  --zg-neutral-600: #999999;
+  --zg-neutral-700: #666666;
+  --zg-neutral-800: #333333;
+  --zg-neutral-900: #000000;
+
+  // ============================================
+  // LAYER 2: SEMANTIC TOKENS (Intention-based)
+  // ============================================
+  // These map primitives to semantic meaning.
+  // Components MUST use these, not primitives directly.
+
+  // Primary brand colors
+  --zg-color-primary: var(--zg-green-800);
+  --zg-color-primary-hover: var(--zg-green-900);
+  --zg-color-primary-active: var(--zg-green-900);
+  --zg-color-primary-light: var(--zg-green-500);
+  --zg-color-primary-lighter: var(--zg-green-300);
+
+  // Secondary colors
+  --zg-color-secondary: var(--zg-green-500);
+  --zg-color-secondary-hover: var(--zg-green-400);
+  --zg-color-secondary-active: var(--zg-green-400);
+
+  // Accent & Highlight
+  --zg-color-accent: var(--zg-green-400);
+  --zg-color-highlight: var(--zg-green-100);
+
+  // Semantic feedback colors
+  --zg-color-success: var(--zg-green-500);
+  --zg-color-success-light: var(--zg-green-200);
+  --zg-color-warning: var(--zg-yellow-600);
+  --zg-color-warning-light: var(--zg-yellow-200);
+  --zg-color-error: var(--zg-red-600);
+  --zg-color-error-light: var(--zg-red-100);
+  --zg-color-info: var(--zg-blue-700);
+  --zg-color-info-light: var(--zg-blue-100);
+
+  // iGaming specific semantic colors
+  --zg-color-bet-builder: var(--zg-orange-500);
+  --zg-color-live: var(--zg-red-700);
+  --zg-color-favorite: var(--zg-yellow-500);
+
+  // Surface & UI colors
+  --zg-color-surface: var(--zg-neutral-100);
+  --zg-color-surface-alt: var(--zg-neutral-300);
+  --zg-color-surface-hover: var(--zg-neutral-400);
+  --zg-color-border: var(--zg-neutral-400);
+  --zg-color-border-dark: var(--zg-neutral-600);
+
+  // Text colors
+  --zg-color-text-primary: var(--zg-neutral-900);
+  --zg-color-text-secondary: var(--zg-neutral-700);
+  --zg-color-text-disabled: var(--zg-neutral-600);
+  --zg-color-text-inverse: var(--zg-neutral-100);
+  --zg-color-text-info: var(--zg-neutral-700);
+
+  // Background colors
+  --zg-color-bg-primary: var(--zg-neutral-100);
+  --zg-color-bg-secondary: var(--zg-neutral-200);
+  --zg-color-bg-dark: var(--zg-neutral-800);
+  --zg-color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --zg-color-bg-card: var(--zg-neutral-300);
+  --zg-color-bg-header: var(--zg-color-primary);
+
+  // Bet status colors (iGaming specific)
+  --zg-color-bet-open: var(--zg-yellow-600);
+  --zg-color-bet-won: var(--zg-green-200);
+  --zg-color-bet-lost: var(--zg-red-500);
+  --zg-color-bet-other: var(--zg-blue-700);
+
+  // ============================================
+  // TYPOGRAPHY TOKENS
+  // ============================================
+
+  // Font families (company fonts)
+  --zg-font-family-base: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --zg-font-family-secondary: 'Teko', sans-serif;
+  --zg-font-family-tertiary: 'Roboto', sans-serif;
+  --zg-font-family-accent: 'Kaushan Script', cursive;
+
+  // Font sizes (Harmonic scale - ~1.2x ratio for better visual hierarchy)
+  --zg-font-size-xs: 0.75rem; // 12px - Small labels, captions
+  --zg-font-size-sm: 0.875rem; // 14px - Secondary text, small buttons
+  --zg-font-size-base: 1rem; // 16px - Body text (default)
+  --zg-font-size-md: 1.125rem; // 18px - Emphasized body text
+  --zg-font-size-lg: 1.25rem; // 20px - Small headings, large buttons
+  --zg-font-size-xl: 1.5rem; // 24px - H4, section titles
+  --zg-font-size-2xl: 1.875rem; // 30px - H3, card titles
+  --zg-font-size-3xl: 2.25rem; // 36px - H2, page headers
+  --zg-font-size-4xl: 3rem; // 48px - H1, hero text
+  --zg-font-size-5xl: 3.75rem; // 60px - Display text (optional)
+
+  // Font weights
+  --zg-font-weight-light: 300;
+  --zg-font-weight-regular: 400;
+  --zg-font-weight-medium: 500;
+  --zg-font-weight-semibold: 600;
+  --zg-font-weight-bold: 700;
+
+  // Line heights
+  --zg-line-height-tight: 1.25;
+  --zg-line-height-normal: 1.5;
+  --zg-line-height-relaxed: 1.75;
+
+  // ============================================
+  // SPACING TOKENS
+  // ============================================
+
+  --zg-spacing-0: 0;
+  --zg-spacing-1: 0.25rem; // 4px
+  --zg-spacing-2: 0.5rem; // 8px
+  --zg-spacing-3: 0.75rem; // 12px
+  --zg-spacing-4: 1rem; // 16px
+  --zg-spacing-5: 1.25rem; // 20px
+  --zg-spacing-6: 1.5rem; // 24px
+  --zg-spacing-8: 2rem; // 32px
+  --zg-spacing-10: 2.5rem; // 40px
+  --zg-spacing-12: 3rem; // 48px
+  --zg-spacing-16: 4rem; // 64px
+  --zg-spacing-20: 5rem; // 80px
+  --zg-spacing-24: 6rem; // 96px
+
+  // // Card-specific spacing (from company)
+  // --zg-spacing-card-small: 0.875rem; // 14px
+  // --zg-spacing-card-medium: 1.25rem; // 20px
+  // --zg-spacing-card-large: 1.5rem; // 24px
+  // --zg-spacing-card-between: 0.625rem; // 10px
+
+  // ============================================
+  // RADIUS TOKENS
+  // ============================================
+
+  --zg-radius-none: 0;
+  --zg-radius-sm: 0.125rem; // 2px
+  --zg-radius-base: 0.5rem; // 8px (company button radius)
+  --zg-radius-md: 0.5rem; // 8px
+  --zg-radius-lg: 0.8rem; // 12.8px (company card radius)
+  --zg-radius-xl: 1rem; // 16px
+  --zg-radius-2xl: 1.5rem; // 24px
+  --zg-radius-full: 9999px; // Full rounded
+
+  // ============================================
+  // SHADOW TOKENS
+  // ============================================
+
+  --zg-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --zg-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --zg-shadow-base: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --zg-shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+  --zg-shadow-lg: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  --zg-shadow-xl: 0 12px 24px 0 rgba(0, 0, 0, 0.3);
+
+  // // Company specific shadows
+  // --zg-shadow-box: rgba(0, 0, 0, 0.3);
+  // --zg-shadow-border: rgba(0, 0, 0, 0.1);
+
+  // ============================================
+  // Z-INDEX TOKENS
+  // ============================================
+
+  --zg-z-index-dropdown: 1000;
+  --zg-z-index-sticky: 1020;
+  --zg-z-index-fixed: 1030;
+  --zg-z-index-modal-backdrop: 1040;
+  --zg-z-index-modal: 1050;
+  --zg-z-index-popover: 1060;
+  --zg-z-index-tooltip: 1070;
+
+  // ============================================
+  // TRANSITION TOKENS
+  // ============================================
+
+  --zg-transition-fast: 150ms ease-in-out;
+  --zg-transition-base: 250ms ease-in-out;
+  --zg-transition-slow: 350ms ease-in-out;
+
+  // ============================================
+  // BUTTON TOKENS
+  // ============================================
+
+  --zg-button-bg-primary: linear-gradient(to right, var(--zg-green-400), var(--zg-green-800));
+  --zg-button-bg-secondary: linear-gradient(to right, var(--zg-green-100), var(--zg-green-500));
+  --zg-button-color-primary: var(--zg-neutral-100);
+  --zg-button-radius: var(--zg-radius-base);
+}
+
+// ============================================
+// THEME VARIANTS
+// ============================================
+
+/**
+ * Dark Mode Theme
+ * Override primitives to create dark theme
+ */
+.dark {
+  // Override primitive neutrals for dark mode
+  --zg-neutral-100: #ffffff;
+  --zg-neutral-200: #0e0e11;
+  --zg-neutral-300: #18181b;
+  --zg-neutral-400: #27272a;
+  --zg-neutral-500: #ffffff;
+  --zg-neutral-600: #808080;
+  --zg-neutral-700: #a1a1aa;
+  --zg-neutral-800: #d7d7d7;
+  --zg-neutral-900: #ffffff;
+
+  // Override primitive greens for dark mode
+  --zg-green-800: #002d16;
+  --zg-green-900: #001a0d;
+
+  // Override semantic bg-dark
+  --zg-color-bg-dark: var(--zg-neutral-300);
+
+  // Override button gradient
+  --zg-button-bg-primary: linear-gradient(to left, var(--zg-green-400), var(--zg-green-800));
+}
+
+/**
+ * Alternative Theme One (Yellow/Gold theme)
+ * Change primitives to create completely different color scheme
+ */
+.theme-one {
+  // Override green primitives with yellow scale
+  --zg-green-800: #ffd028;
+  --zg-green-700: #f7d547;
+  --zg-green-500: #ffeb3b;
+  --zg-green-400: #19bfbf;
+  --zg-green-100: #ffeb3b;
+
+  // Override neutrals (inverted)
+  --zg-neutral-100: #000000;
+  --zg-neutral-200: #434343;
+  --zg-neutral-300: #333333;
+  --zg-neutral-400: #666666;
+  --zg-neutral-500: #808080;
+  --zg-neutral-600: #999999;
+  --zg-neutral-700: #cccccc;
+  --zg-neutral-800: #f5f5f5;
+  --zg-neutral-900: #ffffff;
+
+  // Override button
+  --zg-button-bg-primary: var(--zg-neutral-100);
+  --zg-button-color-primary: var(--zg-green-800);
+}
+
+/**
+ * Alternative Theme Two (Blue theme)
+ * Change primitives to create blue-based color scheme
+ */
+.theme-two {
+  // Override green primitives with blue scale
+  --zg-green-800: #0cb7f2;
+  --zg-green-700: #1aa3d9;
+  --zg-green-500: #8fe3ff;
+  --zg-green-400: #73a834;
+  --zg-green-100: #00e5ff;
+
+  // Override neutrals (dark base)
+  --zg-neutral-100: #222426;
+  --zg-neutral-200: #3a3b3c;
+  --zg-neutral-300: #434343;
+  --zg-neutral-400: #666666;
+  --zg-neutral-500: #808080;
+  --zg-neutral-600: #999999;
+  --zg-neutral-700: #cccccc;
+  --zg-neutral-800: #f5f5f5;
+  --zg-neutral-900: #ffffff;
+
+  // Override button
+  --zg-button-bg-primary: var(--zg-neutral-100);
+  --zg-button-color-primary: var(--zg-green-800);
+}
