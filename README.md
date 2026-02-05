@@ -70,7 +70,7 @@ Open `http://localhost:6006/` to explore the component library.
 
 ## 📦 Project Structure
 
-```
+```text
 zg-ui/
 ├── projects/
 │   ├── design-tokens/        # Design token system (CSS variables + TS API)
@@ -91,38 +91,6 @@ zg-ui/
 ├── .storybook/
 │   └── theme-decorator.ts     # Storybook theme switcher
 └── README.md
-```
-
-## 🎨 Components
-
-### Button
-
-A flexible button component with multiple variants and sizes.
-
-**API:**
-
-- `@Input() variant`: `'primary' | 'secondary' | 'ghost'`
-- `@Input() size`: `'sm' | 'md' | 'lg'`
-- `@Input() disabled`: `boolean`
-- `@Input() label`: `string`
-- `@Output() clicked`: `EventEmitter<MouseEvent>`
-
-**Usage:**
-
-```typescript
-import { ZgButtonComponent } from '@zg/ui';
-
-@Component({
-  imports: [ZgButtonComponent],
-  template: `
-    <zg-button
-      variant="primary"
-      size="md"
-      label="Click me"
-      (clicked)="handleClick($event)">
-    </zg-button>
-  `
-})
 ```
 
 ## 🎨 Design Tokens
