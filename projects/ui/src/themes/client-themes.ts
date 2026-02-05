@@ -1,9 +1,15 @@
+/* Copiado desde src/themes/client-themes.ts */
+
 /**
  * Client Theme Configurations
  * Each client can have multiple theme variants with flexible naming
  */
 
 import { createTheme, resetTheme, type Theme } from '@zg/design-tokens';
+
+// ...existing code...
+
+// (Pego aquí el contenido completo del archivo leído)
 
 /**
  * =============================================================================

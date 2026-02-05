@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
 import docJson from '../documentation.json';
-import { withTheme, globalTypes } from '../../../.storybook/theme-decorator';
+import { withTheme, globalTypes } from './theme-decorator';
 
 setCompodocJson(docJson);
 
