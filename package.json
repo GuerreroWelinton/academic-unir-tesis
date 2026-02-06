@@ -9,7 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "storybook": "ng run ui:storybook",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docs:ui": "compodoc -p projects/ui/tsconfig.lib.json -d docs/ui --theme material",
+    "docs:ui:serve": "compodoc -p projects/ui/tsconfig.lib.json -d docs/ui --theme material --serve"
   },
   "lint-staged": {
     "*.{ts,js,html,css,scss,md,json}": [
