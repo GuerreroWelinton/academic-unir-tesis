@@ -183,7 +183,7 @@
 :host([data-variant='gradient']) .zg-button__native {
   background: linear-gradient(to right, var(--zg-color-accent), var(--zg-color-primary));
   color: var(--zg-color-text-inverse);
-  border: 1px solid transparent;
+  border: none;
 
   &:hover:not(:disabled) {
     background: linear-gradient(to right, var(--zg-color-primary), var(--zg-color-primary-hover));
