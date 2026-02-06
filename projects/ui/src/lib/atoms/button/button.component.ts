@@ -17,7 +17,7 @@ export type ButtonSize = 'sm' | 'md' | 'lg';
 /**
  * Button visual variants
  */
-export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'danger' | 'ghost';
+export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'danger' | 'ghost' | 'gradient';
 
 /**
  * Button shape variants

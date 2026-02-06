@@ -220,12 +220,13 @@ describe('ZgButtonComponent', () => {
   });
 
   describe('Variant Styles', () => {
-    const variants: Array<'primary' | 'secondary' | 'accent' | 'danger' | 'ghost'> = [
+    const variants: Array<'primary' | 'secondary' | 'accent' | 'danger' | 'ghost' | 'gradient'> = [
       'primary',
       'secondary',
       'accent',
       'danger',
       'ghost',
+      'gradient',
     ];
 
     variants.forEach((variant) => {

@@ -33,12 +33,20 @@ export const DesignTokens = {
 
     // Semantic feedback colors
     success: '--zg-color-success',
+    successHover: '--zg-color-success-hover',
+    successActive: '--zg-color-success-active',
     successLight: '--zg-color-success-light',
     warning: '--zg-color-warning',
+    warningHover: '--zg-color-warning-hover',
+    warningActive: '--zg-color-warning-active',
     warningLight: '--zg-color-warning-light',
     error: '--zg-color-error',
+    errorHover: '--zg-color-error-hover',
+    errorActive: '--zg-color-error-active',
     errorLight: '--zg-color-error-light',
     info: '--zg-color-info',
+    infoHover: '--zg-color-info-hover',
+    infoActive: '--zg-color-info-active',
     infoLight: '--zg-color-info-light',
 
     // iGaming specific colors

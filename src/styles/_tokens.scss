@@ -109,12 +109,20 @@
 
   // Semantic feedback colors
   --zg-color-success: var(--zg-green-500);
+  --zg-color-success-hover: var(--zg-green-400);
+  --zg-color-success-active: var(--zg-green-600);
   --zg-color-success-light: var(--zg-green-200);
   --zg-color-warning: var(--zg-yellow-600);
+  --zg-color-warning-hover: var(--zg-yellow-500);
+  --zg-color-warning-active: var(--zg-yellow-700);
   --zg-color-warning-light: var(--zg-yellow-200);
   --zg-color-error: var(--zg-red-600);
+  --zg-color-error-hover: var(--zg-red-700);
+  --zg-color-error-active: var(--zg-red-800);
   --zg-color-error-light: var(--zg-red-100);
   --zg-color-info: var(--zg-blue-700);
+  --zg-color-info-hover: var(--zg-blue-600);
+  --zg-color-info-active: var(--zg-blue-800);
   --zg-color-info-light: var(--zg-blue-100);
 
   // iGaming specific semantic colors
@@ -263,8 +271,8 @@
   --zg-button-bg-accent-active: var(--zg-color-accent);
 
   --zg-button-bg-danger: var(--zg-color-error);
-  --zg-button-bg-danger-hover: var(--zg-red-700);
-  --zg-button-bg-danger-active: var(--zg-red-800);
+  --zg-button-bg-danger-hover: var(--zg-color-error-hover);
+  --zg-button-bg-danger-active: var(--zg-color-error-active);
 
   --zg-button-bg-ghost: transparent;
   --zg-button-bg-ghost-hover: var(--zg-color-surface-alt);

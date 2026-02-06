@@ -38,7 +38,7 @@ const meta: Meta<ZgButtonComponent> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'accent', 'danger', 'ghost'],
+      options: ['primary', 'secondary', 'accent', 'danger', 'ghost', 'gradient'],
       description: 'Visual variant of the button',
       table: {
         defaultValue: { summary: 'primary' },
@@ -150,6 +150,7 @@ export const Variants: Story = {
         <zg-button variant="accent">Accent</zg-button>
         <zg-button variant="danger">Danger</zg-button>
         <zg-button variant="ghost">Ghost</zg-button>
+        <zg-button variant="gradient">Gradient</zg-button>
       </div>
     `,
   }),
