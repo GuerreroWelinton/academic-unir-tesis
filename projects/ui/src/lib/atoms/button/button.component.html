@@ -1,0 +1,30 @@
+<button
+  [type]="type"
+  [disabled]="disabled || loading"
+  class="zg-button__native"
+  (click)="handleClick($event)"
+>
+  <!-- Icon left slot -->
+  <span class="zg-button__icon zg-button__icon--left">
+    <ng-content select="[icon-left]"></ng-content>
+  </span>
+
+  <!-- Loading spinner (shown when loading) -->
+  @if (loading) {
+    <span class="zg-button__spinner" aria-hidden="true"></span>
+  }
+
+  <!-- Button content -->
+  <span class="zg-button__content" [class.zg-button__content--hidden]="loading">
+    @if (text) {
+      {{ text }}
+    } @else {
+      <ng-content></ng-content>
+    }
+  </span>
+
+  <!-- Icon right slot -->
+  <span class="zg-button__icon zg-button__icon--right">
+    <ng-content select="[icon-right]"></ng-content>
+  </span>
+</button>

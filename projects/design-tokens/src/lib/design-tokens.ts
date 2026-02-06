@@ -162,10 +162,68 @@ export const DesignTokens = {
 
   // Button tokens
   button: {
+    // Background colors per variant
     bgPrimary: '--zg-button-bg-primary',
+    bgPrimaryHover: '--zg-button-bg-primary-hover',
+    bgPrimaryActive: '--zg-button-bg-primary-active',
     bgSecondary: '--zg-button-bg-secondary',
-    colorPrimary: '--zg-button-color-primary',
-    radius: '--zg-button-radius',
+    bgSecondaryHover: '--zg-button-bg-secondary-hover',
+    bgSecondaryActive: '--zg-button-bg-secondary-active',
+    bgAccent: '--zg-button-bg-accent',
+    bgAccentHover: '--zg-button-bg-accent-hover',
+    bgAccentActive: '--zg-button-bg-accent-active',
+    bgDanger: '--zg-button-bg-danger',
+    bgDangerHover: '--zg-button-bg-danger-hover',
+    bgDangerActive: '--zg-button-bg-danger-active',
+    bgGhost: '--zg-button-bg-ghost',
+    bgGhostHover: '--zg-button-bg-ghost-hover',
+    bgGhostActive: '--zg-button-bg-ghost-active',
+
+    // Text colors per variant
+    textPrimary: '--zg-button-text-primary',
+    textSecondary: '--zg-button-text-secondary',
+    textAccent: '--zg-button-text-accent',
+    textDanger: '--zg-button-text-danger',
+    textGhost: '--zg-button-text-ghost',
+
+    // Border colors per variant
+    borderPrimary: '--zg-button-border-primary',
+    borderSecondary: '--zg-button-border-secondary',
+    borderAccent: '--zg-button-border-accent',
+    borderDanger: '--zg-button-border-danger',
+    borderGhost: '--zg-button-border-ghost',
+
+    // Sizing
+    heightSm: '--zg-button-height-sm',
+    heightMd: '--zg-button-height-md',
+    heightLg: '--zg-button-height-lg',
+    paddingXSm: '--zg-button-padding-x-sm',
+    paddingXMd: '--zg-button-padding-x-md',
+    paddingXLg: '--zg-button-padding-x-lg',
+    paddingYSm: '--zg-button-padding-y-sm',
+    paddingYMd: '--zg-button-padding-y-md',
+    paddingYLg: '--zg-button-padding-y-lg',
+    iconGap: '--zg-button-icon-gap',
+
+    // Border radius per shape
+    radiusDefault: '--zg-button-radius-default',
+    radiusPill: '--zg-button-radius-pill',
+    radiusSquare: '--zg-button-radius-square',
+
+    // Typography
+    fontFamily: '--zg-button-font-family',
+    fontFamilySecondary: '--zg-button-font-family-secondary',
+    fontSizeSm: '--zg-button-font-size-sm',
+    fontSizeMd: '--zg-button-font-size-md',
+    fontSizeLg: '--zg-button-font-size-lg',
+    fontWeight: '--zg-button-font-weight',
+
+    // States
+    disabledOpacity: '--zg-button-disabled-opacity',
+    transition: '--zg-button-transition',
+    focusRingColor: '--zg-button-focus-ring-color',
+    focusRingWidth: '--zg-button-focus-ring-width',
+    focusRingOffset: '--zg-button-focus-ring-offset',
   },
 } as const;
 

@@ -76,7 +76,6 @@ import { createTheme, resetTheme, type Theme } from '@zg/design-tokens';
  *
  * 4. TOKENS DE COMPONENTE
  *    - Normalmente NO necesitas sobrescribirlos (heredan de CAPA 2)
- *    - Solo sobrescribe button: {} si necesitas efectos especiales (gradientes custom, etc.)
  *
  * =============================================================================
  */
@@ -90,15 +89,15 @@ export type ClientThemeConfig = Record<string, Theme>;
 /**
  * Available clients
  */
-export type ClientId = 'cliente1' | 'cliente2';
+export type ClientId = 'client1' | 'client2';
 
 /**
  * Client themes registry
  * Define all client themes here
  */
 export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
-  // Cliente 1 (ZGames) - Default brand
-  cliente1: {
+  // Client 1 (ZGames) - Default brand
+  client1: {
     light: {
       primitives: {
         green800: '#114b2a',
@@ -141,8 +140,8 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
     },
   },
 
-  // Cliente 2 - Purple/Yellow theme
-  cliente2: {
+  // Client 2 - Purple/Yellow theme
+  client2: {
     light: {
       primitives: {
         green800: '#6a1b9a',
@@ -200,7 +199,7 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
  */
 export function getClientTheme(clientId: ClientId, variant: string = 'light'): Theme {
   const clientThemes = CLIENT_THEMES[clientId];
-  return clientThemes[variant] || CLIENT_THEMES['cliente1']['light'];
+  return clientThemes[variant] || CLIENT_THEMES['client1']['light'];
 }
 
 /**

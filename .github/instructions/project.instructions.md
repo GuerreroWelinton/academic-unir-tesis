@@ -98,7 +98,7 @@ Librería UI:
   - projects/ui/src/lib/atoms/<componente>/
   - projects/ui/src/lib/molecules/<componente>/
   - (En el futuro: organisms/, templates/, pages/)
-- Las historias y tests deben estar co-localizados con el componente:
+- Las historias y tests (vitest) deben estar co-localizados con el componente:
   - <componente>.component.ts
   - <componente>.component.html (si aplica)
   - <componente>.component.scss|css
@@ -119,6 +119,9 @@ STORYBOOK Y DOCUMENTACIÓN (CDD)
   - Default,
   - 2–3 variantes relevantes (disabled/error/loading/size/variant),
   - un ejemplo de composición (si aplica).
+- **PROHIBIDO usar emojis en nombres de historias o stories** (name property). Usar solo texto descriptivo en inglés.
+  - ❌ Incorrecto: `name: '🎮 Real-world Examples'` o `name: '🔤 Typography Test'`
+  - ✅ Correcto: `name: 'Real-world Examples'` o `name: 'Typography Test'`
 - Se debe habilitar y usar addon a11y:
   - labels y roles correctos,
   - navegación por teclado,

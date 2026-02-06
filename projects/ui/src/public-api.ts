@@ -2,4 +2,5 @@
  * Public API Surface of ui
  */
 
-export * from './lib/button/button.component';
+// Atoms
+export * from './lib/atoms/button/button.component';

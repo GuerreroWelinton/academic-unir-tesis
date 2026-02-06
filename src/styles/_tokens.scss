@@ -200,12 +200,6 @@
   --zg-spacing-20: 5rem; // 80px
   --zg-spacing-24: 6rem; // 96px
 
-  // // Card-specific spacing (from company)
-  // --zg-spacing-card-small: 0.875rem; // 14px
-  // --zg-spacing-card-medium: 1.25rem; // 20px
-  // --zg-spacing-card-large: 1.5rem; // 24px
-  // --zg-spacing-card-between: 0.625rem; // 10px
-
   // ============================================
   // RADIUS TOKENS
   // ============================================
@@ -230,10 +224,6 @@
   --zg-shadow-lg: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   --zg-shadow-xl: 0 12px 24px 0 rgba(0, 0, 0, 0.3);
 
-  // // Company specific shadows
-  // --zg-shadow-box: rgba(0, 0, 0, 0.3);
-  // --zg-shadow-border: rgba(0, 0, 0, 0.1);
-
   // ============================================
   // Z-INDEX TOKENS
   // ============================================
@@ -255,19 +245,80 @@
   --zg-transition-slow: 350ms ease-in-out;
 
   // ============================================
-  // BUTTON TOKENS
+  // BUTTON TOKENS (CAPA 3: Component-specific)
   // ============================================
+  // These consume LAYER 2 semantic tokens, NOT primitives directly
 
-  --zg-button-bg-primary: linear-gradient(
-    to right,
-    var(--zg-color-primary-light),
-    var(--zg-color-primary)
-  );
-  --zg-button-bg-secondary: linear-gradient(
-    to right,
-    var(--zg-color-secondary),
-    var(--zg-color-primary-light)
-  );
-  --zg-button-color-primary: var(--zg-color-text-inverse);
-  --zg-button-radius: var(--zg-radius-base);
+  // Background colors per variant
+  --zg-button-bg-primary: var(--zg-color-primary);
+  --zg-button-bg-primary-hover: var(--zg-color-primary-hover);
+  --zg-button-bg-primary-active: var(--zg-color-primary-active);
+
+  --zg-button-bg-secondary: transparent;
+  --zg-button-bg-secondary-hover: var(--zg-color-surface-hover);
+  --zg-button-bg-secondary-active: var(--zg-color-surface-alt);
+
+  --zg-button-bg-accent: var(--zg-color-accent);
+  --zg-button-bg-accent-hover: var(--zg-color-highlight);
+  --zg-button-bg-accent-active: var(--zg-color-accent);
+
+  --zg-button-bg-danger: var(--zg-color-error);
+  --zg-button-bg-danger-hover: var(--zg-red-700);
+  --zg-button-bg-danger-active: var(--zg-red-800);
+
+  --zg-button-bg-ghost: transparent;
+  --zg-button-bg-ghost-hover: var(--zg-color-surface-alt);
+  --zg-button-bg-ghost-active: var(--zg-color-surface-hover);
+
+  // Text colors per variant
+  --zg-button-text-primary: var(--zg-color-text-inverse);
+  --zg-button-text-secondary: var(--zg-color-primary);
+  --zg-button-text-accent: var(--zg-color-text-primary);
+  --zg-button-text-danger: var(--zg-color-text-inverse);
+  --zg-button-text-ghost: var(--zg-color-text-primary);
+
+  // Border colors per variant
+  --zg-button-border-primary: var(--zg-color-primary);
+  --zg-button-border-secondary: var(--zg-color-primary);
+  --zg-button-border-accent: var(--zg-color-accent);
+  --zg-button-border-danger: var(--zg-color-error);
+  --zg-button-border-ghost: transparent;
+
+  // Sizing tokens
+  --zg-button-height-sm: 2rem; // 32px
+  --zg-button-height-md: 2.5rem; // 40px
+  --zg-button-height-lg: 3rem; // 48px
+
+  --zg-button-padding-x-sm: var(--zg-spacing-4); // 16px
+  --zg-button-padding-x-md: var(--zg-spacing-6); // 24px
+  --zg-button-padding-x-lg: var(--zg-spacing-8); // 32px
+
+  --zg-button-padding-y-sm: var(--zg-spacing-2); // 8px
+  --zg-button-padding-y-md: var(--zg-spacing-3); // 12px
+  --zg-button-padding-y-lg: var(--zg-spacing-4); // 16px
+
+  // Icon spacing
+  --zg-button-icon-gap: var(--zg-spacing-2); // 8px
+
+  // Border radius per shape
+  --zg-button-radius-default: var(--zg-radius-md); // 8px
+  --zg-button-radius-pill: var(--zg-radius-full); // 9999px
+  --zg-button-radius-square: var(--zg-radius-sm); // 2px
+
+  // Typography
+  --zg-button-font-family: var(--zg-font-family-base); // Default: Inter
+  --zg-button-font-family-secondary: var(--zg-font-family-secondary); // Titles: Teko
+  --zg-button-font-size-sm: var(--zg-font-size-sm); // 14px
+  --zg-button-font-size-md: var(--zg-font-size-base); // 16px
+  --zg-button-font-size-lg: var(--zg-font-size-md); // 18px
+  --zg-button-font-weight: var(--zg-font-weight-medium); // 500
+
+  // States
+  --zg-button-disabled-opacity: 0.5;
+  --zg-button-transition: var(--zg-transition-fast); // 150ms
+
+  // Focus ring
+  --zg-button-focus-ring-color: var(--zg-color-primary);
+  --zg-button-focus-ring-width: 2px;
+  --zg-button-focus-ring-offset: 2px;
 }

@@ -1,64 +1,64 @@
 # ZGames UI Library
 
-A modern, accessible, and themeable Angular component library for iGaming applications built with Angular 21 and Storybook.
+Una biblioteca de componentes Angular moderna, accesible y tematizable para aplicaciones de iGaming construida con Angular 21 y Storybook.
 
-## 📋 Overview
+## 📋 Descripción General
 
-This is an MVP of a reusable UI component library for ZGames Technology. The library follows Angular best practices, prioritizes accessibility (WCAG), and provides a consistent design system with multi-client theming capabilities.
+Este es un MVP de una biblioteca de componentes UI reutilizables para ZGames Technology. La biblioteca sigue las mejores prácticas de Angular, prioriza la accesibilidad (WCAG) y proporciona un sistema de diseño consistente con capacidades de tematización multi-cliente.
 
-## 🏗️ Architecture
+## 🏗️ Arquitectura
 
 ### Design Tokens
 
-The library uses a **2-layer design token system**:
+La biblioteca utiliza un **sistema de design tokens de 2 capas**:
 
-1. **Primitives** (`--zg-green-800`, `--zg-neutral-200`, etc.): Raw color scales and base values
-2. **Semantic tokens** (`--zg-color-primary`, `--zg-color-success`, etc.): Intention-based tokens that reference primitives
+1. **Primitivos** (`--zg-green-800`, `--zg-neutral-200`, etc.): Escalas de color crudo y valores base
+2. **Tokens semánticos** (`--zg-color-primary`, `--zg-color-success`, etc.): Tokens basados en intención que referencian primitivos
 
-All design tokens are defined as CSS variables in [src/styles/\_tokens.scss](src/styles/_tokens.scss).
+Todos los design tokens están definidos como variables CSS en [src/styles/\_tokens.scss](src/styles/_tokens.scss).
 
-### Component Pattern
+### Patrón de Componentes
 
-All components follow the **Container-Presentation Pattern**:
+Todos los componentes siguen el **Patrón Contenedor-Presentación**:
 
-- **Dumb Components** (inside `projects/ui/`): Purely presentational, receive data via `@Input()`, emit events via `@Output()`
-- **Smart Components** (in consumer apps): Handle business logic, orchestrate data, and connect to services
+- **Componentes Tontos** (dentro de `projects/ui/`): Puramente presentacionales, reciben datos vía `@Input()`, emiten eventos vía `@Output()`
+- **Componentes Inteligentes** (en apps consumidoras): Manejan lógica de negocio, orquestan datos y se conectan a servicios
 
-All components are:
+Todos los componentes son:
 
-- **Standalone Components**
-- Use `ChangeDetectionStrategy.OnPush`
-- Follow strict TypeScript typing
-- Documented with Storybook stories
+- **Componentes Standalone**
+- Usan `ChangeDetectionStrategy.OnPush`
+- Siguen tipado estricto de TypeScript
+- Documentados con historias de Storybook
 
-### Multi-Client Theming
+### Tematización Multi-Cliente
 
-The library supports **runtime theme switching** for multiple casino clients. Each client can have multiple theme variants (light, dark, custom).
+La biblioteca soporta **cambio de tema en tiempo de ejecución** para múltiples clientes de casino. Cada cliente puede tener múltiples variantes de tema (claro, oscuro, personalizado).
 
-- Client themes are configurados en [projects/ui/src/themes/client-themes.ts](projects/ui/src/themes/client-themes.ts)
-- Themes can override semantic tokens and primitives
-- Storybook includes a toolbar to preview all client themes
+- Los temas de cliente están configurados en [projects/ui/src/themes/client-themes.ts](projects/ui/src/themes/client-themes.ts)
+- Los temas pueden sobrescribir tokens semánticos y primitivos
+- Storybook incluye una barra de herramientas para previsualizar todos los temas de cliente
 
-## 🚀 Getting Started
+## 🚀 Comenzando
 
-### Prerequisites
+### Prerequisitos
 
-- Node.js 18+ and npm
+- Node.js 18+ y npm
 - Angular CLI 21+
 
-### Installation
+### Instalación
 
 ```bash
 npm install
 ```
 
-### Development server
+### Servidor de desarrollo
 
 ```bash
 npm start
 ```
 
-Navigate to `http://localhost:4200/` to see the demo app.
+Navega a `http://localhost:4200/` para ver la aplicación demo.
 
 ### Storybook
 
@@ -66,88 +66,76 @@ Navigate to `http://localhost:4200/` to see the demo app.
 npm run storybook
 ```
 
-Open `http://localhost:6006/` to explore the component library.
+Abre `http://localhost:6006/` para explorar la biblioteca de componentes.
 
-## 📦 Project Structure
+## 📦 Estructura del Proyecto
 
 ```text
 zg-ui/
 ├── projects/
-│   ├── design-tokens/        # Design token system (CSS variables + TS API)
+│   ├── design-tokens/        # Sistema de design tokens (variables CSS + API TS)
 │   │   └── src/lib/
-│   │       └── design-tokens.ts     # createTheme(), resetTheme(), token accessors
-│   └── ui/                    # Component library
-│       └── src/lib/
-│           ├── atoms/
-│           │   ├── button/
-│           │   │   ├── button.component.ts
-│           │   │   ├── button.component.html
-│           │   │   ├── button.component.scss
-│           │   │   ├── button.component.spec.ts
-│           │   │   └── button.stories.ts
-│           │   ├── badge/
-│           │   │   ├── badge.component.ts
-│           │   │   ├── badge.component.html
-│           │   │   ├── badge.component.scss
-│           │   │   ├── badge.component.spec.ts
-│           │   │   └── badge.stories.ts
-│           │   └── ...otros átomos
-│           ├── molecules/
-│           │   ├── card/
-│           │   │   ├── card.component.ts
-│           │   │   ├── card.component.html
-│           │   │   ├── card.component.scss
-│           │   │   ├── card.component.spec.ts
-│           │   │   └── card.stories.ts
-│           │   ├── modal/
-│           │   │   ├── modal.component.ts
-│           │   │   ├── modal.component.html
-│           │   │   ├── modal.component.scss
-│           │   │   ├── modal.component.spec.ts
-│           │   │   └── modal.stories.ts
-│           │   └── ...otros moléculas
-│           └── ...(en el futuro: organisms/, templates/, pages/)
+│   │       └── design-tokens.ts     # createTheme(), resetTheme(), accesores de tokens
+│   └── ui/                    # Biblioteca de componentes
+│       ├── .storybook/        # Configuración Storybook específica del UI
+│       │   ├── main.ts
+│       │   ├── preview.ts
+│       │   ├── custom-theme.ts
+│       │   ├── manager.ts
+│       │   └── theme-decorator.ts
+│       └── src/
+│           ├── lib/
+│           │   ├── atoms/
+│           │   │   └── button/
+│           │   │       ├── button.component.ts
+│           │   │       ├── button.component.html
+│           │   │       ├── button.component.scss
+│           │   │       ├── button.component.spec.ts
+│           │   │       └── button.stories.ts
+│           │   ├── molecules/
+│           │   ├── organisms/
+│           │   ├── templates/
+│           │   └── pages/
+│           └── themes/
+│               └── client-themes.ts   # Configuraciones de temas multi-cliente
 ├── src/
-│   ├── styles/
-│   │   └── _tokens.scss       # Single source of truth for design tokens
-│   └── themes/
-│       └── client-themes.ts   # Multi-client theme configurations
-├── .storybook/
-│   └── theme-decorator.ts     # Storybook theme switcher
+│   ├── app/                   # Aplicación demo
+│   └── styles/
+│       └── _tokens.scss       # Fuente única de verdad para design tokens
 └── README.md
 ```
 
 ## 🎨 Design Tokens
 
-### Color System
+### Sistema de Colores
 
-- **Primary**: Green scale for primary actions
-- **Success**: Green tones for positive feedback
-- **Warning**: Orange/yellow for warnings
-- **Error**: Red tones for errors
-- **Neutral**: Gray scale for text and surfaces
+- **Primary**: Escala verde para acciones primarias
+- **Success**: Tonos verdes para retroalimentación positiva
+- **Warning**: Naranja/amarillo para advertencias
+- **Error**: Tonos rojos para errores
+- **Neutral**: Escala gris para texto y superficies
 
-### Typography Scale
+### Escala Tipográfica
 
-Font sizes from `xs` (12px) to `5xl` (48px) using ~1.2x ratio.
+Tamaños de fuente desde `xs` (12px) hasta `5xl` (48px) usando ratio ~1.2x.
 
-### Spacing Scale
+### Escala de Espaciado
 
-Consistent spacing from `4` to `64` using 4px base unit.
+Espaciado consistente de `4` a `64` usando unidad base de 4px.
 
-## 🌈 Theming
+## 🌈 Tematización
 
-### Applying a Client Theme
+### Aplicando un Tema de Cliente
 
 ```typescript
-import { applyClientTheme } from './themes/client-themes';
+import { applyClientTheme } from '@zg/ui/themes/client-themes';
 
-// Apply a theme at runtime
-applyClientTheme('cliente1', 'dark');
-applyClientTheme('cliente2', 'christmas');
+// Aplicar un tema en tiempo de ejecución
+applyClientTheme('client1', 'dark');
+applyClientTheme('client2', 'christmas');
 ```
 
-### Creating a Custom Theme
+### Creando un Tema Personalizado
 
 ```typescript
 import { createTheme, Theme } from '@zg/design-tokens';
@@ -155,48 +143,48 @@ import { createTheme, Theme } from '@zg/design-tokens';
 const myTheme: Theme = {
   colorPrimary: '#00ff00',
   colorSuccess: '#00cc00',
-  // ... other semantic tokens
+  // ... otros tokens semánticos
   primitives: {
-    green800: '#006600', // Override primitives
+    green800: '#006600', // Sobrescribir primitivos
   },
 };
 
 createTheme(myTheme);
 ```
 
-## 🧪 Testing
+## 🧪 Pruebas
 
-Run unit tests with Vitest:
+Ejecutar pruebas unitarias con Vitest:
 
 ```bash
 npm test
 ```
 
-## 📚 Documentation
+## 📚 Documentación
 
-- **Storybook**: Run `npm run storybook` for interactive component documentation
-- **Type Documentation**: Run `npm run compodoc` for generated API documentation
+- **Storybook**: Ejecuta `npm run storybook` para documentación interactiva de componentes
+- **Documentación de Tipos**: Ejecuta `npm run compodoc` para documentación generada de API
 
-## 🛠️ Building the Library
+## 🛠️ Construyendo la Biblioteca
 
 ```bash
 npm run build:design-tokens
 npm run build:ui
 ```
 
-## ♿ Accessibility
+## ♿ Accesibilidad
 
-All components are built with accessibility in mind:
+Todos los componentes están construidos con la accesibilidad en mente:
 
-- Proper ARIA attributes
-- Keyboard navigation support
-- Focus management
-- Sufficient color contrast (validated with Storybook addon-a11y)
+- Atributos ARIA apropiados
+- Soporte para navegación por teclado
+- Gestión del foco
+- Contraste de color suficiente (validado con addon-a11y de Storybook)
 
-## 📝 Contributing
+## 📝 Contribuyendo
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Ver [CONTRIBUTING.md](CONTRIBUTING.md) para guías.
 
-## 📄 License
+## 📄 Licencia
 
-[MIT License](LICENSE)
+[Licencia MIT](LICENSE)

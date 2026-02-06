@@ -11,64 +11,88 @@
   "miscellaneous": {
     "variables": [
       {
-        "name": "AllSizes",
+        "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); align-items: center; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"sm\" [disabled]=\"false\" label=\"Small\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Medium\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"lg\" [disabled]=\"false\" label=\"Large\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-      },
-      {
-        "name": "AllVariants",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Primary\"></zg-button>\r\n        <zg-button variant=\"secondary\" size=\"md\" [disabled]=\"false\" label=\"Secondary\"></zg-button>\r\n        <zg-button variant=\"ghost\" size=\"md\" [disabled]=\"false\" label=\"Ghost\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    shape: 'default',\r\n    disabled: false,\r\n    loading: false,\r\n    fullWidth: false,\r\n    fontFamily: 'base',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<zg-button\r\n      [variant]=\"variant\"\r\n      [size]=\"size\"\r\n      [shape]=\"shape\"\r\n      [disabled]=\"disabled\"\r\n      [loading]=\"loading\"\r\n      [fullWidth]=\"fullWidth\"\r\n      [fontFamily]=\"fontFamily\"\r\n      (clicked)=\"clicked($event)\"\r\n    >\r\n      Click me\r\n    </zg-button>`,\r\n  }),\r\n}",
+        "rawdescription": "Default button with primary variant",
+        "description": "<p>Default button with primary variant</p>\n"
       },
       {
         "name": "Disabled",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: true,\r\n    label: 'Disabled Button',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" [disabled]=\"true\">Primary Disabled</zg-button>\r\n        <zg-button variant=\"secondary\" [disabled]=\"true\">Secondary Disabled</zg-button>\r\n        <zg-button variant=\"accent\" [disabled]=\"true\">Accent Disabled</zg-button>\r\n        <zg-button variant=\"danger\" [disabled]=\"true\">Danger Disabled</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Disabled state",
+        "description": "<p>Disabled state</p>\n"
       },
       {
-        "name": "Ghost",
+        "name": "FontFamilies",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'ghost',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Ghost Button',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;\">\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Base (Inter) - Default</h4>\r\n          <zg-button fontFamily=\"base\">Button with Inter</zg-button>\r\n        </div>\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Secondary (Teko) - For titles/highlights</h4>\r\n          <zg-button fontFamily=\"secondary\" size=\"lg\">BUTTON WITH TEKO</zg-button>\r\n        </div>\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Side by side comparison</h4>\r\n          <div style=\"display: flex; gap: 1rem; align-items: center;\">\r\n            <zg-button variant=\"primary\" fontFamily=\"base\">Inter (base)</zg-button>\r\n            <zg-button variant=\"primary\" fontFamily=\"secondary\">TEKO (secondary)</zg-button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Font family variants (base: Inter, secondary: Teko for titles/headings)",
+        "description": "<p>Font family variants (base: Inter, secondary: Teko for titles/headings)</p>\n"
       },
       {
-        "name": "Large",
+        "name": "FullWidth",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'lg',\r\n    disabled: false,\r\n    label: 'Large Button',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"max-width: 400px;\">\r\n        <zg-button variant=\"primary\" [fullWidth]=\"true\">Full Width Button</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Full width button (useful in forms, mobile layouts)",
+        "description": "<p>Full width button (useful in forms, mobile layouts)</p>\n"
+      },
+      {
+        "name": "IconOnly",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 0.5rem; align-items: center;\">\r\n        <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\" aria-label=\"Previous\">\r\n          ‹\r\n        </zg-button>\r\n        <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\" aria-label=\"Next\">\r\n          ›\r\n        </zg-button>\r\n        <zg-button variant=\"accent\" shape=\"square\" size=\"sm\" aria-label=\"Add\">\r\n          +\r\n        </zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Icon-only buttons (useful for navigation, actions)",
+        "description": "<p>Icon-only buttons (useful for navigation, actions)</p>\n"
+      },
+      {
+        "name": "Loading",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" [loading]=\"true\">Loading...</zg-button>\r\n        <zg-button variant=\"accent\" size=\"lg\" [loading]=\"true\">Processing</zg-button>\r\n        <zg-button variant=\"secondary\" size=\"sm\" [loading]=\"true\">Wait</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Loading state with spinner",
+        "description": "<p>Loading state with spinner</p>\n"
       },
       {
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Meta<ButtonComponent>",
-        "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'ghost'],\r\n      description: 'Visual style of the button',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Size of the button',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is disabled',\r\n    },\r\n  },\r\n}"
+        "type": "Meta<ZgButtonComponent>",
+        "defaultValue": "{\r\n  title: 'Atoms/Button',\r\n  component: ZgButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'accent', 'danger', 'ghost'],\r\n      description: 'Visual variant of the button',\r\n      table: {\r\n        defaultValue: { summary: 'primary' },\r\n        type: { summary: 'ButtonVariant' },\r\n      },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Size of the button',\r\n      table: {\r\n        defaultValue: { summary: 'md' },\r\n        type: { summary: 'ButtonSize' },\r\n      },\r\n    },\r\n    shape: {\r\n      control: 'select',\r\n      options: ['default', 'pill', 'square'],\r\n      description: 'Shape variant (border radius)',\r\n      table: {\r\n        defaultValue: { summary: 'default' },\r\n        type: { summary: 'ButtonShape' },\r\n      },\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is disabled',\r\n      table: {\r\n        defaultValue: { summary: 'false' },\r\n      },\r\n    },\r\n    loading: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is in loading state',\r\n      table: {\r\n        defaultValue: { summary: 'false' },\r\n      },\r\n    },\r\n    fullWidth: {\r\n      control: 'boolean',\r\n      description: 'Whether the button takes full width',\r\n      table: {\r\n        defaultValue: { summary: 'false' },\r\n      },\r\n    },\r\n    type: {\r\n      control: 'select',\r\n      options: ['button', 'submit', 'reset'],\r\n      description: 'Native button type',\r\n      table: {\r\n        defaultValue: { summary: 'button' },\r\n      },\r\n    },\r\n    fontFamily: {\r\n      control: 'select',\r\n      options: ['base', 'secondary'],\r\n      description: 'Font family variant (base: Inter, secondary: Teko for titles)',\r\n      table: {\r\n        defaultValue: { summary: 'base' },\r\n        type: { summary: 'ButtonFontFamily' },\r\n      },\r\n    },\r\n    clicked: {\r\n      action: 'clicked',\r\n      description: 'Emitted when the button is clicked',\r\n      table: {\r\n        category: 'Events',\r\n      },\r\n    },\r\n  },\r\n}",
+        "rawdescription": "Button component for user interactions and actions.\r\n\r\n## Usage Guide\r\n\r\n**When to use:**\r\n- Primary actions (submit forms, confirm dialogs)\r\n- Navigation triggers\r\n- Start processes or workflows\r\n\r\n**When NOT to use:**\r\n- Navigation between pages (use links instead)\r\n- Toggling settings (use toggle/switch)\r\n- Displaying status (use badge/tag)\r\n\r\n## Accessibility\r\n- ✅ Keyboard navigation (Enter/Space)\r\n- ✅ Focus visible states\r\n- ✅ Disabled state prevents interaction\r\n- ✅ Loading state with spinner\r\n- 💡 Use descriptive text (avoid \"Click here\")\r\n- 💡 Consider aria-label for icon-only buttons",
+        "description": "<p>Button component for user interactions and actions.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Primary actions (submit forms, confirm dialogs)</li>\n<li>Navigation triggers</li>\n<li>Start processes or workflows</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Navigation between pages (use links instead)</li>\n<li>Toggling settings (use toggle/switch)</li>\n<li>Displaying status (use badge/tag)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Keyboard navigation (Enter/Space)</li>\n<li>✅ Focus visible states</li>\n<li>✅ Disabled state prevents interaction</li>\n<li>✅ Loading state with spinner</li>\n<li>💡 Use descriptive text (avoid &quot;Click here&quot;)</li>\n<li>💡 Consider aria-label for icon-only buttons</li>\n</ul>\n"
       },
       {
         "name": "preview",
@@ -78,37 +102,79 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Preview",
-        "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  // Add theme decorator globally\n  decorators: [withTheme],\n  // Add client/theme toolbar controls\n  globalTypes: globalTypes as any,\n}"
+        "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      theme: customTheme,\n    },\n    backgrounds: {\n      default: 'dark',\n      values: [\n        { name: 'dark', value: '#2b2b2b' },\n        { name: 'light', value: '#f8fafc' },\n      ],\n    },\n  },\n  // Add theme decorator globally\n  decorators: [withTheme],\n  // Add client/theme toolbar controls\n  globalTypes: globalTypes as any,\n}"
       },
       {
-        "name": "Primary",
+        "name": "RealWorldExamples",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Primary Button',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  name: 'Real-world Examples',\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 2rem;\">\r\n        <!-- CTA Button (Write to us) - With secondary font for highlight -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Main CTA (with Teko for highlight)</h4>\r\n          <zg-button variant=\"accent\" shape=\"pill\" size=\"lg\" fontFamily=\"secondary\">\r\n            WRITE TO US\r\n          </zg-button>\r\n        </div>\r\n\r\n        <!-- Alternative CTA Button with base font -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Alternative CTA (with Inter)</h4>\r\n          <zg-button variant=\"accent\" shape=\"pill\" size=\"lg\">\r\n            Write to us\r\n          </zg-button>\r\n        </div>\r\n\r\n        <!-- Action Button (Save) -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Action with icon</h4>\r\n          <zg-button variant=\"primary\">\r\n            <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\r\n              <path d=\"M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1 1 0 0 0-.98 1.17l.5 3.5A2 2 0 0 0 4.86 11H6v1a2 2 0 1 0 4 0v-1h1.14a2 2 0 0 0 1.98-1.67l.5-3.5a1 1 0 0 0-.98-1.17H11z\"/>\r\n            </svg>\r\n            Save\r\n          </zg-button>\r\n        </div>\r\n\r\n        <!-- Navigation Group -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Navigation</h4>\r\n          <div style=\"display: flex; gap: 0.5rem;\">\r\n            <zg-button variant=\"primary\" size=\"sm\">\r\n              All\r\n              <span icon-right>›</span>\r\n            </zg-button>\r\n            <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\">‹</zg-button>\r\n            <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\">›</zg-button>\r\n            <zg-button variant=\"accent\" shape=\"square\" size=\"sm\">+</zg-button>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- Danger action -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Destructive action</h4>\r\n          <zg-button variant=\"danger\">Delete bet</zg-button>\r\n        </div>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Real-world examples based on provided references",
+        "description": "<p>Real-world examples based on provided references</p>\n"
       },
       {
-        "name": "Secondary",
+        "name": "Shapes",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'secondary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Secondary Button',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; align-items: center;\">\r\n        <zg-button shape=\"default\">Default (8px)</zg-button>\r\n        <zg-button shape=\"pill\">Pill (rounded)</zg-button>\r\n        <zg-button shape=\"square\">Square (2px)</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Different button shapes (border radius)",
+        "description": "<p>Different button shapes (border radius)</p>\n"
       },
       {
-        "name": "Small",
+        "name": "Sizes",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'sm',\r\n    disabled: false,\r\n    label: 'Small Button',\r\n  },\r\n}"
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; align-items: center;\">\r\n        <zg-button size=\"sm\">Small</zg-button>\r\n        <zg-button size=\"md\">Medium</zg-button>\r\n        <zg-button size=\"lg\">Large</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Different button sizes",
+        "description": "<p>Different button sizes</p>\n"
+      },
+      {
+        "name": "Variants",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\r\n        <zg-button variant=\"primary\">Primary</zg-button>\r\n        <zg-button variant=\"secondary\">Secondary</zg-button>\r\n        <zg-button variant=\"accent\">Accent</zg-button>\r\n        <zg-button variant=\"danger\">Danger</zg-button>\r\n        <zg-button variant=\"ghost\">Ghost</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "All button variants side by side",
+        "description": "<p>All button variants side by side</p>\n"
+      },
+      {
+        "name": "WithIconLeft",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <zg-button variant=\"primary\">\r\n        <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\r\n          <path d=\"M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z\"/>\r\n          <path d=\"M10.5 6.5L7 10l-1.5-1.5\"/>\r\n        </svg>\r\n        Save\r\n      </zg-button>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Button with icon on the left",
+        "description": "<p>Button with icon on the left</p>\n"
+      },
+      {
+        "name": "WithIconRight",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <zg-button variant=\"secondary\" size=\"sm\">\r\n        All\r\n        <span icon-right style=\"font-size: 1.2em;\">›</span>\r\n      </zg-button>\r\n    `,\r\n  }),\r\n}",
+        "rawdescription": "Button with icon on the right",
+        "description": "<p>Button with icon on the right</p>\n"
       }
     ],
     "functions": [],
@@ -117,8 +183,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ButtonComponent>",
-        "file": "projects/ui/src/lib/button/button.stories.ts",
+        "rawtype": "StoryObj<ZgButtonComponent>",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -127,96 +193,162 @@
     ],
     "enumerations": [],
     "groupedVariables": {
-      "projects/ui/src/lib/button/button.stories.ts": [
+      "projects/ui/src/lib/atoms/button/button.stories.ts": [
         {
-          "name": "AllSizes",
+          "name": "Default",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); align-items: center; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"sm\" [disabled]=\"false\" label=\"Small\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Medium\"></zg-button>\r\n        <zg-button variant=\"primary\" size=\"lg\" [disabled]=\"false\" label=\"Large\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
-        },
-        {
-          "name": "AllVariants",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <div style=\"display: flex; gap: var(--zg-spacing-8); flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" size=\"md\" [disabled]=\"false\" label=\"Primary\"></zg-button>\r\n        <zg-button variant=\"secondary\" size=\"md\" [disabled]=\"false\" label=\"Secondary\"></zg-button>\r\n        <zg-button variant=\"ghost\" size=\"md\" [disabled]=\"false\" label=\"Ghost\"></zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    shape: 'default',\r\n    disabled: false,\r\n    loading: false,\r\n    fullWidth: false,\r\n    fontFamily: 'base',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `<zg-button\r\n      [variant]=\"variant\"\r\n      [size]=\"size\"\r\n      [shape]=\"shape\"\r\n      [disabled]=\"disabled\"\r\n      [loading]=\"loading\"\r\n      [fullWidth]=\"fullWidth\"\r\n      [fontFamily]=\"fontFamily\"\r\n      (clicked)=\"clicked($event)\"\r\n    >\r\n      Click me\r\n    </zg-button>`,\r\n  }),\r\n}",
+          "rawdescription": "Default button with primary variant",
+          "description": "<p>Default button with primary variant</p>\n"
         },
         {
           "name": "Disabled",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: true,\r\n    label: 'Disabled Button',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" [disabled]=\"true\">Primary Disabled</zg-button>\r\n        <zg-button variant=\"secondary\" [disabled]=\"true\">Secondary Disabled</zg-button>\r\n        <zg-button variant=\"accent\" [disabled]=\"true\">Accent Disabled</zg-button>\r\n        <zg-button variant=\"danger\" [disabled]=\"true\">Danger Disabled</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Disabled state",
+          "description": "<p>Disabled state</p>\n"
         },
         {
-          "name": "Ghost",
+          "name": "FontFamilies",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'ghost',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Ghost Button',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;\">\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Base (Inter) - Default</h4>\r\n          <zg-button fontFamily=\"base\">Button with Inter</zg-button>\r\n        </div>\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Secondary (Teko) - For titles/highlights</h4>\r\n          <zg-button fontFamily=\"secondary\" size=\"lg\">BUTTON WITH TEKO</zg-button>\r\n        </div>\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Side by side comparison</h4>\r\n          <div style=\"display: flex; gap: 1rem; align-items: center;\">\r\n            <zg-button variant=\"primary\" fontFamily=\"base\">Inter (base)</zg-button>\r\n            <zg-button variant=\"primary\" fontFamily=\"secondary\">TEKO (secondary)</zg-button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Font family variants (base: Inter, secondary: Teko for titles/headings)",
+          "description": "<p>Font family variants (base: Inter, secondary: Teko for titles/headings)</p>\n"
         },
         {
-          "name": "Large",
+          "name": "FullWidth",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'lg',\r\n    disabled: false,\r\n    label: 'Large Button',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"max-width: 400px;\">\r\n        <zg-button variant=\"primary\" [fullWidth]=\"true\">Full Width Button</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Full width button (useful in forms, mobile layouts)",
+          "description": "<p>Full width button (useful in forms, mobile layouts)</p>\n"
+        },
+        {
+          "name": "IconOnly",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 0.5rem; align-items: center;\">\r\n        <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\" aria-label=\"Previous\">\r\n          ‹\r\n        </zg-button>\r\n        <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\" aria-label=\"Next\">\r\n          ›\r\n        </zg-button>\r\n        <zg-button variant=\"accent\" shape=\"square\" size=\"sm\" aria-label=\"Add\">\r\n          +\r\n        </zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Icon-only buttons (useful for navigation, actions)",
+          "description": "<p>Icon-only buttons (useful for navigation, actions)</p>\n"
+        },
+        {
+          "name": "Loading",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\r\n        <zg-button variant=\"primary\" [loading]=\"true\">Loading...</zg-button>\r\n        <zg-button variant=\"accent\" size=\"lg\" [loading]=\"true\">Processing</zg-button>\r\n        <zg-button variant=\"secondary\" size=\"sm\" [loading]=\"true\">Wait</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Loading state with spinner",
+          "description": "<p>Loading state with spinner</p>\n"
         },
         {
           "name": "meta",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
-          "type": "Meta<ButtonComponent>",
-          "defaultValue": "{\r\n  title: 'Components/Button',\r\n  component: ButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'ghost'],\r\n      description: 'Visual style of the button',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Size of the button',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is disabled',\r\n    },\r\n  },\r\n}"
+          "type": "Meta<ZgButtonComponent>",
+          "defaultValue": "{\r\n  title: 'Atoms/Button',\r\n  component: ZgButtonComponent,\r\n  tags: ['autodocs'],\r\n  argTypes: {\r\n    variant: {\r\n      control: 'select',\r\n      options: ['primary', 'secondary', 'accent', 'danger', 'ghost'],\r\n      description: 'Visual variant of the button',\r\n      table: {\r\n        defaultValue: { summary: 'primary' },\r\n        type: { summary: 'ButtonVariant' },\r\n      },\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Size of the button',\r\n      table: {\r\n        defaultValue: { summary: 'md' },\r\n        type: { summary: 'ButtonSize' },\r\n      },\r\n    },\r\n    shape: {\r\n      control: 'select',\r\n      options: ['default', 'pill', 'square'],\r\n      description: 'Shape variant (border radius)',\r\n      table: {\r\n        defaultValue: { summary: 'default' },\r\n        type: { summary: 'ButtonShape' },\r\n      },\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is disabled',\r\n      table: {\r\n        defaultValue: { summary: 'false' },\r\n      },\r\n    },\r\n    loading: {\r\n      control: 'boolean',\r\n      description: 'Whether the button is in loading state',\r\n      table: {\r\n        defaultValue: { summary: 'false' },\r\n      },\r\n    },\r\n    fullWidth: {\r\n      control: 'boolean',\r\n      description: 'Whether the button takes full width',\r\n      table: {\r\n        defaultValue: { summary: 'false' },\r\n      },\r\n    },\r\n    type: {\r\n      control: 'select',\r\n      options: ['button', 'submit', 'reset'],\r\n      description: 'Native button type',\r\n      table: {\r\n        defaultValue: { summary: 'button' },\r\n      },\r\n    },\r\n    fontFamily: {\r\n      control: 'select',\r\n      options: ['base', 'secondary'],\r\n      description: 'Font family variant (base: Inter, secondary: Teko for titles)',\r\n      table: {\r\n        defaultValue: { summary: 'base' },\r\n        type: { summary: 'ButtonFontFamily' },\r\n      },\r\n    },\r\n    clicked: {\r\n      action: 'clicked',\r\n      description: 'Emitted when the button is clicked',\r\n      table: {\r\n        category: 'Events',\r\n      },\r\n    },\r\n  },\r\n}",
+          "rawdescription": "Button component for user interactions and actions.\r\n\r\n## Usage Guide\r\n\r\n**When to use:**\r\n- Primary actions (submit forms, confirm dialogs)\r\n- Navigation triggers\r\n- Start processes or workflows\r\n\r\n**When NOT to use:**\r\n- Navigation between pages (use links instead)\r\n- Toggling settings (use toggle/switch)\r\n- Displaying status (use badge/tag)\r\n\r\n## Accessibility\r\n- ✅ Keyboard navigation (Enter/Space)\r\n- ✅ Focus visible states\r\n- ✅ Disabled state prevents interaction\r\n- ✅ Loading state with spinner\r\n- 💡 Use descriptive text (avoid \"Click here\")\r\n- 💡 Consider aria-label for icon-only buttons",
+          "description": "<p>Button component for user interactions and actions.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Primary actions (submit forms, confirm dialogs)</li>\n<li>Navigation triggers</li>\n<li>Start processes or workflows</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Navigation between pages (use links instead)</li>\n<li>Toggling settings (use toggle/switch)</li>\n<li>Displaying status (use badge/tag)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Keyboard navigation (Enter/Space)</li>\n<li>✅ Focus visible states</li>\n<li>✅ Disabled state prevents interaction</li>\n<li>✅ Loading state with spinner</li>\n<li>💡 Use descriptive text (avoid &quot;Click here&quot;)</li>\n<li>💡 Consider aria-label for icon-only buttons</li>\n</ul>\n"
         },
         {
-          "name": "Primary",
+          "name": "RealWorldExamples",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Primary Button',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  name: 'Real-world Examples',\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; flex-direction: column; gap: 2rem;\">\r\n        <!-- CTA Button (Write to us) - With secondary font for highlight -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Main CTA (with Teko for highlight)</h4>\r\n          <zg-button variant=\"accent\" shape=\"pill\" size=\"lg\" fontFamily=\"secondary\">\r\n            WRITE TO US\r\n          </zg-button>\r\n        </div>\r\n\r\n        <!-- Alternative CTA Button with base font -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Alternative CTA (with Inter)</h4>\r\n          <zg-button variant=\"accent\" shape=\"pill\" size=\"lg\">\r\n            Write to us\r\n          </zg-button>\r\n        </div>\r\n\r\n        <!-- Action Button (Save) -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Action with icon</h4>\r\n          <zg-button variant=\"primary\">\r\n            <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\r\n              <path d=\"M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1 1 0 0 0-.98 1.17l.5 3.5A2 2 0 0 0 4.86 11H6v1a2 2 0 1 0 4 0v-1h1.14a2 2 0 0 0 1.98-1.67l.5-3.5a1 1 0 0 0-.98-1.17H11z\"/>\r\n            </svg>\r\n            Save\r\n          </zg-button>\r\n        </div>\r\n\r\n        <!-- Navigation Group -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Navigation</h4>\r\n          <div style=\"display: flex; gap: 0.5rem;\">\r\n            <zg-button variant=\"primary\" size=\"sm\">\r\n              All\r\n              <span icon-right>›</span>\r\n            </zg-button>\r\n            <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\">‹</zg-button>\r\n            <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\">›</zg-button>\r\n            <zg-button variant=\"accent\" shape=\"square\" size=\"sm\">+</zg-button>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- Danger action -->\r\n        <div>\r\n          <h4 style=\"margin-bottom: 0.5rem;\">Destructive action</h4>\r\n          <zg-button variant=\"danger\">Delete bet</zg-button>\r\n        </div>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Real-world examples based on provided references",
+          "description": "<p>Real-world examples based on provided references</p>\n"
         },
         {
-          "name": "Secondary",
+          "name": "Shapes",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'secondary',\r\n    size: 'md',\r\n    disabled: false,\r\n    label: 'Secondary Button',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; align-items: center;\">\r\n        <zg-button shape=\"default\">Default (8px)</zg-button>\r\n        <zg-button shape=\"pill\">Pill (rounded)</zg-button>\r\n        <zg-button shape=\"square\">Square (2px)</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Different button shapes (border radius)",
+          "description": "<p>Different button shapes (border radius)</p>\n"
         },
         {
-          "name": "Small",
+          "name": "Sizes",
           "ctype": "miscellaneous",
           "subtype": "variable",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\r\n  args: {\r\n    variant: 'primary',\r\n    size: 'sm',\r\n    disabled: false,\r\n    label: 'Small Button',\r\n  },\r\n}"
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; align-items: center;\">\r\n        <zg-button size=\"sm\">Small</zg-button>\r\n        <zg-button size=\"md\">Medium</zg-button>\r\n        <zg-button size=\"lg\">Large</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Different button sizes",
+          "description": "<p>Different button sizes</p>\n"
+        },
+        {
+          "name": "Variants",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\r\n        <zg-button variant=\"primary\">Primary</zg-button>\r\n        <zg-button variant=\"secondary\">Secondary</zg-button>\r\n        <zg-button variant=\"accent\">Accent</zg-button>\r\n        <zg-button variant=\"danger\">Danger</zg-button>\r\n        <zg-button variant=\"ghost\">Ghost</zg-button>\r\n      </div>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "All button variants side by side",
+          "description": "<p>All button variants side by side</p>\n"
+        },
+        {
+          "name": "WithIconLeft",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <zg-button variant=\"primary\">\r\n        <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\r\n          <path d=\"M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z\"/>\r\n          <path d=\"M10.5 6.5L7 10l-1.5-1.5\"/>\r\n        </svg>\r\n        Save\r\n      </zg-button>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Button with icon on the left",
+          "description": "<p>Button with icon on the left</p>\n"
+        },
+        {
+          "name": "WithIconRight",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <zg-button variant=\"secondary\" size=\"sm\">\r\n        All\r\n        <span icon-right style=\"font-size: 1.2em;\">›</span>\r\n      </zg-button>\r\n    `,\r\n  }),\r\n}",
+          "rawdescription": "Button with icon on the right",
+          "description": "<p>Button with icon on the right</p>\n"
         }
       ],
       "projects/ui/.storybook/preview.ts": [
@@ -228,20 +360,20 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Preview",
-          "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n  },\n  // Add theme decorator globally\n  decorators: [withTheme],\n  // Add client/theme toolbar controls\n  globalTypes: globalTypes as any,\n}"
+          "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      theme: customTheme,\n    },\n    backgrounds: {\n      default: 'dark',\n      values: [\n        { name: 'dark', value: '#2b2b2b' },\n        { name: 'light', value: '#f8fafc' },\n      ],\n    },\n  },\n  // Add theme decorator globally\n  decorators: [withTheme],\n  // Add client/theme toolbar controls\n  globalTypes: globalTypes as any,\n}"
         }
       ]
     },
     "groupedFunctions": {},
     "groupedEnumerations": {},
     "groupedTypeAliases": {
-      "projects/ui/src/lib/button/button.stories.ts": [
+      "projects/ui/src/lib/atoms/button/button.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<ButtonComponent>",
-          "file": "projects/ui/src/lib/button/button.stories.ts",
+          "rawtype": "StoryObj<ZgButtonComponent>",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -256,8 +388,8 @@
     "children": []
   },
   "coverage": {
-    "count": 0,
-    "status": "low",
+    "count": 86,
+    "status": "very-good",
     "files": [
       {
         "filePath": "projects/ui/.storybook/preview.ts",
@@ -270,97 +402,137 @@
         "status": "low"
       },
       {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "AllSizes",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "Default",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "AllVariants",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "Disabled",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "Ghost",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "FontFamilies",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "Large",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "FullWidth",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "IconOnly",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Loading",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
         "name": "meta",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "Primary",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "RealWorldExamples",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "Secondary",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "Shapes",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "Small",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
+        "name": "Sizes",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
       },
       {
-        "filePath": "projects/ui/src/lib/button/button.stories.ts",
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Variants",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "WithIconLeft",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "WithIconRight",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "type": "type alias",
         "linktype": "miscellaneous",
         "linksubtype": "typealias",

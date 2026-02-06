@@ -1,0 +1,246 @@
+/**
+ * Button Component Styles
+ * Consumes design tokens from _tokens.scss (CAPA 3: Component-specific)
+ */
+
+:host {
+  display: inline-block;
+
+  &.zg-button--full-width {
+    display: block;
+    width: 100%;
+  }
+}
+
+.zg-button__native {
+  // Reset button styles
+  border: none;
+  margin: 0;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+
+  // Layout
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--zg-button-icon-gap);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  // Typography
+  font-family: var(--zg-button-font-family);
+  font-size: var(--zg-button-font-size-md);
+  font-weight: var(--zg-button-font-weight);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+
+  // Sizing (default: md)
+  height: var(--zg-button-height-md);
+  padding: var(--zg-button-padding-y-md) var(--zg-button-padding-x-md);
+
+  // Border radius (default: default)
+  border-radius: var(--zg-button-radius-default);
+
+  // Transition
+  transition: var(--zg-button-transition);
+  transition-property: background-color, color, border-color, box-shadow;
+
+  // Default variant: primary
+  background-color: var(--zg-button-bg-primary);
+  color: var(--zg-button-text-primary);
+  border: 1px solid var(--zg-button-border-primary);
+
+  // Focus ring
+  &:focus-visible {
+    outline: var(--zg-button-focus-ring-width) solid var(--zg-button-focus-ring-color);
+    outline-offset: var(--zg-button-focus-ring-offset);
+  }
+
+  // Hover state
+  &:hover:not(:disabled) {
+    background-color: var(--zg-button-bg-primary-hover);
+  }
+
+  // Active state
+  &:active:not(:disabled) {
+    background-color: var(--zg-button-bg-primary-active);
+  }
+
+  // Disabled state
+  &:disabled {
+    opacity: var(--zg-button-disabled-opacity);
+    cursor: not-allowed;
+  }
+}
+
+// ============================================
+// SIZE VARIANTS
+// ============================================
+
+:host([data-size='sm']) .zg-button__native {
+  height: var(--zg-button-height-sm);
+  padding: var(--zg-button-padding-y-sm) var(--zg-button-padding-x-sm);
+  font-size: var(--zg-button-font-size-sm);
+}
+
+:host([data-size='lg']) .zg-button__native {
+  height: var(--zg-button-height-lg);
+  padding: var(--zg-button-padding-y-lg) var(--zg-button-padding-x-lg);
+  font-size: var(--zg-button-font-size-lg);
+}
+
+// ============================================
+// SHAPE VARIANTS
+// ============================================
+
+:host([data-shape='pill']) .zg-button__native {
+  border-radius: var(--zg-button-radius-pill);
+}
+
+:host([data-shape='square']) .zg-button__native {
+  border-radius: var(--zg-button-radius-square);
+}
+
+// ============================================
+// FONT FAMILY VARIANTS
+// ============================================
+
+:host([data-font-family='secondary']) .zg-button__native {
+  font-family: var(--zg-button-font-family-secondary);
+}
+
+// ============================================
+// VARIANT STYLES
+// ============================================
+
+// Secondary variant
+:host([data-variant='secondary']) .zg-button__native {
+  background-color: var(--zg-button-bg-secondary);
+  color: var(--zg-button-text-secondary);
+  border-color: var(--zg-button-border-secondary);
+
+  &:hover:not(:disabled) {
+    background-color: var(--zg-button-bg-secondary-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--zg-button-bg-secondary-active);
+  }
+}
+
+// Accent variant
+:host([data-variant='accent']) .zg-button__native {
+  background-color: var(--zg-button-bg-accent);
+  color: var(--zg-button-text-accent);
+  border-color: var(--zg-button-border-accent);
+
+  &:hover:not(:disabled) {
+    background-color: var(--zg-button-bg-accent-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--zg-button-bg-accent-active);
+  }
+}
+
+// Danger variant
+:host([data-variant='danger']) .zg-button__native {
+  background-color: var(--zg-button-bg-danger);
+  color: var(--zg-button-text-danger);
+  border-color: var(--zg-button-border-danger);
+
+  &:hover:not(:disabled) {
+    background-color: var(--zg-button-bg-danger-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--zg-button-bg-danger-active);
+  }
+}
+
+// Ghost variant
+:host([data-variant='ghost']) .zg-button__native {
+  background-color: var(--zg-button-bg-ghost);
+  color: var(--zg-button-text-ghost);
+  border-color: var(--zg-button-border-ghost);
+
+  &:hover:not(:disabled) {
+    background-color: var(--zg-button-bg-ghost-hover);
+  }
+
+  &:active:not(:disabled) {
+    background-color: var(--zg-button-bg-ghost-active);
+  }
+}
+
+// ============================================
+// ICON SLOTS
+// ============================================
+
+.zg-button__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &:empty {
+    display: none;
+  }
+
+  // Icon positioning modifiers
+  &--left {
+    order: -1; // Ensures it appears before content
+  }
+
+  &--right {
+    order: 1; // Ensures it appears after content
+  }
+
+  // Icon sizing based on button size
+  ::ng-deep svg,
+  ::ng-deep img {
+    width: 1em;
+    height: 1em;
+    display: block;
+  }
+}
+
+// ============================================
+// LOADING STATE
+// ============================================
+
+.zg-button__spinner {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: zg-button-spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+.zg-button__content--hidden {
+  visibility: hidden;
+  position: absolute;
+}
+
+@keyframes zg-button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ============================================
+// FULL WIDTH
+// ============================================
+
+:host(.zg-button--full-width) .zg-button__native {
+  width: 100%;
+}
