@@ -11,7 +11,7 @@ import { applyClientTheme, type ClientId } from '../src/themes/client-themes';
  * Add this to .storybook/preview.ts
  */
 export const withTheme: Decorator = (story, context) => {
-  const clientId = (context.globals['client'] as ClientId) || 'casino1';
+  const clientId = (context.globals['client'] as ClientId) || 'cliente1';
   const variant = (context.globals['theme'] as string) || 'light';
 
   // Apply theme (handles reset + createTheme internally)
@@ -28,12 +28,12 @@ export const globalTypes = {
   client: {
     name: 'Client',
     description: 'Select client brand',
-    defaultValue: 'casino1',
+    defaultValue: 'cliente1',
     toolbar: {
       icon: 'globe',
       items: [
-        { value: 'casino1', title: 'Casino 1 (Green)' },
-        { value: 'casino2', title: 'Casino 2 (Purple)' },
+        { value: 'cliente1', title: 'Cliente 1 (Green)' },
+        { value: 'cliente2', title: 'Cliente 2 (Purple)' },
       ],
       dynamicTitle: true,
     },

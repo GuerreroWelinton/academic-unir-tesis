@@ -90,15 +90,15 @@ export type ClientThemeConfig = Record<string, Theme>;
 /**
  * Available clients
  */
-export type ClientId = 'casino1' | 'casino2';
+export type ClientId = 'cliente1' | 'cliente2';
 
 /**
  * Client themes registry
  * Define all client themes here
  */
 export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
-  // Casino 1 (ZGames) - Default brand
-  casino1: {
+  // Cliente 1 (ZGames) - Default brand
+  cliente1: {
     light: {
       primitives: {
         green800: '#114b2a',
@@ -141,8 +141,8 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
     },
   },
 
-  // Casino 2 - Purple/Yellow theme
-  casino2: {
+  // Cliente 2 - Purple/Yellow theme
+  cliente2: {
     light: {
       primitives: {
         green800: '#6a1b9a',
@@ -200,7 +200,7 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
  */
 export function getClientTheme(clientId: ClientId, variant: string = 'light'): Theme {
   const clientThemes = CLIENT_THEMES[clientId];
-  return clientThemes[variant] || CLIENT_THEMES['casino1']['light'];
+  return clientThemes[variant] || CLIENT_THEMES['cliente1']['light'];
 }
 
 /**

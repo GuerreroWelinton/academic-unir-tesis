@@ -119,8 +119,8 @@ Consistent spacing from `4` to `64` using 4px base unit.
 import { applyClientTheme } from './themes/client-themes';
 
 // Apply a theme at runtime
-applyClientTheme('casino1', 'dark');
-applyClientTheme('casino2', 'christmas');
+applyClientTheme('cliente1', 'dark');
+applyClientTheme('cliente2', 'christmas');
 ```
 
 ### Creating a Custom Theme
