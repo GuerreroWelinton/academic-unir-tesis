@@ -35,7 +35,7 @@ All components are:
 
 The library supports **runtime theme switching** for multiple casino clients. Each client can have multiple theme variants (light, dark, custom).
 
-- Client themes are configured in [src/themes/client-themes.ts](src/themes/client-themes.ts)
+- Client themes are configurados en [projects/ui/src/themes/client-themes.ts](projects/ui/src/themes/client-themes.ts)
 - Themes can override semantic tokens and primitives
 - Storybook includes a toolbar to preview all client themes
 
@@ -78,11 +78,35 @@ zg-ui/
 │   │       └── design-tokens.ts     # createTheme(), resetTheme(), token accessors
 │   └── ui/                    # Component library
 │       └── src/lib/
-│           └── button/        # Example: Button component
-│               ├── button.component.ts
-│               ├── button.component.scss
-│               ├── button.component.spec.ts
-│               └── button.stories.ts
+│           ├── atoms/
+│           │   ├── button/
+│           │   │   ├── button.component.ts
+│           │   │   ├── button.component.html
+│           │   │   ├── button.component.scss
+│           │   │   ├── button.component.spec.ts
+│           │   │   └── button.stories.ts
+│           │   ├── badge/
+│           │   │   ├── badge.component.ts
+│           │   │   ├── badge.component.html
+│           │   │   ├── badge.component.scss
+│           │   │   ├── badge.component.spec.ts
+│           │   │   └── badge.stories.ts
+│           │   └── ...otros átomos
+│           ├── molecules/
+│           │   ├── card/
+│           │   │   ├── card.component.ts
+│           │   │   ├── card.component.html
+│           │   │   ├── card.component.scss
+│           │   │   ├── card.component.spec.ts
+│           │   │   └── card.stories.ts
+│           │   ├── modal/
+│           │   │   ├── modal.component.ts
+│           │   │   ├── modal.component.html
+│           │   │   ├── modal.component.scss
+│           │   │   ├── modal.component.spec.ts
+│           │   │   └── modal.stories.ts
+│           │   └── ...otros moléculas
+│           └── ...(en el futuro: organisms/, templates/, pages/)
 ├── src/
 │   ├── styles/
 │   │   └── _tokens.scss       # Single source of truth for design tokens

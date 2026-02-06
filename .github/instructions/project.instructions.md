@@ -92,15 +92,19 @@ Cuando agregues nuevos tokens en `src/styles/_tokens.scss`, debes seguir estas r
 
 ESTRUCTURA Y ORGANIZACIÓN DEL REPO (OBLIGATORIA)
 
-- Librería UI:
-  - Los componentes deben estar en: projects/ui/src/lib/<componente>/
-  - Las historias y tests deben estar co-localizados con el componente:
-    - <componente>.component.ts
-    - <componente>.component.html (si aplica)
-    - <componente>.component.scss|css
-    - <componente>.stories.ts
-    - <componente>.spec.ts
-  - Evitar mantener stories “globales” en projects/ui/src/stories una vez que existan componentes reales. Los ejemplos de Storybook pueden borrarse cuando el primer componente real esté listo.
+Librería UI:
+
+- Los componentes deben estar agrupados por categorías siguiendo el design system:
+  - projects/ui/src/lib/atoms/<componente>/
+  - projects/ui/src/lib/molecules/<componente>/
+  - (En el futuro: organisms/, templates/, pages/)
+- Las historias y tests deben estar co-localizados con el componente:
+  - <componente>.component.ts
+  - <componente>.component.html (si aplica)
+  - <componente>.component.scss|css
+  - <componente>.stories.ts
+  - <componente>.spec.ts
+- Evitar mantener stories “globales” en projects/ui/src/stories una vez que existan componentes reales. Los ejemplos de Storybook pueden borrarse cuando el primer componente real esté listo.
 - Design tokens:
   - Mantener una única fuente de verdad de tokens como CSS variables.
   - Preferir un archivo simple y versionable:
