@@ -61,6 +61,8 @@
     "@storybook/addon-a11y": "^10.2.4",
     "@storybook/addon-docs": "^10.2.4",
     "@storybook/angular": "^10.2.4",
+    "@storybook/jest": "^0.2.2",
+    "@storybook/testing-library": "^0.2.1",
     "@vitest/coverage-v8": "^4.0.18",
     "angular-eslint": "21.2.0",
     "chromatic": "^11.29.0",

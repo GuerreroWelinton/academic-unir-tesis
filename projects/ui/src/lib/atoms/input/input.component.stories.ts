@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
 import { ZgInputComponent } from './input.component';
+import { userEvent, within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 /**
  * Input component for user text entry.
@@ -242,6 +244,23 @@ export const Error: Story = {
   },
 };
 
+export const ErrorWithHelper: Story = {
+  args: {
+    label: 'Email',
+    placeholder: 'Enter your email',
+    error: 'Invalid email address',
+    helperText: 'Must be a valid email',
+    value: '',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox');
+    await userEvent.type(input, 'not-an-email');
+    const errorMsg = canvas.getByText('Invalid email address');
+    await expect(errorMsg).toBeVisible();
+  },
+};
+
 export const Disabled: Story = {
   args: {
     label: 'Disabled',
@@ -249,25 +268,135 @@ export const Disabled: Story = {
     disabled: true,
     value: '',
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox');
+    await expect(input).toBeDisabled();
+  },
 };
 
-export const HelperText: Story = {
+export const Readonly: Story = {
   args: {
-    label: 'With helper',
-    placeholder: 'Type something',
-    helperText: 'Helper text for guidance',
+    label: 'Readonly',
+    placeholder: 'Cannot edit',
+    readonly: true,
+    value: 'Read only value',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox');
+    await expect(input).toHaveAttribute('readonly');
+    await userEvent.type(input, '123');
+    await expect(input).toHaveValue('Read only value');
+  },
+};
+
+export const MaxLength: Story = {
+  args: {
+    label: 'Max Length',
+    placeholder: 'Max 10 chars',
+    maxlength: 10,
+    value: '',
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox');
+    await userEvent.type(input, '123456789012345');
+    await expect(input).toHaveValue('1234567890');
+  },
+};
+
+export const Autocomplete: Story = {
+  args: {
+    label: 'Autocomplete',
+    placeholder: 'Type for suggestions',
+    autocomplete: 'username',
     value: '',
   },
 };
 
-export const Sizes: Story = {
-  render: () => ({
+export const FullWidth: Story = {
+  args: {
+    label: 'Full Width',
+    placeholder: 'Stretches to parent',
+    fullWidth: true,
+    value: '',
+  },
+};
+
+export const MultipleIcons: Story = {
+  render: (args) => ({
+    props: {
+      ...args,
+      value: '',
+    },
     template: `
-      <div style="display: flex; gap: 1rem; flex-direction: column; width: 300px;">
-        <zg-input label="Small" size="sm" placeholder="Small input"></zg-input>
-        <zg-input label="Medium" size="md" placeholder="Medium input"></zg-input>
-        <zg-input label="Large" size="lg" placeholder="Large input"></zg-input>
-      </div>
+      <zg-input
+        [label]="label"
+        [placeholder]="placeholder"
+        [value]="value"
+        [type]="type"
+        [size]="size"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [fullWidth]="fullWidth"
+        [autocomplete]="autocomplete"
+        [maxlength]="maxlength"
+        [helperText]="helperText"
+        (changed)="changed($event)"
+        (focused)="focused($event)"
+        (blurred)="blurred($event)"
+        (cleared)="cleared()"
+      >
+        <svg icon-left width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <svg icon-right width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </zg-input>
+    `,
+  }),
+};
+
+export const AllEvents: Story = {
+  args: {
+    label: 'Events Demo',
+    placeholder: 'Try focus, blur, clear',
+    value: '',
+  },
+  render: (args) => ({
+    props: {
+      ...args,
+      changed: (val: string) => {
+        console.log('changed', val);
+      },
+      focused: (ev: FocusEvent) => {
+        console.log('focused', ev);
+      },
+      blurred: (ev: FocusEvent) => {
+        console.log('blurred', ev);
+      },
+      cleared: () => {
+        console.log('cleared');
+      },
+    },
+    template: `
+      <zg-input
+        [label]="label"
+        [placeholder]="placeholder"
+        [value]="value"
+        [type]="type"
+        [size]="size"
+        [disabled]="disabled"
+        [readonly]="readonly"
+        [error]="error"
+        [fullWidth]="fullWidth"
+        [autocomplete]="autocomplete"
+        [maxlength]="maxlength"
+        [helperText]="helperText"
+        (changed)="changed($event)"
+        (focused)="focused($event)"
+        (blurred)="blurred($event)"
+        (cleared)="cleared()"
+      >
+      </zg-input>
     `,
   }),
 };
