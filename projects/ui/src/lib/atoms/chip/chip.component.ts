@@ -138,16 +138,7 @@ export class ZgChipComponent {
    * @internal
    */
   protected hostClasses = computed(() => {
-    const classes = ['zg-chip'];
-    classes.push(`zg-chip--${this.variant()}`);
-    classes.push(`zg-chip--${this.size()}`);
-    if (this.selected()) {
-      classes.push('zg-chip--selected');
-    }
-    if (this.disabled()) {
-      classes.push('zg-chip--disabled');
-    }
-    return classes.join(' ');
+    return 'zg-chip';
   });
 
   /**

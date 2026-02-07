@@ -30,11 +30,6 @@ import { ZgChipComponent } from './chip.component';
  * - ✅ Disabled state prevents all interaction
  * - 💡 Use descriptive text (avoid single letters)
  * - 💡 Consider grouping chips with fieldset/legend for filters
- *
- * ## ng-content Slots
- * - **Default**: Main text/content
- * - **[icon-left]**: Optional icon at the start
- * - **[icon-right]**: Optional icon at the end (e.g., X for remove, checkmark when selected)
  */
 const meta: Meta<ZgChipComponent> = {
   title: 'Atoms/Chip',
@@ -208,7 +203,7 @@ export const WithIcons: Story = {
       <div style="display: flex; flex-direction: column; gap: 1.5rem;">
         <!-- Icon left -->
         <div>
-          <h4 style="margin: 0 0 0.5rem;">Icon Left:</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Example: Category chips with icons</h4>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <zg-chip variant="filled">
               <svg icon-left width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -225,9 +220,8 @@ export const WithIcons: Story = {
           </div>
         </div>
 
-        <!-- Icon right (remove/close) -->
         <div>
-          <h4 style="margin: 0 0 0.5rem;">Icon Right (Removable):</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Example: Active filters with remove icon</h4>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <zg-chip variant="filled">
               Category
@@ -244,9 +238,8 @@ export const WithIcons: Story = {
           </div>
         </div>
 
-        <!-- Icon right (checkmark when selected) -->
         <div>
-          <h4 style="margin: 0 0 0.5rem;">Icon Right (Checkmark):</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Example: Active filters with checkmark icon</h4>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <zg-chip variant="filled" [selected]="true">
               Active Filter
@@ -257,9 +250,8 @@ export const WithIcons: Story = {
           </div>
         </div>
 
-        <!-- Both icons -->
         <div>
-          <h4 style="margin: 0 0 0.5rem;">Both Icons:</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Example: Active filters with both icons</h4>
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <zg-chip variant="filled" [selected]="true">
               <svg icon-left width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -287,7 +279,7 @@ export const RealWorldExamples: Story = {
       <div style="display: flex; flex-direction: column; gap: 2rem; max-width: 800px;">
         <!-- Game category filters (horizontal) -->
         <div>
-          <h4 style="margin: 0 0 1rem;">Game Category Filters:</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Game Category Filters:</h4>
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
             <zg-chip variant="filled" [selected]="true">All Games</zg-chip>
             <zg-chip variant="outlined">Slots</zg-chip>
@@ -298,9 +290,8 @@ export const RealWorldExamples: Story = {
           </div>
         </div>
 
-        <!-- Active filters with remove option -->
         <div>
-          <h4 style="margin: 0 0 1rem;">Active Filters (Removable):</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Active Filters (Removable):</h4>
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;">
             <span style="color: #666; font-size: 14px;">Applied filters:</span>
             <zg-chip variant="filled" size="sm">
@@ -324,9 +315,8 @@ export const RealWorldExamples: Story = {
           </div>
         </div>
 
-        <!-- Sports betting markets -->
         <div>
-          <h4 style="margin: 0 0 1rem;">Sports Markets:</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Sports Markets:</h4>
           <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
             <zg-chip variant="ghost">
               <svg icon-left width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
@@ -349,9 +339,8 @@ export const RealWorldExamples: Story = {
           </div>
         </div>
 
-        <!-- Size variations in context -->
         <div>
-          <h4 style="margin: 0 0 1rem;">Size Variations:</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Size Variations:</h4>
           <div style="display: flex; flex-direction: column; gap: 1rem;">
             <div style="display: flex; gap: 0.5rem; align-items: center;">
               <span style="width: 100px; color: #666; font-size: 14px;">Small:</span>
@@ -383,13 +372,27 @@ export const RealWorldExamples: Story = {
 export const InteractiveToggle: Story = {
   name: 'Interactive Toggle',
   render: () => ({
+    props: {
+      selected1: false,
+      selected2: false,
+      selected3: false,
+      onSelectedChange1: function (value: boolean) {
+        this['selected1'] = value;
+      },
+      onSelectedChange2: function (value: boolean) {
+        this['selected2'] = value;
+      },
+      onSelectedChange3: function (value: boolean) {
+        this['selected3'] = value;
+      },
+    },
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <p style="margin: 0; color: #666;">Click on chips to toggle their selected state:</p>
         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <zg-chip data-testid="chip-1">Sports</zg-chip>
-          <zg-chip data-testid="chip-2">Slots</zg-chip>
-          <zg-chip data-testid="chip-3">Live Casino</zg-chip>
+          <zg-chip data-testid="chip-1" [selected]="selected1" (selectedChange)="onSelectedChange1($event)">Sports</zg-chip>
+          <zg-chip data-testid="chip-2" [selected]="selected2" (selectedChange)="onSelectedChange2($event)">Slots</zg-chip>
+          <zg-chip data-testid="chip-3" [selected]="selected3" (selectedChange)="onSelectedChange3($event)">Live Casino</zg-chip>
         </div>
       </div>
     `,
@@ -416,13 +419,27 @@ export const InteractiveToggle: Story = {
 export const KeyboardNavigation: Story = {
   name: 'Keyboard Navigation',
   render: () => ({
+    props: {
+      kbSelected1: false,
+      kbSelected2: false,
+      kbSelected3: false,
+      onKbSelectedChange1: function (value: boolean) {
+        this['kbSelected1'] = value;
+      },
+      onKbSelectedChange2: function (value: boolean) {
+        this['kbSelected2'] = value;
+      },
+      onKbSelectedChange3: function (value: boolean) {
+        this['kbSelected3'] = value;
+      },
+    },
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <p style="margin: 0; color: #666;">Use Tab to focus and Enter/Space to toggle:</p>
         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <zg-chip data-testid="kb-chip-1">First</zg-chip>
-          <zg-chip data-testid="kb-chip-2">Second</zg-chip>
-          <zg-chip data-testid="kb-chip-3">Third</zg-chip>
+          <zg-chip data-testid="kb-chip-1" [selected]="kbSelected1" (selectedChange)="onKbSelectedChange1($event)">First</zg-chip>
+          <zg-chip data-testid="kb-chip-2" [selected]="kbSelected2" (selectedChange)="onKbSelectedChange2($event)">Second</zg-chip>
+          <zg-chip data-testid="kb-chip-3" [selected]="kbSelected3" (selectedChange)="onKbSelectedChange3($event)">Third</zg-chip>
         </div>
       </div>
     `,
@@ -452,11 +469,21 @@ export const KeyboardNavigation: Story = {
 export const DisabledChip: Story = {
   name: 'Disabled State',
   render: () => ({
+    props: {
+      enabledSelected: false,
+      disabledSelected: false,
+      onEnabledSelectedChange: function (value: boolean) {
+        this['enabledSelected'] = value;
+      },
+      onDisabledSelectedChange: function (value: boolean) {
+        this['disabledSelected'] = value;
+      },
+    },
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem;">
         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-          <zg-chip data-testid="enabled-chip">Enabled</zg-chip>
-          <zg-chip data-testid="disabled-chip" [disabled]="true">Disabled</zg-chip>
+          <zg-chip data-testid="enabled-chip" [selected]="enabledSelected" (selectedChange)="onEnabledSelectedChange($event)">Enabled</zg-chip>
+          <zg-chip data-testid="disabled-chip" [disabled]="true" [selected]="disabledSelected" (selectedChange)="onDisabledSelectedChange($event)">Disabled</zg-chip>
         </div>
       </div>
     `,
