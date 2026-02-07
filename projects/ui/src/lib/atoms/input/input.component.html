@@ -1,0 +1,40 @@
+@if (label()) {
+  <label class="zg-input__label" [attr.for]="'zg-input-field-' + id">
+    {{ label() }}
+  </label>
+}
+<div class="zg-input__wrapper">
+  <span class="zg-input__icon zg-input__icon--left">
+    <ng-content select="[icon-left]"></ng-content>
+  </span>
+  <input
+    class="zg-input__field"
+    [id]="'zg-input-field-' + id"
+    [type]="type()"
+    [attr.placeholder]="placeholder()"
+    [attr.disabled]="disabled() ? true : null"
+    [attr.readonly]="readonly() ? true : null"
+    [attr.autocomplete]="autocomplete() || null"
+    [attr.maxlength]="maxlength() || null"
+    [value]="value()"
+    (input)="onInput($event)"
+    (focus)="onFocus($event)"
+    (blur)="onBlur($event)"
+    [attr.aria-invalid]="error() ? 'true' : null"
+    [attr.aria-describedby]="error() ? 'zg-input-error' : helperText() ? 'zg-input-helper' : null"
+  />
+  <span class="zg-input__icon zg-input__icon--right">
+    <ng-content select="[icon-right]"></ng-content>
+  </span>
+  @if (!readonly() && !disabled() && value()) {
+    <button type="button" class="zg-input__clear" (click)="onClear()" aria-label="Clear input">
+      <ng-content select="[clear-icon]"></ng-content>
+    </button>
+  }
+</div>
+@if (error()) {
+  <div id="zg-input-error" class="zg-input__error">{{ error() }}</div>
+}
+@if (!error() && helperText()) {
+  <div id="zg-input-helper" class="zg-input__helper">{{ helperText() }}</div>
+}
