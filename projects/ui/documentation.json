@@ -75,26 +75,6 @@
         "defaultValue": "{\n  args: {\n    label: 'Disabled',\n    placeholder: 'Cannot type here',\n    disabled: true,\n    value: '',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const input = canvas.getByRole('textbox');\n    await expect(input).toBeDisabled();\n  },\n}"
       },
       {
-        "name": "Error",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Email',\n    placeholder: 'Enter your email',\n    error: 'Invalid email address',\n    value: '',\n  },\n}"
-      },
-      {
-        "name": "ErrorWithHelper",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Email',\n    placeholder: 'Enter your email',\n    error: 'Invalid email address',\n    helperText: 'Must be a valid email',\n    value: '',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const input = canvas.getByRole('textbox');\n    await userEvent.type(input, 'not-an-email');\n    // const errorMsg = canvas.getByText('Invalid email address');\n    // await expect(errorMsg).toBeVisible();\n    const helperMsg = canvas.getByText('Must be a valid email');\n    await expect(helperMsg).toBeVisible();\n  },\n}"
-      },
-      {
         "name": "FontFamilies",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -139,6 +119,16 @@
         "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 0.5rem; align-items: center;\">\n        <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\" aria-label=\"Previous\">\n          ‹\n        </zg-button>\n        <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\" aria-label=\"Next\">\n          ›\n        </zg-button>\n        <zg-button variant=\"accent\" shape=\"square\" size=\"sm\" aria-label=\"Add\">\n          +\n        </zg-button>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "Icon-only buttons (useful for navigation, actions)",
         "description": "<p>Icon-only buttons (useful for navigation, actions)</p>\n"
+      },
+      {
+        "name": "InputWithError",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    label: 'Email',\n    placeholder: 'Enter your email',\n    error: 'Invalid email address',\n    value: '',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const input = canvas.getByRole('textbox');\n    await userEvent.type(input, 'not-an-email');\n    const errorMsg = canvas.getByText('Invalid email address');\n    await expect(errorMsg).toBeVisible();\n  },\n}"
       },
       {
         "name": "Loading",
@@ -400,26 +390,6 @@
           "defaultValue": "{\n  args: {\n    label: 'Disabled',\n    placeholder: 'Cannot type here',\n    disabled: true,\n    value: '',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const input = canvas.getByRole('textbox');\n    await expect(input).toBeDisabled();\n  },\n}"
         },
         {
-          "name": "Error",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Email',\n    placeholder: 'Enter your email',\n    error: 'Invalid email address',\n    value: '',\n  },\n}"
-        },
-        {
-          "name": "ErrorWithHelper",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Email',\n    placeholder: 'Enter your email',\n    error: 'Invalid email address',\n    helperText: 'Must be a valid email',\n    value: '',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const input = canvas.getByRole('textbox');\n    await userEvent.type(input, 'not-an-email');\n    // const errorMsg = canvas.getByText('Invalid email address');\n    // await expect(errorMsg).toBeVisible();\n    const helperMsg = canvas.getByText('Must be a valid email');\n    await expect(helperMsg).toBeVisible();\n  },\n}"
-        },
-        {
           "name": "FullWidth",
           "ctype": "miscellaneous",
           "subtype": "variable",
@@ -428,6 +398,16 @@
           "deprecationMessage": "",
           "type": "Story",
           "defaultValue": "{\n  args: {\n    label: 'Full Width',\n    placeholder: 'Stretches to parent',\n    fullWidth: true,\n    value: '',\n  },\n}"
+        },
+        {
+          "name": "InputWithError",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    label: 'Email',\n    placeholder: 'Enter your email',\n    error: 'Invalid email address',\n    value: '',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const input = canvas.getByRole('textbox');\n    await userEvent.type(input, 'not-an-email');\n    const errorMsg = canvas.getByText('Invalid email address');\n    await expect(errorMsg).toBeVisible();\n  },\n}"
         },
         {
           "name": "MaxLength",
@@ -722,7 +702,7 @@
     "children": []
   },
   "coverage": {
-    "count": 48,
+    "count": 50,
     "status": "medium",
     "files": [
       {
@@ -930,27 +910,17 @@
         "type": "variable",
         "linktype": "miscellaneous",
         "linksubtype": "variable",
-        "name": "Error",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
-        "name": "ErrorWithHelper",
-        "coveragePercent": 0,
-        "coverageCount": "0/1",
-        "status": "low"
-      },
-      {
-        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-        "type": "variable",
-        "linktype": "miscellaneous",
-        "linksubtype": "variable",
         "name": "FullWidth",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "InputWithError",
         "coveragePercent": 0,
         "coverageCount": "0/1",
         "status": "low"
