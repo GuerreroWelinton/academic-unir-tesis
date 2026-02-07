@@ -235,7 +235,7 @@ export const WithClearButton: Story = {
   }),
 };
 
-export const ErrorWithHelper: Story = {
+export const InputWithError: Story = {
   args: {
     label: 'Email',
     placeholder: 'Enter your email',
