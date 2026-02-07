@@ -269,6 +269,64 @@ export const DesignTokens = {
     focusRing: '--zg-input-focus-ring',
     iconGap: '--zg-input-icon-gap',
   },
+
+  // Badge tokens
+  badge: {
+    // Background colors per variant
+    bgPrimary: '--zg-badge-bg-primary',
+    bgSecondary: '--zg-badge-bg-secondary',
+    bgSuccess: '--zg-badge-bg-success',
+    bgWarning: '--zg-badge-bg-warning',
+    bgError: '--zg-badge-bg-error',
+    bgInfo: '--zg-badge-bg-info',
+    bgNeutral: '--zg-badge-bg-neutral',
+
+    // Text colors per variant
+    textPrimary: '--zg-badge-text-primary',
+    textSecondary: '--zg-badge-text-secondary',
+    textSuccess: '--zg-badge-text-success',
+    textWarning: '--zg-badge-text-warning',
+    textError: '--zg-badge-text-error',
+    textInfo: '--zg-badge-text-info',
+    textNeutral: '--zg-badge-text-neutral',
+
+    // Sizing
+    heightSm: '--zg-badge-height-sm',
+    heightMd: '--zg-badge-height-md',
+    heightLg: '--zg-badge-height-lg',
+    paddingXSm: '--zg-badge-padding-x-sm',
+    paddingXMd: '--zg-badge-padding-x-md',
+    paddingXLg: '--zg-badge-padding-x-lg',
+    minWidthSm: '--zg-badge-min-width-sm',
+    minWidthMd: '--zg-badge-min-width-md',
+    minWidthLg: '--zg-badge-min-width-lg',
+
+    // Typography
+    fontSizeSm: '--zg-badge-font-size-sm',
+    fontSizeMd: '--zg-badge-font-size-md',
+    fontSizeLg: '--zg-badge-font-size-lg',
+    fontWeight: '--zg-badge-font-weight',
+    fontFamily: '--zg-badge-font-family',
+    lineHeight: '--zg-badge-line-height',
+
+    // Border radius per shape
+    radiusDefault: '--zg-badge-radius-default',
+    radiusPill: '--zg-badge-radius-pill',
+    radiusSquare: '--zg-badge-radius-square',
+
+    // Close button
+    closeGap: '--zg-badge-close-gap',
+    closeSize: '--zg-badge-close-size',
+    closeHoverOpacity: '--zg-badge-close-hover-opacity',
+
+    // Dot mode
+    dotSizeSm: '--zg-badge-dot-size-sm',
+    dotSizeMd: '--zg-badge-dot-size-md',
+    dotSizeLg: '--zg-badge-dot-size-lg',
+
+    // Transitions
+    transition: '--zg-badge-transition',
+  },
 } as const;
 
 /**
