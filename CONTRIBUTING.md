@@ -1,137 +1,128 @@
-# Colaborar
+# Contributing
 
-## Objetivo
+## Purpose
 
-Este repositorio contiene un MVP de una biblioteca de componentes UI reutilizables para iGaming (ZGames Technology) usando **Angular 21** y **Storybook**. El enfoque es crear componentes presentacionales (dumb) consistentes, accesibles y documentados.
+This repository contains an MVP of a reusable UI component library for iGaming (ZGames Technology) using **Angular 21** and **Storybook**. The focus is on creating consistent, accessible, and well-documented presentational (dumb) components.
 
-## Reglas de arquitectura (obligatorias)
+## Architecture Rules (mandatory)
 
-- La librería `projects/ui` solo contiene **componentes de presentación**:
-  - reciben datos por `@Input()`
-  - emiten eventos por `@Output()`
-- Prohibido en la librería:
-  - inyección de servicios
-  - lógica de negocio
-  - llamadas HTTP / acceso a APIs
-  - acceso a router/store/localStorage (salvo que sea estrictamente UI y se justifique)
+- The `projects/ui` library only contains **presentational components**:
+  - receive data via `input`
+  - emit events via `output`
+- Forbidden in the library:
+  - service injection
+  - business logic
+  - HTTP calls / API access
+  - access to router/store/localStorage (unless strictly UI and justified)
 
-## Convenciones técnicas
+## Technical Conventions
 
-### Angular Moderno
+### Modern Angular
 
-- Todos los componentes deben ser **Standalone** (sin NgModules)
-- Usar **ChangeDetectionStrategy.OnPush** obligatorio
-- **Signals** para estado interno de UI cuando corresponda
-- TypeScript estricto, evitar `any`
+- All components must be **Standalone** (no NgModules)
+- **ChangeDetectionStrategy.OnPush** is mandatory
+- **Signals** for internal UI state when appropriate
+- Strict TypeScript, avoid `any`
 
-### Estructura de archivos
+### File Structure
 
-Co-localización por componente en `projects/ui/src/lib/atoms/<componente>/`:
+Component co-location in `projects/ui/src/lib/atoms/<component>/`:
 
 - `*.component.ts|html|scss`
-- `*.stories.ts` (obligatorio)
-- `*.spec.ts` (obligatorio)
+- `*.stories.ts` (required)
+- `*.spec.ts` (required)
 
 ### Atomic Design
 
-Utilizamos **Atomic Design** como guía para la organización de componentes. Las carpetas se estructuran por categorías (`atoms/`, `molecules/`, `organisms/`) y fomentamos que los átomos sean simples y reutilizables, las moléculas combinen átomos para crear piezas funcionales y los organismos compongan interfaces completas. Para ver el índice actualizado de componentes y su clasificación, consulta el **Storybook (barra lateral)**.
+We use **Atomic Design** as a guide for component organization. Folders are structured by category (`atoms/`, `molecules/`, `organisms/`). Atoms should be simple and reusable, molecules combine atoms to create functional units, and organisms compose complete interfaces. To see the updated component index and classification, check **Storybook (sidebar)**.
 
 ### Design Tokens
 
-- **OBLIGATORIO**: Estilos deben usar design tokens de `src/styles/_tokens.scss`
-- **PROHIBIDO**: Hardcodear colores, espaciado, tipografía, radius
-- Ejemplo correcto: `color: var(--zg-color-primary)`
-- Ejemplo incorrecto: `color: #00b894`
+- **MANDATORY**: Styles must use design tokens from `src/styles/_tokens.scss`
+- **FORBIDDEN**: Hardcoding colors, spacing, typography, radius
+- Correct example: `color: var(--zg-color-primary)`
+- Incorrect example: `color: #00b894`
 
-## Storybook y documentación
+## Storybook and Documentation
 
-Todo componente debe tener `*.stories.ts` con:
+Every component must have a `*.stories.ts` file with:
 
-- **Default** story (interactiva con `args`)
-- Historias de demostración con `render()` para:
-  - Variants (todas las variantes visuales)
-  - Sizes (todos los tamaños)
+- **Default** story (interactive with `args`)
+- Demo stories using `render()` for:
+  - Variants (all visual variants)
+  - Sizes (all sizes)
   - States (disabled, loading, error, etc.)
-  - WithIcons (si aplica)
+  - WithIcons (if applicable)
   - RealWorldExamples
 
-### Documentación en stories
+### Story Documentation
 
-- JSDoc completo en el meta del componente
-- **Usage Guide** con cuándo usar/no usar
-- **Available ng-content selectors** si aplica
+- Complete JSDoc in the component meta
+- **Usage Guide** with when to use/avoid
+- **Available ng-content selectors** if applicable
 - **Accessibility** checklist
-- Descripción clara de cada argType
+- Clear description of each argType
 
-## Accesibilidad (obligatorio)
+## Accessibility (mandatory)
 
-- Usar addon-a11y de Storybook para validar
-- Implementar navegación por teclado (Enter/Space para botones)
-- Estados de focus visibles
-- ARIA attributes cuando corresponda
-- `aria-label` para componentes solo-icono
+- Use Storybook's addon-a11y for validation
+- Implement keyboard navigation (Enter/Space for buttons)
+- Visible focus states
+- ARIA attributes when appropriate
+- `aria-label` for icon-only components
 
-**Nota:** Las comprobaciones automáticas del addon a11y están configuradas para validar contra **WCAG 2.1 Nivel AA** (configuración `runOnly: { type: 'tag', values: ['wcag2aa', 'wcag21aa'] }`).
+**Note:** The a11y addon is configured to validate against **WCAG 2.1 Level AA** (`runOnly: { type: 'tag', values: ['wcag2aa', 'wcag21aa'] }`).
 
-## Tests unitarios (mínimos)
+## Unit Tests (minimum)
 
-Cada componente debe tener tests que verifiquen:
+Each component must have tests that verify:
 
-- Renderiza sin errores
-- Respeta Inputs clave (variant, size, disabled, etc.)
-- Emite Outputs correctos ante interacción
-- Estados especiales (loading, disabled, error)
-
-## ng-content y slots
-
-Para componentes con contenido proyectado:
-
-- Definir slots específicos con selectores claros (`[icon-left]`, `[icon-right]`)
-- Documentar todos los selectores en Usage Guide
-- Proveer tanto API simple (`text` property) como compleja (ng-content)
-- Usar CSS flexbox con `order` para garantizar layout correcto
+- Renders without errors
+- Respects key inputs (variant, size, disabled, etc.)
+- Emits correct outputs on interaction
+- Special states (loading, disabled, error)
 
 ## Commits
 
-Convención recomendada:
+Recommended convention:
 
-- `feat(button):` nueva funcionalidad
-- `fix(button):` corrección
-- `docs:` documentación
-- `style:` tokens, estilos, formato
+- `feat(button):` new feature
+- `fix(button):` bugfix
+- `docs:` documentation
+- `style:` tokens, styles, formatting
 - `test:` tests
 - `chore:` tooling/config
 
-## Setup actual
+## Project Setup
 
-Para trabajar en el proyecto:
+To work on the project:
 
 ```bash
-# Instalar dependencias
+# Install dependencies
 npm install
 
-# Storybook (desarrollo principal)
+# Storybook (main development)
 npm run storybook  # localhost:6006
 
-# App demo
+# Demo app
 npm start  # localhost:4200
 
 # Tests
 npm test
 
-# Documentación técnica (Compodoc)
-npm run docs:ui           # Genera HTML en docs/ui
-npm run docs:ui:serve     # Sirve la documentación localmente
+# Technical documentation (Compodoc)
+npm run docs:ui           # Generates HTML in docs/ui
+npm run docs:ui:serve     # Serves documentation locally
 
 # Builds
 npm run build:ui
 npm run build:design-tokens
 ```
 
-## Proceso de desarrollo
+## Development Process
 
-1. **Planificar**: Revisar las instrucciones del proyecto y definir API del componente
-2. **Implementar**: Componente + estilos con tokens + tests básicos
-3. **Documentar**: Stories completas con todos los casos de uso
-4. **Validar**: Accesibilidad en Storybook, tests pasando
-5. **Review**: PR con descripción clara de la API y casos de uso
+1. **Plan**: Review project instructions and define the component API
+2. **Implement**: Component + styles with tokens + basic tests
+3. **Document**: Complete stories with all use cases
+4. **Validate**: Accessibility in Storybook, passing tests
+5. **Review**: PR with clear API and use case description

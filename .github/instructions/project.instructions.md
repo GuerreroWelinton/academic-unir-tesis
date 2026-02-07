@@ -23,8 +23,8 @@ ARQUITECTURA OBLIGATORIA: PATRÓN CONTENEDOR–PRESENTACIÓN
 - La librería SOLO puede contener Componentes de Presentación (Dumb Components).
 - Un componente de la librería:
   - renderiza UI,
-  - recibe datos vía signal input (`input()`),
-  - emite eventos vía signal output (`output()`).
+  - recibe datos vía signal input (`input`),
+  - emite eventos vía signal output (`output`).
 - PROHIBIDO dentro de la librería:
   - inyectar servicios (constructor injections),
   - llamadas HTTP o acceso a APIs,
@@ -41,7 +41,7 @@ ANGULAR MODERNO Y PERFORMANCE
 - Todos los componentes DEBEN ser Standalone Components.
 - Usar Signals para estado interno de UI y signal input/output para API pública.
 - Todos los componentes deben usar ChangeDetectionStrategy.OnPush.
-- Tipado estricto en Inputs/Outputs. Evitar any.
+- Tipado estricto en inputs/outputs. Evitar any.
 - Priorizar accesibilidad y rendimiento:
   - plantillas simples, sin lógica pesada,
   - trackBy en listas si aplica,
@@ -50,8 +50,8 @@ ANGULAR MODERNO Y PERFORMANCE
 DISEÑO DE API Y CONSISTENCIA
 
 - Mantén una API coherente entre componentes:
-  - Inputs consistentes para variantes: variant/tone, size, disabled, state, etc. (usando signal input)
-  - Outputs con nombres claros y consistentes: clicked, changed, submitted, closed, toggled, etc. (usando signal output)
+  - inputs consistentes para variantes: variant/tone, size, disabled, state, etc. (usando signal input)
+  - outputs con nombres claros y consistentes: clicked, changed, submitted, closed, toggled, etc. (usando signal output)
 - Preferir ViewModels simples para componentes más complejos (creados en el contenedor).
 - Extensibilidad sin sobre-ingeniería:
   - Composición con ng-content (slots) para iconos/acciones/headers cuando aplique.
@@ -132,17 +132,17 @@ STORYBOOK Y DOCUMENTACIÓN (CDD)
   - Nota: Las comprobaciones automáticas están configuradas por defecto para validar contra **WCAG 2.1 Nivel AA** (ver `projects/ui/.storybook/preview.ts`).
 - La documentación en Storybook debe explicar:
   - propósito del componente,
-  - Inputs/Outputs,
+  - inputs/outputs,
   - guía de uso (cuándo usar / cuándo evitar),
   - consideraciones de accesibilidad.
-- Compodoc puede usarse para documentación técnica complementaria (Inputs/Outputs + tipos + JSDoc).
+- Compodoc puede usarse para documentación técnica complementaria (inputs/outputs + tipos + JSDoc).
 
 PRUEBAS UNITARIAS (MÍNIMAS PERO OBLIGATORIAS)
 Para cada componente:
 
 - Debe renderizar sin errores.
-- Debe respetar Inputs clave (ej. disabled/label/value/state).
-- Debe emitir el Output esperado ante interacción del usuario.
+- Debe respetar inputs clave (ej. disabled/label/value/state).
+- Debe emitir el output esperado ante interacción del usuario.
 - Mantén tests enfocados, rápidos y estables.
 
 LISTA OBJETIVO DE COMPONENTES (MÁXIMO 6–8)
@@ -169,7 +169,7 @@ CONVENCIONES DE CÓDIGO
 CÓMO DEBES TRABAJAR CUANDO TE PIDA IMPLEMENTAR ALGO
 Sigue este flujo SIEMPRE:
 
-1. Propón la API del componente (Inputs/Outputs + tipos) antes de escribir código.
+1. Propón la API del componente (inputs/outputs + tipos) antes de escribir código.
 2. Define estados/variantes y cómo se expresan con tokens.
 3. Implementa componente (Standalone + OnPush + estilos tokenizados).
 4. Crea la historia Storybook en paralelo (no al final).

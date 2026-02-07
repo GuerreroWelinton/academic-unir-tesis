@@ -42,6 +42,9 @@ testem.log
 /typings
 __screenshots__/
 
+# Internal AI/project instructions (do not commit)
+.github/instructions/project.instructions.md
+
 # System files
 .DS_Store
 Thumbs.db
