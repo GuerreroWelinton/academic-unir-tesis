@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/GuerreroWelinton/academic-unir-tesis/actions/workflows/ci.yml/badge.svg)](https://github.com/GuerreroWelinton/academic-unir-tesis/actions/workflows/ci.yml)
 
+<!-- Test PR: Verifying Chromatic visual regression testing in CI pipeline -->
+
 A modern, accessible, and themeable Angular component library for iGaming applications, built with Angular 21 and Storybook.
 
 ## 📋 Overview
