@@ -169,11 +169,14 @@ describe('ZgButtonComponent', () => {
   describe('Content Projection', () => {
     it('should project text content', () => {
       const testFixture = TestBed.createComponent(ZgButtonComponent);
-      testFixture.componentInstance;
+      const componentInstance = testFixture.componentInstance;
       testFixture.detectChanges();
 
       const compiled = testFixture.nativeElement as HTMLElement;
-      compiled.querySelector('.zg-button__content');
+      const contentElement = compiled.querySelector('.zg-button__content');
+
+      expect(componentInstance).toBeTruthy();
+      expect(contentElement).toBeTruthy();
     });
   });
 
@@ -192,7 +195,7 @@ describe('ZgButtonComponent', () => {
   });
 
   describe('Variant Styles', () => {
-    const variants: Array<'primary' | 'secondary' | 'accent' | 'danger' | 'ghost' | 'gradient'> = [
+    const variants: ('primary' | 'secondary' | 'accent' | 'danger' | 'ghost' | 'gradient')[] = [
       'primary',
       'secondary',
       'accent',
@@ -213,7 +216,7 @@ describe('ZgButtonComponent', () => {
   });
 
   describe('Size Styles', () => {
-    const sizes: Array<'sm' | 'md' | 'lg'> = ['sm', 'md', 'lg'];
+    const sizes: ('sm' | 'md' | 'lg')[] = ['sm', 'md', 'lg'];
 
     sizes.forEach((size) => {
       it(`should apply ${size} size`, () => {
@@ -227,7 +230,7 @@ describe('ZgButtonComponent', () => {
   });
 
   describe('Shape Styles', () => {
-    const shapes: Array<'default' | 'pill' | 'square'> = ['default', 'pill', 'square'];
+    const shapes: ('default' | 'pill' | 'square')[] = ['default', 'pill', 'square'];
 
     shapes.forEach((shape) => {
       it(`should apply ${shape} shape`, () => {
@@ -241,7 +244,7 @@ describe('ZgButtonComponent', () => {
   });
 
   describe('Font Family Styles', () => {
-    const fontFamilies: Array<'base' | 'secondary'> = ['base', 'secondary'];
+    const fontFamilies: ('base' | 'secondary')[] = ['base', 'secondary'];
 
     fontFamilies.forEach((fontFamily) => {
       it(`should apply ${fontFamily} fontFamily`, () => {

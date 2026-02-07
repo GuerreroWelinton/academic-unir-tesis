@@ -152,23 +152,17 @@ export interface TypographyTokens {
 /**
  * Spacing tokens
  */
-export interface SpacingTokens {
-  [key: string]: string;
-}
+export type SpacingTokens = Record<string, string>;
 
 /**
  * Border radius tokens
  */
-export interface RadiusTokens {
-  [key: string]: string;
-}
+export type RadiusTokens = Record<string, string>;
 
 /**
  * Shadow tokens
  */
-export interface ShadowTokens {
-  [key: string]: string;
-}
+export type ShadowTokens = Record<string, string>;
 
 /**
  * Transition tokens

@@ -122,7 +122,7 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
  * @param variant - Theme variant name (e.g., 'light', 'dark', 'christmas', 'promo-gold')
  * @returns Theme configuration
  */
-export function getClientTheme(clientId: ClientId, variant: string = 'light'): Theme {
+export function getClientTheme(clientId: ClientId, variant = 'light'): Theme {
   const clientThemes = CLIENT_THEMES[clientId];
   return clientThemes[variant] || CLIENT_THEMES['client1']['light'];
 }
@@ -142,7 +142,7 @@ export function getAvailableVariants(clientId: ClientId): string[] {
  * @param clientId - The client identifier
  * @param variant - Theme variant name
  */
-export function applyClientTheme(clientId: ClientId, variant: string = 'light'): void {
+export function applyClientTheme(clientId: ClientId, variant = 'light'): void {
   const theme = getClientTheme(clientId, variant);
 
   // Reset previous theme to avoid conflicts

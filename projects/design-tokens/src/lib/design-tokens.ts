@@ -422,8 +422,7 @@ export function resetTheme(element?: HTMLElement): void {
   const propertiesToRemove: string[] = [];
 
   // Collect all --zg-* properties
-  for (let i = 0; i < inlineStyles.length; i++) {
-    const propertyName = inlineStyles[i];
+  for (const propertyName of Array.from(inlineStyles)) {
     if (propertyName.startsWith('--zg-')) {
       propertiesToRemove.push(propertyName);
     }

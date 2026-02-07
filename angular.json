@@ -78,6 +78,12 @@
               "lines": 80
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
         }
       }
     },
@@ -126,6 +132,12 @@
             "outputDir": "dist/storybook/ui",
             "styles": ["src/styles/_tokens.scss"]
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["projects/ui/src/**/*.ts", "projects/ui/src/**/*.html"]
+          }
         }
       }
     },
@@ -151,6 +163,15 @@
           "builder": "@angular/build:unit-test",
           "options": {
             "tsConfig": "projects/design-tokens/tsconfig.spec.json"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/design-tokens/src/**/*.ts",
+              "projects/design-tokens/src/**/*.html"
+            ]
           }
         }
       }

@@ -23,7 +23,11 @@
     "docs:ui:serve": "compodoc -p projects/ui/tsconfig.lib.json -d docs/ui --theme material --serve"
   },
   "lint-staged": {
-    "*.{ts,js,html,css,scss,md,json}": [
+    "*.{ts,html}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,css,scss,md,json}": [
       "prettier --write"
     ]
   },
@@ -53,7 +57,10 @@
     "@storybook/addon-docs": "^10.2.4",
     "@storybook/angular": "^10.2.4",
     "@vitest/coverage-v8": "^4.0.18",
+    "angular-eslint": "21.2.0",
     "chromatic": "^11.29.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
     "jsdom": "^27.1.0",
     "lint-staged": "^16.2.7",
@@ -61,6 +68,7 @@
     "prettier": "^3.8.1",
     "storybook": "^10.2.4",
     "typescript": "~5.9.2",
+    "typescript-eslint": "8.50.1",
     "vitest": "^4.0.8"
   }
 }
