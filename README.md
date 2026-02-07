@@ -1,5 +1,7 @@
 # ZGames UI Library
 
+[![CI](https://github.com/GuerreroWelinton/academic-unir-tesis/actions/workflows/ci.yml/badge.svg)](https://github.com/GuerreroWelinton/academic-unir-tesis/actions/workflows/ci.yml)
+
 A modern, accessible, and themeable Angular component library for iGaming applications, built with Angular 21 and Storybook.
 
 ## 📋 Overview
