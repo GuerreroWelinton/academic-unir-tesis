@@ -4,8 +4,7 @@ export default create({
   base: 'light',
   brandTitle: 'ZGames UI',
   brandUrl: '',
-  brandImage: '',
-  // brandImage: 'https://www.sorti.ec/assets/config/logo_sorti.png',
+  brandImage: '/logo.png',
 
   fontBase: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   fontCode: '"Fira Code", monospace',
@@ -13,9 +12,11 @@ export default create({
   appBg: '#f8fafc',
   appContentBg: '#fff',
   appBorderColor: '#e5e7eb',
+  appHoverBg: 'rgba(66, 193, 72, 0.14)',
   appBorderRadius: 8,
   barBg: '#fff',
   barTextColor: '#222',
   textColor: '#222',
-  colorSecondary: '#00b894',
+  colorPrimary: '#42c148',
+  colorSecondary: '#42c148',
 });

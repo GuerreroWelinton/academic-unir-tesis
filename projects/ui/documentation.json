@@ -102,7 +102,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Preview",
-        "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      theme: customTheme,\n    },\n    backgrounds: {\n      default: 'dark',\n      values: [\n        { name: 'dark', value: '#2b2b2b' },\n        { name: 'light', value: '#f8fafc' },\n      ],\n    },\n  },\n  // Add theme decorator globally\n  decorators: [withTheme],\n  // Add client/theme toolbar controls\n  globalTypes: globalTypes as any,\n}"
+        "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      theme: customTheme,\n    },\n    backgrounds: {\n      default: 'light',\n      values: [\n        { name: 'dark', value: '#000000' },\n        { name: 'light', value: '#E5E5E5' },\n      ],\n    },\n  },\n  // Add theme decorator globally\n  decorators: [withTheme],\n  // Add client/theme toolbar controls\n  globalTypes: globalTypes as any,\n}"
       },
       {
         "name": "RealWorldExamples",
@@ -384,7 +384,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Preview",
-          "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      theme: customTheme,\n    },\n    backgrounds: {\n      default: 'dark',\n      values: [\n        { name: 'dark', value: '#2b2b2b' },\n        { name: 'light', value: '#f8fafc' },\n      ],\n    },\n  },\n  // Add theme decorator globally\n  decorators: [withTheme],\n  // Add client/theme toolbar controls\n  globalTypes: globalTypes as any,\n}"
+          "defaultValue": "{\n  parameters: {\n    controls: {\n      matchers: {\n        color: /(background|color)$/i,\n        date: /Date$/i,\n      },\n    },\n    docs: {\n      theme: customTheme,\n    },\n    backgrounds: {\n      default: 'light',\n      values: [\n        { name: 'dark', value: '#000000' },\n        { name: 'light', value: '#E5E5E5' },\n      ],\n    },\n  },\n  // Add theme decorator globally\n  decorators: [withTheme],\n  // Add client/theme toolbar controls\n  globalTypes: globalTypes as any,\n}"
         }
       ]
     },

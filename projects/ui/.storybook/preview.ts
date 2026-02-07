@@ -18,10 +18,10 @@ const preview: Preview = {
       theme: customTheme,
     },
     backgrounds: {
-      default: 'dark',
+      default: 'light',
       values: [
-        { name: 'dark', value: '#2b2b2b' },
-        { name: 'light', value: '#f8fafc' },
+        { name: 'dark', value: '#000000' },
+        { name: 'light', value: '#E5E5E5' },
       ],
     },
   },
