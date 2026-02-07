@@ -377,4 +377,66 @@
   --zg-input-focus-ring: var(--zg-color-primary-active);
 
   --zg-input-icon-gap: var(--zg-spacing-2);
+
+  // ============================================
+  // BADGE TOKENS (CAPA 3: Component-specific)
+  // ============================================
+  // These consume LAYER 2 semantic tokens, NOT primitives directly
+
+  // Background colors per variant
+  --zg-badge-bg-primary: var(--zg-color-primary);
+  --zg-badge-bg-secondary: var(--zg-color-secondary);
+  --zg-badge-bg-success: var(--zg-color-success);
+  --zg-badge-bg-warning: var(--zg-color-warning);
+  --zg-badge-bg-error: var(--zg-color-error);
+  --zg-badge-bg-info: var(--zg-color-info);
+  --zg-badge-bg-neutral: var(--zg-color-surface-alt);
+
+  // Text colors per variant
+  --zg-badge-text-primary: var(--zg-color-text-inverse);
+  --zg-badge-text-secondary: var(--zg-color-text-inverse);
+  --zg-badge-text-success: var(--zg-color-text-inverse);
+  --zg-badge-text-warning: var(--zg-color-text-primary);
+  --zg-badge-text-error: var(--zg-color-text-inverse);
+  --zg-badge-text-info: var(--zg-color-text-inverse);
+  --zg-badge-text-neutral: var(--zg-color-text-primary);
+
+  // Sizing tokens
+  --zg-badge-height-sm: 1.25rem; // 20px
+  --zg-badge-height-md: 1.5rem; // 24px
+  --zg-badge-height-lg: 2rem; // 32px
+
+  --zg-badge-padding-x-sm: var(--zg-spacing-2); // 8px
+  --zg-badge-padding-x-md: var(--zg-spacing-3); // 12px
+  --zg-badge-padding-x-lg: var(--zg-spacing-4); // 16px
+
+  --zg-badge-min-width-sm: 1.25rem; // 20px (para modo dot o single char)
+  --zg-badge-min-width-md: 1.5rem; // 24px
+  --zg-badge-min-width-lg: 2rem; // 32px
+
+  // Typography
+  --zg-badge-font-size-sm: var(--zg-font-size-xs); // 12px
+  --zg-badge-font-size-md: var(--zg-font-size-sm); // 14px
+  --zg-badge-font-size-lg: var(--zg-font-size-base); // 16px
+  --zg-badge-font-weight: var(--zg-font-weight-medium); // 500
+  --zg-badge-font-family: var(--zg-font-family-base);
+  --zg-badge-line-height: 1; // Tight line height for badges
+
+  // Border radius per shape
+  --zg-badge-radius-default: var(--zg-radius-base); // 8px
+  --zg-badge-radius-pill: var(--zg-radius-full); // 9999px
+  --zg-badge-radius-square: var(--zg-radius-sm); // 2px
+
+  // Close button
+  --zg-badge-close-gap: var(--zg-spacing-1); // 4px (gap between text and close btn)
+  --zg-badge-close-size: 1rem; // 16px (tamaño del botón)
+  --zg-badge-close-hover-opacity: 0.7;
+
+  // Dot mode
+  --zg-badge-dot-size-sm: 0.5rem; // 8px
+  --zg-badge-dot-size-md: 0.625rem; // 10px
+  --zg-badge-dot-size-lg: 0.75rem; // 12px
+
+  // Transitions
+  --zg-badge-transition: var(--zg-transition-fast); // 150ms
 }
