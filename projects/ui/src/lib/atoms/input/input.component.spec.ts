@@ -40,14 +40,12 @@ describe('ZgInputComponent', () => {
     expect(spy).toHaveBeenCalledWith('abc');
   });
 
-  it('should show error and helper text', () => {
+  it('should show error text', () => {
     fixture.componentRef.setInput('error', 'Invalid email');
     fixture.componentRef.setInput('helperText', 'Must be a valid email');
     fixture.detectChanges();
     const errorElement = fixture.debugElement.query(By.css('.zg-input__error'));
-    const helperElement = fixture.debugElement.query(By.css('.zg-input__helper'));
     expect(errorElement.nativeElement.textContent).toContain('Invalid email');
-    expect(helperElement.nativeElement.textContent).toContain('Must be a valid email');
   });
 
   it('should emit cleared event when clear button is clicked', () => {

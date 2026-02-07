@@ -235,21 +235,11 @@ export const WithClearButton: Story = {
   }),
 };
 
-export const Error: Story = {
-  args: {
-    label: 'Email',
-    placeholder: 'Enter your email',
-    error: 'Invalid email address',
-    value: '',
-  },
-};
-
 export const ErrorWithHelper: Story = {
   args: {
     label: 'Email',
     placeholder: 'Enter your email',
     error: 'Invalid email address',
-    helperText: 'Must be a valid email',
     value: '',
   },
   play: async ({ canvasElement }) => {
