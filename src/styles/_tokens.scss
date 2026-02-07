@@ -439,4 +439,88 @@
 
   // Transitions
   --zg-badge-transition: var(--zg-transition-fast); // 150ms
+
+  // ============================================
+  // CHIP TOKENS (CAPA 3: Component-specific)
+  // ============================================
+  // These consume LAYER 2 semantic tokens, NOT primitives directly
+  // Chip is an interactive component (unlike Badge which is passive)
+
+  // Background colors per variant - NORMAL state
+  --zg-chip-bg-filled: var(--zg-color-surface-alt);
+  --zg-chip-bg-outlined: transparent;
+  --zg-chip-bg-ghost: transparent;
+
+  // Background colors per variant - SELECTED state
+  --zg-chip-bg-filled-selected: var(--zg-color-primary);
+  --zg-chip-bg-outlined-selected: var(--zg-color-primary-light);
+  --zg-chip-bg-ghost-selected: var(--zg-color-surface-alt);
+
+  // Background colors per variant - HOVER state
+  --zg-chip-bg-filled-hover: var(--zg-color-surface-hover);
+  --zg-chip-bg-outlined-hover: var(--zg-color-surface-alt);
+  --zg-chip-bg-ghost-hover: var(--zg-color-surface-alt);
+
+  // Background colors per variant - SELECTED + HOVER state
+  --zg-chip-bg-filled-selected-hover: var(--zg-color-primary-hover);
+  --zg-chip-bg-outlined-selected-hover: var(--zg-color-primary);
+  --zg-chip-bg-ghost-selected-hover: var(--zg-color-surface-hover);
+
+  // Border colors per variant - NORMAL state
+  --zg-chip-border-filled: transparent;
+  --zg-chip-border-outlined: var(--zg-color-border);
+  --zg-chip-border-ghost: transparent;
+
+  // Border colors per variant - SELECTED state
+  --zg-chip-border-filled-selected: transparent;
+  --zg-chip-border-outlined-selected: var(--zg-color-primary);
+  --zg-chip-border-ghost-selected: transparent;
+
+  // Text colors per variant - NORMAL state
+  --zg-chip-text-filled: var(--zg-color-text-primary);
+  --zg-chip-text-outlined: var(--zg-color-text-primary);
+  --zg-chip-text-ghost: var(--zg-color-text-primary);
+
+  // Text colors per variant - SELECTED state
+  --zg-chip-text-filled-selected: var(--zg-color-text-inverse);
+  --zg-chip-text-outlined-selected: var(--zg-color-text-primary);
+  --zg-chip-text-ghost-selected: var(--zg-color-text-primary);
+
+  // Text colors - DISABLED state (all variants)
+  --zg-chip-text-disabled: var(--zg-color-text-disabled);
+
+  // Sizing tokens
+  --zg-chip-height-sm: 1.5rem; // 24px
+  --zg-chip-height-md: 2rem; // 32px
+  --zg-chip-height-lg: 2.5rem; // 40px
+
+  --zg-chip-padding-x-sm: var(--zg-spacing-3); // 12px
+  --zg-chip-padding-x-md: var(--zg-spacing-4); // 16px
+  --zg-chip-padding-x-lg: var(--zg-spacing-5); // 20px
+
+  // Typography
+  --zg-chip-font-size-sm: var(--zg-font-size-sm); // 14px
+  --zg-chip-font-size-md: var(--zg-font-size-base); // 16px
+  --zg-chip-font-size-lg: var(--zg-font-size-md); // 18px
+  --zg-chip-font-weight: var(--zg-font-weight-medium); // 500
+  --zg-chip-font-family: var(--zg-font-family-base);
+  --zg-chip-line-height: 1; // Tight line height for chips
+
+  // Icon spacing
+  --zg-chip-icon-gap: var(--zg-spacing-2); // 8px
+
+  // Border radius
+  --zg-chip-radius: var(--zg-radius-full); // 9999px (pill shape)
+
+  // Border width
+  --zg-chip-border-width: 1px;
+
+  // States
+  --zg-chip-disabled-opacity: 0.5;
+  --zg-chip-transition: var(--zg-transition-fast); // 150ms
+
+  // Focus ring
+  --zg-chip-focus-ring-color: var(--zg-color-primary);
+  --zg-chip-focus-ring-width: 2px;
+  --zg-chip-focus-ring-offset: 2px;
 }

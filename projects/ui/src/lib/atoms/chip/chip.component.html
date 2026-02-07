@@ -1,0 +1,28 @@
+<button
+  type="button"
+  class="zg-chip__button"
+  [disabled]="disabled()"
+  [attr.aria-pressed]="selected()"
+  [attr.aria-disabled]="disabled()"
+  (click)="handleClick()"
+  (keydown)="handleKeydown($event)"
+>
+  <!-- Icon left slot -->
+  <span class="zg-chip__icon-left">
+    <ng-content select="[icon-left]"></ng-content>
+  </span>
+
+  <!-- Main content / text -->
+  <span class="zg-chip__content">
+    @if (text()) {
+      {{ text() }}
+    } @else {
+      <ng-content></ng-content>
+    }
+  </span>
+
+  <!-- Icon right slot -->
+  <span class="zg-chip__icon-right">
+    <ng-content select="[icon-right]"></ng-content>
+  </span>
+</button>

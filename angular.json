@@ -119,7 +119,7 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/ui"],
             "port": 6006,
-            "styles": ["src/styles/_tokens.scss"]
+            "styles": ["src/styles.scss"]
           }
         },
         "build-storybook": {
@@ -130,7 +130,7 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/ui"],
             "outputDir": "dist/storybook/ui",
-            "styles": ["src/styles/_tokens.scss"]
+            "styles": ["src/styles.scss"]
           }
         },
         "lint": {
