@@ -23,6 +23,16 @@
         "description": "<p>Default button with primary variant</p>\n"
       },
       {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    label: 'Username',\r\n    placeholder: 'Enter your username',\r\n    value: '',\r\n    type: 'text',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    error: '',\r\n    fullWidth: false,\r\n    autocomplete: '',\r\n    maxlength: undefined,\r\n    helperText: '',\r\n  },\r\n}"
+      },
+      {
         "name": "Disabled",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -33,6 +43,26 @@
         "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n        <zg-button variant=\"primary\" [disabled]=\"true\">Primary Disabled</zg-button>\n        <zg-button variant=\"secondary\" [disabled]=\"true\">Secondary Disabled</zg-button>\n        <zg-button variant=\"accent\" [disabled]=\"true\">Accent Disabled</zg-button>\n        <zg-button variant=\"danger\" [disabled]=\"true\">Danger Disabled</zg-button>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "Disabled state",
         "description": "<p>Disabled state</p>\n"
+      },
+      {
+        "name": "Disabled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    label: 'Disabled',\r\n    placeholder: 'Cannot type here',\r\n    disabled: true,\r\n    value: '',\r\n  },\r\n}"
+      },
+      {
+        "name": "Error",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'Enter your email',\r\n    error: 'Invalid email address',\r\n    value: '',\r\n  },\r\n}"
       },
       {
         "name": "FontFamilies",
@@ -57,6 +87,16 @@
         "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"max-width: 400px;\">\n        <zg-button variant=\"primary\" [fullWidth]=\"true\">Full Width Button</zg-button>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "Full width button (useful in forms, mobile layouts)",
         "description": "<p>Full width button (useful in forms, mobile layouts)</p>\n"
+      },
+      {
+        "name": "HelperText",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    label: 'With helper',\r\n    placeholder: 'Type something',\r\n    helperText: 'Helper text for guidance',\r\n    value: '',\r\n  },\r\n}"
       },
       {
         "name": "IconOnly",
@@ -93,6 +133,18 @@
         "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ZgButtonComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'accent', 'danger', 'ghost', 'gradient'],\n      description: 'Visual variant of the button',\n      table: {\n        defaultValue: { summary: 'primary' },\n        type: { summary: 'ButtonVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'ButtonSize' },\n      },\n    },\n    shape: {\n      control: 'select',\n      options: ['default', 'pill', 'square'],\n      description: 'Shape variant (border radius)',\n      table: {\n        defaultValue: { summary: 'default' },\n        type: { summary: 'ButtonShape' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    loading: {\n      control: 'boolean',\n      description: 'Whether the button is in loading state',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    fullWidth: {\n      control: 'boolean',\n      description: 'Whether the button takes full width',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'Native button type',\n      table: {\n        defaultValue: { summary: 'button' },\n      },\n    },\n    fontFamily: {\n      control: 'select',\n      options: ['base', 'secondary'],\n      description: 'Font family variant (base, secondary)',\n      table: {\n        defaultValue: { summary: 'base' },\n        type: { summary: 'ButtonFontFamily' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Button text content (simple alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n        type: { summary: 'string' },\n      },\n    },\n    clicked: {\n      action: 'clicked',\n      description: 'Emitted when the button is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
         "rawdescription": "Button component for user interactions and actions.\n\n## Usage Guide\n\n**When to use:**\n- Primary actions (submit forms, confirm dialogs)\n- Navigation triggers\n- Start processes or workflows\n\n**When NOT to use:**\n- Navigation between pages (use links instead)\n- Toggling settings (use toggle/switch)\n- Displaying status (use badge/tag)\n\n## Accessibility\n- ✅ Keyboard navigation (Enter/Space)\n- ✅ Focus visible states\n- ✅ Disabled state prevents interaction\n- ✅ Loading state with spinner\n- 💡 Use descriptive text (avoid \"Click here\")\n- 💡 Consider aria-label for icon-only buttons",
         "description": "<p>Button component for user interactions and actions.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Primary actions (submit forms, confirm dialogs)</li>\n<li>Navigation triggers</li>\n<li>Start processes or workflows</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Navigation between pages (use links instead)</li>\n<li>Toggling settings (use toggle/switch)</li>\n<li>Displaying status (use badge/tag)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Keyboard navigation (Enter/Space)</li>\n<li>✅ Focus visible states</li>\n<li>✅ Disabled state prevents interaction</li>\n<li>✅ Loading state with spinner</li>\n<li>💡 Use descriptive text (avoid &quot;Click here&quot;)</li>\n<li>💡 Consider aria-label for icon-only buttons</li>\n</ul>\n"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ZgInputComponent>",
+        "defaultValue": "{\r\n  title: 'Atoms/Input',\r\n  component: ZgInputComponent,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    docs: {\r\n      source: { type: 'dynamic' },\r\n      description: {\r\n        component:\r\n          'Accessible input field with support for icons, error, helper text, and full design token theming. Use ng-content for icon projection.',\r\n      },\r\n    },\r\n    a11y: {\r\n      element: '#root',\r\n    },\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: ['text', 'password', 'email', 'number', 'search'],\r\n      description: 'Input type',\r\n      table: { defaultValue: { summary: 'text' } },\r\n    },\r\n    value: {\r\n      control: 'text',\r\n      description: 'Input value',\r\n      table: { defaultValue: { summary: '' } },\r\n    },\r\n    placeholder: {\r\n      control: 'text',\r\n      description: 'Placeholder text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n      description: 'Label for accessibility',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Disabled state',\r\n      table: { defaultValue: { summary: 'false' } },\r\n    },\r\n    readonly: {\r\n      control: 'boolean',\r\n      description: 'Readonly state',\r\n      table: { defaultValue: { summary: 'false' } },\r\n    },\r\n    error: {\r\n      control: 'text',\r\n      description: 'Error message',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Input size',\r\n      table: { defaultValue: { summary: 'md' } },\r\n    },\r\n    fullWidth: {\r\n      control: 'boolean',\r\n      description: 'Full width',\r\n      table: { defaultValue: { summary: 'false' } },\r\n    },\r\n    autocomplete: {\r\n      control: 'text',\r\n      description: 'Autocomplete attribute',\r\n    },\r\n    maxlength: {\r\n      control: 'number',\r\n      description: 'Max length',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n      description: 'Helper text',\r\n    },\r\n    changed: {\r\n      action: 'changed',\r\n      description: 'Emitted when value changes',\r\n      table: { category: 'Events' },\r\n    },\r\n    focused: {\r\n      action: 'focused',\r\n      description: 'Emitted on focus',\r\n      table: { category: 'Events' },\r\n    },\r\n    blurred: {\r\n      action: 'blurred',\r\n      description: 'Emitted on blur',\r\n      table: { category: 'Events' },\r\n    },\r\n    cleared: {\r\n      action: 'cleared',\r\n      description: 'Emitted when clear button is clicked',\r\n      table: { category: 'Events' },\r\n    },\r\n  },\r\n}",
+        "rawdescription": "Input component for user text entry.\r\n\r\n## Usage Guide\r\n\r\n**When to use:**\r\n- Text, email, password, search, number, etc.\r\n- Search bars, forms, filters\r\n\r\n**When NOT to use:**\r\n- Multi-line input (use textarea)\r\n- Selection (use select, radio, checkbox)\r\n\r\n## Accessibility\r\n- ✅ Label is always associated with input\r\n- ✅ Keyboard navigation\r\n- ✅ Error and helper text with aria-describedby\r\n- ✅ Disabled and readonly states\r\n- 💡 Use aria-label for icon-only or hidden label\r\n\r\n## ng-content selectors\r\n- `[icon-left]` (left icon)\r\n- `[icon-right]` (right icon)\r\n- `[clear-icon]` (custom clear button icon)",
+        "description": "<p>Input component for user text entry.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Text, email, password, search, number, etc.</li>\n<li>Search bars, forms, filters</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Multi-line input (use textarea)</li>\n<li>Selection (use select, radio, checkbox)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Label is always associated with input</li>\n<li>✅ Keyboard navigation</li>\n<li>✅ Error and helper text with aria-describedby</li>\n<li>✅ Disabled and readonly states</li>\n<li>💡 Use aria-label for icon-only or hidden label</li>\n</ul>\n<h2>ng-content selectors</h2>\n<ul>\n<li><code>[icon-left]</code> (left icon)</li>\n<li><code>[icon-right]</code> (right icon)</li>\n<li><code>[clear-icon]</code> (custom clear button icon)</li>\n</ul>\n"
       },
       {
         "name": "preview",
@@ -141,6 +193,16 @@
         "description": "<p>Different button sizes</p>\n"
       },
       {
+        "name": "Sizes",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; align-items: flex-end;\">\r\n        <zg-input label=\"Small\" size=\"sm\" placeholder=\"Small input\"></zg-input>\r\n        <zg-input label=\"Medium\" size=\"md\" placeholder=\"Medium input\"></zg-input>\r\n        <zg-input label=\"Large\" size=\"lg\" placeholder=\"Large input\"></zg-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+      },
+      {
         "name": "Variants",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -151,6 +213,16 @@
         "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-button variant=\"primary\">Primary</zg-button>\n        <zg-button variant=\"secondary\">Secondary</zg-button>\n        <zg-button variant=\"accent\">Accent</zg-button>\n        <zg-button variant=\"danger\">Danger</zg-button>\n        <zg-button variant=\"ghost\">Ghost</zg-button>\n        <zg-button variant=\"gradient\">Gradient</zg-button>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "All button variants side by side",
         "description": "<p>All button variants side by side</p>\n"
+      },
+      {
+        "name": "WithClearButton",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    label: 'Clearable',\r\n    placeholder: 'Type to show clear',\r\n    value: 'Clear me',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <zg-input\r\n        [label]=\"label\"\r\n        [placeholder]=\"placeholder\"\r\n        [value]=\"value\"\r\n        [type]=\"type\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [readonly]=\"readonly\"\r\n        [error]=\"error\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [autocomplete]=\"autocomplete\"\r\n        [maxlength]=\"maxlength\"\r\n        [helperText]=\"helperText\"\r\n        (changed)=\"changed($event)\"\r\n        (focused)=\"focused($event)\"\r\n        (blurred)=\"blurred($event)\"\r\n        (cleared)=\"cleared()\"\r\n      >\r\n        <svg clear-icon width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"/><line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"/></svg>\r\n      </zg-input>\r\n    `,\r\n  }),\r\n}"
       },
       {
         "name": "WithIconLeft",
@@ -187,6 +259,26 @@
         "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <!-- Icon left -->\n        <zg-button variant=\"primary\">\n          <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/>\n          </svg>\n          Add Item\n        </zg-button>\n\n        <!-- Icon right -->\n        <zg-button variant=\"accent\">\n          Save File\n          <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z\"/>\n          </svg>\n        </zg-button>\n\n        <!-- Both icons -->\n        <zg-button variant=\"secondary\">\n          <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z\"/>\n          </svg>\n          Download\n          <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z\"/>\n          </svg>\n        </zg-button>\n\n        <!-- Icon only -->\n        <zg-button variant=\"ghost\" shape=\"square\" aria-label=\"Settings\">\n          <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.87,17.38L11.24,20H12.76L13.13,17.39C14.32,17.14 15.37,16.5 16.14,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.39C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z\"/>\n          </svg>\n        </zg-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: `\nThis story demonstrates the different ways to use ng-content with icon selectors:\n\n**Available selectors:**\n- \\`[icon-left]\\` - Place icons before text content\n- \\`[icon-right]\\` - Place icons after text content\n- Default slot - Main button content (text, HTML, etc.)\n\n**Best practices:**\n- Use \\`aria-label\\` for icon-only buttons\n- Keep icon sizes consistent (16x16px recommended)\n- Use \\`currentColor\\` for icon fill to inherit button text color\n        `,\n      },\n    },\n  },\n}",
         "rawdescription": "Examples using ng-content with icon selectors and complex content",
         "description": "<p>Examples using ng-content with icon selectors and complex content</p>\n"
+      },
+      {
+        "name": "WithLeftIcon",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    label: 'Buscar',\r\n    placeholder: 'Buscar juegos',\r\n    value: '',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <zg-input\r\n        [label]=\"label\"\r\n        [placeholder]=\"placeholder\"\r\n        [value]=\"value\"\r\n        [type]=\"type\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [readonly]=\"readonly\"\r\n        [error]=\"error\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [autocomplete]=\"autocomplete\"\r\n        [maxlength]=\"maxlength\"\r\n        [helperText]=\"helperText\"\r\n        (changed)=\"changed($event)\"\r\n        (focused)=\"focused($event)\"\r\n        (blurred)=\"blurred($event)\"\r\n        (cleared)=\"cleared()\"\r\n      >\r\n        <svg icon-left width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\r\n      </zg-input>\r\n    `,\r\n  }),\r\n}"
+      },
+      {
+        "name": "WithRightIcon",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\r\n  args: {\r\n    label: 'Buscar',\r\n    placeholder: 'Buscar juegos',\r\n    value: '',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <zg-input\r\n        [label]=\"label\"\r\n        [placeholder]=\"placeholder\"\r\n        [value]=\"value\"\r\n        [type]=\"type\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [readonly]=\"readonly\"\r\n        [error]=\"error\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [autocomplete]=\"autocomplete\"\r\n        [maxlength]=\"maxlength\"\r\n        [helperText]=\"helperText\"\r\n        (changed)=\"changed($event)\"\r\n        (focused)=\"focused($event)\"\r\n        (blurred)=\"blurred($event)\"\r\n        (cleared)=\"cleared()\"\r\n      >\r\n        <svg icon-right width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\r\n      </zg-input>\r\n    `,\r\n  }),\r\n}"
       }
     ],
     "functions": [],
@@ -197,6 +289,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<ZgButtonComponent>",
         "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 184
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<ZgInputComponent>",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -375,6 +478,100 @@
           "description": "<p>Examples using ng-content with icon selectors and complex content</p>\n"
         }
       ],
+      "projects/ui/src/lib/atoms/input/input.component.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    label: 'Username',\r\n    placeholder: 'Enter your username',\r\n    value: '',\r\n    type: 'text',\r\n    size: 'md',\r\n    disabled: false,\r\n    readonly: false,\r\n    error: '',\r\n    fullWidth: false,\r\n    autocomplete: '',\r\n    maxlength: undefined,\r\n    helperText: '',\r\n  },\r\n}"
+        },
+        {
+          "name": "Disabled",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    label: 'Disabled',\r\n    placeholder: 'Cannot type here',\r\n    disabled: true,\r\n    value: '',\r\n  },\r\n}"
+        },
+        {
+          "name": "Error",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    label: 'Email',\r\n    placeholder: 'Enter your email',\r\n    error: 'Invalid email address',\r\n    value: '',\r\n  },\r\n}"
+        },
+        {
+          "name": "HelperText",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    label: 'With helper',\r\n    placeholder: 'Type something',\r\n    helperText: 'Helper text for guidance',\r\n    value: '',\r\n  },\r\n}"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ZgInputComponent>",
+          "defaultValue": "{\r\n  title: 'Atoms/Input',\r\n  component: ZgInputComponent,\r\n  tags: ['autodocs'],\r\n  parameters: {\r\n    docs: {\r\n      source: { type: 'dynamic' },\r\n      description: {\r\n        component:\r\n          'Accessible input field with support for icons, error, helper text, and full design token theming. Use ng-content for icon projection.',\r\n      },\r\n    },\r\n    a11y: {\r\n      element: '#root',\r\n    },\r\n  },\r\n  argTypes: {\r\n    type: {\r\n      control: 'select',\r\n      options: ['text', 'password', 'email', 'number', 'search'],\r\n      description: 'Input type',\r\n      table: { defaultValue: { summary: 'text' } },\r\n    },\r\n    value: {\r\n      control: 'text',\r\n      description: 'Input value',\r\n      table: { defaultValue: { summary: '' } },\r\n    },\r\n    placeholder: {\r\n      control: 'text',\r\n      description: 'Placeholder text',\r\n    },\r\n    label: {\r\n      control: 'text',\r\n      description: 'Label for accessibility',\r\n    },\r\n    disabled: {\r\n      control: 'boolean',\r\n      description: 'Disabled state',\r\n      table: { defaultValue: { summary: 'false' } },\r\n    },\r\n    readonly: {\r\n      control: 'boolean',\r\n      description: 'Readonly state',\r\n      table: { defaultValue: { summary: 'false' } },\r\n    },\r\n    error: {\r\n      control: 'text',\r\n      description: 'Error message',\r\n    },\r\n    size: {\r\n      control: 'select',\r\n      options: ['sm', 'md', 'lg'],\r\n      description: 'Input size',\r\n      table: { defaultValue: { summary: 'md' } },\r\n    },\r\n    fullWidth: {\r\n      control: 'boolean',\r\n      description: 'Full width',\r\n      table: { defaultValue: { summary: 'false' } },\r\n    },\r\n    autocomplete: {\r\n      control: 'text',\r\n      description: 'Autocomplete attribute',\r\n    },\r\n    maxlength: {\r\n      control: 'number',\r\n      description: 'Max length',\r\n    },\r\n    helperText: {\r\n      control: 'text',\r\n      description: 'Helper text',\r\n    },\r\n    changed: {\r\n      action: 'changed',\r\n      description: 'Emitted when value changes',\r\n      table: { category: 'Events' },\r\n    },\r\n    focused: {\r\n      action: 'focused',\r\n      description: 'Emitted on focus',\r\n      table: { category: 'Events' },\r\n    },\r\n    blurred: {\r\n      action: 'blurred',\r\n      description: 'Emitted on blur',\r\n      table: { category: 'Events' },\r\n    },\r\n    cleared: {\r\n      action: 'cleared',\r\n      description: 'Emitted when clear button is clicked',\r\n      table: { category: 'Events' },\r\n    },\r\n  },\r\n}",
+          "rawdescription": "Input component for user text entry.\r\n\r\n## Usage Guide\r\n\r\n**When to use:**\r\n- Text, email, password, search, number, etc.\r\n- Search bars, forms, filters\r\n\r\n**When NOT to use:**\r\n- Multi-line input (use textarea)\r\n- Selection (use select, radio, checkbox)\r\n\r\n## Accessibility\r\n- ✅ Label is always associated with input\r\n- ✅ Keyboard navigation\r\n- ✅ Error and helper text with aria-describedby\r\n- ✅ Disabled and readonly states\r\n- 💡 Use aria-label for icon-only or hidden label\r\n\r\n## ng-content selectors\r\n- `[icon-left]` (left icon)\r\n- `[icon-right]` (right icon)\r\n- `[clear-icon]` (custom clear button icon)",
+          "description": "<p>Input component for user text entry.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Text, email, password, search, number, etc.</li>\n<li>Search bars, forms, filters</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Multi-line input (use textarea)</li>\n<li>Selection (use select, radio, checkbox)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Label is always associated with input</li>\n<li>✅ Keyboard navigation</li>\n<li>✅ Error and helper text with aria-describedby</li>\n<li>✅ Disabled and readonly states</li>\n<li>💡 Use aria-label for icon-only or hidden label</li>\n</ul>\n<h2>ng-content selectors</h2>\n<ul>\n<li><code>[icon-left]</code> (left icon)</li>\n<li><code>[icon-right]</code> (right icon)</li>\n<li><code>[clear-icon]</code> (custom clear button icon)</li>\n</ul>\n"
+        },
+        {
+          "name": "Sizes",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  render: () => ({\r\n    template: `\r\n      <div style=\"display: flex; gap: 1rem; align-items: flex-end;\">\r\n        <zg-input label=\"Small\" size=\"sm\" placeholder=\"Small input\"></zg-input>\r\n        <zg-input label=\"Medium\" size=\"md\" placeholder=\"Medium input\"></zg-input>\r\n        <zg-input label=\"Large\" size=\"lg\" placeholder=\"Large input\"></zg-input>\r\n      </div>\r\n    `,\r\n  }),\r\n}"
+        },
+        {
+          "name": "WithClearButton",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    label: 'Clearable',\r\n    placeholder: 'Type to show clear',\r\n    value: 'Clear me',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <zg-input\r\n        [label]=\"label\"\r\n        [placeholder]=\"placeholder\"\r\n        [value]=\"value\"\r\n        [type]=\"type\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [readonly]=\"readonly\"\r\n        [error]=\"error\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [autocomplete]=\"autocomplete\"\r\n        [maxlength]=\"maxlength\"\r\n        [helperText]=\"helperText\"\r\n        (changed)=\"changed($event)\"\r\n        (focused)=\"focused($event)\"\r\n        (blurred)=\"blurred($event)\"\r\n        (cleared)=\"cleared()\"\r\n      >\r\n        <svg clear-icon width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><line x1=\"18\" y1=\"6\" x2=\"6\" y2=\"18\"/><line x1=\"6\" y1=\"6\" x2=\"18\" y2=\"18\"/></svg>\r\n      </zg-input>\r\n    `,\r\n  }),\r\n}"
+        },
+        {
+          "name": "WithLeftIcon",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    label: 'Buscar',\r\n    placeholder: 'Buscar juegos',\r\n    value: '',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <zg-input\r\n        [label]=\"label\"\r\n        [placeholder]=\"placeholder\"\r\n        [value]=\"value\"\r\n        [type]=\"type\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [readonly]=\"readonly\"\r\n        [error]=\"error\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [autocomplete]=\"autocomplete\"\r\n        [maxlength]=\"maxlength\"\r\n        [helperText]=\"helperText\"\r\n        (changed)=\"changed($event)\"\r\n        (focused)=\"focused($event)\"\r\n        (blurred)=\"blurred($event)\"\r\n        (cleared)=\"cleared()\"\r\n      >\r\n        <svg icon-left width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\r\n      </zg-input>\r\n    `,\r\n  }),\r\n}"
+        },
+        {
+          "name": "WithRightIcon",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\r\n  args: {\r\n    label: 'Buscar',\r\n    placeholder: 'Buscar juegos',\r\n    value: '',\r\n  },\r\n  render: (args) => ({\r\n    props: args,\r\n    template: `\r\n      <zg-input\r\n        [label]=\"label\"\r\n        [placeholder]=\"placeholder\"\r\n        [value]=\"value\"\r\n        [type]=\"type\"\r\n        [size]=\"size\"\r\n        [disabled]=\"disabled\"\r\n        [readonly]=\"readonly\"\r\n        [error]=\"error\"\r\n        [fullWidth]=\"fullWidth\"\r\n        [autocomplete]=\"autocomplete\"\r\n        [maxlength]=\"maxlength\"\r\n        [helperText]=\"helperText\"\r\n        (changed)=\"changed($event)\"\r\n        (focused)=\"focused($event)\"\r\n        (blurred)=\"blurred($event)\"\r\n        (cleared)=\"cleared()\"\r\n      >\r\n        <svg icon-right width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\r\n      </zg-input>\r\n    `,\r\n  }),\r\n}"
+        }
+      ],
       "projects/ui/.storybook/preview.ts": [
         {
           "name": "preview",
@@ -403,6 +600,19 @@
           "description": "",
           "kind": 184
         }
+      ],
+      "projects/ui/src/lib/atoms/input/input.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ZgInputComponent>",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 184
+        }
       ]
     }
   },
@@ -412,8 +622,8 @@
     "children": []
   },
   "coverage": {
-    "count": 87,
-    "status": "very-good",
+    "count": 57,
+    "status": "good",
     "files": [
       {
         "filePath": "projects/ui/.storybook/preview.ts",
@@ -567,6 +777,106 @@
       },
       {
         "filePath": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "type": "type alias",
+        "linktype": "miscellaneous",
+        "linksubtype": "typealias",
+        "name": "Story",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Default",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Disabled",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Error",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "HelperText",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "meta",
+        "coveragePercent": 100,
+        "coverageCount": "1/1",
+        "status": "very-good"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "Sizes",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "WithClearButton",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "WithLeftIcon",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "type": "variable",
+        "linktype": "miscellaneous",
+        "linksubtype": "variable",
+        "name": "WithRightIcon",
+        "coveragePercent": 0,
+        "coverageCount": "0/1",
+        "status": "low"
+      },
+      {
+        "filePath": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
         "type": "type alias",
         "linktype": "miscellaneous",
         "linksubtype": "typealias",
