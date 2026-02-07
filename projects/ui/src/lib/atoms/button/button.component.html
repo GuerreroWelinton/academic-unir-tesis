@@ -1,6 +1,6 @@
 <button
-  [type]="type"
-  [disabled]="disabled || loading"
+  [type]="type()"
+  [disabled]="disabled() || loading()"
   class="zg-button__native"
   (click)="handleClick($event)"
 >
@@ -10,14 +10,14 @@
   </span>
 
   <!-- Loading spinner (shown when loading) -->
-  @if (loading) {
+  @if (loading()) {
     <span class="zg-button__spinner" aria-hidden="true"></span>
   }
 
   <!-- Button content -->
-  <span class="zg-button__content" [class.zg-button__content--hidden]="loading">
-    @if (text) {
-      {{ text }}
+  <span class="zg-button__content" [class.zg-button__content--hidden]="loading()">
+    @if (text()) {
+      {{ text() }}
     } @else {
       <ng-content></ng-content>
     }

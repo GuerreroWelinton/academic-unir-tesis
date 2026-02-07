@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  computed,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, output, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 /**
@@ -67,10 +59,10 @@ export type ButtonType = 'button' | 'submit' | 'reset';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class]': 'hostClasses()',
-    '[attr.data-variant]': 'variant',
-    '[attr.data-size]': 'size',
-    '[attr.data-shape]': 'shape',
-    '[attr.data-font-family]': 'fontFamily',
+    '[attr.data-variant]': 'variant()',
+    '[attr.data-size]': 'size()',
+    '[attr.data-shape]': 'shape()',
+    '[attr.data-font-family]': 'fontFamily()',
   },
 })
 export class ZgButtonComponent {
@@ -78,60 +70,60 @@ export class ZgButtonComponent {
    * Button visual variant
    * @default 'primary'
    */
-  @Input() variant: ButtonVariant = 'primary';
+  variant = input<ButtonVariant>('primary');
 
   /**
    * Button size
    * @default 'md'
    */
-  @Input() size: ButtonSize = 'md';
+  size = input<ButtonSize>('md');
 
   /**
    * Button shape (border radius)
    * @default 'default'
    */
-  @Input() shape: ButtonShape = 'default';
+  shape = input<ButtonShape>('default');
 
   /**
    * Whether the button is disabled
    * @default false
    */
-  @Input() disabled: boolean = false;
+  disabled = input<boolean>(false);
 
   /**
    * Whether the button is in loading state
    * @default false
    */
-  @Input() loading: boolean = false;
+  loading = input<boolean>(false);
 
   /**
    * Whether the button should take full width of its container
    * @default false
    */
-  @Input() fullWidth: boolean = false;
+  fullWidth = input<boolean>(false);
 
   /**
    * Native button type (button, submit, reset)
    * @default 'button'
    */
-  @Input() type: ButtonType = 'button';
+  type = input<ButtonType>('button');
 
   /**
    * Font family variant (base: Inter, secondary: Teko for titles)
    * @default 'base'
    */
-  @Input() fontFamily: ButtonFontFamily = 'base';
+  fontFamily = input<ButtonFontFamily>('base');
 
   /**
    * Button text content (alternative to using ng-content)
    * @default undefined
    */
-  @Input() text?: string;
+  text = input<string | undefined>(undefined);
 
   /**
    * Emitted when the button is clicked
    */
-  @Output() clicked = new EventEmitter<MouseEvent>();
+  clicked = output<MouseEvent>();
 
   /**
    * Internal loading state signal
@@ -144,11 +136,11 @@ export class ZgButtonComponent {
   protected hostClasses = computed(() => {
     const classes = ['zg-button'];
 
-    if (this.fullWidth) {
+    if (this.fullWidth()) {
       classes.push('zg-button--full-width');
     }
 
-    if (this.loading || this.isLoading()) {
+    if (this.loading() || this.isLoading()) {
       classes.push('zg-button--loading');
     }
 
@@ -159,7 +151,7 @@ export class ZgButtonComponent {
    * Handle button click
    */
   protected handleClick(event: MouseEvent): void {
-    if (this.disabled || this.loading || this.isLoading()) {
+    if (this.disabled() || this.loading() || this.isLoading()) {
       event.preventDefault();
       event.stopPropagation();
       return;
