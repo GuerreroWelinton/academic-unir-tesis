@@ -83,7 +83,7 @@ describe('ZgChipComponent', () => {
       expect(content.nativeElement.textContent.trim()).toBe('Sports');
     });
 
-    it('should apply all variant classes', () => {
+    it('should apply all variant data attributes', () => {
       const variants: ('filled' | 'outlined' | 'ghost')[] = ['filled', 'outlined', 'ghost'];
 
       variants.forEach((variant) => {
@@ -91,11 +91,11 @@ describe('ZgChipComponent', () => {
         fixture.detectChanges();
 
         const host = fixture.nativeElement as HTMLElement;
-        expect(host.classList.contains(`zg-chip--${variant}`)).toBe(true);
+        expect(host.getAttribute('data-variant')).toBe(variant);
       });
     });
 
-    it('should apply all size classes', () => {
+    it('should apply all size data attributes', () => {
       const sizes: ('sm' | 'md' | 'lg')[] = ['sm', 'md', 'lg'];
 
       sizes.forEach((size) => {
@@ -103,24 +103,24 @@ describe('ZgChipComponent', () => {
         fixture.detectChanges();
 
         const host = fixture.nativeElement as HTMLElement;
-        expect(host.classList.contains(`zg-chip--${size}`)).toBe(true);
+        expect(host.getAttribute('data-size')).toBe(size);
       });
     });
 
-    it('should apply selected class when selected is true', () => {
+    it('should apply selected data attribute when selected is true', () => {
       fixture.componentRef.setInput('selected', true);
       fixture.detectChanges();
 
       const host = fixture.nativeElement as HTMLElement;
-      expect(host.classList.contains('zg-chip--selected')).toBe(true);
+      expect(host.getAttribute('data-selected')).toBe('true');
     });
 
-    it('should apply disabled class when disabled is true', () => {
+    it('should apply disabled data attribute when disabled is true', () => {
       fixture.componentRef.setInput('disabled', true);
       fixture.detectChanges();
 
       const host = fixture.nativeElement as HTMLElement;
-      expect(host.classList.contains('zg-chip--disabled')).toBe(true);
+      expect(host.getAttribute('data-disabled')).toBe('true');
     });
   });
 
@@ -362,7 +362,7 @@ describe('ZgChipComponent', () => {
   });
 
   describe('Host Classes', () => {
-    it('should compute correct host classes', () => {
+    it('should compute correct host classes and data attributes', () => {
       fixture.componentRef.setInput('variant', 'outlined');
       fixture.componentRef.setInput('size', 'lg');
       fixture.componentRef.setInput('selected', true);
@@ -370,25 +370,27 @@ describe('ZgChipComponent', () => {
 
       const host = fixture.nativeElement as HTMLElement;
 
+      // Should have base class
       expect(host.classList.contains('zg-chip')).toBe(true);
-      expect(host.classList.contains('zg-chip--outlined')).toBe(true);
-      expect(host.classList.contains('zg-chip--lg')).toBe(true);
-      expect(host.classList.contains('zg-chip--selected')).toBe(true);
+
+      // Should have data attributes for styling
+      expect(host.getAttribute('data-variant')).toBe('outlined');
+      expect(host.getAttribute('data-size')).toBe('lg');
+      expect(host.getAttribute('data-selected')).toBe('true');
     });
 
-    it('should update host classes when inputs change', () => {
+    it('should update data attributes when inputs change', () => {
       fixture.componentRef.setInput('variant', 'filled');
       fixture.detectChanges();
 
       let host = fixture.nativeElement as HTMLElement;
-      expect(host.classList.contains('zg-chip--filled')).toBe(true);
+      expect(host.getAttribute('data-variant')).toBe('filled');
 
       fixture.componentRef.setInput('variant', 'ghost');
       fixture.detectChanges();
 
       host = fixture.nativeElement as HTMLElement;
-      expect(host.classList.contains('zg-chip--filled')).toBe(false);
-      expect(host.classList.contains('zg-chip--ghost')).toBe(true);
+      expect(host.getAttribute('data-variant')).toBe('ghost');
     });
   });
 });
