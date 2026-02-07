@@ -1,84 +1,9 @@
-/* Copiado desde src/themes/client-themes.ts */
-
 /**
  * Client Theme Configurations
  * Each client can have multiple theme variants with flexible naming
  */
 
 import { createTheme, resetTheme, type Theme } from '@zg/design-tokens';
-
-// ...existing code...
-
-// (Pego aquí el contenido completo del archivo leído)
-
-/**
- * =============================================================================
- * REFERENCIA: Vinculaciones Semántico → Primitivo (Base en _tokens.scss)
- * =============================================================================
- *
- * Semantic Token              → Primitive Default
- * --zg-color-primary          → var(--zg-green-800)
- * --zg-color-primary-hover    → var(--zg-green-700)
- * --zg-color-primary-active   → var(--zg-green-600)
- * --zg-color-secondary        → var(--zg-green-500)
- * --zg-color-secondary-hover  → var(--zg-green-400)
- * --zg-color-accent           → var(--zg-green-400)
- * --zg-color-highlight        → var(--zg-green-100)
- * --zg-color-success          → var(--zg-green-500)
- * --zg-color-error            → var(--zg-red-600)
- * --zg-color-warning          → var(--zg-yellow-600)
- * --zg-color-info             → var(--zg-blue-700)
- * --zg-color-text-primary     → var(--zg-neutral-900)
- * --zg-color-text-secondary   → var(--zg-neutral-700)
- * --zg-color-bg-primary       → var(--zg-neutral-100)
- * --zg-color-bg-secondary     → var(--zg-neutral-200)
- *
- * =============================================================================
- * ARQUITECTURA DE 3 CAPAS
- * =============================================================================
- *
- * CAPA 1: PRIMITIVOS (--zg-green-800, --zg-neutral-200)
- *   - Valores base sin significado semántico
- *   - Modificables vía themes para crear variaciones
- *
- * CAPA 2: SEMÁNTICOS GENÉRICOS (--zg-color-primary, --zg-color-text-primary)
- *   - Apuntan a primitivos: var(--zg-green-800)
- *   - Usados por múltiples componentes
- *   - Dan significado de intención (primary = acción principal)
- *
- * CAPA 3: SEMÁNTICOS DE COMPONENTE (--zg-button-bg-primary, --zg-card-shadow)
- *   - Tokens específicos por componente
- *   - REGLA: DEBEN usar CAPA 2, NO primitivos directos
- *   - ✅ Correcto: --zg-button-bg-primary: var(--zg-color-primary)
- *   - ❌ Incorrecto: --zg-button-bg-primary: var(--zg-green-800)
- *
- * ⚠️ POR QUÉ ES IMPORTANTE:
- * Si usas primitivos en CAPA 3, los temas que sobrescriben CAPA 2 NO afectan
- * a esos componentes, rompiendo la coherencia del sistema.
- *
- * =============================================================================
- * ESTRATEGIAS DE THEMING
- * =============================================================================
- *
- * 1. SOBRESCRIBIR PRIMITIVOS (Temas simples)
- *    - Cambia un primitivo y todo lo vinculado se actualiza automáticamente
- *    - Ejemplo: green800: '#FF0000' → primary se vuelve rojo
- *    - Usa cuando: El tema usa la misma "estructura" de colores (verde → otro verde)
- *
- * 2. SOBRESCRIBIR SEMÁNTICOS DIRECTAMENTE (Temas complejos)
- *    - Control quirúrgico de cada token sin afectar vinculaciones
- *    - Ejemplo: color: { primary: '#c62828' } → primary rojo sin tocar green800
- *    - Usa cuando: Necesitas cambios drásticos (morado → rojo navideño)
- *
- * 3. COMBINACIÓN (Recomendado)
- *    - Define primitivos base + sobrescribe semánticos específicos
- *    - Máxima flexibilidad y claridad
- *
- * 4. TOKENS DE COMPONENTE
- *    - Normalmente NO necesitas sobrescribirlos (heredan de CAPA 2)
- *
- * =============================================================================
- */
 
 /**
  * Client theme configuration

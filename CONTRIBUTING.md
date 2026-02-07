@@ -41,6 +41,23 @@ We use **Atomic Design** as a guide for component organization. Folders are stru
 - **MANDATORY**: Styles must use design tokens from `src/styles/_tokens.scss`
 - **FORBIDDEN**: Hardcoding colors, spacing, typography, radius
 - Correct example: `color: var(--zg-color-primary)`
+
+#### Token Architecture & Theming (Summary)
+
+##### 3-Layer Token System
+
+- **Layer 1: Primitives** — Raw base values (e.g., --zg-green-800, --zg-neutral-200). Used for theme variations.
+- **Layer 2: Semantic Tokens** — Intention-based tokens (e.g., --zg-color-primary) referencing primitives. Used by multiple components.
+- **Layer 3: Component Tokens** — Component-specific tokens (e.g., --zg-button-bg-primary) referencing semantic tokens. Must NOT reference primitives directly.
+
+**Rule:** Component tokens must reference semantic tokens, not primitives, to ensure theme consistency.
+
+##### Theming Strategies
+
+- **Primitive Override:** Change base values for simple theme shifts (e.g., green800 → red).
+- **Semantic Override:** Override intention tokens for precise control (e.g., primary → custom color).
+- **Combined:** Use both for maximum flexibility (recommended).
+- **Component Tokens:** Usually inherit from Layer 2; rarely overridden directly.
 - Incorrect example: `color: #00b894`
 
 ## Storybook and Documentation
@@ -92,32 +109,6 @@ Recommended convention:
 - `style:` tokens, styles, formatting
 - `test:` tests
 - `chore:` tooling/config
-
-## Project Setup
-
-To work on the project:
-
-```bash
-# Install dependencies
-npm install
-
-# Storybook (main development)
-npm run storybook  # localhost:6006
-
-# Demo app
-npm start  # localhost:4200
-
-# Tests
-npm test
-
-# Technical documentation (Compodoc)
-npm run docs:ui           # Generates HTML in docs/ui
-npm run docs:ui:serve     # Serves documentation locally
-
-# Builds
-npm run build:ui
-npm run build:design-tokens
-```
 
 ## Development Process
 

@@ -2,6 +2,8 @@
 
 A modern, accessible, and themeable Angular component library for iGaming applications, built with Angular 21 and Storybook.
 
+A modern, accessible, and themeable Angular component library for iGaming applications, built with Angular 21 and Storybook.
+
 ## 📋 Overview
 
 This is an MVP of a reusable UI component library for ZGames Technology. The library follows Angular best practices, prioritizes accessibility (WCAG), and provides a consistent design system with multi-client theming capabilities.
@@ -10,10 +12,20 @@ This is an MVP of a reusable UI component library for ZGames Technology. The lib
 
 ### Design Tokens
 
-The library uses a **2-layer design token system**:
+The library uses a **3-layer design token system**:
 
-1. **Primitives** (`--zg-green-800`, `--zg-neutral-200`, etc.): Raw color scales and base values
-2. **Semantic tokens** (`--zg-color-primary`, `--zg-color-success`, etc.): Intention-based tokens referencing primitives
+- **Layer 1: Primitives** — Raw base values (e.g., --zg-green-800, --zg-neutral-200). Used for theme variations.
+- **Layer 2: Semantic Tokens** — Intention-based tokens (e.g., --zg-color-primary) referencing primitives. Used by multiple components.
+- **Layer 3: Component Tokens** — Component-specific tokens (e.g., --zg-button-bg-primary) referencing semantic tokens. Must NOT reference primitives directly.
+
+**Rule:** Component tokens must reference semantic tokens, not primitives, to ensure theme consistency.
+
+#### Theming Strategies
+
+- **Primitive Override:** Change base values for simple theme shifts (e.g., green800 → red).
+- **Semantic Override:** Override intention tokens for precise control (e.g., primary → custom color).
+- **Combined:** Use both for maximum flexibility (recommended).
+- **Component Tokens:** Usually inherit from Layer 2; rarely overridden directly.
 
 All design tokens are defined as CSS variables in [src/styles/\_tokens.scss](src/styles/_tokens.scss).
 
@@ -168,7 +180,28 @@ createTheme(myTheme);
 Run unit tests with Vitest:
 
 ```bash
+## 🧪 Testing
+
+You can run tests and coverage for the app or each library:
+
+# App tests (default)
 npm test
+npm run test:coverage
+
+# UI library tests
+npm run test:ui
+npm run test:ui:coverage
+
+# Design tokens tests
+npm run test:design-tokens
+npm run test:design-tokens:coverage
+
+# Lint
+npm run lint
+
+# Format
+npm run format
+npm run format:check
 ```
 
 ## 📚 Documentation

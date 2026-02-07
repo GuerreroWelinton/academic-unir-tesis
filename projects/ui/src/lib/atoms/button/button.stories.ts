@@ -95,7 +95,7 @@ const meta: Meta<ZgButtonComponent> = {
     fontFamily: {
       control: 'select',
       options: ['base', 'secondary'],
-      description: 'Font family variant (base: Inter, secondary: Roboto for titles)',
+      description: 'Font family variant (base, secondary)',
       table: {
         defaultValue: { summary: 'base' },
         type: { summary: 'ButtonFontFamily' },
@@ -187,25 +187,25 @@ export const Shapes: Story = {
 };
 
 /**
- * Font family variants (base: Inter, secondary: Roboto for titles/headings)
+ * Font family variants (base, secondary)
  */
 export const FontFamilies: Story = {
   render: () => ({
     template: `
       <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;">
         <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Base (Inter) - Default</h4>
-          <zg-button fontFamily="base">Button with Inter</zg-button>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Base - Default</h4>
+          <zg-button fontFamily="base">Button with base font</zg-button>
         </div>
         <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Secondary (Roboto) - For titles/highlights</h4>
-          <zg-button fontFamily="secondary" size="lg">Button with Roboto</zg-button>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Secondary - For titles/highlights</h4>
+          <zg-button fontFamily="secondary" size="lg">Button with secondary font</zg-button>
         </div>
         <div>
           <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Side by side comparison</h4>
           <div style="display: flex; gap: 1rem; align-items: center;">
-            <zg-button variant="primary" fontFamily="base">Inter (base)</zg-button>
-            <zg-button variant="primary" fontFamily="secondary">Roboto (secondary)</zg-button>
+            <zg-button variant="primary" fontFamily="base">Button with base font</zg-button>
+            <zg-button variant="primary" fontFamily="secondary">Button with secondary font</zg-button>
           </div>
         </div>
       </div>
@@ -383,7 +383,7 @@ export const RealWorldExamples: Story = {
       <div style="display: flex; flex-direction: column; gap: 2rem;">
         <!-- CTA Button (Write to us) - With secondary font for highlight -->
         <div>
-          <h4 style="margin-bottom: 0.5rem;">Main CTA (with Roboto for highlight)</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Main CTA (with secondary font)</h4>
           <zg-button variant="accent" shape="pill" size="lg" fontFamily="secondary">
             WRITE TO US
           </zg-button>
@@ -391,7 +391,7 @@ export const RealWorldExamples: Story = {
 
         <!-- Alternative CTA Button with base font -->
         <div>
-          <h4 style="margin-bottom: 0.5rem;">Alternative CTA (with Inter)</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Alternative CTA (with base font)</h4>
           <zg-button variant="accent" shape="pill" size="lg">
             Write to us
           </zg-button>
@@ -399,7 +399,7 @@ export const RealWorldExamples: Story = {
 
         <!-- Action Button (Save) -->
         <div>
-          <h4 style="margin-bottom: 0.5rem;">Action with icon</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Primary variant with icon</h4>
           <zg-button variant="primary">
             <svg icon-left width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
               <path d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1 1 0 0 0-.98 1.17l.5 3.5A2 2 0 0 0 4.86 11H6v1a2 2 0 1 0 4 0v-1h1.14a2 2 0 0 0 1.98-1.67l.5-3.5a1 1 0 0 0-.98-1.17H11z"/>
@@ -410,7 +410,7 @@ export const RealWorldExamples: Story = {
 
         <!-- Navigation Group -->
         <div>
-          <h4 style="margin-bottom: 0.5rem;">Navigation</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Navigation</h4>
           <div style="display: flex; gap: 0.5rem;">
             <zg-button variant="primary" size="sm">
               All
@@ -424,7 +424,7 @@ export const RealWorldExamples: Story = {
 
         <!-- Danger action -->
         <div>
-          <h4 style="margin-bottom: 0.5rem;">Destructive action</h4>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Destructive action</h4>
           <zg-button variant="danger">Delete bet</zg-button>
         </div>
       </div>
