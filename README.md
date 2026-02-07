@@ -2,8 +2,6 @@
 
 A modern, accessible, and themeable Angular component library for iGaming applications, built with Angular 21 and Storybook.
 
-A modern, accessible, and themeable Angular component library for iGaming applications, built with Angular 21 and Storybook.
-
 ## 📋 Overview
 
 This is an MVP of a reusable UI component library for ZGames Technology. The library follows Angular best practices, prioritizes accessibility (WCAG), and provides a consistent design system with multi-client theming capabilities.
