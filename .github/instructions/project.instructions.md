@@ -98,6 +98,7 @@ Librería UI:
   - projects/ui/src/lib/atoms/<componente>/
   - projects/ui/src/lib/molecules/<componente>/
   - (En el futuro: organisms/, templates/, pages/)
+- Adoptamos Atomic Design como patrón organizativo: **Átomos → Moléculas → Organismos**, lo que facilita la evolución y reutilización de piezas UI.
 - Las historias y tests (vitest) deben estar co-localizados con el componente:
   - <componente>.component.ts
   - <componente>.component.html (si aplica)
@@ -127,6 +128,8 @@ STORYBOOK Y DOCUMENTACIÓN (CDD)
   - navegación por teclado,
   - estados focus visibles,
   - contraste adecuado cuando aplique.
+- La documentación técnica de API se genera con **Compodoc**. Ejecuta `npm run docs:ui` para generar los archivos en `docs/ui` o `npm run docs:ui:serve` para servirlos localmente.
+  - Nota: Las comprobaciones automáticas están configuradas por defecto para validar contra **WCAG 2.1 Nivel AA** (ver `projects/ui/.storybook/preview.ts`).
 - La documentación en Storybook debe explicar:
   - propósito del componente,
   - Inputs/Outputs,

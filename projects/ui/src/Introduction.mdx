@@ -1,0 +1,141 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introducción/Bienvenida" />
+
+# Bienvenido a la Biblioteca ZGames UI
+
+Una biblioteca de componentes moderna, accesible y reutilizable diseñada para experiencias de iGaming.
+
+## ¿Qué es ZGames UI?
+
+ZGames UI es un sistema de diseño y una biblioteca de componentes construida con **Angular 21** que ofrece:
+
+- **Componentes listos para producción** optimizados para rendimiento
+- **Accesibilidad WCAG AA** incorporada y validada
+- **Design tokens** para un theming consistente
+- **Documentación completa** con ejemplos reales
+- **Arquitectura componible** siguiendo el patrón Contenedor–Presentación
+
+## ¿Por qué ZGames UI?
+
+Esta biblioteca se creó para:
+
+1. **Reducir la deuda técnica** centralizando los componentes UI
+2. **Garantizar consistencia visual** entre productos
+3. **Acelerar el desarrollo** con componentes probados y reutilizables
+4. **Cumplir requisitos de accesibilidad** para regulaciones de iGaming (MGA, UKGC)
+5. **Permitir theming** para soportar múltiples marcas
+
+## 🏗️ Principios de Arquitectura
+
+### Patrón Contenedor–Presentación
+
+Todos los componentes de esta biblioteca son **componentes de presentación (dumb)**:
+
+- ✅ Reciben datos mediante `@Input()`
+- ✅ Emiten acciones del usuario mediante `@Output()`
+- ❌ No inyectan servicios ni contienen lógica de negocio
+- ❌ No realizan llamadas a APIs ni side-effects
+
+**Los contenedores inteligentes** (smart containers) residen en tu aplicación, no en la librería.
+
+### Design Tokens
+
+Cada componente utiliza **propiedades CSS personalizadas** (design tokens) para estilos:
+
+```css
+/* ❌ No hacer esto */
+background: #9c27b0;
+
+/* ✅ Hacer esto */
+background: var(--zg-color-primary);
+```
+
+Esto permite:
+
+- Theming dinámico
+- Personalización por cliente
+- Lenguaje visual consistente
+
+### Atomic Design
+
+Adoptamos el enfoque de **Atomic Design** para estructurar nuestra librería y guiar la evolución de los componentes. Esto nos da un lenguaje común para diseñadores y desarrolladores y mejora la reutilización:
+
+- **Átomos**: Elementos más pequeños e independientes (ej. `Button`, `Badge`, `Input`). Son la base del sistema.
+- **Moléculas**: Combinaciones de átomos que forman unidades funcionales (ej. un `Card` con `Badge` y `Button`).
+- **Organismos**: Composiciones más complejas y autónomas (ej. `Modal`, secciones completas de UI).
+
+Cómo lo aplicamos:
+
+- Los componentes se organizan en carpetas: `atoms/`, `molecules/`, `organisms/`.
+- Convenciones coherentes (`variant`, `size`, `disabled`) para facilitar el consumo.
+- Los design tokens se definen en la base y se consumen en los átomos, propagando consistencia hacia arriba.
+- Esta estructura facilita pruebas, documentación y mantenimiento a medida que la librería crece.
+
+## 🚀 Comenzando
+
+### Instalación
+
+```bash
+npm install @zgames/ui
+```
+
+### Importar componentes
+
+Todos los componentes son **standalone** y se pueden importar directamente:
+
+```typescript
+import { Component } from '@angular/core';
+import { ZgButtonComponent } from '@zgames/ui';
+
+@Component({
+  selector: 'app-my-component',
+  standalone: true,
+  imports: [ZgButtonComponent],
+  template: ` <zg-button variant="primary" (clicked)="handleClick()"> Haz clic </zg-button> `,
+})
+export class MyComponent {
+  handleClick() {
+    console.log('¡Botón pulsado!');
+  }
+}
+```
+
+## ♿ Accesibilidad
+
+Cada componente se valida contra los estándares **WCAG 2.1 Nivel AA**.
+
+Por defecto, el addon **a11y** de Storybook está configurado para ejecutar las comprobaciones asociadas a **WCAG 2.1 Nivel AA**.
+
+Encontrarás información de accesibilidad en la pestaña **Accessibility** de cada historia de componente, incluyendo:
+
+- Infracciones que requieren corrección
+- Pruebas aprobadas que cumplen WCAG
+- Comprobaciones manuales para verificar
+
+## 🎨 Stack tecnológico
+
+- **Angular 21** - Componentes standalone modernos con Signals
+- **Storybook 10** - Explorador de componentes y documentación
+- **axe-core** - Pruebas automáticas de accesibilidad
+- **Chromatic** - Pruebas visuales de regresión
+- **Vitest** - Pruebas unitarias rápidas
+- **TypeScript** - Desarrollo fuertemente tipado
+
+## 🤝 Contribuir
+
+Consulta nuestra [Guía de Contribución](https://github.com/GuerreroWelinton/academic-unir-tesis/blob/main/CONTRIBUTING.md) para:
+
+- Flujo de trabajo para desarrollar componentes
+- Requisitos de testing
+- Guía de tokens de diseño
+- Lista de verificación de accesibilidad
+
+## 📖 Explora los componentes
+
+Navega la librería en la barra lateral para:
+
+- Ver ejemplos en vivo de los componentes
+- Probar estados y variantes
+- Comprobar cumplimiento de accesibilidad
+- Copiar snippets de código

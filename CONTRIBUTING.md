@@ -32,6 +32,10 @@ Co-localización por componente en `projects/ui/src/lib/atoms/<componente>/`:
 - `*.stories.ts` (obligatorio)
 - `*.spec.ts` (obligatorio)
 
+### Atomic Design
+
+Utilizamos **Atomic Design** como guía para la organización de componentes. Las carpetas se estructuran por categorías (`atoms/`, `molecules/`, `organisms/`) y fomentamos que los átomos sean simples y reutilizables, las moléculas combinen átomos para crear piezas funcionales y los organismos compongan interfaces completas. Para ver el índice actualizado de componentes y su clasificación, consulta el **Storybook (barra lateral)**.
+
 ### Design Tokens
 
 - **OBLIGATORIO**: Estilos deben usar design tokens de `src/styles/_tokens.scss`
@@ -66,6 +70,8 @@ Todo componente debe tener `*.stories.ts` con:
 - Estados de focus visibles
 - ARIA attributes cuando corresponda
 - `aria-label` para componentes solo-icono
+
+**Nota:** Las comprobaciones automáticas del addon a11y están configuradas para validar contra **WCAG 2.1 Nivel AA** (configuración `runOnly: { type: 'tag', values: ['wcag2aa', 'wcag21aa'] }`).
 
 ## Tests unitarios (mínimos)
 
@@ -112,6 +118,10 @@ npm start  # localhost:4200
 
 # Tests
 npm test
+
+# Documentación técnica (Compodoc)
+npm run docs:ui           # Genera HTML en docs/ui
+npm run docs:ui:serve     # Sirve la documentación localmente
 
 # Builds
 npm run build:ui

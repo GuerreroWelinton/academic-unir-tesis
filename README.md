@@ -31,6 +31,16 @@ Todos los componentes son:
 - Siguen tipado estricto de TypeScript
 - Documentados con historias de Storybook
 
+### Atomic Design
+
+Adoptamos el enfoque de **Atomic Design** para organizar la biblioteca y facilitar la escalabilidad:
+
+- **Átomos**: Componentes más pequeños e independientes (ej. `Button`, `Badge`, `Input`) que forman la base del sistema.
+- **Moléculas**: Combinaciones de átomos que crean unidades funcionales (ej. `Card` con `Badge` y `Button`).
+- **Organismos**: Composiciones complejas que representan secciones de la UI (ej. `Modal`).
+
+La clasificación y el índice de componentes se mantienen y se exploran desde el **Storybook (barra lateral)** para que siempre refleje el estado actual de la librería.
+
 ### Tematización Multi-Cliente
 
 La biblioteca soporta **cambio de tema en tiempo de ejecución** para múltiples clientes de casino. Cada cliente puede tener múltiples variantes de tema (claro, oscuro, personalizado).
@@ -163,7 +173,11 @@ npm test
 ## 📚 Documentación
 
 - **Storybook**: Ejecuta `npm run storybook` para documentación interactiva de componentes
-- **Documentación de Tipos**: Ejecuta `npm run compodoc` para documentación generada de API
+- **Documentación de API (Compodoc)**: Genera la documentación técnica con Compodoc:
+  - `npm run docs:ui` → Genera HTML en `docs/ui`
+  - `npm run docs:ui:serve` → Sirve la documentación localmente (live)
+
+> Nota: Compodoc genera documentación de APIs (Inputs/Outputs, tipos y JSDoc) que complementa las historias de Storybook.
 
 ## 🛠️ Construyendo la Biblioteca
 
@@ -180,6 +194,8 @@ Todos los componentes están construidos con la accesibilidad en mente:
 - Soporte para navegación por teclado
 - Gestión del foco
 - Contraste de color suficiente (validado con addon-a11y de Storybook)
+
+Nota: Por defecto, las comprobaciones automáticas del addon **a11y** en Storybook están configuradas para ejecutar las reglas correspondientes a **WCAG 2.1 Nivel AA** (etiquetas `wcag2aa` y `wcag21aa`). La configuración se encuentra en `projects/ui/.storybook/preview.ts`.
 
 ## 📝 Contribuyendo
 

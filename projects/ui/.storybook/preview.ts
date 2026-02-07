@@ -24,6 +24,11 @@ const preview: Preview = {
         { name: 'light', value: '#E5E5E5' },
       ],
     },
+    a11y: {
+      options: {
+        runOnly: { type: 'tag', values: ['wcag2aa', 'wcag21aa'] },
+      },
+    },
   },
   // Add theme decorator globally
   decorators: [withTheme],
