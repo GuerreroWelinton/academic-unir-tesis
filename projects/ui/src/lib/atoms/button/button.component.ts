@@ -109,7 +109,7 @@ export class ZgButtonComponent {
   type = input<ButtonType>('button');
 
   /**
-   * Font family variant (base: Inter, secondary: Teko for titles)
+   * Font family variant (base: Inter, secondary: Roboto for titles)
    * @default 'base'
    */
   fontFamily = input<ButtonFontFamily>('base');

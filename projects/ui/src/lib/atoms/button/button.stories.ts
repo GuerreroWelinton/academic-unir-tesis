@@ -95,7 +95,7 @@ const meta: Meta<ZgButtonComponent> = {
     fontFamily: {
       control: 'select',
       options: ['base', 'secondary'],
-      description: 'Font family variant (base: Inter, secondary: Teko for titles)',
+      description: 'Font family variant (base: Inter, secondary: Roboto for titles)',
       table: {
         defaultValue: { summary: 'base' },
         type: { summary: 'ButtonFontFamily' },
@@ -187,7 +187,7 @@ export const Shapes: Story = {
 };
 
 /**
- * Font family variants (base: Inter, secondary: Teko for titles/headings)
+ * Font family variants (base: Inter, secondary: Roboto for titles/headings)
  */
 export const FontFamilies: Story = {
   render: () => ({
@@ -198,14 +198,14 @@ export const FontFamilies: Story = {
           <zg-button fontFamily="base">Button with Inter</zg-button>
         </div>
         <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Secondary (Teko) - For titles/highlights</h4>
-          <zg-button fontFamily="secondary" size="lg">BUTTON WITH TEKO</zg-button>
+          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Secondary (Roboto) - For titles/highlights</h4>
+          <zg-button fontFamily="secondary" size="lg">Button with Roboto</zg-button>
         </div>
         <div>
           <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Side by side comparison</h4>
           <div style="display: flex; gap: 1rem; align-items: center;">
             <zg-button variant="primary" fontFamily="base">Inter (base)</zg-button>
-            <zg-button variant="primary" fontFamily="secondary">TEKO (secondary)</zg-button>
+            <zg-button variant="primary" fontFamily="secondary">Roboto (secondary)</zg-button>
           </div>
         </div>
       </div>
@@ -383,7 +383,7 @@ export const RealWorldExamples: Story = {
       <div style="display: flex; flex-direction: column; gap: 2rem;">
         <!-- CTA Button (Write to us) - With secondary font for highlight -->
         <div>
-          <h4 style="margin-bottom: 0.5rem;">Main CTA (with Teko for highlight)</h4>
+          <h4 style="margin-bottom: 0.5rem;">Main CTA (with Roboto for highlight)</h4>
           <zg-button variant="accent" shape="pill" size="lg" fontFamily="secondary">
             WRITE TO US
           </zg-button>

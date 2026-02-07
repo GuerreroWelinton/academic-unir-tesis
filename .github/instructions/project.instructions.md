@@ -23,8 +23,8 @@ ARQUITECTURA OBLIGATORIA: PATRÓN CONTENEDOR–PRESENTACIÓN
 - La librería SOLO puede contener Componentes de Presentación (Dumb Components).
 - Un componente de la librería:
   - renderiza UI,
-  - recibe datos vía @Input(),
-  - emite eventos vía @Output().
+  - recibe datos vía signal input (`input()`),
+  - emite eventos vía signal output (`output()`).
 - PROHIBIDO dentro de la librería:
   - inyectar servicios (constructor injections),
   - llamadas HTTP o acceso a APIs,
@@ -39,7 +39,7 @@ ARQUITECTURA OBLIGATORIA: PATRÓN CONTENEDOR–PRESENTACIÓN
 ANGULAR MODERNO Y PERFORMANCE
 
 - Todos los componentes DEBEN ser Standalone Components.
-- Usar Signals para estado interno de UI cuando sea útil (loading local, toggles de UI, etc.).
+- Usar Signals para estado interno de UI y signal input/output para API pública.
 - Todos los componentes deben usar ChangeDetectionStrategy.OnPush.
 - Tipado estricto en Inputs/Outputs. Evitar any.
 - Priorizar accesibilidad y rendimiento:
@@ -50,8 +50,8 @@ ANGULAR MODERNO Y PERFORMANCE
 DISEÑO DE API Y CONSISTENCIA
 
 - Mantén una API coherente entre componentes:
-  - Inputs consistentes para variantes: variant/tone, size, disabled, state, etc.
-  - Outputs con nombres claros y consistentes: clicked, changed, submitted, closed, toggled, etc.
+  - Inputs consistentes para variantes: variant/tone, size, disabled, state, etc. (usando signal input)
+  - Outputs con nombres claros y consistentes: clicked, changed, submitted, closed, toggled, etc. (usando signal output)
 - Preferir ViewModels simples para componentes más complejos (creados en el contenedor).
 - Extensibilidad sin sobre-ingeniería:
   - Composición con ng-content (slots) para iconos/acciones/headers cuando aplique.
@@ -163,7 +163,7 @@ CONVENCIONES DE CÓDIGO
 
 - Prefijo consistente para selectores: zg-\*
 - Nombres de componentes consistentes (ej. ZgButtonComponent).
-- Cada componente debe exponer una API pública clara (Inputs/Outputs) y estar documentada en Storybook.
+- Cada componente debe exponer una API pública clara (signal input/output) y estar documentada en Storybook.
 - Todo lo de dominio de negocio vive fuera de la librería (contenedores/demos).
 
 CÓMO DEBES TRABAJAR CUANDO TE PIDA IMPLEMENTAR ALGO

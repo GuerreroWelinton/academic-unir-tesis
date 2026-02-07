@@ -32,8 +32,8 @@ Esta biblioteca se creó para:
 
 Todos los componentes de esta biblioteca son **componentes de presentación (dumb)**:
 
-- ✅ Reciben datos mediante `@Input()`
-- ✅ Emiten acciones del usuario mediante `@Output()`
+- ✅ Reciben datos mediante **signal input** (`input()`)
+- ✅ Emiten acciones del usuario mediante **signal output** (`output()`)
 - ❌ No inyectan servicios ni contienen lógica de negocio
 - ❌ No realizan llamadas a APIs ni side-effects
 
@@ -71,6 +71,27 @@ Cómo lo aplicamos:
 - Convenciones coherentes (`variant`, `size`, `disabled`) para facilitar el consumo.
 - Los design tokens se definen en la base y se consumen en los átomos, propagando consistencia hacia arriba.
 - Esta estructura facilita pruebas, documentación y mantenimiento a medida que la librería crece.
+
+### Signal Inputs/Outputs y Computed Signals
+
+Todos los componentes usan la nueva API de signals de Angular:
+
+- **Signal Input**: `input<T>(defaultValue)` reemplaza a `@Input()`
+- **Signal Output**: `output<T>()` reemplaza a `@Output()`
+- **Computed signals**: Para lógica reactiva y clases dinámicas
+
+Esto permite una API más reactiva, predecible y fácil de testear. Ejemplo:
+
+```typescript
+import { input, output, computed } from '@angular/core';
+
+export class ZgButtonComponent {
+  variant = input<'primary' | 'secondary'>('primary');
+  clicked = output<MouseEvent>();
+
+  hostClasses = computed(() => (this.variant() === 'primary' ? 'btn-primary' : 'btn-secondary'));
+}
+```
 
 ## 🚀 Comenzando
 

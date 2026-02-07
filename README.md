@@ -21,15 +21,37 @@ Todos los design tokens están definidos como variables CSS en [src/styles/\_tok
 
 Todos los componentes siguen el **Patrón Contenedor-Presentación**:
 
-- **Componentes Tontos** (dentro de `projects/ui/`): Puramente presentacionales, reciben datos vía `@Input()`, emiten eventos vía `@Output()`
+- **Componentes Tontos** (dentro de `projects/ui/`): Puramente presentacionales, reciben datos vía **signal input** (`input()`) y emiten eventos vía **signal output** (`output()`).
 - **Componentes Inteligentes** (en apps consumidoras): Manejan lógica de negocio, orquestan datos y se conectan a servicios
 
 Todos los componentes son:
 
 - **Componentes Standalone**
 - Usan `ChangeDetectionStrategy.OnPush`
+- Usan **signal input/output** y **computed signals** para lógica reactiva y API pública
 - Siguen tipado estricto de TypeScript
 - Documentados con historias de Storybook
+
+#### Signal Inputs/Outputs y Computed Signals
+
+Desde Angular 17+ (usamos Angular 21), los componentes usan la nueva API de signals:
+
+- **Signal Input**: `input<T>(defaultValue)` reemplaza a `@Input()`
+- **Signal Output**: `output<T>()` reemplaza a `@Output()`
+- **Computed signals**: Para lógica reactiva y clases dinámicas
+
+Esto permite una API más reactiva, predecible y fácil de testear. Ejemplo:
+
+```typescript
+import { input, output, computed } from '@angular/core';
+
+export class ZgButtonComponent {
+  variant = input<'primary' | 'secondary'>('primary');
+  clicked = output<MouseEvent>();
+
+  hostClasses = computed(() => (this.variant() === 'primary' ? 'btn-primary' : 'btn-secondary'));
+}
+```
 
 ### Atomic Design
 

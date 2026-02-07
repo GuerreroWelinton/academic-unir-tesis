@@ -164,7 +164,7 @@
 
   // Font families (company fonts)
   --zg-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --zg-font-family-secondary: 'Teko', sans-serif; // Headings / Titles
+  --zg-font-family-secondary: 'Roboto', sans-serif; // Headings / Titles
 
   // Font sizes (Harmonic scale - ~1.2x ratio for better visual hierarchy)
   --zg-font-size-xs: 0.75rem; // 12px - Small labels, captions
@@ -315,7 +315,7 @@
 
   // Typography
   --zg-button-font-family: var(--zg-font-family-base); // Default: Inter
-  --zg-button-font-family-secondary: var(--zg-font-family-secondary); // Titles: Teko
+  --zg-button-font-family-secondary: var(--zg-font-family-secondary); // Titles: Roboto
   --zg-button-font-size-sm: var(--zg-font-size-sm); // 14px
   --zg-button-font-size-md: var(--zg-font-size-base); // 16px
   --zg-button-font-size-lg: var(--zg-font-size-md); // 18px
