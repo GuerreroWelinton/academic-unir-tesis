@@ -327,6 +327,84 @@ export const DesignTokens = {
     // Transitions
     transition: '--zg-badge-transition',
   },
+
+  // Chip tokens
+  chip: {
+    // Background colors per variant - NORMAL state
+    bgFilled: '--zg-chip-bg-filled',
+    bgOutlined: '--zg-chip-bg-outlined',
+    bgGhost: '--zg-chip-bg-ghost',
+
+    // Background colors per variant - SELECTED state
+    bgFilledSelected: '--zg-chip-bg-filled-selected',
+    bgOutlinedSelected: '--zg-chip-bg-outlined-selected',
+    bgGhostSelected: '--zg-chip-bg-ghost-selected',
+
+    // Background colors per variant - HOVER state
+    bgFilledHover: '--zg-chip-bg-filled-hover',
+    bgOutlinedHover: '--zg-chip-bg-outlined-hover',
+    bgGhostHover: '--zg-chip-bg-ghost-hover',
+
+    // Background colors per variant - SELECTED + HOVER state
+    bgFilledSelectedHover: '--zg-chip-bg-filled-selected-hover',
+    bgOutlinedSelectedHover: '--zg-chip-bg-outlined-selected-hover',
+    bgGhostSelectedHover: '--zg-chip-bg-ghost-selected-hover',
+
+    // Border colors per variant - NORMAL state
+    borderFilled: '--zg-chip-border-filled',
+    borderOutlined: '--zg-chip-border-outlined',
+    borderGhost: '--zg-chip-border-ghost',
+
+    // Border colors per variant - SELECTED state
+    borderFilledSelected: '--zg-chip-border-filled-selected',
+    borderOutlinedSelected: '--zg-chip-border-outlined-selected',
+    borderGhostSelected: '--zg-chip-border-ghost-selected',
+
+    // Text colors per variant - NORMAL state
+    textFilled: '--zg-chip-text-filled',
+    textOutlined: '--zg-chip-text-outlined',
+    textGhost: '--zg-chip-text-ghost',
+
+    // Text colors per variant - SELECTED state
+    textFilledSelected: '--zg-chip-text-filled-selected',
+    textOutlinedSelected: '--zg-chip-text-outlined-selected',
+    textGhostSelected: '--zg-chip-text-ghost-selected',
+
+    // Text colors - DISABLED state
+    textDisabled: '--zg-chip-text-disabled',
+
+    // Sizing
+    heightSm: '--zg-chip-height-sm',
+    heightMd: '--zg-chip-height-md',
+    heightLg: '--zg-chip-height-lg',
+    paddingXSm: '--zg-chip-padding-x-sm',
+    paddingXMd: '--zg-chip-padding-x-md',
+    paddingXLg: '--zg-chip-padding-x-lg',
+
+    // Typography
+    fontSizeSm: '--zg-chip-font-size-sm',
+    fontSizeMd: '--zg-chip-font-size-md',
+    fontSizeLg: '--zg-chip-font-size-lg',
+    fontWeight: '--zg-chip-font-weight',
+    fontFamily: '--zg-chip-font-family',
+    lineHeight: '--zg-chip-line-height',
+
+    // Icon spacing
+    iconGap: '--zg-chip-icon-gap',
+
+    // Border radius
+    radius: '--zg-chip-radius',
+
+    // Border width
+    borderWidth: '--zg-chip-border-width',
+
+    // States
+    disabledOpacity: '--zg-chip-disabled-opacity',
+    transition: '--zg-chip-transition',
+    focusRingColor: '--zg-chip-focus-ring-color',
+    focusRingWidth: '--zg-chip-focus-ring-width',
+    focusRingOffset: '--zg-chip-focus-ring-offset',
+  },
 } as const;
 
 /**

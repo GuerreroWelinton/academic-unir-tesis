@@ -1,0 +1,196 @@
+/**
+ * ZgChip Component Styles
+ * Uses ONLY Layer 3 component tokens (no hardcoded values, no primitives)
+ *
+ * BEM Structure:
+ * - Block: .zg-chip
+ * - Elements: __button, __icon-left, __content, __icon-right
+ * - Modifiers: --filled, --outlined, --ghost, --sm, --md, --lg, --selected, --disabled
+ */
+
+:host {
+  display: inline-block;
+}
+
+// ============================================
+// BUTTON (Main interactive element)
+// ============================================
+.zg-chip__button {
+  // Reset button styles
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+
+  // Layout
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--zg-chip-icon-gap);
+  vertical-align: middle;
+  white-space: nowrap;
+  user-select: none;
+
+  // Typography
+  font-family: var(--zg-chip-font-family);
+  font-weight: var(--zg-chip-font-weight);
+  line-height: var(--zg-chip-line-height);
+  text-decoration: none;
+
+  // Border
+  border-width: var(--zg-chip-border-width);
+  border-style: solid;
+  border-radius: var(--zg-chip-radius);
+
+  // Transition
+  transition: all var(--zg-chip-transition);
+
+  // Focus state
+  &:focus-visible {
+    outline: var(--zg-chip-focus-ring-width) solid var(--zg-chip-focus-ring-color);
+    outline-offset: var(--zg-chip-focus-ring-offset);
+  }
+}
+
+// ============================================
+// ICON SLOTS
+// ============================================
+.zg-chip__icon-left,
+.zg-chip__icon-right {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  // Hide if empty
+  &:empty {
+    display: none;
+  }
+
+  // Icon sizing - inherit from parent font-size
+  ::ng-deep svg {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+}
+
+// ============================================
+// CONTENT
+// ============================================
+.zg-chip__content {
+  display: inline-flex;
+  align-items: center;
+}
+
+// ============================================
+// SIZE VARIANTS
+// ============================================
+.zg-chip--sm .zg-chip__button {
+  height: var(--zg-chip-height-sm);
+  padding-inline: var(--zg-chip-padding-x-sm);
+  font-size: var(--zg-chip-font-size-sm);
+}
+
+.zg-chip--md .zg-chip__button {
+  height: var(--zg-chip-height-md);
+  padding-inline: var(--zg-chip-padding-x-md);
+  font-size: var(--zg-chip-font-size-md);
+}
+
+.zg-chip--lg .zg-chip__button {
+  height: var(--zg-chip-height-lg);
+  padding-inline: var(--zg-chip-padding-x-lg);
+  font-size: var(--zg-chip-font-size-lg);
+}
+
+// ============================================
+// VARIANT: FILLED
+// ============================================
+.zg-chip--filled .zg-chip__button {
+  // Normal state
+  background-color: var(--zg-chip-bg-filled);
+  border-color: var(--zg-chip-border-filled);
+  color: var(--zg-chip-text-filled);
+
+  // Hover state
+  &:hover:not(:disabled) {
+    background-color: var(--zg-chip-bg-filled-hover);
+  }
+}
+
+// Filled + Selected
+.zg-chip--filled.zg-chip--selected .zg-chip__button {
+  background-color: var(--zg-chip-bg-filled-selected);
+  border-color: var(--zg-chip-border-filled-selected);
+  color: var(--zg-chip-text-filled-selected);
+
+  &:hover:not(:disabled) {
+    background-color: var(--zg-chip-bg-filled-selected-hover);
+  }
+}
+
+// ============================================
+// VARIANT: OUTLINED
+// ============================================
+.zg-chip--outlined .zg-chip__button {
+  // Normal state
+  background-color: var(--zg-chip-bg-outlined);
+  border-color: var(--zg-chip-border-outlined);
+  color: var(--zg-chip-text-outlined);
+
+  // Hover state
+  &:hover:not(:disabled) {
+    background-color: var(--zg-chip-bg-outlined-hover);
+  }
+}
+
+// Outlined + Selected
+.zg-chip--outlined.zg-chip--selected .zg-chip__button {
+  background-color: var(--zg-chip-bg-outlined-selected);
+  border-color: var(--zg-chip-border-outlined-selected);
+  color: var(--zg-chip-text-outlined-selected);
+
+  &:hover:not(:disabled) {
+    background-color: var(--zg-chip-bg-outlined-selected-hover);
+  }
+}
+
+// ============================================
+// VARIANT: GHOST
+// ============================================
+.zg-chip--ghost .zg-chip__button {
+  // Normal state
+  background-color: var(--zg-chip-bg-ghost);
+  border-color: var(--zg-chip-border-ghost);
+  color: var(--zg-chip-text-ghost);
+
+  // Hover state
+  &:hover:not(:disabled) {
+    background-color: var(--zg-chip-bg-ghost-hover);
+  }
+}
+
+// Ghost + Selected
+.zg-chip--ghost.zg-chip--selected .zg-chip__button {
+  background-color: var(--zg-chip-bg-ghost-selected);
+  border-color: var(--zg-chip-border-ghost-selected);
+  color: var(--zg-chip-text-ghost-selected);
+
+  &:hover:not(:disabled) {
+    background-color: var(--zg-chip-bg-ghost-selected-hover);
+  }
+}
+
+// ============================================
+// DISABLED STATE (all variants)
+// ============================================
+.zg-chip--disabled .zg-chip__button {
+  cursor: not-allowed;
+  opacity: var(--zg-chip-disabled-opacity);
+  color: var(--zg-chip-text-disabled);
+
+  // Hover effects are prevented by :not(:disabled) in variant styles
+}
