@@ -1,0 +1,308 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>zg-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">zg-ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content contributing">
+                   <div class="content-data">
+
+
+
+
+<h1>Contributing</h1>
+<h2>Purpose</h2>
+<p>This repository contains an MVP of a reusable UI component library for iGaming (ZGames Technology) using <strong>Angular 21</strong> and <strong>Storybook</strong>. The focus is on creating consistent, accessible, and well-documented presentational (dumb) components.</p>
+<h2>Architecture Rules (mandatory)</h2>
+<ul>
+<li>The <code>projects/ui</code> library only contains <strong>presentational components</strong>:<ul>
+<li>receive data via <code>input</code></li>
+<li>emit events via <code>output</code></li>
+</ul>
+</li>
+<li>Forbidden in the library:<ul>
+<li>service injection</li>
+<li>business logic</li>
+<li>HTTP calls / API access</li>
+<li>access to router/store/localStorage (unless strictly UI and justified)</li>
+</ul>
+</li>
+</ul>
+<h2>Technical Conventions</h2>
+<h3>Modern Angular</h3>
+<ul>
+<li>All components must be <strong>Standalone</strong> (no NgModules)</li>
+<li><strong>ChangeDetectionStrategy.OnPush</strong> is mandatory</li>
+<li><strong>Signals</strong> for internal UI state when appropriate</li>
+<li>Strict TypeScript, avoid <code>any</code></li>
+</ul>
+<h3>File Structure</h3>
+<p>Component co-location in <code>projects/ui/src/lib/atoms/&lt;component&gt;/</code>:</p>
+<ul>
+<li><code>*.component.ts|html|scss</code></li>
+<li><code>*.stories.ts</code> (required)</li>
+<li><code>*.spec.ts</code> (required)</li>
+</ul>
+<h3>Atomic Design</h3>
+<p>We use <strong>Atomic Design</strong> as a guide for component organization. Folders are structured by category (<code>atoms/</code>, <code>molecules/</code>, <code>organisms/</code>). Atoms should be simple and reusable, molecules combine atoms to create functional units, and organisms compose complete interfaces. To see the updated component index and classification, check <strong>Storybook (sidebar)</strong>.</p>
+<h3>Design Tokens</h3>
+<ul>
+<li><strong>MANDATORY</strong>: Styles must use design tokens from <code>src/styles/_tokens.scss</code></li>
+<li><strong>FORBIDDEN</strong>: Hardcoding colors, spacing, typography, radius</li>
+<li>Correct example: <code>color: var(--zg-color-primary)</code></li>
+</ul>
+<h4>Token Architecture &amp; Theming (Summary)</h4>
+<h5>3-Layer Token System</h5>
+<ul>
+<li><strong>Layer 1: Primitives</strong> — Raw base values (e.g., --zg-green-800, --zg-neutral-200). Used for theme variations.</li>
+<li><strong>Layer 2: Semantic Tokens</strong> — Intention-based tokens (e.g., --zg-color-primary) referencing primitives. Used by multiple components.</li>
+<li><strong>Layer 3: Component Tokens</strong> — Component-specific tokens (e.g., --zg-button-bg-primary) referencing semantic tokens. Must NOT reference primitives directly.</li>
+</ul>
+<p><strong>Rule:</strong> Component tokens must reference semantic tokens, not primitives, to ensure theme consistency.</p>
+<h5>Theming Strategies</h5>
+<ul>
+<li><strong>Primitive Override:</strong> Change base values for simple theme shifts (e.g., green800 → red).</li>
+<li><strong>Semantic Override:</strong> Override intention tokens for precise control (e.g., primary → custom color).</li>
+<li><strong>Combined:</strong> Use both for maximum flexibility (recommended).</li>
+<li><strong>Component Tokens:</strong> Usually inherit from Layer 2; rarely overridden directly.</li>
+<li>Incorrect example: <code>color: #00b894</code></li>
+</ul>
+<h2>Storybook and Documentation</h2>
+<p>Every component must have a <code>*.stories.ts</code> file with:</p>
+<ul>
+<li><strong>Default</strong> story (interactive with <code>args</code>)</li>
+<li>Demo stories using <code>render()</code> for:<ul>
+<li>Variants (all visual variants)</li>
+<li>Sizes (all sizes)</li>
+<li>States (disabled, loading, error, etc.)</li>
+<li>WithIcons (if applicable)</li>
+<li>RealWorldExamples</li>
+</ul>
+</li>
+</ul>
+<h3>Story Documentation</h3>
+<ul>
+<li>Complete JSDoc in the component meta</li>
+<li><strong>Usage Guide</strong> with when to use/avoid</li>
+<li><strong>Available ng-content selectors</strong> if applicable</li>
+<li><strong>Accessibility</strong> checklist</li>
+<li>Clear description of each argType</li>
+</ul>
+<h2>Accessibility (mandatory)</h2>
+<ul>
+<li>Use Storybook&#39;s addon-a11y for validation</li>
+<li>Implement keyboard navigation (Enter/Space for buttons)</li>
+<li>Visible focus states</li>
+<li>ARIA attributes when appropriate</li>
+<li><code>aria-label</code> for icon-only components</li>
+</ul>
+<p><strong>Note:</strong> The a11y addon is configured to validate against <strong>WCAG 2.1 Level AA</strong> (<code>runOnly: { type: &#39;tag&#39;, values: [&#39;wcag2aa&#39;, &#39;wcag21aa&#39;] }</code>).</p>
+<h2>Unit Tests (minimum)</h2>
+<p>Each component must have tests that verify:</p>
+<ul>
+<li>Renders without errors</li>
+<li>Respects key inputs (variant, size, disabled, etc.)</li>
+<li>Emits correct outputs on interaction</li>
+<li>Special states (loading, disabled, error)</li>
+</ul>
+<h2>Commits</h2>
+<p>Recommended convention:</p>
+<ul>
+<li><code>feat(button):</code> new feature</li>
+<li><code>fix(button):</code> bugfix</li>
+<li><code>docs:</code> documentation</li>
+<li><code>style:</code> tokens, styles, formatting</li>
+<li><code>test:</code> tests</li>
+<li><code>chore:</code> tooling/config</li>
+</ul>
+<h2>Development Process</h2>
+<ol>
+<li><strong>Plan</strong>: Review project instructions and define the component API</li>
+<li><strong>Implement</strong>: Component + styles with tokens + basic tests</li>
+<li><strong>Document</strong>: Complete stories with all use cases</li>
+<li><strong>Validate</strong>: Accessibility in Storybook, passing tests</li>
+<li><strong>Review</strong>: PR with clear API and use case description</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'contributing';
+            var COMPODOC_CURRENT_PAGE_URL = 'contributing.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

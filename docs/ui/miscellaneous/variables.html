@@ -1,0 +1,3539 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>zg-ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">zg-ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#AccessibilityDemo" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>AccessibilityDemo</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AllEvents" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>AllEvents</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Autocomplete" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>Autocomplete</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CLIENT_THEMES" title="projects/ui/src/themes/client-themes.ts" ><b>CLIENT_THEMES</b>&nbsp;&nbsp;&nbsp;(projects/.../client-themes.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Default" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>Default</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Default" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>Default</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Default" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>Default</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Default" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>Default</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Disabled" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>Disabled</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Disabled" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>Disabled</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DisabledChip" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>DisabledChip</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DotMode" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>DotMode</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FontFamilies" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>FontFamilies</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FullWidth" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>FullWidth</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FullWidth" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>FullWidth</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#IconOnly" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>IconOnly</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#InputWithError" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>InputWithError</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#InteractiveToggle" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>InteractiveToggle</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#KeyboardNavigation" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>KeyboardNavigation</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Loading" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>Loading</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MaxLength" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>MaxLength</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#meta" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>meta</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#meta" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>meta</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#meta" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>meta</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#meta" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>meta</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MultipleIcons" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>MultipleIcons</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NumericWithMax" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>NumericWithMax</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Readonly" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>Readonly</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RealWorldExamples" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>RealWorldExamples</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RealWorldExamples" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>RealWorldExamples</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Removable" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>Removable</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SelectedVariants" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>SelectedVariants</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Shapes" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>Shapes</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Shapes" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>Shapes</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Sizes" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>Sizes</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Sizes" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>Sizes</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Sizes" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>Sizes</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#States" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>States</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#StatusIndicators" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>StatusIndicators</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Variants" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>Variants</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Variants" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>Variants</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Variants" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>Variants</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#WithClearButton" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>WithClearButton</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#WithContent" title="projects/ui/src/lib/atoms/badge/badge.stories.ts" ><b>WithContent</b>&nbsp;&nbsp;&nbsp;(projects/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#WithIconLeft" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>WithIconLeft</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#WithIconRight" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>WithIconRight</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#WithIcons" title="projects/ui/src/lib/atoms/button/button.stories.ts" ><b>WithIcons</b>&nbsp;&nbsp;&nbsp;(projects/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#WithIcons" title="projects/ui/src/lib/atoms/chip/chip.stories.ts" ><b>WithIcons</b>&nbsp;&nbsp;&nbsp;(projects/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#WithLeftIcon" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>WithLeftIcon</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#WithRightIcon" title="projects/ui/src/lib/atoms/input/input.component.stories.ts" ><b>WithRightIcon</b>&nbsp;&nbsp;&nbsp;(projects/.../input.component.stories.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>projects/ui/src/lib/atoms/badge/badge.stories.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AccessibilityDemo"></a>
+                    <span class="name">
+                        <span ><b>AccessibilityDemo</b></span>
+                        <a href="#AccessibilityDemo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Accessibility Demo&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 24px;&quot;&gt;
+        &lt;div&gt;
+          &lt;h3 style&#x3D;&quot;margin: 0 0 12px 0; font-size: 14px; font-weight: 600;&quot;&gt;
+            Keyboard Navigation (Tab through removable badges)
+          &lt;/h3&gt;
+          &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 8px;&quot;&gt;
+            &lt;zg-badge variant&#x3D;&quot;primary&quot; text&#x3D;&quot;Tag 1&quot; [removable]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+            &lt;zg-badge variant&#x3D;&quot;success&quot; text&#x3D;&quot;Tag 2&quot; [removable]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+            &lt;zg-badge variant&#x3D;&quot;info&quot; text&#x3D;&quot;Tag 3&quot; [removable]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h3 style&#x3D;&quot;margin: 0 0 12px 0; font-size: 14px; font-weight: 600;&quot;&gt;
+            Color Contrast (WCAG AA Compliant)
+          &lt;/h3&gt;
+          &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 8px;&quot;&gt;
+            &lt;zg-badge variant&#x3D;&quot;primary&quot; text&#x3D;&quot;4.5:1&quot;&gt;&lt;/zg-badge&gt;
+            &lt;zg-badge variant&#x3D;&quot;success&quot; text&#x3D;&quot;4.5:1&quot;&gt;&lt;/zg-badge&gt;
+            &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;4.5:1&quot;&gt;&lt;/zg-badge&gt;
+            &lt;zg-badge variant&#x3D;&quot;warning&quot; text&#x3D;&quot;4.5:1&quot;&gt;&lt;/zg-badge&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h3 style&#x3D;&quot;margin: 0 0 12px 0; font-size: 14px; font-weight: 600;&quot;&gt;
+            Screen Reader Support (role&#x3D;&quot;status&quot;)
+          &lt;/h3&gt;
+          &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 8px;&quot;&gt;
+            &lt;zg-badge variant&#x3D;&quot;success&quot; text&#x3D;&quot;Payment Successful&quot;&gt;&lt;/zg-badge&gt;
+            &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;Action Required&quot;&gt;&lt;/zg-badge&gt;
+            &lt;zg-badge variant&#x3D;&quot;info&quot; text&#x3D;&quot;New Message&quot;&gt;&lt;/zg-badge&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Accessibility demonstration</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Default"></a>
+                    <span class="name">
+                        <span ><b>Default</b></span>
+                        <a href="#Default"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    variant: &#x27;primary&#x27;,
+    size: &#x27;md&#x27;,
+    shape: &#x27;default&#x27;,
+    text: &#x27;Badge&#x27;,
+    removable: false,
+    dot: false,
+    max: undefined,
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Default badge with interactive controls</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DotMode"></a>
+                    <span class="name">
+                        <span ><b>DotMode</b></span>
+                        <a href="#DotMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Dot Mode&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 24px; align-items: center;&quot;&gt;
+        &lt;div style&#x3D;&quot;position: relative; display: inline-block;&quot;&gt;
+          &lt;span style&#x3D;&quot;font-size: 24px;&quot;&gt;🔔&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;error&quot; [dot]&#x3D;&quot;true&quot; style&#x3D;&quot;position: absolute; top: 0; right: -8px;&quot; data-testid&#x3D;&quot;dot-badge-1&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;position: relative; display: inline-block; padding: 8px 16px; background: #f0f0f0; border-radius: 8px;&quot;&gt;
+          &lt;span&gt;Messages&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;primary&quot; [dot]&#x3D;&quot;true&quot; style&#x3D;&quot;position: absolute; top: 4px; right: 4px;&quot; data-testid&#x3D;&quot;dot-badge-2&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; gap: 12px; align-items: center;&quot;&gt;
+          &lt;span style&#x3D;&quot;font-weight: 500;&quot;&gt;Dot sizes:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;success&quot; size&#x3D;&quot;sm&quot; [dot]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;success&quot; size&#x3D;&quot;md&quot; [dot]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;success&quot; size&#x3D;&quot;lg&quot; [dot]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; gap: 12px; align-items: center;&quot;&gt;
+          &lt;span style&#x3D;&quot;font-weight: 500;&quot;&gt;All variants:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;primary&quot; [dot]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;success&quot; [dot]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;warning&quot; [dot]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;error&quot; [dot]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;info&quot; [dot]&#x3D;&quot;true&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+
+    // Verify dot badges exist
+    const dotBadge1 &#x3D; canvas.getByTestId(&#x27;dot-badge-1&#x27;);
+    await expect(dotBadge1).toBeInTheDocument();
+    await expect(dotBadge1).toHaveAttribute(&#x27;role&#x27;, &#x27;status&#x27;);
+    await expect(dotBadge1).toHaveClass(&#x27;zg-badge--dot&#x27;);
+
+    // Verify dot element has aria-label
+    const dotElement &#x3D; canvasElement.querySelector(&#x27;.zg-badge__dot&#x27;);
+    await expect(dotElement).toHaveAttribute(&#x27;aria-label&#x27;, &#x27;notification indicator&#x27;);
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Dot mode for notification indicators</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="meta"></a>
+                    <span class="name">
+                        <span ><b>meta</b></span>
+                        <a href="#meta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ZgBadgeComponent.html" target="_self" >Meta&lt;ZgBadgeComponent&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  title: &#x27;Atoms/Badge&#x27;,
+  component: ZgBadgeComponent,
+  tags: [&#x27;autodocs&#x27;],
+  parameters: {
+    docs: {
+      source: {
+        type: &#x27;dynamic&#x27;,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;primary&#x27;, &#x27;secondary&#x27;, &#x27;success&#x27;, &#x27;warning&#x27;, &#x27;error&#x27;, &#x27;info&#x27;, &#x27;neutral&#x27;],
+      description: &#x27;Visual variant of the badge&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;primary&#x27; },
+        type: { summary: &#x27;BadgeVariant&#x27; },
+      },
+    },
+    size: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;sm&#x27;, &#x27;md&#x27;, &#x27;lg&#x27;],
+      description: &#x27;Size of the badge&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;md&#x27; },
+        type: { summary: &#x27;BadgeSize&#x27; },
+      },
+    },
+    shape: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;default&#x27;, &#x27;pill&#x27;, &#x27;square&#x27;],
+      description: &#x27;Shape variant (border radius)&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;default&#x27; },
+        type: { summary: &#x27;BadgeShape&#x27; },
+      },
+    },
+    text: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Text content of the badge (alternative to ng-content)&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;undefined&#x27; },
+      },
+    },
+    removable: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Whether the badge shows a close/remove button&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;false&#x27; },
+      },
+    },
+    dot: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Whether the badge is shown as a dot (notification mode)&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;false&#x27; },
+      },
+    },
+    max: {
+      control: &#x27;number&#x27;,
+      description: &#x27;Maximum number to display before showing &quot;+&quot; (e.g., 99+)&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;undefined&#x27; },
+      },
+    },
+    removed: {
+      action: &#x27;removed&#x27;,
+      description: &#x27;Emitted when the close/remove button is clicked&#x27;,
+      table: {
+        category: &#x27;Events&#x27;,
+      },
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Badge component for labels, status indicators, and notifications.</p>
+<h2>Usage Guide</h2>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Display status or category labels</li>
+<li>Show notification counts</li>
+<li>Indicate new/updated content</li>
+<li>Tag items with metadata</li>
+<li>Show removable filter tags</li>
+</ul>
+<p><strong>When NOT to use:</strong></p>
+<ul>
+<li>As a clickable action (use button instead)</li>
+<li>For long descriptive text (use label or text)</li>
+<li>As form validation (use input error state)</li>
+</ul>
+<h2>Accessibility</h2>
+<ul>
+<li>✅ role=&quot;status&quot; for screen readers</li>
+<li>✅ Close button with aria-label</li>
+<li>✅ Keyboard navigation for removable badges</li>
+<li>✅ Focus visible states on close button</li>
+<li>✅ Sufficient color contrast (WCAG AA)</li>
+<li>💡 Use descriptive text (avoid single letters)</li>
+<li>💡 Provide context for screen readers when needed</li>
+</ul>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="NumericWithMax"></a>
+                    <span class="name">
+                        <span ><b>NumericWithMax</b></span>
+                        <a href="#NumericWithMax"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Numeric with Max&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 24px;&quot;&gt;
+        &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 12px; align-items: center;&quot;&gt;
+          &lt;span style&#x3D;&quot;font-weight: 500; min-width: 120px;&quot;&gt;Below max:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;5&quot; [max]&#x3D;&quot;99&quot; data-testid&#x3D;&quot;badge-5&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;42&quot; [max]&#x3D;&quot;99&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;99&quot; [max]&#x3D;&quot;99&quot; data-testid&#x3D;&quot;badge-99&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 12px; align-items: center;&quot;&gt;
+          &lt;span style&#x3D;&quot;font-weight: 500; min-width: 120px;&quot;&gt;Above max (99+):&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;100&quot; [max]&#x3D;&quot;99&quot; data-testid&#x3D;&quot;badge-100&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;250&quot; [max]&#x3D;&quot;99&quot; data-testid&#x3D;&quot;badge-250&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;1000&quot; [max]&#x3D;&quot;99&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 12px; align-items: center;&quot;&gt;
+          &lt;span style&#x3D;&quot;font-weight: 500; min-width: 120px;&quot;&gt;Different max (9+):&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;primary&quot; text&#x3D;&quot;8&quot; [max]&#x3D;&quot;9&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;primary&quot; text&#x3D;&quot;9&quot; [max]&#x3D;&quot;9&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;primary&quot; text&#x3D;&quot;10&quot; [max]&#x3D;&quot;9&quot; data-testid&#x3D;&quot;badge-10-max9&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;primary&quot; text&#x3D;&quot;50&quot; [max]&#x3D;&quot;9&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 12px; align-items: center;&quot;&gt;
+          &lt;span style&#x3D;&quot;font-weight: 500; min-width: 120px;&quot;&gt;No max limit:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;success&quot; text&#x3D;&quot;150&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;success&quot; text&#x3D;&quot;999&quot;&gt;&lt;/zg-badge&gt;
+          &lt;zg-badge variant&#x3D;&quot;success&quot; text&#x3D;&quot;10000&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+
+    // Verify badge below max shows actual number
+    const badge5 &#x3D; canvas.getByTestId(&#x27;badge-5&#x27;);
+    await expect(badge5).toHaveTextContent(&#x27;5&#x27;);
+
+    // Verify badge at max shows exact number
+    const badge99 &#x3D; canvas.getByTestId(&#x27;badge-99&#x27;);
+    await expect(badge99).toHaveTextContent(&#x27;99&#x27;);
+
+    // Verify badges above max show &quot;99+&quot;
+    const badge100 &#x3D; canvas.getByTestId(&#x27;badge-100&#x27;);
+    await expect(badge100).toHaveTextContent(&#x27;99+&#x27;);
+
+    const badge250 &#x3D; canvas.getByTestId(&#x27;badge-250&#x27;);
+    await expect(badge250).toHaveTextContent(&#x27;99+&#x27;);
+
+    // Verify different max (9+)
+    const badge10Max9 &#x3D; canvas.getByTestId(&#x27;badge-10-max9&#x27;);
+    await expect(badge10Max9).toHaveTextContent(&#x27;9+&#x27;);
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Numeric badges with max limit (e.g., &quot;99+&quot;)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Removable"></a>
+                    <span class="name">
+                        <span ><b>Removable</b></span>
+                        <a href="#Removable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Removable&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 12px; align-items: center;&quot;&gt;
+        &lt;zg-badge variant&#x3D;&quot;primary&quot; text&#x3D;&quot;Tag 1&quot; [removable]&#x3D;&quot;true&quot; data-testid&#x3D;&quot;badge-1&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;success&quot; text&#x3D;&quot;Category&quot; [removable]&#x3D;&quot;true&quot; data-testid&#x3D;&quot;badge-2&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;info&quot; text&#x3D;&quot;Filter&quot; [removable]&#x3D;&quot;true&quot; data-testid&#x3D;&quot;badge-3&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;warning&quot; text&#x3D;&quot;Label&quot; [removable]&#x3D;&quot;true&quot; data-testid&#x3D;&quot;badge-4&quot;&gt;&lt;/zg-badge&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+
+    // Find the first badge
+    const firstBadge &#x3D; canvas.getByTestId(&#x27;badge-1&#x27;);
+    await expect(firstBadge).toBeInTheDocument();
+    await expect(firstBadge).toHaveAttribute(&#x27;role&#x27;, &#x27;status&#x27;);
+
+    // Find and click the close button
+    const closeButtons &#x3D; canvas.getAllByRole(&#x27;button&#x27;, { name: /remove badge/i });
+    await expect(closeButtons).toHaveLength(4);
+
+    // Wait a moment
+    await new Promise((resolve) &#x3D;&gt; setTimeout(resolve, 300));
+
+    // Click first close button
+    await userEvent.click(closeButtons[0]);
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Removable badges with close button</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Shapes"></a>
+                    <span class="name">
+                        <span ><b>Shapes</b></span>
+                        <a href="#Shapes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Shapes&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 12px; align-items: center;&quot;&gt;
+        &lt;zg-badge shape&#x3D;&quot;default&quot; variant&#x3D;&quot;info&quot; text&#x3D;&quot;Default&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge shape&#x3D;&quot;pill&quot; variant&#x3D;&quot;info&quot; text&#x3D;&quot;Pill&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge shape&#x3D;&quot;square&quot; variant&#x3D;&quot;info&quot; text&#x3D;&quot;Square&quot;&gt;&lt;/zg-badge&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>All shape variants (default, pill, square)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Sizes"></a>
+                    <span class="name">
+                        <span ><b>Sizes</b></span>
+                        <a href="#Sizes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Sizes&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 12px; align-items: center;&quot;&gt;
+        &lt;zg-badge size&#x3D;&quot;sm&quot; variant&#x3D;&quot;primary&quot; text&#x3D;&quot;Small&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge size&#x3D;&quot;md&quot; variant&#x3D;&quot;primary&quot; text&#x3D;&quot;Medium&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge size&#x3D;&quot;lg&quot; variant&#x3D;&quot;primary&quot; text&#x3D;&quot;Large&quot;&gt;&lt;/zg-badge&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>All size variants (small, medium, large)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StatusIndicators"></a>
+                    <span class="name">
+                        <span ><b>StatusIndicators</b></span>
+                        <a href="#StatusIndicators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Status Indicators&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 16px;&quot;&gt;
+        &lt;div style&#x3D;&quot;display: flex; align-items: center; gap: 12px;&quot;&gt;
+          &lt;span style&#x3D;&quot;min-width: 100px;&quot;&gt;New content:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;primary&quot; text&#x3D;&quot;New&quot; size&#x3D;&quot;sm&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; align-items: center; gap: 12px;&quot;&gt;
+          &lt;span style&#x3D;&quot;min-width: 100px;&quot;&gt;Active status:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;success&quot; text&#x3D;&quot;Active&quot; size&#x3D;&quot;sm&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; align-items: center; gap: 12px;&quot;&gt;
+          &lt;span style&#x3D;&quot;min-width: 100px;&quot;&gt;Pending:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;warning&quot; text&#x3D;&quot;Pending&quot; size&#x3D;&quot;sm&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; align-items: center; gap: 12px;&quot;&gt;
+          &lt;span style&#x3D;&quot;min-width: 100px;&quot;&gt;Error state:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;Error&quot; size&#x3D;&quot;sm&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; align-items: center; gap: 12px;&quot;&gt;
+          &lt;span style&#x3D;&quot;min-width: 100px;&quot;&gt;Info:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;info&quot; text&#x3D;&quot;Beta&quot; size&#x3D;&quot;sm&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+
+        &lt;div style&#x3D;&quot;display: flex; align-items: center; gap: 12px;&quot;&gt;
+          &lt;span style&#x3D;&quot;min-width: 100px;&quot;&gt;Neutral:&lt;/span&gt;
+          &lt;zg-badge variant&#x3D;&quot;neutral&quot; text&#x3D;&quot;Draft&quot; size&#x3D;&quot;sm&quot;&gt;&lt;/zg-badge&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Status indicators for common use cases</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Variants"></a>
+                    <span class="name">
+                        <span ><b>Variants</b></span>
+                        <a href="#Variants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Variants&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 12px; align-items: center;&quot;&gt;
+        &lt;zg-badge variant&#x3D;&quot;primary&quot; text&#x3D;&quot;Primary&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;secondary&quot; text&#x3D;&quot;Secondary&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;success&quot; text&#x3D;&quot;Success&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;warning&quot; text&#x3D;&quot;Warning&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;error&quot; text&#x3D;&quot;Error&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;info&quot; text&#x3D;&quot;Info&quot;&gt;&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;neutral&quot; text&#x3D;&quot;Neutral&quot;&gt;&lt;/zg-badge&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>All badge variants showing different semantic colors</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="WithContent"></a>
+                    <span class="name">
+                        <span ><b>WithContent</b></span>
+                        <a href="#WithContent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;With ng-content&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-wrap: wrap; gap: 12px; align-items: center;&quot;&gt;
+        &lt;zg-badge variant&#x3D;&quot;primary&quot;&gt;Custom Content&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;success&quot;&gt;✓ Verified&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;error&quot;&gt;⚠ Alert&lt;/zg-badge&gt;
+        &lt;zg-badge variant&#x3D;&quot;info&quot;&gt;ℹ Info&lt;/zg-badge&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Badge composition with ng-content</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>projects/ui/src/lib/atoms/input/input.component.stories.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AllEvents"></a>
+                    <span class="name">
+                        <span ><b>AllEvents</b></span>
+                        <a href="#AllEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Events Demo&#x27;,
+    placeholder: &#x27;Try focus, blur, clear&#x27;,
+    value: &#x27;&#x27;,
+  },
+  render: (args) &#x3D;&gt; ({
+    props: {
+      ...args,
+      changed: (val: string) &#x3D;&gt; {
+        console.log(&#x27;changed&#x27;, val);
+      },
+      focused: (ev: FocusEvent) &#x3D;&gt; {
+        console.log(&#x27;focused&#x27;, ev);
+      },
+      blurred: (ev: FocusEvent) &#x3D;&gt; {
+        console.log(&#x27;blurred&#x27;, ev);
+      },
+      cleared: () &#x3D;&gt; {
+        console.log(&#x27;cleared&#x27;);
+      },
+    },
+    template: &#x60;
+      &lt;zg-input
+        [label]&#x3D;&quot;label&quot;
+        [placeholder]&#x3D;&quot;placeholder&quot;
+        [value]&#x3D;&quot;value&quot;
+        [type]&#x3D;&quot;type&quot;
+        [size]&#x3D;&quot;size&quot;
+        [disabled]&#x3D;&quot;disabled&quot;
+        [readonly]&#x3D;&quot;readonly&quot;
+        [error]&#x3D;&quot;error&quot;
+        [fullWidth]&#x3D;&quot;fullWidth&quot;
+        [autocomplete]&#x3D;&quot;autocomplete&quot;
+        [maxlength]&#x3D;&quot;maxlength&quot;
+        [helperText]&#x3D;&quot;helperText&quot;
+        (changed)&#x3D;&quot;changed($event)&quot;
+        (focused)&#x3D;&quot;focused($event)&quot;
+        (blurred)&#x3D;&quot;blurred($event)&quot;
+        (cleared)&#x3D;&quot;cleared()&quot;
+      &gt;
+      &lt;/zg-input&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Autocomplete"></a>
+                    <span class="name">
+                        <span ><b>Autocomplete</b></span>
+                        <a href="#Autocomplete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Autocomplete&#x27;,
+    placeholder: &#x27;Type for suggestions&#x27;,
+    autocomplete: &#x27;username&#x27;,
+    value: &#x27;&#x27;,
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Default"></a>
+                    <span class="name">
+                        <span ><b>Default</b></span>
+                        <a href="#Default"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Username&#x27;,
+    placeholder: &#x27;Enter your username&#x27;,
+    value: &#x27;&#x27;,
+    type: &#x27;text&#x27;,
+    size: &#x27;md&#x27;,
+    disabled: false,
+    readonly: false,
+    error: &#x27;&#x27;,
+    fullWidth: false,
+    autocomplete: &#x27;&#x27;,
+    maxlength: undefined,
+    helperText: &#x27;&#x27;,
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Disabled"></a>
+                    <span class="name">
+                        <span ><b>Disabled</b></span>
+                        <a href="#Disabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Disabled&#x27;,
+    placeholder: &#x27;Cannot type here&#x27;,
+    disabled: true,
+    value: &#x27;&#x27;,
+  },
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+    const input &#x3D; canvas.getByRole(&#x27;textbox&#x27;);
+    await expect(input).toBeDisabled();
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FullWidth"></a>
+                    <span class="name">
+                        <span ><b>FullWidth</b></span>
+                        <a href="#FullWidth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Full Width&#x27;,
+    placeholder: &#x27;Stretches to parent&#x27;,
+    fullWidth: true,
+    value: &#x27;&#x27;,
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InputWithError"></a>
+                    <span class="name">
+                        <span ><b>InputWithError</b></span>
+                        <a href="#InputWithError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Email&#x27;,
+    placeholder: &#x27;Enter your email&#x27;,
+    error: &#x27;Invalid email address&#x27;,
+    value: &#x27;&#x27;,
+  },
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+    const input &#x3D; canvas.getByRole(&#x27;textbox&#x27;);
+    await userEvent.type(input, &#x27;not-an-email&#x27;);
+    const errorMsg &#x3D; canvas.getByText(&#x27;Invalid email address&#x27;);
+    await expect(errorMsg).toBeVisible();
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MaxLength"></a>
+                    <span class="name">
+                        <span ><b>MaxLength</b></span>
+                        <a href="#MaxLength"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Max Length&#x27;,
+    placeholder: &#x27;Max 10 chars&#x27;,
+    maxlength: 10,
+    value: &#x27;&#x27;,
+  },
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+    const input &#x3D; canvas.getByRole(&#x27;textbox&#x27;);
+    await userEvent.type(input, &#x27;123456789012345&#x27;);
+    await expect(input).toHaveValue(&#x27;1234567890&#x27;);
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="meta"></a>
+                    <span class="name">
+                        <span ><b>meta</b></span>
+                        <a href="#meta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ZgInputComponent.html" target="_self" >Meta&lt;ZgInputComponent&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  title: &#x27;Atoms/Input&#x27;,
+  component: ZgInputComponent,
+  tags: [&#x27;autodocs&#x27;],
+  parameters: {
+    docs: {
+      source: { type: &#x27;dynamic&#x27; },
+      // description: {
+      //   component:
+      //     &#x27;Accessible input field with support for icons, error, helper text, and full design token theming. Use ng-content for icon projection.&#x27;,
+      // },
+    },
+  },
+  argTypes: {
+    type: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;text&#x27;, &#x27;password&#x27;, &#x27;email&#x27;, &#x27;number&#x27;, &#x27;search&#x27;],
+      description: &#x27;Input type&#x27;,
+      table: { defaultValue: { summary: &#x27;text&#x27; } },
+    },
+    value: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Input value&#x27;,
+      table: { defaultValue: { summary: &#x27;&#x27; } },
+    },
+    placeholder: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Placeholder text&#x27;,
+    },
+    label: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Label for accessibility&#x27;,
+    },
+    disabled: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Disabled state&#x27;,
+      table: { defaultValue: { summary: &#x27;false&#x27; } },
+    },
+    readonly: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Readonly state&#x27;,
+      table: { defaultValue: { summary: &#x27;false&#x27; } },
+    },
+    error: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Error message&#x27;,
+    },
+    size: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;sm&#x27;, &#x27;md&#x27;, &#x27;lg&#x27;],
+      description: &#x27;Input size&#x27;,
+      table: { defaultValue: { summary: &#x27;md&#x27; } },
+    },
+    fullWidth: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Full width&#x27;,
+      table: { defaultValue: { summary: &#x27;false&#x27; } },
+    },
+    autocomplete: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Autocomplete attribute&#x27;,
+    },
+    maxlength: {
+      control: &#x27;number&#x27;,
+      description: &#x27;Max length&#x27;,
+    },
+    helperText: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Helper text&#x27;,
+    },
+    changed: {
+      action: &#x27;changed&#x27;,
+      description: &#x27;Emitted when value changes&#x27;,
+      table: { category: &#x27;Events&#x27; },
+    },
+    focused: {
+      action: &#x27;focused&#x27;,
+      description: &#x27;Emitted on focus&#x27;,
+      table: { category: &#x27;Events&#x27; },
+    },
+    blurred: {
+      action: &#x27;blurred&#x27;,
+      description: &#x27;Emitted on blur&#x27;,
+      table: { category: &#x27;Events&#x27; },
+    },
+    cleared: {
+      action: &#x27;cleared&#x27;,
+      description: &#x27;Emitted when clear button is clicked&#x27;,
+      table: { category: &#x27;Events&#x27; },
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Input component for user text entry.</p>
+<h2>Usage Guide</h2>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Text, email, password, search, number, etc.</li>
+<li>Search bars, forms, filters</li>
+</ul>
+<p><strong>When NOT to use:</strong></p>
+<ul>
+<li>Multi-line input (use textarea)</li>
+<li>Selection (use select, radio, checkbox)</li>
+</ul>
+<h2>Accessibility</h2>
+<ul>
+<li>✅ Label is always associated with input</li>
+<li>✅ Keyboard navigation</li>
+<li>✅ Error and helper text with aria-describedby</li>
+<li>✅ Disabled and readonly states</li>
+<li>💡 Use aria-label for icon-only or hidden label</li>
+</ul>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MultipleIcons"></a>
+                    <span class="name">
+                        <span ><b>MultipleIcons</b></span>
+                        <a href="#MultipleIcons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: (args) &#x3D;&gt; ({
+    props: {
+      ...args,
+      value: &#x27;&#x27;,
+    },
+    template: &#x60;
+      &lt;zg-input
+        [label]&#x3D;&quot;label&quot;
+        [placeholder]&#x3D;&quot;placeholder&quot;
+        [value]&#x3D;&quot;value&quot;
+        [type]&#x3D;&quot;type&quot;
+        [size]&#x3D;&quot;size&quot;
+        [disabled]&#x3D;&quot;disabled&quot;
+        [readonly]&#x3D;&quot;readonly&quot;
+        [fullWidth]&#x3D;&quot;fullWidth&quot;
+        [autocomplete]&#x3D;&quot;autocomplete&quot;
+        [maxlength]&#x3D;&quot;maxlength&quot;
+        [helperText]&#x3D;&quot;helperText&quot;
+        (changed)&#x3D;&quot;changed($event)&quot;
+        (focused)&#x3D;&quot;focused($event)&quot;
+        (blurred)&#x3D;&quot;blurred($event)&quot;
+        (cleared)&#x3D;&quot;cleared()&quot;
+      &gt;
+        &lt;svg icon-left width&#x3D;&quot;20&quot; height&#x3D;&quot;20&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; viewBox&#x3D;&quot;0 0 24 24&quot;&gt;&lt;circle cx&#x3D;&quot;11&quot; cy&#x3D;&quot;11&quot; r&#x3D;&quot;8&quot;/&gt;&lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;16.65&quot; y2&#x3D;&quot;16.65&quot;/&gt;&lt;/svg&gt;
+        &lt;svg icon-right width&#x3D;&quot;20&quot; height&#x3D;&quot;20&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; viewBox&#x3D;&quot;0 0 24 24&quot;&gt;&lt;circle cx&#x3D;&quot;11&quot; cy&#x3D;&quot;11&quot; r&#x3D;&quot;8&quot;/&gt;&lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;16.65&quot; y2&#x3D;&quot;16.65&quot;/&gt;&lt;/svg&gt;
+      &lt;/zg-input&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Readonly"></a>
+                    <span class="name">
+                        <span ><b>Readonly</b></span>
+                        <a href="#Readonly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Readonly&#x27;,
+    placeholder: &#x27;Cannot edit&#x27;,
+    readonly: true,
+    value: &#x27;Read only value&#x27;,
+  },
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+    const input &#x3D; canvas.getByRole(&#x27;textbox&#x27;);
+    await expect(input).toHaveAttribute(&#x27;readonly&#x27;);
+    await userEvent.type(input, &#x27;123&#x27;);
+    await expect(input).toHaveValue(&#x27;Read only value&#x27;);
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="WithClearButton"></a>
+                    <span class="name">
+                        <span ><b>WithClearButton</b></span>
+                        <a href="#WithClearButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Clearable&#x27;,
+    placeholder: &#x27;Type to show clear&#x27;,
+    value: &#x27;Clear me&#x27;,
+  },
+  render: (args) &#x3D;&gt; ({
+    props: args,
+    template: &#x60;
+      &lt;zg-input
+        [label]&#x3D;&quot;label&quot;
+        [placeholder]&#x3D;&quot;placeholder&quot;
+        [value]&#x3D;&quot;value&quot;
+        [type]&#x3D;&quot;type&quot;
+        [size]&#x3D;&quot;size&quot;
+        [disabled]&#x3D;&quot;disabled&quot;
+        [readonly]&#x3D;&quot;readonly&quot;
+        [error]&#x3D;&quot;error&quot;
+        [fullWidth]&#x3D;&quot;fullWidth&quot;
+        [autocomplete]&#x3D;&quot;autocomplete&quot;
+        [maxlength]&#x3D;&quot;maxlength&quot;
+        [helperText]&#x3D;&quot;helperText&quot;
+        (changed)&#x3D;&quot;changed($event)&quot;
+        (focused)&#x3D;&quot;focused($event)&quot;
+        (blurred)&#x3D;&quot;blurred($event)&quot;
+        (cleared)&#x3D;&quot;cleared()&quot;
+      &gt;
+        &lt;svg clear-icon width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; viewBox&#x3D;&quot;0 0 24 24&quot;&gt;&lt;line x1&#x3D;&quot;18&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;6&quot; y2&#x3D;&quot;18&quot;/&gt;&lt;line x1&#x3D;&quot;6&quot; y1&#x3D;&quot;6&quot; x2&#x3D;&quot;18&quot; y2&#x3D;&quot;18&quot;/&gt;&lt;/svg&gt;
+      &lt;/zg-input&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="WithLeftIcon"></a>
+                    <span class="name">
+                        <span ><b>WithLeftIcon</b></span>
+                        <a href="#WithLeftIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Buscar&#x27;,
+    placeholder: &#x27;Buscar juegos&#x27;,
+    value: &#x27;&#x27;,
+  },
+  render: (args) &#x3D;&gt; ({
+    props: args,
+    template: &#x60;
+      &lt;zg-input
+        [label]&#x3D;&quot;label&quot;
+        [placeholder]&#x3D;&quot;placeholder&quot;
+        [value]&#x3D;&quot;value&quot;
+        [type]&#x3D;&quot;type&quot;
+        [size]&#x3D;&quot;size&quot;
+        [disabled]&#x3D;&quot;disabled&quot;
+        [readonly]&#x3D;&quot;readonly&quot;
+        [error]&#x3D;&quot;error&quot;
+        [fullWidth]&#x3D;&quot;fullWidth&quot;
+        [autocomplete]&#x3D;&quot;autocomplete&quot;
+        [maxlength]&#x3D;&quot;maxlength&quot;
+        [helperText]&#x3D;&quot;helperText&quot;
+        (changed)&#x3D;&quot;changed($event)&quot;
+        (focused)&#x3D;&quot;focused($event)&quot;
+        (blurred)&#x3D;&quot;blurred($event)&quot;
+        (cleared)&#x3D;&quot;cleared()&quot;
+      &gt;
+        &lt;svg icon-left width&#x3D;&quot;20&quot; height&#x3D;&quot;20&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; viewBox&#x3D;&quot;0 0 24 24&quot;&gt;&lt;circle cx&#x3D;&quot;11&quot; cy&#x3D;&quot;11&quot; r&#x3D;&quot;8&quot;/&gt;&lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;16.65&quot; y2&#x3D;&quot;16.65&quot;/&gt;&lt;/svg&gt;
+      &lt;/zg-input&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="WithRightIcon"></a>
+                    <span class="name">
+                        <span ><b>WithRightIcon</b></span>
+                        <a href="#WithRightIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    label: &#x27;Buscar&#x27;,
+    placeholder: &#x27;Buscar juegos&#x27;,
+    value: &#x27;&#x27;,
+  },
+  render: (args) &#x3D;&gt; ({
+    props: args,
+    template: &#x60;
+      &lt;zg-input
+        [label]&#x3D;&quot;label&quot;
+        [placeholder]&#x3D;&quot;placeholder&quot;
+        [value]&#x3D;&quot;value&quot;
+        [type]&#x3D;&quot;type&quot;
+        [size]&#x3D;&quot;size&quot;
+        [disabled]&#x3D;&quot;disabled&quot;
+        [readonly]&#x3D;&quot;readonly&quot;
+        [error]&#x3D;&quot;error&quot;
+        [fullWidth]&#x3D;&quot;fullWidth&quot;
+        [autocomplete]&#x3D;&quot;autocomplete&quot;
+        [maxlength]&#x3D;&quot;maxlength&quot;
+        [helperText]&#x3D;&quot;helperText&quot;
+        (changed)&#x3D;&quot;changed($event)&quot;
+        (focused)&#x3D;&quot;focused($event)&quot;
+        (blurred)&#x3D;&quot;blurred($event)&quot;
+        (cleared)&#x3D;&quot;cleared()&quot;
+      &gt;
+        &lt;svg icon-right width&#x3D;&quot;20&quot; height&#x3D;&quot;20&quot; fill&#x3D;&quot;none&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; viewBox&#x3D;&quot;0 0 24 24&quot;&gt;&lt;circle cx&#x3D;&quot;11&quot; cy&#x3D;&quot;11&quot; r&#x3D;&quot;8&quot;/&gt;&lt;line x1&#x3D;&quot;21&quot; y1&#x3D;&quot;21&quot; x2&#x3D;&quot;16.65&quot; y2&#x3D;&quot;16.65&quot;/&gt;&lt;/svg&gt;
+      &lt;/zg-input&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>projects/ui/src/themes/client-themes.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CLIENT_THEMES"></a>
+                    <span class="name">
+                        <span ><b>CLIENT_THEMES</b></span>
+                        <a href="#CLIENT_THEMES"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Record&lt;ClientId, ClientThemeConfig&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  // Client 1 (ZGames) - Default brand
+  client1: {
+    light: {
+      primitives: {
+        green800: &#x27;#114b2a&#x27;,
+        green500: &#x27;#42c148&#x27;,
+        green400: &#x27;#00c42e&#x27;,
+        neutral200: &#x27;#fafafa&#x27;,
+        neutral300: &#x27;#f5f5f5&#x27;,
+        neutral900: &#x27;#0a2c18&#x27;,
+      },
+    },
+    dark: {
+      primitives: {
+        green800: &#x27;#114b2a&#x27;,
+        green500: &#x27;#42c148&#x27;,
+        green400: &#x27;#5cd662&#x27;,
+        neutral200: &#x27;#0e0e11&#x27;,
+        neutral300: &#x27;#18181b&#x27;,
+        neutral400: &#x27;#27272a&#x27;,
+        neutral900: &#x27;#d4fd2b&#x27;,
+      },
+    },
+    christmas: {
+      primitives: {
+        green800: &#x27;#0f5132&#x27;,
+        green500: &#x27;#198754&#x27;,
+        green400: &#x27;#00c42e&#x27;,
+        red500: &#x27;#dc3545&#x27;,
+        red600: &#x27;#bb2d3b&#x27;,
+        orange500: &#x27;#ffc107&#x27;,
+        neutral200: &#x27;#f8f9fa&#x27;,
+        neutral900: &#x27;#0a3622&#x27;,
+      },
+      color: {
+        primary: &#x27;#dc3545&#x27;,
+        primaryHover: &#x27;#198754&#x27;,
+        secondary: &#x27;#dc3545&#x27;,
+        accent: &#x27;#ffc107&#x27;,
+        error: &#x27;#bb2d3b&#x27;,
+      },
+    },
+  },
+
+  // Client 2 - Purple/Yellow theme
+  client2: {
+    light: {
+      primitives: {
+        green800: &#x27;#6a1b9a&#x27;,
+        green500: &#x27;#8e24aa&#x27;,
+        green400: &#x27;#9c27b0&#x27;,
+        orange500: &#x27;#ffd028&#x27;,
+        yellow500: &#x27;#ffeb3b&#x27;,
+        neutral200: &#x27;#f3e5f5&#x27;,
+        neutral300: &#x27;#e1bee7&#x27;,
+        neutral900: &#x27;#4a148c&#x27;,
+      },
+    },
+    dark: {
+      primitives: {
+        green800: &#x27;#7b1fa2&#x27;,
+        green500: &#x27;#9c27b0&#x27;,
+        green400: &#x27;#ab47bc&#x27;,
+        orange500: &#x27;#ffd028&#x27;,
+        neutral200: &#x27;#1a0033&#x27;,
+        neutral300: &#x27;#2d0052&#x27;,
+        neutral400: &#x27;#4a148c&#x27;,
+        neutral900: &#x27;#e1bee7&#x27;,
+      },
+    },
+    christmas: {
+      primitives: {
+        red500: &#x27;#c62828&#x27;,
+        red600: &#x27;#b71c1c&#x27;,
+        green800: &#x27;#165b33&#x27;,
+        green500: &#x27;#2e7d32&#x27;,
+        green400: &#x27;#4caf50&#x27;,
+        orange500: &#x27;#ffd700&#x27;,
+        yellow500: &#x27;#ffcc00&#x27;,
+        neutral200: &#x27;#fff8e1&#x27;,
+        neutral900: &#x27;#1b5e20&#x27;,
+      },
+      color: {
+        primary: &#x27;#c62828&#x27;,
+        primaryHover: &#x27;#b71c1c&#x27;,
+        secondary: &#x27;#2e7d32&#x27;,
+        accent: &#x27;#ffd700&#x27;,
+        highlight: &#x27;#ffcc00&#x27;,
+        bgPrimary: &#x27;#fff8e1&#x27;,
+        textPrimary: &#x27;#1b5e20&#x27;,
+      },
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Client themes registry
+Define all client themes here</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>projects/ui/src/lib/atoms/button/button.stories.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Default"></a>
+                    <span class="name">
+                        <span ><b>Default</b></span>
+                        <a href="#Default"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    text: &#x27;Click me&#x27;,
+    variant: &#x27;primary&#x27;,
+    size: &#x27;md&#x27;,
+    shape: &#x27;default&#x27;,
+    disabled: false,
+    loading: false,
+    fullWidth: false,
+    fontFamily: &#x27;base&#x27;,
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Default button with primary variant</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Disabled"></a>
+                    <span class="name">
+                        <span ><b>Disabled</b></span>
+                        <a href="#Disabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+        &lt;zg-button variant&#x3D;&quot;primary&quot; [disabled]&#x3D;&quot;true&quot;&gt;Primary Disabled&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;secondary&quot; [disabled]&#x3D;&quot;true&quot;&gt;Secondary Disabled&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;accent&quot; [disabled]&#x3D;&quot;true&quot;&gt;Accent Disabled&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;danger&quot; [disabled]&#x3D;&quot;true&quot;&gt;Danger Disabled&lt;/zg-button&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Disabled state</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FontFamilies"></a>
+                    <span class="name">
+                        <span ><b>FontFamilies</b></span>
+                        <a href="#FontFamilies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;&quot;&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Base - Default&lt;/h4&gt;
+          &lt;zg-button fontFamily&#x3D;&quot;base&quot;&gt;Button with base font&lt;/zg-button&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Secondary - For titles/highlights&lt;/h4&gt;
+          &lt;zg-button fontFamily&#x3D;&quot;secondary&quot; size&#x3D;&quot;lg&quot;&gt;Button with secondary font&lt;/zg-button&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Side by side comparison&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; gap: 1rem; align-items: center;&quot;&gt;
+            &lt;zg-button variant&#x3D;&quot;primary&quot; fontFamily&#x3D;&quot;base&quot;&gt;Button with base font&lt;/zg-button&gt;
+            &lt;zg-button variant&#x3D;&quot;primary&quot; fontFamily&#x3D;&quot;secondary&quot;&gt;Button with secondary font&lt;/zg-button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Font family variants (base, secondary)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FullWidth"></a>
+                    <span class="name">
+                        <span ><b>FullWidth</b></span>
+                        <a href="#FullWidth"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;max-width: 400px;&quot;&gt;
+        &lt;zg-button variant&#x3D;&quot;primary&quot; [fullWidth]&#x3D;&quot;true&quot;&gt;Full Width Button&lt;/zg-button&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Full width button (useful in forms, mobile layouts)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IconOnly"></a>
+                    <span class="name">
+                        <span ><b>IconOnly</b></span>
+                        <a href="#IconOnly"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 0.5rem; align-items: center;&quot;&gt;
+        &lt;zg-button variant&#x3D;&quot;ghost&quot; shape&#x3D;&quot;square&quot; size&#x3D;&quot;sm&quot; aria-label&#x3D;&quot;Previous&quot;&gt;
+          ‹
+        &lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;ghost&quot; shape&#x3D;&quot;square&quot; size&#x3D;&quot;sm&quot; aria-label&#x3D;&quot;Next&quot;&gt;
+          ›
+        &lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;accent&quot; shape&#x3D;&quot;square&quot; size&#x3D;&quot;sm&quot; aria-label&#x3D;&quot;Add&quot;&gt;
+          +
+        &lt;/zg-button&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Icon-only buttons (useful for navigation, actions)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Loading"></a>
+                    <span class="name">
+                        <span ><b>Loading</b></span>
+                        <a href="#Loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+        &lt;zg-button variant&#x3D;&quot;primary&quot; [loading]&#x3D;&quot;true&quot;&gt;Loading...&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;accent&quot; size&#x3D;&quot;lg&quot; [loading]&#x3D;&quot;true&quot;&gt;Processing&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;secondary&quot; size&#x3D;&quot;sm&quot; [loading]&#x3D;&quot;true&quot;&gt;Wait&lt;/zg-button&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Loading state with spinner</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="meta"></a>
+                    <span class="name">
+                        <span ><b>meta</b></span>
+                        <a href="#meta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ZgButtonComponent.html" target="_self" >Meta&lt;ZgButtonComponent&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  title: &#x27;Atoms/Button&#x27;,
+  component: ZgButtonComponent,
+  tags: [&#x27;autodocs&#x27;],
+  parameters: {
+    docs: {
+      source: {
+        type: &#x27;dynamic&#x27;,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;primary&#x27;, &#x27;secondary&#x27;, &#x27;accent&#x27;, &#x27;danger&#x27;, &#x27;ghost&#x27;, &#x27;gradient&#x27;],
+      description: &#x27;Visual variant of the button&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;primary&#x27; },
+        type: { summary: &#x27;ButtonVariant&#x27; },
+      },
+    },
+    size: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;sm&#x27;, &#x27;md&#x27;, &#x27;lg&#x27;],
+      description: &#x27;Size of the button&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;md&#x27; },
+        type: { summary: &#x27;ButtonSize&#x27; },
+      },
+    },
+    shape: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;default&#x27;, &#x27;pill&#x27;, &#x27;square&#x27;],
+      description: &#x27;Shape variant (border radius)&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;default&#x27; },
+        type: { summary: &#x27;ButtonShape&#x27; },
+      },
+    },
+    disabled: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Whether the button is disabled&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;false&#x27; },
+      },
+    },
+    loading: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Whether the button is in loading state&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;false&#x27; },
+      },
+    },
+    fullWidth: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Whether the button takes full width&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;false&#x27; },
+      },
+    },
+    type: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;button&#x27;, &#x27;submit&#x27;, &#x27;reset&#x27;],
+      description: &#x27;Native button type&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;button&#x27; },
+      },
+    },
+    fontFamily: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;base&#x27;, &#x27;secondary&#x27;],
+      description: &#x27;Font family variant (base, secondary)&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;base&#x27; },
+        type: { summary: &#x27;ButtonFontFamily&#x27; },
+      },
+    },
+    text: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Button text content (simple alternative to ng-content)&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;undefined&#x27; },
+        type: { summary: &#x27;string&#x27; },
+      },
+    },
+    clicked: {
+      action: &#x27;clicked&#x27;,
+      description: &#x27;Emitted when the button is clicked&#x27;,
+      table: {
+        category: &#x27;Events&#x27;,
+      },
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Button component for user interactions and actions.</p>
+<h2>Usage Guide</h2>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Primary actions (submit forms, confirm dialogs)</li>
+<li>Navigation triggers</li>
+<li>Start processes or workflows</li>
+</ul>
+<p><strong>When NOT to use:</strong></p>
+<ul>
+<li>Navigation between pages (use links instead)</li>
+<li>Toggling settings (use toggle/switch)</li>
+<li>Displaying status (use badge/tag)</li>
+</ul>
+<h2>Accessibility</h2>
+<ul>
+<li>✅ Keyboard navigation (Enter/Space)</li>
+<li>✅ Focus visible states</li>
+<li>✅ Disabled state prevents interaction</li>
+<li>✅ Loading state with spinner</li>
+<li>💡 Use descriptive text (avoid &quot;Click here&quot;)</li>
+<li>💡 Consider aria-label for icon-only buttons</li>
+</ul>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RealWorldExamples"></a>
+                    <span class="name">
+                        <span ><b>RealWorldExamples</b></span>
+                        <a href="#RealWorldExamples"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Real-world Examples&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 2rem;&quot;&gt;
+        &lt;!-- CTA Button (Write to us) - With secondary font for highlight --&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Main CTA (with secondary font)&lt;/h4&gt;
+          &lt;zg-button variant&#x3D;&quot;accent&quot; shape&#x3D;&quot;pill&quot; size&#x3D;&quot;lg&quot; fontFamily&#x3D;&quot;secondary&quot;&gt;
+            WRITE TO US
+          &lt;/zg-button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Alternative CTA Button with base font --&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Alternative CTA (with base font)&lt;/h4&gt;
+          &lt;zg-button variant&#x3D;&quot;accent&quot; shape&#x3D;&quot;pill&quot; size&#x3D;&quot;lg&quot;&gt;
+            Write to us
+          &lt;/zg-button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Action Button (Save) --&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Primary variant with icon&lt;/h4&gt;
+          &lt;zg-button variant&#x3D;&quot;primary&quot;&gt;
+            &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+              &lt;path d&#x3D;&quot;M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1 1 0 0 0-.98 1.17l.5 3.5A2 2 0 0 0 4.86 11H6v1a2 2 0 1 0 4 0v-1h1.14a2 2 0 0 0 1.98-1.67l.5-3.5a1 1 0 0 0-.98-1.17H11z&quot;/&gt;
+            &lt;/svg&gt;
+            Save
+          &lt;/zg-button&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Navigation Group --&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Navigation&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; gap: 0.5rem;&quot;&gt;
+            &lt;zg-button variant&#x3D;&quot;primary&quot; size&#x3D;&quot;sm&quot;&gt;
+              All
+              &lt;span icon-right&gt;›&lt;/span&gt;
+            &lt;/zg-button&gt;
+            &lt;zg-button variant&#x3D;&quot;ghost&quot; shape&#x3D;&quot;square&quot; size&#x3D;&quot;sm&quot;&gt;‹&lt;/zg-button&gt;
+            &lt;zg-button variant&#x3D;&quot;ghost&quot; shape&#x3D;&quot;square&quot; size&#x3D;&quot;sm&quot;&gt;›&lt;/zg-button&gt;
+            &lt;zg-button variant&#x3D;&quot;accent&quot; shape&#x3D;&quot;square&quot; size&#x3D;&quot;sm&quot;&gt;+&lt;/zg-button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;!-- Danger action --&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Destructive action&lt;/h4&gt;
+          &lt;zg-button variant&#x3D;&quot;danger&quot;&gt;Delete bet&lt;/zg-button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Real-world examples based on provided references</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Shapes"></a>
+                    <span class="name">
+                        <span ><b>Shapes</b></span>
+                        <a href="#Shapes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 1rem; align-items: center;&quot;&gt;
+        &lt;zg-button shape&#x3D;&quot;default&quot;&gt;Default (8px)&lt;/zg-button&gt;
+        &lt;zg-button shape&#x3D;&quot;pill&quot;&gt;Pill (rounded)&lt;/zg-button&gt;
+        &lt;zg-button shape&#x3D;&quot;square&quot;&gt;Square (2px)&lt;/zg-button&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Different button shapes (border radius)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Sizes"></a>
+                    <span class="name">
+                        <span ><b>Sizes</b></span>
+                        <a href="#Sizes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 1rem; align-items: center;&quot;&gt;
+        &lt;zg-button size&#x3D;&quot;sm&quot;&gt;Small&lt;/zg-button&gt;
+        &lt;zg-button size&#x3D;&quot;md&quot;&gt;Medium&lt;/zg-button&gt;
+        &lt;zg-button size&#x3D;&quot;lg&quot;&gt;Large&lt;/zg-button&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Different button sizes</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Variants"></a>
+                    <span class="name">
+                        <span ><b>Variants</b></span>
+                        <a href="#Variants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;&quot;&gt;
+        &lt;zg-button variant&#x3D;&quot;primary&quot;&gt;Primary&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;secondary&quot;&gt;Secondary&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;accent&quot;&gt;Accent&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;danger&quot;&gt;Danger&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;ghost&quot;&gt;Ghost&lt;/zg-button&gt;
+        &lt;zg-button variant&#x3D;&quot;gradient&quot;&gt;Gradient&lt;/zg-button&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>All button variants side by side</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="WithIconLeft"></a>
+                    <span class="name">
+                        <span ><b>WithIconLeft</b></span>
+                        <a href="#WithIconLeft"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;zg-button variant&#x3D;&quot;primary&quot;&gt;
+        &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+          &lt;path d&#x3D;&quot;M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z&quot;/&gt;
+          &lt;path d&#x3D;&quot;M10.5 6.5L7 10l-1.5-1.5&quot;/&gt;
+        &lt;/svg&gt;
+        Save
+      &lt;/zg-button&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Button with icon on the left</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="WithIconRight"></a>
+                    <span class="name">
+                        <span ><b>WithIconRight</b></span>
+                        <a href="#WithIconRight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;zg-button variant&#x3D;&quot;secondary&quot; size&#x3D;&quot;sm&quot;&gt;
+        All
+        &lt;span icon-right style&#x3D;&quot;font-size: 1.2em;&quot;&gt;›&lt;/span&gt;
+      &lt;/zg-button&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Button with icon on the right</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="WithIcons"></a>
+                    <span class="name">
+                        <span ><b>WithIcons</b></span>
+                        <a href="#WithIcons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;&quot;&gt;
+        &lt;!-- Icon left --&gt;
+        &lt;zg-button variant&#x3D;&quot;primary&quot;&gt;
+          &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+            &lt;path d&#x3D;&quot;M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z&quot;/&gt;
+          &lt;/svg&gt;
+          Add Item
+        &lt;/zg-button&gt;
+
+        &lt;!-- Icon right --&gt;
+        &lt;zg-button variant&#x3D;&quot;accent&quot;&gt;
+          Save File
+          &lt;svg icon-right width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+            &lt;path d&#x3D;&quot;M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z&quot;/&gt;
+          &lt;/svg&gt;
+        &lt;/zg-button&gt;
+
+        &lt;!-- Both icons --&gt;
+        &lt;zg-button variant&#x3D;&quot;secondary&quot;&gt;
+          &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+            &lt;path d&#x3D;&quot;M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z&quot;/&gt;
+          &lt;/svg&gt;
+          Download
+          &lt;svg icon-right width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+            &lt;path d&#x3D;&quot;M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z&quot;/&gt;
+          &lt;/svg&gt;
+        &lt;/zg-button&gt;
+
+        &lt;!-- Icon only --&gt;
+        &lt;zg-button variant&#x3D;&quot;ghost&quot; shape&#x3D;&quot;square&quot; aria-label&#x3D;&quot;Settings&quot;&gt;
+          &lt;svg width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 24 24&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+            &lt;path d&#x3D;&quot;M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.87,17.38L11.24,20H12.76L13.13,17.39C14.32,17.14 15.37,16.5 16.14,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.39C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z&quot;/&gt;
+          &lt;/svg&gt;
+        &lt;/zg-button&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: &#x60;
+This story demonstrates the different ways to use ng-content with icon selectors:
+
+**Available selectors:**
+- \&#x60;[icon-left]\&#x60; - Place icons before text content
+- \&#x60;[icon-right]\&#x60; - Place icons after text content
+- Default slot - Main button content (text, HTML, etc.)
+
+**Best practices:**
+- Use \&#x60;aria-label\&#x60; for icon-only buttons
+- Keep icon sizes consistent (16x16px recommended)
+- Use \&#x60;currentColor\&#x60; for icon fill to inherit button text color
+        &#x60;,
+      },
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Examples using ng-content with icon selectors and complex content</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>projects/ui/src/lib/atoms/chip/chip.stories.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Default"></a>
+                    <span class="name">
+                        <span ><b>Default</b></span>
+                        <a href="#Default"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  args: {
+    text: &#x27;Sports&#x27;,
+    variant: &#x27;filled&#x27;,
+    size: &#x27;md&#x27;,
+    selected: false,
+    disabled: false,
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Default chip with filled variant</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DisabledChip"></a>
+                    <span class="name">
+                        <span ><b>DisabledChip</b></span>
+                        <a href="#DisabledChip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Disabled State&#x27;,
+  render: () &#x3D;&gt; ({
+    props: {
+      enabledSelected: false,
+      disabledSelected: false,
+      onEnabledSelectedChange: function (value: boolean) {
+        this[&#x27;enabledSelected&#x27;] &#x3D; value;
+      },
+      onDisabledSelectedChange: function (value: boolean) {
+        this[&#x27;disabledSelected&#x27;] &#x3D; value;
+      },
+    },
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 1rem;&quot;&gt;
+        &lt;div style&#x3D;&quot;display: flex; gap: 0.75rem; flex-wrap: wrap;&quot;&gt;
+          &lt;zg-chip data-testid&#x3D;&quot;enabled-chip&quot; [selected]&#x3D;&quot;enabledSelected&quot; (selectedChange)&#x3D;&quot;onEnabledSelectedChange($event)&quot;&gt;Enabled&lt;/zg-chip&gt;
+          &lt;zg-chip data-testid&#x3D;&quot;disabled-chip&quot; [disabled]&#x3D;&quot;true&quot; [selected]&#x3D;&quot;disabledSelected&quot; (selectedChange)&#x3D;&quot;onDisabledSelectedChange($event)&quot;&gt;Disabled&lt;/zg-chip&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+
+    // Try to click disabled chip
+    const disabledChip &#x3D; canvas.getByTestId(&#x27;disabled-chip&#x27;).querySelector(&#x27;button&#x27;);
+    if (disabledChip) {
+      await userEvent.click(disabledChip);
+      // Should remain unselected (aria-pressed should be false)
+      await expect(disabledChip).toHaveAttribute(&#x27;aria-pressed&#x27;, &#x27;false&#x27;);
+    }
+
+    // Click enabled chip to verify it works
+    const enabledChip &#x3D; canvas.getByTestId(&#x27;enabled-chip&#x27;).querySelector(&#x27;button&#x27;);
+    if (enabledChip) {
+      await userEvent.click(enabledChip);
+      await expect(enabledChip).toHaveAttribute(&#x27;aria-pressed&#x27;, &#x27;true&#x27;);
+    }
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Disabled chips do not respond to clicks (with play function)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InteractiveToggle"></a>
+                    <span class="name">
+                        <span ><b>InteractiveToggle</b></span>
+                        <a href="#InteractiveToggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Interactive Toggle&#x27;,
+  render: () &#x3D;&gt; ({
+    props: {
+      selected1: false,
+      selected2: false,
+      selected3: false,
+      onSelectedChange1: function (value: boolean) {
+        this[&#x27;selected1&#x27;] &#x3D; value;
+      },
+      onSelectedChange2: function (value: boolean) {
+        this[&#x27;selected2&#x27;] &#x3D; value;
+      },
+      onSelectedChange3: function (value: boolean) {
+        this[&#x27;selected3&#x27;] &#x3D; value;
+      },
+    },
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 1rem;&quot;&gt;
+        &lt;p style&#x3D;&quot;margin: 0; color: #666;&quot;&gt;Click on chips to toggle their selected state:&lt;/p&gt;
+        &lt;div style&#x3D;&quot;display: flex; gap: 0.75rem; flex-wrap: wrap;&quot;&gt;
+          &lt;zg-chip data-testid&#x3D;&quot;chip-1&quot; [selected]&#x3D;&quot;selected1&quot; (selectedChange)&#x3D;&quot;onSelectedChange1($event)&quot;&gt;Sports&lt;/zg-chip&gt;
+          &lt;zg-chip data-testid&#x3D;&quot;chip-2&quot; [selected]&#x3D;&quot;selected2&quot; (selectedChange)&#x3D;&quot;onSelectedChange2($event)&quot;&gt;Slots&lt;/zg-chip&gt;
+          &lt;zg-chip data-testid&#x3D;&quot;chip-3&quot; [selected]&#x3D;&quot;selected3&quot; (selectedChange)&#x3D;&quot;onSelectedChange3($event)&quot;&gt;Live Casino&lt;/zg-chip&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+
+    // Click first chip and verify it becomes selected
+    const chip1 &#x3D; canvas.getByTestId(&#x27;chip-1&#x27;).querySelector(&#x27;button&#x27;);
+    if (chip1) {
+      await userEvent.click(chip1);
+      await expect(chip1).toHaveAttribute(&#x27;aria-pressed&#x27;, &#x27;true&#x27;);
+
+      // Click again to deselect
+      await userEvent.click(chip1);
+      await expect(chip1).toHaveAttribute(&#x27;aria-pressed&#x27;, &#x27;false&#x27;);
+    }
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Interactive example with click toggle (with play function)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="KeyboardNavigation"></a>
+                    <span class="name">
+                        <span ><b>KeyboardNavigation</b></span>
+                        <a href="#KeyboardNavigation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Keyboard Navigation&#x27;,
+  render: () &#x3D;&gt; ({
+    props: {
+      kbSelected1: false,
+      kbSelected2: false,
+      kbSelected3: false,
+      onKbSelectedChange1: function (value: boolean) {
+        this[&#x27;kbSelected1&#x27;] &#x3D; value;
+      },
+      onKbSelectedChange2: function (value: boolean) {
+        this[&#x27;kbSelected2&#x27;] &#x3D; value;
+      },
+      onKbSelectedChange3: function (value: boolean) {
+        this[&#x27;kbSelected3&#x27;] &#x3D; value;
+      },
+    },
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 1rem;&quot;&gt;
+        &lt;p style&#x3D;&quot;margin: 0; color: #666;&quot;&gt;Use Tab to focus and Enter/Space to toggle:&lt;/p&gt;
+        &lt;div style&#x3D;&quot;display: flex; gap: 0.75rem; flex-wrap: wrap;&quot;&gt;
+          &lt;zg-chip data-testid&#x3D;&quot;kb-chip-1&quot; [selected]&#x3D;&quot;kbSelected1&quot; (selectedChange)&#x3D;&quot;onKbSelectedChange1($event)&quot;&gt;First&lt;/zg-chip&gt;
+          &lt;zg-chip data-testid&#x3D;&quot;kb-chip-2&quot; [selected]&#x3D;&quot;kbSelected2&quot; (selectedChange)&#x3D;&quot;onKbSelectedChange2($event)&quot;&gt;Second&lt;/zg-chip&gt;
+          &lt;zg-chip data-testid&#x3D;&quot;kb-chip-3&quot; [selected]&#x3D;&quot;kbSelected3&quot; (selectedChange)&#x3D;&quot;onKbSelectedChange3($event)&quot;&gt;Third&lt;/zg-chip&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+
+    const chip &#x3D; canvas.getByTestId(&#x27;kb-chip-1&#x27;).querySelector(&#x27;button&#x27;);
+    if (chip) {
+      // Focus the chip
+      chip.focus();
+
+      // Press Enter to toggle
+      await userEvent.keyboard(&#x27;{Enter}&#x27;);
+      await expect(chip).toHaveAttribute(&#x27;aria-pressed&#x27;, &#x27;true&#x27;);
+
+      // Press Space to toggle back
+      await userEvent.keyboard(&#x27; &#x27;);
+      await expect(chip).toHaveAttribute(&#x27;aria-pressed&#x27;, &#x27;false&#x27;);
+    }
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Keyboard navigation example (with play function)</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="meta"></a>
+                    <span class="name">
+                        <span ><b>meta</b></span>
+                        <a href="#meta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ZgChipComponent.html" target="_self" >Meta&lt;ZgChipComponent&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  title: &#x27;Atoms/Chip&#x27;,
+  component: ZgChipComponent,
+  tags: [&#x27;autodocs&#x27;],
+  parameters: {
+    docs: {
+      source: {
+        type: &#x27;dynamic&#x27;,
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;filled&#x27;, &#x27;outlined&#x27;, &#x27;ghost&#x27;],
+      description: &#x27;Visual variant of the chip&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;filled&#x27; },
+        type: { summary: &#x27;ChipVariant&#x27; },
+      },
+    },
+    size: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;sm&#x27;, &#x27;md&#x27;, &#x27;lg&#x27;],
+      description: &#x27;Size of the chip&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;md&#x27; },
+        type: { summary: &#x27;ChipSize&#x27; },
+      },
+    },
+    selected: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Whether the chip is in a selected state&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;false&#x27; },
+      },
+    },
+    disabled: {
+      control: &#x27;boolean&#x27;,
+      description: &#x27;Whether the chip is disabled&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;false&#x27; },
+      },
+    },
+    text: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Chip text content (alternative to ng-content)&#x27;,
+      table: {
+        defaultValue: { summary: &#x27;undefined&#x27; },
+        type: { summary: &#x27;string&#x27; },
+      },
+    },
+    clicked: {
+      action: &#x27;clicked&#x27;,
+      description: &#x27;Emitted when the chip is clicked&#x27;,
+      table: {
+        category: &#x27;Events&#x27;,
+      },
+    },
+    selectedChange: {
+      action: &#x27;selectedChange&#x27;,
+      description: &#x27;Emitted when the selected state changes (enables two-way binding)&#x27;,
+      table: {
+        category: &#x27;Events&#x27;,
+      },
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Chip component for interactive filters, tags, and selections.</p>
+<h2>Usage Guide</h2>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>Filtering content (category filters, game type filters)</li>
+<li>Displaying selected options in multi-select scenarios</li>
+<li>Representing tags that can be added/removed</li>
+<li>Navigation pills/tabs for content sections</li>
+<li>Interactive category chips in iGaming (Sports, Slots, Live Casino)</li>
+</ul>
+<p><strong>When NOT to use:</strong></p>
+<ul>
+<li>For static labels or status indicators (use Badge instead)</li>
+<li>For primary actions (use Button instead)</li>
+<li>For complex multi-step forms (consider other input types)</li>
+<li>Non-interactive tags (use Badge instead)</li>
+</ul>
+<h2>Accessibility</h2>
+<ul>
+<li>✅ Uses native <code>&lt;button&gt;</code> element for full keyboard support</li>
+<li>✅ <code>aria-pressed</code> indicates selected state</li>
+<li>✅ <code>type=&quot;button&quot;</code> prevents form submission</li>
+<li>✅ Fully navigable with keyboard (Enter/Space)</li>
+<li>✅ Visible focus state</li>
+<li>✅ Disabled state prevents all interaction</li>
+<li>💡 Use descriptive text (avoid single letters)</li>
+<li>💡 Consider grouping chips with fieldset/legend for filters</li>
+</ul>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RealWorldExamples"></a>
+                    <span class="name">
+                        <span ><b>RealWorldExamples</b></span>
+                        <a href="#RealWorldExamples"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Real-world Examples&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 2rem; max-width: 800px;&quot;&gt;
+        &lt;!-- Game category filters (horizontal) --&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Game Category Filters:&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; gap: 0.75rem; flex-wrap: wrap;&quot;&gt;
+            &lt;zg-chip variant&#x3D;&quot;filled&quot; [selected]&#x3D;&quot;true&quot;&gt;All Games&lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;outlined&quot;&gt;Slots&lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;outlined&quot;&gt;Live Casino&lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;outlined&quot;&gt;Sports&lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;outlined&quot;&gt;Table Games&lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;outlined&quot;&gt;Roulette&lt;/zg-chip&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Active Filters (Removable):&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;&quot;&gt;
+            &lt;span style&#x3D;&quot;color: #666; font-size: 14px;&quot;&gt;Applied filters:&lt;/span&gt;
+            &lt;zg-chip variant&#x3D;&quot;filled&quot; size&#x3D;&quot;sm&quot;&gt;
+              Sports
+              &lt;svg icon-right width&#x3D;&quot;14&quot; height&#x3D;&quot;14&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;path d&#x3D;&quot;M4 4L12 12M12 4L4 12&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;filled&quot; size&#x3D;&quot;sm&quot;&gt;
+              Live
+              &lt;svg icon-right width&#x3D;&quot;14&quot; height&#x3D;&quot;14&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;path d&#x3D;&quot;M4 4L12 12M12 4L4 12&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;filled&quot; size&#x3D;&quot;sm&quot;&gt;
+              Popular
+              &lt;svg icon-right width&#x3D;&quot;14&quot; height&#x3D;&quot;14&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;path d&#x3D;&quot;M4 4L12 12M12 4L4 12&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/zg-chip&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Sports Markets:&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; gap: 0.75rem; flex-wrap: wrap;&quot;&gt;
+            &lt;zg-chip variant&#x3D;&quot;ghost&quot;&gt;
+              &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;circle cx&#x3D;&quot;8&quot; cy&#x3D;&quot;8&quot; r&#x3D;&quot;7&quot; /&gt;
+              &lt;/svg&gt;
+              Football
+            &lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;ghost&quot; [selected]&#x3D;&quot;true&quot;&gt;
+              &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;circle cx&#x3D;&quot;8&quot; cy&#x3D;&quot;8&quot; r&#x3D;&quot;7&quot; /&gt;
+              &lt;/svg&gt;
+              Basketball
+            &lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;ghost&quot;&gt;
+              &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;circle cx&#x3D;&quot;8&quot; cy&#x3D;&quot;8&quot; r&#x3D;&quot;7&quot; /&gt;
+              &lt;/svg&gt;
+              Tennis
+            &lt;/zg-chip&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Size Variations:&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 1rem;&quot;&gt;
+            &lt;div style&#x3D;&quot;display: flex; gap: 0.5rem; align-items: center;&quot;&gt;
+              &lt;span style&#x3D;&quot;width: 100px; color: #666; font-size: 14px;&quot;&gt;Small:&lt;/span&gt;
+              &lt;zg-chip size&#x3D;&quot;sm&quot;&gt;New&lt;/zg-chip&gt;
+              &lt;zg-chip size&#x3D;&quot;sm&quot;&gt;Trending&lt;/zg-chip&gt;
+              &lt;zg-chip size&#x3D;&quot;sm&quot;&gt;Hot&lt;/zg-chip&gt;
+            &lt;/div&gt;
+            &lt;div style&#x3D;&quot;display: flex; gap: 0.75rem; align-items: center;&quot;&gt;
+              &lt;span style&#x3D;&quot;width: 100px; color: #666; font-size: 14px;&quot;&gt;Medium:&lt;/span&gt;
+              &lt;zg-chip size&#x3D;&quot;md&quot;&gt;Featured&lt;/zg-chip&gt;
+              &lt;zg-chip size&#x3D;&quot;md&quot;&gt;Popular&lt;/zg-chip&gt;
+              &lt;zg-chip size&#x3D;&quot;md&quot;&gt;Live&lt;/zg-chip&gt;
+            &lt;/div&gt;
+            &lt;div style&#x3D;&quot;display: flex; gap: 1rem; align-items: center;&quot;&gt;
+              &lt;span style&#x3D;&quot;width: 100px; color: #666; font-size: 14px;&quot;&gt;Large:&lt;/span&gt;
+              &lt;zg-chip size&#x3D;&quot;lg&quot;&gt;Jackpot&lt;/zg-chip&gt;
+              &lt;zg-chip size&#x3D;&quot;lg&quot;&gt;Exclusive&lt;/zg-chip&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Real-world examples: iGaming filters and tags</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SelectedVariants"></a>
+                    <span class="name">
+                        <span ><b>SelectedVariants</b></span>
+                        <a href="#SelectedVariants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Selected Variants&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 1rem;&quot;&gt;
+        &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+          &lt;span style&#x3D;&quot;width: 100%; font-weight: 600;&quot;&gt;Filled:&lt;/span&gt;
+          &lt;zg-chip variant&#x3D;&quot;filled&quot;&gt;Not Selected&lt;/zg-chip&gt;
+          &lt;zg-chip variant&#x3D;&quot;filled&quot; [selected]&#x3D;&quot;true&quot;&gt;Selected&lt;/zg-chip&gt;
+        &lt;/div&gt;
+        &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+          &lt;span style&#x3D;&quot;width: 100%; font-weight: 600;&quot;&gt;Outlined:&lt;/span&gt;
+          &lt;zg-chip variant&#x3D;&quot;outlined&quot;&gt;Not Selected&lt;/zg-chip&gt;
+          &lt;zg-chip variant&#x3D;&quot;outlined&quot; [selected]&#x3D;&quot;true&quot;&gt;Selected&lt;/zg-chip&gt;
+        &lt;/div&gt;
+        &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+          &lt;span style&#x3D;&quot;width: 100%; font-weight: 600;&quot;&gt;Ghost:&lt;/span&gt;
+          &lt;zg-chip variant&#x3D;&quot;ghost&quot;&gt;Not Selected&lt;/zg-chip&gt;
+          &lt;zg-chip variant&#x3D;&quot;ghost&quot; [selected]&#x3D;&quot;true&quot;&gt;Selected&lt;/zg-chip&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Selected state variations across all variants</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Sizes"></a>
+                    <span class="name">
+                        <span ><b>Sizes</b></span>
+                        <a href="#Sizes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Sizes&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;&quot;&gt;
+        &lt;zg-chip size&#x3D;&quot;sm&quot;&gt;Small&lt;/zg-chip&gt;
+        &lt;zg-chip size&#x3D;&quot;md&quot;&gt;Medium&lt;/zg-chip&gt;
+        &lt;zg-chip size&#x3D;&quot;lg&quot;&gt;Large&lt;/zg-chip&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>All chip sizes side by side</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="States"></a>
+                    <span class="name">
+                        <span ><b>States</b></span>
+                        <a href="#States"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;States&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;&quot;&gt;
+        &lt;zg-chip&gt;Normal&lt;/zg-chip&gt;
+        &lt;zg-chip [selected]&#x3D;&quot;true&quot;&gt;Selected&lt;/zg-chip&gt;
+        &lt;zg-chip [disabled]&#x3D;&quot;true&quot;&gt;Disabled&lt;/zg-chip&gt;
+        &lt;zg-chip [selected]&#x3D;&quot;true&quot; [disabled]&#x3D;&quot;true&quot;&gt;Selected + Disabled&lt;/zg-chip&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Chip states: normal, selected, disabled</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Variants"></a>
+                    <span class="name">
+                        <span ><b>Variants</b></span>
+                        <a href="#Variants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Variants&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;&quot;&gt;
+        &lt;zg-chip variant&#x3D;&quot;filled&quot;&gt;Filled&lt;/zg-chip&gt;
+        &lt;zg-chip variant&#x3D;&quot;outlined&quot;&gt;Outlined&lt;/zg-chip&gt;
+        &lt;zg-chip variant&#x3D;&quot;ghost&quot;&gt;Ghost&lt;/zg-chip&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>All chip variants side by side</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="WithIcons"></a>
+                    <span class="name">
+                        <span ><b>WithIcons</b></span>
+                        <a href="#WithIcons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Story" target="_self" >Story</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;With Icons&#x27;,
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: flex; flex-direction: column; gap: 1.5rem;&quot;&gt;
+        &lt;!-- Icon left --&gt;
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Example: Category chips with icons&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+            &lt;zg-chip variant&#x3D;&quot;filled&quot;&gt;
+              &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;circle cx&#x3D;&quot;8&quot; cy&#x3D;&quot;8&quot; r&#x3D;&quot;7&quot; /&gt;
+              &lt;/svg&gt;
+              Sports
+            &lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;outlined&quot;&gt;
+              &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;rect x&#x3D;&quot;2&quot; y&#x3D;&quot;2&quot; width&#x3D;&quot;12&quot; height&#x3D;&quot;12&quot; rx&#x3D;&quot;2&quot; /&gt;
+              &lt;/svg&gt;
+              Slots
+            &lt;/zg-chip&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Example: Active filters with remove icon&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+            &lt;zg-chip variant&#x3D;&quot;filled&quot;&gt;
+              Category
+              &lt;svg icon-right width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;path d&#x3D;&quot;M4 4L12 12M12 4L4 12&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/zg-chip&gt;
+            &lt;zg-chip variant&#x3D;&quot;outlined&quot;&gt;
+              Tag
+              &lt;svg icon-right width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;path d&#x3D;&quot;M4 4L12 12M12 4L4 12&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/zg-chip&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Example: Active filters with checkmark icon&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+            &lt;zg-chip variant&#x3D;&quot;filled&quot; [selected]&#x3D;&quot;true&quot;&gt;
+              Active Filter
+              &lt;svg icon-right width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;path d&#x3D;&quot;M3 8L6 11L13 4&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; fill&#x3D;&quot;none&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/zg-chip&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div&gt;
+          &lt;h4 style&#x3D;&quot;margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;&quot;&gt;Example: Active filters with both icons&lt;/h4&gt;
+          &lt;div style&#x3D;&quot;display: flex; gap: 1rem; flex-wrap: wrap;&quot;&gt;
+            &lt;zg-chip variant&#x3D;&quot;filled&quot; [selected]&#x3D;&quot;true&quot;&gt;
+              &lt;svg icon-left width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;circle cx&#x3D;&quot;8&quot; cy&#x3D;&quot;8&quot; r&#x3D;&quot;7&quot; /&gt;
+              &lt;/svg&gt;
+              Trending
+              &lt;svg icon-right width&#x3D;&quot;16&quot; height&#x3D;&quot;16&quot; viewBox&#x3D;&quot;0 0 16 16&quot; fill&#x3D;&quot;currentColor&quot;&gt;
+                &lt;path d&#x3D;&quot;M3 8L6 11L13 4&quot; stroke&#x3D;&quot;currentColor&quot; stroke-width&#x3D;&quot;2&quot; fill&#x3D;&quot;none&quot; /&gt;
+              &lt;/svg&gt;
+            &lt;/zg-chip&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Chips with icons using ng-content slots</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
