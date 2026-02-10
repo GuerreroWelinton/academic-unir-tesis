@@ -1,0 +1,94 @@
+# GitHub Actions Workflow: Deploy Multi-Artifact to GitHub Pages
+#
+# This workflow automates the build and deployment of all key artifacts
+# (demo app, Storybook, Compodoc docs, and coverage reports) to the
+# `gh-pages` branch on every push to `main` (after PR merge).
+#
+# Artifacts deployed:
+#   - Demo app: dist/zg-ui/ → gh-pages/demo/
+#   - Storybook: dist/storybook/ui/ → gh-pages/storybook/
+#   - UI Docs: docs/ui/ → gh-pages/docs/ui/
+#   - Design Tokens Docs: docs/design-tokens/ → gh-pages/docs/design-tokens/
+#   - UI Coverage: coverage/ui/ → gh-pages/coverage/ui/
+#   - Design Tokens Coverage: coverage/design-tokens/ → gh-pages/coverage/design-tokens/
+#
+# Trigger: On push to main (after PR merge)
+# Builds all necessary artifacts automatically
+# Deploys all folders to unique subfolders for easy access
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    name: Build & Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint & Format Check
+        run: |
+          npm run lint
+          npm run format:check
+
+      - name: Run Tests
+        run: npm run test:once
+
+      - name: Build Demo App
+        run: npm run build
+
+      - name: Build UI Library
+        run: npm run build:ui
+
+      - name: Build Design Tokens
+        run: npm run build:design-tokens
+
+      - name: Build Storybook
+        run: npm run build-storybook
+
+      - name: Generate Documentation
+        run: |
+          npm run docs:ui
+          npm run docs:design-tokens
+
+      - name: Generate Coverage Reports
+        run: npm run coverage:all
+
+      - name: Prepare deployment folder
+        run: |
+          mkdir -p gh-pages/docs
+          mkdir -p gh-pages/coverage
+          cp -r dist/zg-ui/browser gh-pages/demo
+          cp -r dist/storybook/ui gh-pages/storybook
+          cp -r docs/ui gh-pages/docs/ui
+          cp -r docs/design-tokens gh-pages/docs/design-tokens
+          cp -r coverage/ui gh-pages/coverage/ui
+          cp -r coverage/design-tokens gh-pages/coverage/design-tokens
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gh-pages
+          publish_branch: gh-pages
+          force_orphan: true
+
+# Result:
+# - Demo: https://<user>.github.io/<repo>/demo/
+# - Storybook: https://<user>.github.io/<repo>/storybook/
+# - Docs: https://<user>.github.io/<repo>/docs/ui/ etc.

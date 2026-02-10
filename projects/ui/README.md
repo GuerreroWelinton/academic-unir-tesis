@@ -1,63 +1,67 @@
-# Ui
+# @zgames/ui
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
+Modern, accessible, and themeable Angular UI component library for iGaming, built with Angular 21 and Storybook.
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Standalone presentational components (atoms, molecules)
+- 3-layer design token system (primitives, semantic, component tokens)
+- Strict accessibility (WCAG 2.1 AA)
+- Storybook documentation and a11y validation
+- Unit tests (Vitest)
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the library, run:
+## Installation
 
 ```bash
-ng build ui
+npm install @zgames/ui @zgames/zgames-design-tokens
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+## Usage
 
-### Publishing the Library
+Import the standalone component in your Angular app:
 
-Once the project is built, you can publish your library by following these steps:
+```typescript
+import { ZgButtonComponent } from '@zgames/ui';
+```
 
-1. Navigate to the `dist` directory:
+## Theming
 
-   ```bash
-   cd dist/ui
-   ```
+All styles use CSS variables from @zgames/zgames-design-tokens. See the main README for theming strategies.
 
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Build
 
 ```bash
-ng test
+npm run build:ui
 ```
 
-## Running end-to-end tests
+Artifacts in `dist/ui/`.
 
-For end-to-end (e2e) testing, run:
+## Testing
 
 ```bash
-ng e2e
+npm run test:ui
+npm run test:ui:coverage
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Documentation
+
+- Storybook: `npm run storybook` (local) or see deployed Storybook
+- API Docs: `npm run docs:ui` (Compodoc)
+
+## Publish
+
+```bash
+cd dist/ui
+npm publish --access public
+```
+
+## Contributing
+
+See [../../CONTRIBUTING.md](../../CONTRIBUTING.md)
+
+## License
+
+MIT
 
 ## Additional Resources
 

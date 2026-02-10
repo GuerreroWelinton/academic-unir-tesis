@@ -22,11 +22,11 @@
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^21.1.0",
-    "@angular/core": "^21.1.0"
+    "@angular/core": "^21.1.0",
+    "@zgames/design-tokens": "1.0.1"
   },
   "dependencies": {
-    "tslib": "^2.3.0",
-    "@zgames/design-tokens": "1.0.0"
+    "tslib": "^2.3.0"
   },
   "sideEffects": false
 }

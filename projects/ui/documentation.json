@@ -70,16 +70,6 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Username',\n    placeholder: 'Enter your username',\n    value: '',\n    type: 'text',\n    size: 'md',\n    disabled: false,\n    readonly: false,\n    error: '',\n    fullWidth: false,\n    autocomplete: '',\n    maxlength: undefined,\n    helperText: '',\n  },\n}"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -87,6 +77,16 @@
         "defaultValue": "{\n  args: {\n    text: 'Sports',\n    variant: 'filled',\n    size: 'md',\n    selected: false,\n    disabled: false,\n  },\n}",
         "rawdescription": "Default chip with filled variant",
         "description": "<p>Default chip with filled variant</p>\n"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    label: 'Username',\n    placeholder: 'Enter your username',\n    value: '',\n    type: 'text',\n    size: 'md',\n    disabled: false,\n    readonly: false,\n    error: '',\n    fullWidth: false,\n    autocomplete: '',\n    maxlength: undefined,\n    helperText: '',\n  },\n}"
       },
       {
         "name": "Disabled",
@@ -264,18 +264,6 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<ZgInputComponent>",
-        "defaultValue": "{\n  title: 'Atoms/Input',\n  component: ZgInputComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: { type: 'dynamic' },\n      // description: {\n      //   component:\n      //     'Accessible input field with support for icons, error, helper text, and full design token theming. Use ng-content for icon projection.',\n      // },\n    },\n  },\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['text', 'password', 'email', 'number', 'search'],\n      description: 'Input type',\n      table: { defaultValue: { summary: 'text' } },\n    },\n    value: {\n      control: 'text',\n      description: 'Input value',\n      table: { defaultValue: { summary: '' } },\n    },\n    placeholder: {\n      control: 'text',\n      description: 'Placeholder text',\n    },\n    label: {\n      control: 'text',\n      description: 'Label for accessibility',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Disabled state',\n      table: { defaultValue: { summary: 'false' } },\n    },\n    readonly: {\n      control: 'boolean',\n      description: 'Readonly state',\n      table: { defaultValue: { summary: 'false' } },\n    },\n    error: {\n      control: 'text',\n      description: 'Error message',\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Input size',\n      table: { defaultValue: { summary: 'md' } },\n    },\n    fullWidth: {\n      control: 'boolean',\n      description: 'Full width',\n      table: { defaultValue: { summary: 'false' } },\n    },\n    autocomplete: {\n      control: 'text',\n      description: 'Autocomplete attribute',\n    },\n    maxlength: {\n      control: 'number',\n      description: 'Max length',\n    },\n    helperText: {\n      control: 'text',\n      description: 'Helper text',\n    },\n    changed: {\n      action: 'changed',\n      description: 'Emitted when value changes',\n      table: { category: 'Events' },\n    },\n    focused: {\n      action: 'focused',\n      description: 'Emitted on focus',\n      table: { category: 'Events' },\n    },\n    blurred: {\n      action: 'blurred',\n      description: 'Emitted on blur',\n      table: { category: 'Events' },\n    },\n    cleared: {\n      action: 'cleared',\n      description: 'Emitted when clear button is clicked',\n      table: { category: 'Events' },\n    },\n  },\n}",
-        "rawdescription": "Input component for user text entry.\n\n## Usage Guide\n\n**When to use:**\n- Text, email, password, search, number, etc.\n- Search bars, forms, filters\n\n**When NOT to use:**\n- Multi-line input (use textarea)\n- Selection (use select, radio, checkbox)\n\n## Accessibility\n- ✅ Label is always associated with input\n- ✅ Keyboard navigation\n- ✅ Error and helper text with aria-describedby\n- ✅ Disabled and readonly states\n- 💡 Use aria-label for icon-only or hidden label",
-        "description": "<p>Input component for user text entry.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Text, email, password, search, number, etc.</li>\n<li>Search bars, forms, filters</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Multi-line input (use textarea)</li>\n<li>Selection (use select, radio, checkbox)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Label is always associated with input</li>\n<li>✅ Keyboard navigation</li>\n<li>✅ Error and helper text with aria-describedby</li>\n<li>✅ Disabled and readonly states</li>\n<li>💡 Use aria-label for icon-only or hidden label</li>\n</ul>\n"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -283,6 +271,18 @@
         "defaultValue": "{\n  title: 'Atoms/Chip',\n  component: ZgChipComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['filled', 'outlined', 'ghost'],\n      description: 'Visual variant of the chip',\n      table: {\n        defaultValue: { summary: 'filled' },\n        type: { summary: 'ChipVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the chip',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'ChipSize' },\n      },\n    },\n    selected: {\n      control: 'boolean',\n      description: 'Whether the chip is in a selected state',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the chip is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Chip text content (alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n        type: { summary: 'string' },\n      },\n    },\n    clicked: {\n      action: 'clicked',\n      description: 'Emitted when the chip is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n    selectedChange: {\n      action: 'selectedChange',\n      description: 'Emitted when the selected state changes (enables two-way binding)',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
         "rawdescription": "Chip component for interactive filters, tags, and selections.\n\n## Usage Guide\n\n**When to use:**\n- Filtering content (category filters, game type filters)\n- Displaying selected options in multi-select scenarios\n- Representing tags that can be added/removed\n- Navigation pills/tabs for content sections\n- Interactive category chips in iGaming (Sports, Slots, Live Casino)\n\n**When NOT to use:**\n- For static labels or status indicators (use Badge instead)\n- For primary actions (use Button instead)\n- For complex multi-step forms (consider other input types)\n- Non-interactive tags (use Badge instead)\n\n## Accessibility\n- ✅ Uses native `<button>` element for full keyboard support\n- ✅ `aria-pressed` indicates selected state\n- ✅ `type=\"button\"` prevents form submission\n- ✅ Fully navigable with keyboard (Enter/Space)\n- ✅ Visible focus state\n- ✅ Disabled state prevents all interaction\n- 💡 Use descriptive text (avoid single letters)\n- 💡 Consider grouping chips with fieldset/legend for filters",
         "description": "<p>Chip component for interactive filters, tags, and selections.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Filtering content (category filters, game type filters)</li>\n<li>Displaying selected options in multi-select scenarios</li>\n<li>Representing tags that can be added/removed</li>\n<li>Navigation pills/tabs for content sections</li>\n<li>Interactive category chips in iGaming (Sports, Slots, Live Casino)</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>For static labels or status indicators (use Badge instead)</li>\n<li>For primary actions (use Button instead)</li>\n<li>For complex multi-step forms (consider other input types)</li>\n<li>Non-interactive tags (use Badge instead)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Uses native <code>&lt;button&gt;</code> element for full keyboard support</li>\n<li>✅ <code>aria-pressed</code> indicates selected state</li>\n<li>✅ <code>type=&quot;button&quot;</code> prevents form submission</li>\n<li>✅ Fully navigable with keyboard (Enter/Space)</li>\n<li>✅ Visible focus state</li>\n<li>✅ Disabled state prevents all interaction</li>\n<li>💡 Use descriptive text (avoid single letters)</li>\n<li>💡 Consider grouping chips with fieldset/legend for filters</li>\n</ul>\n"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ZgInputComponent>",
+        "defaultValue": "{\n  title: 'Atoms/Input',\n  component: ZgInputComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: { type: 'dynamic' },\n      // description: {\n      //   component:\n      //     'Accessible input field with support for icons, error, helper text, and full design token theming. Use ng-content for icon projection.',\n      // },\n    },\n  },\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['text', 'password', 'email', 'number', 'search'],\n      description: 'Input type',\n      table: { defaultValue: { summary: 'text' } },\n    },\n    value: {\n      control: 'text',\n      description: 'Input value',\n      table: { defaultValue: { summary: '' } },\n    },\n    placeholder: {\n      control: 'text',\n      description: 'Placeholder text',\n    },\n    label: {\n      control: 'text',\n      description: 'Label for accessibility',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Disabled state',\n      table: { defaultValue: { summary: 'false' } },\n    },\n    readonly: {\n      control: 'boolean',\n      description: 'Readonly state',\n      table: { defaultValue: { summary: 'false' } },\n    },\n    error: {\n      control: 'text',\n      description: 'Error message',\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Input size',\n      table: { defaultValue: { summary: 'md' } },\n    },\n    fullWidth: {\n      control: 'boolean',\n      description: 'Full width',\n      table: { defaultValue: { summary: 'false' } },\n    },\n    autocomplete: {\n      control: 'text',\n      description: 'Autocomplete attribute',\n    },\n    maxlength: {\n      control: 'number',\n      description: 'Max length',\n    },\n    helperText: {\n      control: 'text',\n      description: 'Helper text',\n    },\n    changed: {\n      action: 'changed',\n      description: 'Emitted when value changes',\n      table: { category: 'Events' },\n    },\n    focused: {\n      action: 'focused',\n      description: 'Emitted on focus',\n      table: { category: 'Events' },\n    },\n    blurred: {\n      action: 'blurred',\n      description: 'Emitted on blur',\n      table: { category: 'Events' },\n    },\n    cleared: {\n      action: 'cleared',\n      description: 'Emitted when clear button is clicked',\n      table: { category: 'Events' },\n    },\n  },\n}",
+        "rawdescription": "Input component for user text entry.\n\n## Usage Guide\n\n**When to use:**\n- Text, email, password, search, number, etc.\n- Search bars, forms, filters\n\n**When NOT to use:**\n- Multi-line input (use textarea)\n- Selection (use select, radio, checkbox)\n\n## Accessibility\n- ✅ Label is always associated with input\n- ✅ Keyboard navigation\n- ✅ Error and helper text with aria-describedby\n- ✅ Disabled and readonly states\n- 💡 Use aria-label for icon-only or hidden label",
+        "description": "<p>Input component for user text entry.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Text, email, password, search, number, etc.</li>\n<li>Search bars, forms, filters</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Multi-line input (use textarea)</li>\n<li>Selection (use select, radio, checkbox)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Label is always associated with input</li>\n<li>✅ Keyboard navigation</li>\n<li>✅ Error and helper text with aria-describedby</li>\n<li>✅ Disabled and readonly states</li>\n<li>💡 Use aria-label for icon-only or hidden label</li>\n</ul>\n"
       },
       {
         "name": "MultipleIcons",
@@ -613,8 +613,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ZgInputComponent>",
-        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "rawtype": "StoryObj<ZgChipComponent>",
+        "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -624,8 +624,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ZgChipComponent>",
-        "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+        "rawtype": "StoryObj<ZgInputComponent>",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1248,19 +1248,6 @@
           "kind": 184
         }
       ],
-      "projects/ui/src/lib/atoms/input/input.component.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<ZgInputComponent>",
-          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 184
-        }
-      ],
       "projects/ui/src/lib/atoms/chip/chip.stories.ts": [
         {
           "name": "Story",
@@ -1268,6 +1255,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<ZgChipComponent>",
           "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 184
+        }
+      ],
+      "projects/ui/src/lib/atoms/input/input.component.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ZgInputComponent>",
+          "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",

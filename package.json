@@ -1,15 +1,14 @@
 {
   "name": "zg-ui",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "watch": "ng build --watch --configuration development",
     "build": "ng build",
     "build:ui": "ng build ui",
     "build:design-tokens": "ng build design-tokens",
-    "build:all-libs": "npm run build:ui && npm run build:design-tokens",
     "build:all": "npm run build && npm run build:ui && npm run build:design-tokens",
-    "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:once": "ng test --watch=false",
     "test:coverage": "ng test --coverage",
@@ -23,14 +22,13 @@
     "format:check": "prettier --check \"**/*.{ts,js,html,css,scss,md,json}\"",
     "storybook": "ng run ui:storybook",
     "build-storybook": "ng run ui:build-storybook",
-    "storybook:serve": "ng run ui:storybook",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes",
-    "prepare": "husky",
-    "ci:local": "npm run lint && npm run format:check && npm run test:once && npm run build:all && npm run build-storybook",
     "docs:ui": "compodoc -p projects/ui/tsconfig.lib.json -d docs/ui --theme material",
     "docs:ui:serve": "compodoc -p projects/ui/tsconfig.lib.json -d docs/ui --theme material --serve",
     "docs:design-tokens": "compodoc -p projects/design-tokens/tsconfig.lib.json -d docs/design-tokens --theme material",
-    "docs:design-tokens:serve": "compodoc -p projects/design-tokens/tsconfig.lib.json -d docs/design-tokens --theme material --serve"
+    "docs:design-tokens:serve": "compodoc -p projects/design-tokens/tsconfig.lib.json -d docs/design-tokens --theme material --serve",
+    "ci:local": "npm run lint && npm run format:check && npm run test:once && npm run build:all && npm run build-storybook",
+    "prepare": "husky"
   },
   "lint-staged": {
     "*.{ts,html}": [
@@ -50,6 +48,8 @@
     "@angular/forms": "^21.1.0",
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
+    "@zgames/design-tokens": "^1.0.1",
+    "@zgames/ui": "^1.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

@@ -1,63 +1,66 @@
-# DesignTokens
+# @zgames/zgames-design-tokens
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
+Design tokens library for ZGames Technology (iGaming). Provides CSS variables and theming utilities for UI components.
 
-## Code scaffolding
+## Features
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- 3-layer token system: primitives, semantic, component tokens
+- All tokens as CSS variables for runtime theming
+- Used by @zgames/ui and compatible Angular projects
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Installation
 
 ```bash
-ng generate --help
+npm install @zgames/zgames-design-tokens
 ```
 
-## Building
+## Usage
 
-To build the library, run:
+Import the CSS variables in your global styles:
+
+```scss
+@import '@zgames/zgames-design-tokens/styles/tokens';
+```
+
+Or use the theming utilities in TypeScript:
+
+```typescript
+import { createTheme } from '@zgames/zgames-design-tokens';
+```
+
+## Build
 
 ```bash
-ng build design-tokens
+npm run build:design-tokens
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+Artifacts in `dist/zgames-design-tokens/`.
 
-### Publishing the Library
-
-Once the project is built, you can publish your library by following these steps:
-
-1. Navigate to the `dist` directory:
-
-   ```bash
-   cd dist/design-tokens
-   ```
-
-2. Run the `npm publish` command to publish your library to the npm registry:
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## Testing
 
 ```bash
-ng test
+npm run test:design-tokens
+npm run test:design-tokens:coverage
 ```
 
-## Running end-to-end tests
+## Documentation
 
-For end-to-end (e2e) testing, run:
+- API Docs: `npm run docs:design-tokens` (Compodoc)
+
+## Publish
 
 ```bash
-ng e2e
+cd dist/zgames-design-tokens
+npm publish --access public
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Contributing
+
+See [../../CONTRIBUTING.md](../../CONTRIBUTING.md)
+
+## License
+
+MIT
 
 ## Additional Resources
 
