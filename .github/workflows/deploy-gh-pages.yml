@@ -46,7 +46,7 @@ jobs:
         run: npm ci
 
       - name: Build Demo App
-        run: npm run build
+        run: npx ng build zg-ui --configuration production --base-href "/${{ github.event.repository.name }}/demo/" --deploy-url "/${{ github.event.repository.name }}/demo/"
 
       - name: Build UI Library
         run: npm run build:ui
