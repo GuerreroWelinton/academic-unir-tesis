@@ -4,7 +4,7 @@ export default create({
   base: 'light',
   brandTitle: 'ZGames UI',
   brandUrl: '',
-  brandImage: '/logo.png',
+  brandImage: 'logo.png',
 
   fontBase: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
   fontCode: '"Fira Code", monospace',
