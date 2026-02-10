@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 // Import design tokens - Single source of truth for design system
-@import './styles/tokens';
+@use './styles/tokens' as *;
 
 // Global resets and base styles
 * {

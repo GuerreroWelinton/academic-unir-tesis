@@ -1,12 +1,32 @@
 {
-  "name": "ui",
-  "version": "0.0.1",
+  "name": "@zgames/ui",
+  "version": "1.0.0",
+  "description": "Foundation UI component library for ZGames Technology (iGaming) built with Angular 21 and documented with Storybook, providing reusable atoms/molecules, design tokens, and accessibility/performance validation.",
+  "author": "Welinton Guerrero",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GuerreroWelinton/academic-unir-tesis"
+  },
+  "keywords": [
+    "ui-components",
+    "atomic-design",
+    "component-library",
+    "storybook",
+    "a11y",
+    "angular",
+    "design-tokens",
+    "performance",
+    "reusable",
+    "iGaming"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^21.1.0",
     "@angular/core": "^21.1.0"
   },
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@zgames/design-tokens": "1.0.0"
   },
   "sideEffects": false
 }
