@@ -1,6 +1,24 @@
 {
-  "name": "design-tokens",
-  "version": "0.0.1",
+  "name": "@zgames/design-tokens",
+  "version": "1.0.0",
+  "description": "Design tokens library for ZGames Technology (iGaming) providing CSS variables and theming utilities for UI components.",
+  "author": "welinton guerrero",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GuerreroWelinton/academic-unir-tesis"
+  },
+  "keywords": [
+    "design-tokens",
+    "css-variables",
+    "theming",
+    "atomic-design",
+    "ui",
+    "angular",
+    "storybook",
+    "a11y",
+    "component-library"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^21.1.0",
     "@angular/core": "^21.1.0"

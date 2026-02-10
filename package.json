@@ -7,6 +7,7 @@
     "build": "ng build",
     "build:ui": "ng build ui",
     "build:design-tokens": "ng build design-tokens",
+    "build:all-libs": "npm run build:ui && npm run build:design-tokens",
     "build:all": "npm run build && npm run build:ui && npm run build:design-tokens",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
@@ -16,16 +17,20 @@
     "test:ui:coverage": "ng test ui --coverage",
     "test:design-tokens": "ng test design-tokens",
     "test:design-tokens:coverage": "ng test design-tokens --coverage",
+    "coverage:all": "npm run test:ui:coverage && npm run test:design-tokens:coverage",
     "lint": "ng lint",
     "format": "prettier --write \"**/*.{ts,js,html,css,scss,md,json}\"",
     "format:check": "prettier --check \"**/*.{ts,js,html,css,scss,md,json}\"",
     "storybook": "ng run ui:storybook",
     "build-storybook": "ng run ui:build-storybook",
+    "storybook:serve": "ng run ui:storybook",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes",
     "prepare": "husky",
     "ci:local": "npm run lint && npm run format:check && npm run test:once && npm run build:all && npm run build-storybook",
     "docs:ui": "compodoc -p projects/ui/tsconfig.lib.json -d docs/ui --theme material",
-    "docs:ui:serve": "compodoc -p projects/ui/tsconfig.lib.json -d docs/ui --theme material --serve"
+    "docs:ui:serve": "compodoc -p projects/ui/tsconfig.lib.json -d docs/ui --theme material --serve",
+    "docs:design-tokens": "compodoc -p projects/design-tokens/tsconfig.lib.json -d docs/design-tokens --theme material",
+    "docs:design-tokens:serve": "compodoc -p projects/design-tokens/tsconfig.lib.json -d docs/design-tokens --theme material --serve"
   },
   "lint-staged": {
     "*.{ts,html}": [
