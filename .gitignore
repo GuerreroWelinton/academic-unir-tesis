@@ -10,6 +10,7 @@
 # Documentation and Reports
 /docs
 /coverage
+projects/ui/documentation.json
 
 # Storybook Artifacts and Logs
 storybook-static
