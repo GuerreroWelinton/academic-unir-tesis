@@ -59,6 +59,7 @@ __screenshots__/
 # Internal Project Instructions (Do Not Commit)
 .github/instructions/project.instructions.md
 AGENTS.md
+pending-tasks.json
 
 # System Files
 .DS_Store
