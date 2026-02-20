@@ -127,11 +127,6 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-      - name: Force failure (CI gate test)
-        run: |
-          echo "Intentional failure to validate CI gate behavior"
-          exit 1
-
       - name: Upload Storybook artifact
         uses: actions/upload-artifact@v4
         with:
