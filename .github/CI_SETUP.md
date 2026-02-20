@@ -31,13 +31,7 @@ El CI se ejecuta automáticamente en:
 npm run ci:local
 ```
 
-### Opción 2: Script completo (con emojis)
-
-```bash
-bash scripts/test-ci-local.sh
-```
-
-### Opción 3: Jobs individuales
+### Opción 2: Jobs individuales
 
 ```bash
 # Lint
