@@ -127,7 +127,7 @@ type Story = StoryObj<ZgButtonComponent>;
  */
 export const Default: Story = {
   args: {
-    text: 'Click me - Chromatic review test',
+    text: 'Click me',
     variant: 'primary',
     size: 'md',
     shape: 'default',
