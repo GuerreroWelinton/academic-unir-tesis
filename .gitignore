@@ -1,20 +1,29 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# Git ignore rules for this repository.
+# Reference: https://docs.github.com/get-started/getting-started-with-git/ignoring-files
 
-# Compiled output
+# Build Outputs
 /dist
 /tmp
 /out-tsc
 /bazel-out
 
-# Generated documentation
+# Documentation and Reports
 /docs
+/coverage
+
+# Storybook Artifacts and Logs
+storybook-static
+*storybook.log
 
 # Node
 /node_modules
 npm-debug.log
+yarn-debug.log*
 yarn-error.log
+pnpm-debug.log*
+*.log
 
-# IDEs and editors
+# IDEs and Editors
 .idea/
 .project
 .classpath
@@ -32,22 +41,26 @@ yarn-error.log
 !.vscode/mcp.json
 .history/*
 
-# Miscellaneous
+# Tooling and Caches
 /.angular/cache
 .sass-cache/
 /connect.lock
-/coverage
 /libpeerconnection.log
 testem.log
 /typings
 __screenshots__/
+*.tsbuildinfo
 
-# Internal AI/project instructions (do not commit)
+# Environment Files
+.env
+.env.*
+!.env.example
+
+# Internal Project Instructions (Do Not Commit)
 .github/instructions/project.instructions.md
+AGENTS.md
 
-# System files
+# System Files
 .DS_Store
 Thumbs.db
-
-*storybook.log
-storybook-static
+Desktop.ini
