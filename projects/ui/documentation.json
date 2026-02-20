@@ -46,18 +46,6 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    shape: 'default',\n    text: 'Badge',\n    removable: false,\n    dot: false,\n    max: undefined,\n  },\n}",
-        "rawdescription": "Default badge with interactive controls",
-        "description": "<p>Default badge with interactive controls</p>\n"
-      },
-      {
-        "name": "Default",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -75,6 +63,18 @@
         "deprecationMessage": "",
         "type": "Story",
         "defaultValue": "{\n  args: {\n    label: 'Username',\n    placeholder: 'Enter your username',\n    value: '',\n    type: 'text',\n    size: 'md',\n    disabled: false,\n    readonly: false,\n    error: '',\n    fullWidth: false,\n    autocomplete: '',\n    maxlength: undefined,\n    helperText: '',\n  },\n}"
+      },
+      {
+        "name": "Default",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    variant: 'primary',\n    size: 'md',\n    shape: 'default',\n    text: 'Badge',\n    removable: false,\n    dot: false,\n    max: undefined,\n  },\n}",
+        "rawdescription": "Default badge with interactive controls",
+        "description": "<p>Default badge with interactive controls</p>\n"
       },
       {
         "name": "Default",
@@ -240,18 +240,6 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Meta<ZgBadgeComponent>",
-        "defaultValue": "{\n  title: 'Atoms/Badge',\n  component: ZgBadgeComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'error', 'info', 'neutral'],\n      description: 'Visual variant of the badge',\n      table: {\n        defaultValue: { summary: 'primary' },\n        type: { summary: 'BadgeVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the badge',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'BadgeSize' },\n      },\n    },\n    shape: {\n      control: 'select',\n      options: ['default', 'pill', 'square'],\n      description: 'Shape variant (border radius)',\n      table: {\n        defaultValue: { summary: 'default' },\n        type: { summary: 'BadgeShape' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Text content of the badge (alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n      },\n    },\n    removable: {\n      control: 'boolean',\n      description: 'Whether the badge shows a close/remove button',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    dot: {\n      control: 'boolean',\n      description: 'Whether the badge is shown as a dot (notification mode)',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    max: {\n      control: 'number',\n      description: 'Maximum number to display before showing \"+\" (e.g., 99+)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n      },\n    },\n    removed: {\n      action: 'removed',\n      description: 'Emitted when the close/remove button is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
-        "rawdescription": "Badge component for labels, status indicators, and notifications.\n\n## Usage Guide\n\n**When to use:**\n- Display status or category labels\n- Show notification counts\n- Indicate new/updated content\n- Tag items with metadata\n- Show removable filter tags\n\n**When NOT to use:**\n- As a clickable action (use button instead)\n- For long descriptive text (use label or text)\n- As form validation (use input error state)\n\n## Accessibility\n- ✅ role=\"status\" for screen readers\n- ✅ Close button with aria-label\n- ✅ Keyboard navigation for removable badges\n- ✅ Focus visible states on close button\n- ✅ Sufficient color contrast (WCAG AA)\n- 💡 Use descriptive text (avoid single letters)\n- 💡 Provide context for screen readers when needed",
-        "description": "<p>Badge component for labels, status indicators, and notifications.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Display status or category labels</li>\n<li>Show notification counts</li>\n<li>Indicate new/updated content</li>\n<li>Tag items with metadata</li>\n<li>Show removable filter tags</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>As a clickable action (use button instead)</li>\n<li>For long descriptive text (use label or text)</li>\n<li>As form validation (use input error state)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ role=&quot;status&quot; for screen readers</li>\n<li>✅ Close button with aria-label</li>\n<li>✅ Keyboard navigation for removable badges</li>\n<li>✅ Focus visible states on close button</li>\n<li>✅ Sufficient color contrast (WCAG AA)</li>\n<li>💡 Use descriptive text (avoid single letters)</li>\n<li>💡 Provide context for screen readers when needed</li>\n</ul>\n"
-      },
-      {
-        "name": "meta",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -271,6 +259,18 @@
         "defaultValue": "{\n  title: 'Atoms/Input',\n  component: ZgInputComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: { type: 'dynamic' },\n      // description: {\n      //   component:\n      //     'Accessible input field with support for icons, error, helper text, and full design token theming. Use ng-content for icon projection.',\n      // },\n    },\n  },\n  argTypes: {\n    type: {\n      control: 'select',\n      options: ['text', 'password', 'email', 'number', 'search'],\n      description: 'Input type',\n      table: { defaultValue: { summary: 'text' } },\n    },\n    value: {\n      control: 'text',\n      description: 'Input value',\n      table: { defaultValue: { summary: '' } },\n    },\n    placeholder: {\n      control: 'text',\n      description: 'Placeholder text',\n    },\n    label: {\n      control: 'text',\n      description: 'Label for accessibility',\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Disabled state',\n      table: { defaultValue: { summary: 'false' } },\n    },\n    readonly: {\n      control: 'boolean',\n      description: 'Readonly state',\n      table: { defaultValue: { summary: 'false' } },\n    },\n    error: {\n      control: 'text',\n      description: 'Error message',\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Input size',\n      table: { defaultValue: { summary: 'md' } },\n    },\n    fullWidth: {\n      control: 'boolean',\n      description: 'Full width',\n      table: { defaultValue: { summary: 'false' } },\n    },\n    autocomplete: {\n      control: 'text',\n      description: 'Autocomplete attribute',\n    },\n    maxlength: {\n      control: 'number',\n      description: 'Max length',\n    },\n    helperText: {\n      control: 'text',\n      description: 'Helper text',\n    },\n    changed: {\n      action: 'changed',\n      description: 'Emitted when value changes',\n      table: { category: 'Events' },\n    },\n    focused: {\n      action: 'focused',\n      description: 'Emitted on focus',\n      table: { category: 'Events' },\n    },\n    blurred: {\n      action: 'blurred',\n      description: 'Emitted on blur',\n      table: { category: 'Events' },\n    },\n    cleared: {\n      action: 'cleared',\n      description: 'Emitted when clear button is clicked',\n      table: { category: 'Events' },\n    },\n  },\n}",
         "rawdescription": "Input component for user text entry.\n\n## Usage Guide\n\n**When to use:**\n- Text, email, password, search, number, etc.\n- Search bars, forms, filters\n\n**When NOT to use:**\n- Multi-line input (use textarea)\n- Selection (use select, radio, checkbox)\n\n## Accessibility\n- ✅ Label is always associated with input\n- ✅ Keyboard navigation\n- ✅ Error and helper text with aria-describedby\n- ✅ Disabled and readonly states\n- 💡 Use aria-label for icon-only or hidden label",
         "description": "<p>Input component for user text entry.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Text, email, password, search, number, etc.</li>\n<li>Search bars, forms, filters</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Multi-line input (use textarea)</li>\n<li>Selection (use select, radio, checkbox)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Label is always associated with input</li>\n<li>✅ Keyboard navigation</li>\n<li>✅ Error and helper text with aria-describedby</li>\n<li>✅ Disabled and readonly states</li>\n<li>💡 Use aria-label for icon-only or hidden label</li>\n</ul>\n"
+      },
+      {
+        "name": "meta",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Meta<ZgBadgeComponent>",
+        "defaultValue": "{\n  title: 'Atoms/Badge',\n  component: ZgBadgeComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'success', 'warning', 'error', 'info', 'neutral'],\n      description: 'Visual variant of the badge',\n      table: {\n        defaultValue: { summary: 'primary' },\n        type: { summary: 'BadgeVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the badge',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'BadgeSize' },\n      },\n    },\n    shape: {\n      control: 'select',\n      options: ['default', 'pill', 'square'],\n      description: 'Shape variant (border radius)',\n      table: {\n        defaultValue: { summary: 'default' },\n        type: { summary: 'BadgeShape' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Text content of the badge (alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n      },\n    },\n    removable: {\n      control: 'boolean',\n      description: 'Whether the badge shows a close/remove button',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    dot: {\n      control: 'boolean',\n      description: 'Whether the badge is shown as a dot (notification mode)',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    max: {\n      control: 'number',\n      description: 'Maximum number to display before showing \"+\" (e.g., 99+)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n      },\n    },\n    removed: {\n      action: 'removed',\n      description: 'Emitted when the close/remove button is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
+        "rawdescription": "Badge component for labels, status indicators, and notifications.\n\n## Usage Guide\n\n**When to use:**\n- Display status or category labels\n- Show notification counts\n- Indicate new/updated content\n- Tag items with metadata\n- Show removable filter tags\n\n**When NOT to use:**\n- As a clickable action (use button instead)\n- For long descriptive text (use label or text)\n- As form validation (use input error state)\n\n## Accessibility\n- ✅ role=\"status\" for screen readers\n- ✅ Close button with aria-label\n- ✅ Keyboard navigation for removable badges\n- ✅ Focus visible states on close button\n- ✅ Sufficient color contrast (WCAG AA)\n- 💡 Use descriptive text (avoid single letters)\n- 💡 Provide context for screen readers when needed",
+        "description": "<p>Badge component for labels, status indicators, and notifications.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Display status or category labels</li>\n<li>Show notification counts</li>\n<li>Indicate new/updated content</li>\n<li>Tag items with metadata</li>\n<li>Show removable filter tags</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>As a clickable action (use button instead)</li>\n<li>For long descriptive text (use label or text)</li>\n<li>As form validation (use input error state)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ role=&quot;status&quot; for screen readers</li>\n<li>✅ Close button with aria-label</li>\n<li>✅ Keyboard navigation for removable badges</li>\n<li>✅ Focus visible states on close button</li>\n<li>✅ Sufficient color contrast (WCAG AA)</li>\n<li>💡 Use descriptive text (avoid single letters)</li>\n<li>💡 Provide context for screen readers when needed</li>\n</ul>\n"
       },
       {
         "name": "meta",
@@ -402,18 +402,6 @@
         "name": "Sizes",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  name: 'Sizes',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-wrap: wrap; gap: 12px; align-items: center;\">\n        <zg-badge size=\"sm\" variant=\"primary\" text=\"Small\"></zg-badge>\n        <zg-badge size=\"md\" variant=\"primary\" text=\"Medium\"></zg-badge>\n        <zg-badge size=\"lg\" variant=\"primary\" text=\"Large\"></zg-badge>\n      </div>\n    `,\n  }),\n}",
-        "rawdescription": "All size variants (small, medium, large)",
-        "description": "<p>All size variants (small, medium, large)</p>\n"
-      },
-      {
-        "name": "Sizes",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -421,6 +409,18 @@
         "defaultValue": "{\n  name: 'Sizes',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip size=\"sm\">Small</zg-chip>\n        <zg-chip size=\"md\">Medium</zg-chip>\n        <zg-chip size=\"lg\">Large</zg-chip>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "All chip sizes side by side",
         "description": "<p>All chip sizes side by side</p>\n"
+      },
+      {
+        "name": "Sizes",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  name: 'Sizes',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-wrap: wrap; gap: 12px; align-items: center;\">\n        <zg-badge size=\"sm\" variant=\"primary\" text=\"Small\"></zg-badge>\n        <zg-badge size=\"md\" variant=\"primary\" text=\"Medium\"></zg-badge>\n        <zg-badge size=\"lg\" variant=\"primary\" text=\"Large\"></zg-badge>\n      </div>\n    `,\n  }),\n}",
+        "rawdescription": "All size variants (small, medium, large)",
+        "description": "<p>All size variants (small, medium, large)</p>\n"
       },
       {
         "name": "Sizes",
@@ -462,18 +462,6 @@
         "name": "Variants",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  name: 'Variants',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-wrap: wrap; gap: 12px; align-items: center;\">\n        <zg-badge variant=\"primary\" text=\"Primary\"></zg-badge>\n        <zg-badge variant=\"secondary\" text=\"Secondary\"></zg-badge>\n        <zg-badge variant=\"success\" text=\"Success\"></zg-badge>\n        <zg-badge variant=\"warning\" text=\"Warning\"></zg-badge>\n        <zg-badge variant=\"error\" text=\"Error\"></zg-badge>\n        <zg-badge variant=\"info\" text=\"Info\"></zg-badge>\n        <zg-badge variant=\"neutral\" text=\"Neutral\"></zg-badge>\n      </div>\n    `,\n  }),\n}",
-        "rawdescription": "All badge variants showing different semantic colors",
-        "description": "<p>All badge variants showing different semantic colors</p>\n"
-      },
-      {
-        "name": "Variants",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -481,6 +469,18 @@
         "defaultValue": "{\n  name: 'Variants',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip variant=\"filled\">Filled</zg-chip>\n        <zg-chip variant=\"outlined\">Outlined</zg-chip>\n        <zg-chip variant=\"ghost\">Ghost</zg-chip>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "All chip variants side by side",
         "description": "<p>All chip variants side by side</p>\n"
+      },
+      {
+        "name": "Variants",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  name: 'Variants',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-wrap: wrap; gap: 12px; align-items: center;\">\n        <zg-badge variant=\"primary\" text=\"Primary\"></zg-badge>\n        <zg-badge variant=\"secondary\" text=\"Secondary\"></zg-badge>\n        <zg-badge variant=\"success\" text=\"Success\"></zg-badge>\n        <zg-badge variant=\"warning\" text=\"Warning\"></zg-badge>\n        <zg-badge variant=\"error\" text=\"Error\"></zg-badge>\n        <zg-badge variant=\"info\" text=\"Info\"></zg-badge>\n        <zg-badge variant=\"neutral\" text=\"Neutral\"></zg-badge>\n      </div>\n    `,\n  }),\n}",
+        "rawdescription": "All badge variants showing different semantic colors",
+        "description": "<p>All badge variants showing different semantic colors</p>\n"
       },
       {
         "name": "Variants",
@@ -591,17 +591,6 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ZgBadgeComponent>",
-        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "description": "",
-        "kind": 184
-      },
-      {
-        "name": "Story",
-        "ctype": "miscellaneous",
-        "subtype": "typealias",
         "rawtype": "StoryObj<ZgChipComponent>",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
@@ -615,6 +604,17 @@
         "subtype": "typealias",
         "rawtype": "StoryObj<ZgInputComponent>",
         "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "description": "",
+        "kind": 184
+      },
+      {
+        "name": "Story",
+        "ctype": "miscellaneous",
+        "subtype": "typealias",
+        "rawtype": "StoryObj<ZgBadgeComponent>",
+        "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -1222,19 +1222,6 @@
     "groupedFunctions": {},
     "groupedEnumerations": {},
     "groupedTypeAliases": {
-      "projects/ui/src/lib/atoms/badge/badge.stories.ts": [
-        {
-          "name": "Story",
-          "ctype": "miscellaneous",
-          "subtype": "typealias",
-          "rawtype": "StoryObj<ZgBadgeComponent>",
-          "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "description": "",
-          "kind": 184
-        }
-      ],
       "projects/ui/src/lib/atoms/chip/chip.stories.ts": [
         {
           "name": "Story",
@@ -1255,6 +1242,19 @@
           "subtype": "typealias",
           "rawtype": "StoryObj<ZgInputComponent>",
           "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "description": "",
+          "kind": 184
+        }
+      ],
+      "projects/ui/src/lib/atoms/badge/badge.stories.ts": [
+        {
+          "name": "Story",
+          "ctype": "miscellaneous",
+          "subtype": "typealias",
+          "rawtype": "StoryObj<ZgBadgeComponent>",
+          "file": "projects/ui/src/lib/atoms/badge/badge.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
