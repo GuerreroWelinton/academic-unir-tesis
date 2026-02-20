@@ -138,8 +138,8 @@ export const Default: Story = {
 
 export const WithLeftIcon: Story = {
   args: {
-    label: 'Buscar',
-    placeholder: 'Buscar juegos',
+    label: 'Search',
+    placeholder: 'Search games',
     value: '',
   },
   render: (args) => ({
@@ -171,8 +171,8 @@ export const WithLeftIcon: Story = {
 
 export const WithRightIcon: Story = {
   args: {
-    label: 'Buscar',
-    placeholder: 'Buscar juegos',
+    label: 'Search',
+    placeholder: 'Search games',
     value: '',
   },
   render: (args) => ({

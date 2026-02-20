@@ -72,10 +72,10 @@
           "options": {
             "coverage": true,
             "coverageThresholds": {
-              "statements": 30,
-              "branches": 30,
+              "statements": 80,
+              "branches": 80,
               "functions": 30,
-              "lines": 30
+              "lines": 75
             }
           }
         },
@@ -108,7 +108,14 @@
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
-            "tsConfig": "projects/ui/tsconfig.spec.json"
+            "tsConfig": "projects/ui/tsconfig.spec.json",
+            "coverage": true,
+            "coverageThresholds": {
+              "statements": 85,
+              "branches": 70,
+              "functions": 75,
+              "lines": 85
+            }
           }
         },
         "storybook": {
@@ -162,7 +169,14 @@
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
-            "tsConfig": "projects/design-tokens/tsconfig.spec.json"
+            "tsConfig": "projects/design-tokens/tsconfig.spec.json",
+            "coverage": true,
+            "coverageThresholds": {
+              "statements": 45,
+              "branches": 35,
+              "functions": 50,
+              "lines": 45
+            }
           }
         },
         "lint": {

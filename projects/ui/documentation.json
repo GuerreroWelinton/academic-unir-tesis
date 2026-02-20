@@ -58,13 +58,13 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    text: 'Click me',\n    variant: 'primary',\n    size: 'md',\n    shape: 'default',\n    disabled: false,\n    loading: false,\n    fullWidth: false,\n    fontFamily: 'base',\n  },\n}",
-        "rawdescription": "Default button with primary variant",
-        "description": "<p>Default button with primary variant</p>\n"
+        "defaultValue": "{\n  args: {\n    text: 'Sports',\n    variant: 'filled',\n    size: 'md',\n    selected: false,\n    disabled: false,\n  },\n}",
+        "rawdescription": "Default chip with filled variant",
+        "description": "<p>Default chip with filled variant</p>\n"
       },
       {
         "name": "Default",
@@ -80,13 +80,23 @@
         "name": "Default",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    text: 'Sports',\n    variant: 'filled',\n    size: 'md',\n    selected: false,\n    disabled: false,\n  },\n}",
-        "rawdescription": "Default chip with filled variant",
-        "description": "<p>Default chip with filled variant</p>\n"
+        "defaultValue": "{\n  args: {\n    text: 'Click me',\n    variant: 'primary',\n    size: 'md',\n    shape: 'default',\n    disabled: false,\n    loading: false,\n    fullWidth: false,\n    fontFamily: 'base',\n  },\n}",
+        "rawdescription": "Default button with primary variant",
+        "description": "<p>Default button with primary variant</p>\n"
+      },
+      {
+        "name": "Disabled",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    label: 'Disabled',\n    placeholder: 'Cannot type here',\n    disabled: true,\n    value: '',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const input = canvas.getByRole('textbox');\n    await expect(input).toBeDisabled();\n  },\n}"
       },
       {
         "name": "Disabled",
@@ -99,16 +109,6 @@
         "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n        <zg-button variant=\"primary\" [disabled]=\"true\">Primary Disabled</zg-button>\n        <zg-button variant=\"secondary\" [disabled]=\"true\">Secondary Disabled</zg-button>\n        <zg-button variant=\"accent\" [disabled]=\"true\">Accent Disabled</zg-button>\n        <zg-button variant=\"danger\" [disabled]=\"true\">Danger Disabled</zg-button>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "Disabled state",
         "description": "<p>Disabled state</p>\n"
-      },
-      {
-        "name": "Disabled",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Disabled',\n    placeholder: 'Cannot type here',\n    disabled: true,\n    value: '',\n  },\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n    const input = canvas.getByRole('textbox');\n    await expect(input).toBeDisabled();\n  },\n}"
       },
       {
         "name": "DisabledChip",
@@ -150,6 +150,16 @@
         "name": "FullWidth",
         "ctype": "miscellaneous",
         "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  args: {\n    label: 'Full Width',\n    placeholder: 'Stretches to parent',\n    fullWidth: true,\n    value: '',\n  },\n}"
+      },
+      {
+        "name": "FullWidth",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -157,16 +167,6 @@
         "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"max-width: 400px;\">\n        <zg-button variant=\"primary\" [fullWidth]=\"true\">Full Width Button</zg-button>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "Full width button (useful in forms, mobile layouts)",
         "description": "<p>Full width button (useful in forms, mobile layouts)</p>\n"
-      },
-      {
-        "name": "FullWidth",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/input/input.component.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Full Width',\n    placeholder: 'Stretches to parent',\n    fullWidth: true,\n    value: '',\n  },\n}"
       },
       {
         "name": "IconOnly",
@@ -252,13 +252,13 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Meta<ZgButtonComponent>",
-        "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ZgButtonComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'accent', 'danger', 'ghost', 'gradient'],\n      description: 'Visual variant of the button',\n      table: {\n        defaultValue: { summary: 'primary' },\n        type: { summary: 'ButtonVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'ButtonSize' },\n      },\n    },\n    shape: {\n      control: 'select',\n      options: ['default', 'pill', 'square'],\n      description: 'Shape variant (border radius)',\n      table: {\n        defaultValue: { summary: 'default' },\n        type: { summary: 'ButtonShape' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    loading: {\n      control: 'boolean',\n      description: 'Whether the button is in loading state',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    fullWidth: {\n      control: 'boolean',\n      description: 'Whether the button takes full width',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'Native button type',\n      table: {\n        defaultValue: { summary: 'button' },\n      },\n    },\n    fontFamily: {\n      control: 'select',\n      options: ['base', 'secondary'],\n      description: 'Font family variant (base, secondary)',\n      table: {\n        defaultValue: { summary: 'base' },\n        type: { summary: 'ButtonFontFamily' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Button text content (simple alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n        type: { summary: 'string' },\n      },\n    },\n    clicked: {\n      action: 'clicked',\n      description: 'Emitted when the button is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
-        "rawdescription": "Button component for user interactions and actions.\n\n## Usage Guide\n\n**When to use:**\n- Primary actions (submit forms, confirm dialogs)\n- Navigation triggers\n- Start processes or workflows\n\n**When NOT to use:**\n- Navigation between pages (use links instead)\n- Toggling settings (use toggle/switch)\n- Displaying status (use badge/tag)\n\n## Accessibility\n- ✅ Keyboard navigation (Enter/Space)\n- ✅ Focus visible states\n- ✅ Disabled state prevents interaction\n- ✅ Loading state with spinner\n- 💡 Use descriptive text (avoid \"Click here\")\n- 💡 Consider aria-label for icon-only buttons",
-        "description": "<p>Button component for user interactions and actions.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Primary actions (submit forms, confirm dialogs)</li>\n<li>Navigation triggers</li>\n<li>Start processes or workflows</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Navigation between pages (use links instead)</li>\n<li>Toggling settings (use toggle/switch)</li>\n<li>Displaying status (use badge/tag)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Keyboard navigation (Enter/Space)</li>\n<li>✅ Focus visible states</li>\n<li>✅ Disabled state prevents interaction</li>\n<li>✅ Loading state with spinner</li>\n<li>💡 Use descriptive text (avoid &quot;Click here&quot;)</li>\n<li>💡 Consider aria-label for icon-only buttons</li>\n</ul>\n"
+        "type": "Meta<ZgChipComponent>",
+        "defaultValue": "{\n  title: 'Atoms/Chip',\n  component: ZgChipComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['filled', 'outlined', 'ghost'],\n      description: 'Visual variant of the chip',\n      table: {\n        defaultValue: { summary: 'filled' },\n        type: { summary: 'ChipVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the chip',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'ChipSize' },\n      },\n    },\n    selected: {\n      control: 'boolean',\n      description: 'Whether the chip is in a selected state',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the chip is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Chip text content (alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n        type: { summary: 'string' },\n      },\n    },\n    clicked: {\n      action: 'clicked',\n      description: 'Emitted when the chip is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n    selectedChange: {\n      action: 'selectedChange',\n      description: 'Emitted when the selected state changes (enables two-way binding)',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
+        "rawdescription": "Chip component for interactive filters, tags, and selections.\n\n## Usage Guide\n\n**When to use:**\n- Filtering content (category filters, game type filters)\n- Displaying selected options in multi-select scenarios\n- Representing tags that can be added/removed\n- Navigation pills/tabs for content sections\n- Interactive category chips in iGaming (Sports, Slots, Live Casino)\n\n**When NOT to use:**\n- For static labels or status indicators (use Badge instead)\n- For primary actions (use Button instead)\n- For complex multi-step forms (consider other input types)\n- Non-interactive tags (use Badge instead)\n\n## Accessibility\n- ✅ Uses native `<button>` element for full keyboard support\n- ✅ `aria-pressed` indicates selected state\n- ✅ `type=\"button\"` prevents form submission\n- ✅ Fully navigable with keyboard (Enter/Space)\n- ✅ Visible focus state\n- ✅ Disabled state prevents all interaction\n- 💡 Use descriptive text (avoid single letters)\n- 💡 Consider grouping chips with fieldset/legend for filters",
+        "description": "<p>Chip component for interactive filters, tags, and selections.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Filtering content (category filters, game type filters)</li>\n<li>Displaying selected options in multi-select scenarios</li>\n<li>Representing tags that can be added/removed</li>\n<li>Navigation pills/tabs for content sections</li>\n<li>Interactive category chips in iGaming (Sports, Slots, Live Casino)</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>For static labels or status indicators (use Badge instead)</li>\n<li>For primary actions (use Button instead)</li>\n<li>For complex multi-step forms (consider other input types)</li>\n<li>Non-interactive tags (use Badge instead)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Uses native <code>&lt;button&gt;</code> element for full keyboard support</li>\n<li>✅ <code>aria-pressed</code> indicates selected state</li>\n<li>✅ <code>type=&quot;button&quot;</code> prevents form submission</li>\n<li>✅ Fully navigable with keyboard (Enter/Space)</li>\n<li>✅ Visible focus state</li>\n<li>✅ Disabled state prevents all interaction</li>\n<li>💡 Use descriptive text (avoid single letters)</li>\n<li>💡 Consider grouping chips with fieldset/legend for filters</li>\n</ul>\n"
       },
       {
         "name": "meta",
@@ -276,13 +276,13 @@
         "name": "meta",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
-        "type": "Meta<ZgChipComponent>",
-        "defaultValue": "{\n  title: 'Atoms/Chip',\n  component: ZgChipComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['filled', 'outlined', 'ghost'],\n      description: 'Visual variant of the chip',\n      table: {\n        defaultValue: { summary: 'filled' },\n        type: { summary: 'ChipVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the chip',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'ChipSize' },\n      },\n    },\n    selected: {\n      control: 'boolean',\n      description: 'Whether the chip is in a selected state',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the chip is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Chip text content (alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n        type: { summary: 'string' },\n      },\n    },\n    clicked: {\n      action: 'clicked',\n      description: 'Emitted when the chip is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n    selectedChange: {\n      action: 'selectedChange',\n      description: 'Emitted when the selected state changes (enables two-way binding)',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
-        "rawdescription": "Chip component for interactive filters, tags, and selections.\n\n## Usage Guide\n\n**When to use:**\n- Filtering content (category filters, game type filters)\n- Displaying selected options in multi-select scenarios\n- Representing tags that can be added/removed\n- Navigation pills/tabs for content sections\n- Interactive category chips in iGaming (Sports, Slots, Live Casino)\n\n**When NOT to use:**\n- For static labels or status indicators (use Badge instead)\n- For primary actions (use Button instead)\n- For complex multi-step forms (consider other input types)\n- Non-interactive tags (use Badge instead)\n\n## Accessibility\n- ✅ Uses native `<button>` element for full keyboard support\n- ✅ `aria-pressed` indicates selected state\n- ✅ `type=\"button\"` prevents form submission\n- ✅ Fully navigable with keyboard (Enter/Space)\n- ✅ Visible focus state\n- ✅ Disabled state prevents all interaction\n- 💡 Use descriptive text (avoid single letters)\n- 💡 Consider grouping chips with fieldset/legend for filters",
-        "description": "<p>Chip component for interactive filters, tags, and selections.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Filtering content (category filters, game type filters)</li>\n<li>Displaying selected options in multi-select scenarios</li>\n<li>Representing tags that can be added/removed</li>\n<li>Navigation pills/tabs for content sections</li>\n<li>Interactive category chips in iGaming (Sports, Slots, Live Casino)</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>For static labels or status indicators (use Badge instead)</li>\n<li>For primary actions (use Button instead)</li>\n<li>For complex multi-step forms (consider other input types)</li>\n<li>Non-interactive tags (use Badge instead)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Uses native <code>&lt;button&gt;</code> element for full keyboard support</li>\n<li>✅ <code>aria-pressed</code> indicates selected state</li>\n<li>✅ <code>type=&quot;button&quot;</code> prevents form submission</li>\n<li>✅ Fully navigable with keyboard (Enter/Space)</li>\n<li>✅ Visible focus state</li>\n<li>✅ Disabled state prevents all interaction</li>\n<li>💡 Use descriptive text (avoid single letters)</li>\n<li>💡 Consider grouping chips with fieldset/legend for filters</li>\n</ul>\n"
+        "type": "Meta<ZgButtonComponent>",
+        "defaultValue": "{\n  title: 'Atoms/Button',\n  component: ZgButtonComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['primary', 'secondary', 'accent', 'danger', 'ghost', 'gradient'],\n      description: 'Visual variant of the button',\n      table: {\n        defaultValue: { summary: 'primary' },\n        type: { summary: 'ButtonVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the button',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'ButtonSize' },\n      },\n    },\n    shape: {\n      control: 'select',\n      options: ['default', 'pill', 'square'],\n      description: 'Shape variant (border radius)',\n      table: {\n        defaultValue: { summary: 'default' },\n        type: { summary: 'ButtonShape' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the button is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    loading: {\n      control: 'boolean',\n      description: 'Whether the button is in loading state',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    fullWidth: {\n      control: 'boolean',\n      description: 'Whether the button takes full width',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    type: {\n      control: 'select',\n      options: ['button', 'submit', 'reset'],\n      description: 'Native button type',\n      table: {\n        defaultValue: { summary: 'button' },\n      },\n    },\n    fontFamily: {\n      control: 'select',\n      options: ['base', 'secondary'],\n      description: 'Font family variant (base, secondary)',\n      table: {\n        defaultValue: { summary: 'base' },\n        type: { summary: 'ButtonFontFamily' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Button text content (simple alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n        type: { summary: 'string' },\n      },\n    },\n    clicked: {\n      action: 'clicked',\n      description: 'Emitted when the button is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
+        "rawdescription": "Button component for user interactions and actions.\n\n## Usage Guide\n\n**When to use:**\n- Primary actions (submit forms, confirm dialogs)\n- Navigation triggers\n- Start processes or workflows\n\n**When NOT to use:**\n- Navigation between pages (use links instead)\n- Toggling settings (use toggle/switch)\n- Displaying status (use badge/tag)\n\n## Accessibility\n- ✅ Keyboard navigation (Enter/Space)\n- ✅ Focus visible states\n- ✅ Disabled state prevents interaction\n- ✅ Loading state with spinner\n- 💡 Use descriptive text (avoid \"Click here\")\n- 💡 Consider aria-label for icon-only buttons",
+        "description": "<p>Button component for user interactions and actions.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Primary actions (submit forms, confirm dialogs)</li>\n<li>Navigation triggers</li>\n<li>Start processes or workflows</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>Navigation between pages (use links instead)</li>\n<li>Toggling settings (use toggle/switch)</li>\n<li>Displaying status (use badge/tag)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Keyboard navigation (Enter/Space)</li>\n<li>✅ Focus visible states</li>\n<li>✅ Disabled state prevents interaction</li>\n<li>✅ Loading state with spinner</li>\n<li>💡 Use descriptive text (avoid &quot;Click here&quot;)</li>\n<li>💡 Consider aria-label for icon-only buttons</li>\n</ul>\n"
       },
       {
         "name": "MultipleIcons",
@@ -330,18 +330,6 @@
         "name": "RealWorldExamples",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  name: 'Real-world Examples',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 2rem;\">\n        <!-- CTA Button (Write to us) - With secondary font for highlight -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Main CTA (with secondary font)</h4>\n          <zg-button variant=\"accent\" shape=\"pill\" size=\"lg\" fontFamily=\"secondary\">\n            WRITE TO US\n          </zg-button>\n        </div>\n\n        <!-- Alternative CTA Button with base font -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Alternative CTA (with base font)</h4>\n          <zg-button variant=\"accent\" shape=\"pill\" size=\"lg\">\n            Write to us\n          </zg-button>\n        </div>\n\n        <!-- Action Button (Save) -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Primary variant with icon</h4>\n          <zg-button variant=\"primary\">\n            <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n              <path d=\"M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1 1 0 0 0-.98 1.17l.5 3.5A2 2 0 0 0 4.86 11H6v1a2 2 0 1 0 4 0v-1h1.14a2 2 0 0 0 1.98-1.67l.5-3.5a1 1 0 0 0-.98-1.17H11z\"/>\n            </svg>\n            Save\n          </zg-button>\n        </div>\n\n        <!-- Navigation Group -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Navigation</h4>\n          <div style=\"display: flex; gap: 0.5rem;\">\n            <zg-button variant=\"primary\" size=\"sm\">\n              All\n              <span icon-right>›</span>\n            </zg-button>\n            <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\">‹</zg-button>\n            <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\">›</zg-button>\n            <zg-button variant=\"accent\" shape=\"square\" size=\"sm\">+</zg-button>\n          </div>\n        </div>\n\n        <!-- Danger action -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Destructive action</h4>\n          <zg-button variant=\"danger\">Delete bet</zg-button>\n        </div>\n      </div>\n    `,\n  }),\n}",
-        "rawdescription": "Real-world examples based on provided references",
-        "description": "<p>Real-world examples based on provided references</p>\n"
-      },
-      {
-        "name": "RealWorldExamples",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -349,6 +337,18 @@
         "defaultValue": "{\n  name: 'Real-world Examples',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 2rem; max-width: 800px;\">\n        <!-- Game category filters (horizontal) -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Game Category Filters:</h4>\n          <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\" [selected]=\"true\">All Games</zg-chip>\n            <zg-chip variant=\"outlined\">Slots</zg-chip>\n            <zg-chip variant=\"outlined\">Live Casino</zg-chip>\n            <zg-chip variant=\"outlined\">Sports</zg-chip>\n            <zg-chip variant=\"outlined\">Table Games</zg-chip>\n            <zg-chip variant=\"outlined\">Roulette</zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Active Filters (Removable):</h4>\n          <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;\">\n            <span style=\"color: #666; font-size: 14px;\">Applied filters:</span>\n            <zg-chip variant=\"filled\" size=\"sm\">\n              Sports\n              <svg icon-right width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n            <zg-chip variant=\"filled\" size=\"sm\">\n              Live\n              <svg icon-right width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n            <zg-chip variant=\"filled\" size=\"sm\">\n              Popular\n              <svg icon-right width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Sports Markets:</h4>\n          <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"ghost\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Football\n            </zg-chip>\n            <zg-chip variant=\"ghost\" [selected]=\"true\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Basketball\n            </zg-chip>\n            <zg-chip variant=\"ghost\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Tennis\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Size Variations:</h4>\n          <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n            <div style=\"display: flex; gap: 0.5rem; align-items: center;\">\n              <span style=\"width: 100px; color: #666; font-size: 14px;\">Small:</span>\n              <zg-chip size=\"sm\">New</zg-chip>\n              <zg-chip size=\"sm\">Trending</zg-chip>\n              <zg-chip size=\"sm\">Hot</zg-chip>\n            </div>\n            <div style=\"display: flex; gap: 0.75rem; align-items: center;\">\n              <span style=\"width: 100px; color: #666; font-size: 14px;\">Medium:</span>\n              <zg-chip size=\"md\">Featured</zg-chip>\n              <zg-chip size=\"md\">Popular</zg-chip>\n              <zg-chip size=\"md\">Live</zg-chip>\n            </div>\n            <div style=\"display: flex; gap: 1rem; align-items: center;\">\n              <span style=\"width: 100px; color: #666; font-size: 14px;\">Large:</span>\n              <zg-chip size=\"lg\">Jackpot</zg-chip>\n              <zg-chip size=\"lg\">Exclusive</zg-chip>\n            </div>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "Real-world examples: iGaming filters and tags",
         "description": "<p>Real-world examples: iGaming filters and tags</p>\n"
+      },
+      {
+        "name": "RealWorldExamples",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  name: 'Real-world Examples',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 2rem;\">\n        <!-- CTA Button (Write to us) - With secondary font for highlight -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Main CTA (with secondary font)</h4>\n          <zg-button variant=\"accent\" shape=\"pill\" size=\"lg\" fontFamily=\"secondary\">\n            WRITE TO US\n          </zg-button>\n        </div>\n\n        <!-- Alternative CTA Button with base font -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Alternative CTA (with base font)</h4>\n          <zg-button variant=\"accent\" shape=\"pill\" size=\"lg\">\n            Write to us\n          </zg-button>\n        </div>\n\n        <!-- Action Button (Save) -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Primary variant with icon</h4>\n          <zg-button variant=\"primary\">\n            <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n              <path d=\"M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1 1 0 0 0-.98 1.17l.5 3.5A2 2 0 0 0 4.86 11H6v1a2 2 0 1 0 4 0v-1h1.14a2 2 0 0 0 1.98-1.67l.5-3.5a1 1 0 0 0-.98-1.17H11z\"/>\n            </svg>\n            Save\n          </zg-button>\n        </div>\n\n        <!-- Navigation Group -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Navigation</h4>\n          <div style=\"display: flex; gap: 0.5rem;\">\n            <zg-button variant=\"primary\" size=\"sm\">\n              All\n              <span icon-right>›</span>\n            </zg-button>\n            <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\">‹</zg-button>\n            <zg-button variant=\"ghost\" shape=\"square\" size=\"sm\">›</zg-button>\n            <zg-button variant=\"accent\" shape=\"square\" size=\"sm\">+</zg-button>\n          </div>\n        </div>\n\n        <!-- Danger action -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Destructive action</h4>\n          <zg-button variant=\"danger\">Delete bet</zg-button>\n        </div>\n      </div>\n    `,\n  }),\n}",
+        "rawdescription": "Real-world examples based on provided references",
+        "description": "<p>Real-world examples based on provided references</p>\n"
       },
       {
         "name": "Removable",
@@ -414,18 +414,6 @@
         "name": "Sizes",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; align-items: center;\">\n        <zg-button size=\"sm\">Small</zg-button>\n        <zg-button size=\"md\">Medium</zg-button>\n        <zg-button size=\"lg\">Large</zg-button>\n      </div>\n    `,\n  }),\n}",
-        "rawdescription": "Different button sizes",
-        "description": "<p>Different button sizes</p>\n"
-      },
-      {
-        "name": "Sizes",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -433,6 +421,18 @@
         "defaultValue": "{\n  name: 'Sizes',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip size=\"sm\">Small</zg-chip>\n        <zg-chip size=\"md\">Medium</zg-chip>\n        <zg-chip size=\"lg\">Large</zg-chip>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "All chip sizes side by side",
         "description": "<p>All chip sizes side by side</p>\n"
+      },
+      {
+        "name": "Sizes",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; align-items: center;\">\n        <zg-button size=\"sm\">Small</zg-button>\n        <zg-button size=\"md\">Medium</zg-button>\n        <zg-button size=\"lg\">Large</zg-button>\n      </div>\n    `,\n  }),\n}",
+        "rawdescription": "Different button sizes",
+        "description": "<p>Different button sizes</p>\n"
       },
       {
         "name": "States",
@@ -474,18 +474,6 @@
         "name": "Variants",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-button variant=\"primary\">Primary</zg-button>\n        <zg-button variant=\"secondary\">Secondary</zg-button>\n        <zg-button variant=\"accent\">Accent</zg-button>\n        <zg-button variant=\"danger\">Danger</zg-button>\n        <zg-button variant=\"ghost\">Ghost</zg-button>\n        <zg-button variant=\"gradient\">Gradient</zg-button>\n      </div>\n    `,\n  }),\n}",
-        "rawdescription": "All button variants side by side",
-        "description": "<p>All button variants side by side</p>\n"
-      },
-      {
-        "name": "Variants",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -493,6 +481,18 @@
         "defaultValue": "{\n  name: 'Variants',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip variant=\"filled\">Filled</zg-chip>\n        <zg-chip variant=\"outlined\">Outlined</zg-chip>\n        <zg-chip variant=\"ghost\">Ghost</zg-chip>\n      </div>\n    `,\n  }),\n}",
         "rawdescription": "All chip variants side by side",
         "description": "<p>All chip variants side by side</p>\n"
+      },
+      {
+        "name": "Variants",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-button variant=\"primary\">Primary</zg-button>\n        <zg-button variant=\"secondary\">Secondary</zg-button>\n        <zg-button variant=\"accent\">Accent</zg-button>\n        <zg-button variant=\"danger\">Danger</zg-button>\n        <zg-button variant=\"ghost\">Ghost</zg-button>\n        <zg-button variant=\"gradient\">Gradient</zg-button>\n      </div>\n    `,\n  }),\n}",
+        "rawdescription": "All button variants side by side",
+        "description": "<p>All button variants side by side</p>\n"
       },
       {
         "name": "WithClearButton",
@@ -544,18 +544,6 @@
         "name": "WithIcons",
         "ctype": "miscellaneous",
         "subtype": "variable",
-        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
-        "deprecated": false,
-        "deprecationMessage": "",
-        "type": "Story",
-        "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <!-- Icon left -->\n        <zg-button variant=\"primary\">\n          <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/>\n          </svg>\n          Add Item\n        </zg-button>\n\n        <!-- Icon right -->\n        <zg-button variant=\"accent\">\n          Save File\n          <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z\"/>\n          </svg>\n        </zg-button>\n\n        <!-- Both icons -->\n        <zg-button variant=\"secondary\">\n          <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z\"/>\n          </svg>\n          Download\n          <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z\"/>\n          </svg>\n        </zg-button>\n\n        <!-- Icon only -->\n        <zg-button variant=\"ghost\" shape=\"square\" aria-label=\"Settings\">\n          <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.87,17.38L11.24,20H12.76L13.13,17.39C14.32,17.14 15.37,16.5 16.14,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.39C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z\"/>\n          </svg>\n        </zg-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: `\nThis story demonstrates the different ways to use ng-content with icon selectors:\n\n**Available selectors:**\n- \\`[icon-left]\\` - Place icons before text content\n- \\`[icon-right]\\` - Place icons after text content\n- Default slot - Main button content (text, HTML, etc.)\n\n**Best practices:**\n- Use \\`aria-label\\` for icon-only buttons\n- Keep icon sizes consistent (16x16px recommended)\n- Use \\`currentColor\\` for icon fill to inherit button text color\n        `,\n      },\n    },\n  },\n}",
-        "rawdescription": "Examples using ng-content with icon selectors and complex content",
-        "description": "<p>Examples using ng-content with icon selectors and complex content</p>\n"
-      },
-      {
-        "name": "WithIcons",
-        "ctype": "miscellaneous",
-        "subtype": "variable",
         "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
@@ -565,6 +553,18 @@
         "description": "<p>Chips with icons using ng-content slots</p>\n"
       },
       {
+        "name": "WithIcons",
+        "ctype": "miscellaneous",
+        "subtype": "variable",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "deprecated": false,
+        "deprecationMessage": "",
+        "type": "Story",
+        "defaultValue": "{\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <!-- Icon left -->\n        <zg-button variant=\"primary\">\n          <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z\"/>\n          </svg>\n          Add Item\n        </zg-button>\n\n        <!-- Icon right -->\n        <zg-button variant=\"accent\">\n          Save File\n          <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z\"/>\n          </svg>\n        </zg-button>\n\n        <!-- Both icons -->\n        <zg-button variant=\"secondary\">\n          <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z\"/>\n          </svg>\n          Download\n          <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z\"/>\n          </svg>\n        </zg-button>\n\n        <!-- Icon only -->\n        <zg-button variant=\"ghost\" shape=\"square\" aria-label=\"Settings\">\n          <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"currentColor\">\n            <path d=\"M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.87,17.38L11.24,20H12.76L13.13,17.39C14.32,17.14 15.37,16.5 16.14,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.39C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z\"/>\n          </svg>\n        </zg-button>\n      </div>\n    `,\n  }),\n  parameters: {\n    docs: {\n      description: {\n        story: `\nThis story demonstrates the different ways to use ng-content with icon selectors:\n\n**Available selectors:**\n- \\`[icon-left]\\` - Place icons before text content\n- \\`[icon-right]\\` - Place icons after text content\n- Default slot - Main button content (text, HTML, etc.)\n\n**Best practices:**\n- Use \\`aria-label\\` for icon-only buttons\n- Keep icon sizes consistent (16x16px recommended)\n- Use \\`currentColor\\` for icon fill to inherit button text color\n        `,\n      },\n    },\n  },\n}",
+        "rawdescription": "Examples using ng-content with icon selectors and complex content",
+        "description": "<p>Examples using ng-content with icon selectors and complex content</p>\n"
+      },
+      {
         "name": "WithLeftIcon",
         "ctype": "miscellaneous",
         "subtype": "variable",
@@ -572,7 +572,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Buscar',\n    placeholder: 'Buscar juegos',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <zg-input\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [value]=\"value\"\n        [type]=\"type\"\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [readonly]=\"readonly\"\n        [error]=\"error\"\n        [fullWidth]=\"fullWidth\"\n        [autocomplete]=\"autocomplete\"\n        [maxlength]=\"maxlength\"\n        [helperText]=\"helperText\"\n        (changed)=\"changed($event)\"\n        (focused)=\"focused($event)\"\n        (blurred)=\"blurred($event)\"\n        (cleared)=\"cleared()\"\n      >\n        <svg icon-left width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\n      </zg-input>\n    `,\n  }),\n}"
+        "defaultValue": "{\n  args: {\n    label: 'Search',\n    placeholder: 'Search games',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <zg-input\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [value]=\"value\"\n        [type]=\"type\"\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [readonly]=\"readonly\"\n        [error]=\"error\"\n        [fullWidth]=\"fullWidth\"\n        [autocomplete]=\"autocomplete\"\n        [maxlength]=\"maxlength\"\n        [helperText]=\"helperText\"\n        (changed)=\"changed($event)\"\n        (focused)=\"focused($event)\"\n        (blurred)=\"blurred($event)\"\n        (cleared)=\"cleared()\"\n      >\n        <svg icon-left width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\n      </zg-input>\n    `,\n  }),\n}"
       },
       {
         "name": "WithRightIcon",
@@ -582,7 +582,7 @@
         "deprecated": false,
         "deprecationMessage": "",
         "type": "Story",
-        "defaultValue": "{\n  args: {\n    label: 'Buscar',\n    placeholder: 'Buscar juegos',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <zg-input\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [value]=\"value\"\n        [type]=\"type\"\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [readonly]=\"readonly\"\n        [error]=\"error\"\n        [fullWidth]=\"fullWidth\"\n        [autocomplete]=\"autocomplete\"\n        [maxlength]=\"maxlength\"\n        [helperText]=\"helperText\"\n        (changed)=\"changed($event)\"\n        (focused)=\"focused($event)\"\n        (blurred)=\"blurred($event)\"\n        (cleared)=\"cleared()\"\n      >\n        <svg icon-right width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\n      </zg-input>\n    `,\n  }),\n}"
+        "defaultValue": "{\n  args: {\n    label: 'Search',\n    placeholder: 'Search games',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <zg-input\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [value]=\"value\"\n        [type]=\"type\"\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [readonly]=\"readonly\"\n        [error]=\"error\"\n        [fullWidth]=\"fullWidth\"\n        [autocomplete]=\"autocomplete\"\n        [maxlength]=\"maxlength\"\n        [helperText]=\"helperText\"\n        (changed)=\"changed($event)\"\n        (focused)=\"focused($event)\"\n        (blurred)=\"blurred($event)\"\n        (cleared)=\"cleared()\"\n      >\n        <svg icon-right width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\n      </zg-input>\n    `,\n  }),\n}"
       }
     ],
     "functions": [],
@@ -602,8 +602,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ZgButtonComponent>",
-        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+        "rawtype": "StoryObj<ZgChipComponent>",
+        "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -624,8 +624,8 @@
         "name": "Story",
         "ctype": "miscellaneous",
         "subtype": "typealias",
-        "rawtype": "StoryObj<ZgChipComponent>",
-        "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+        "rawtype": "StoryObj<ZgButtonComponent>",
+        "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
         "deprecated": false,
         "deprecationMessage": "",
         "description": "",
@@ -889,7 +889,7 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Buscar',\n    placeholder: 'Buscar juegos',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <zg-input\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [value]=\"value\"\n        [type]=\"type\"\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [readonly]=\"readonly\"\n        [error]=\"error\"\n        [fullWidth]=\"fullWidth\"\n        [autocomplete]=\"autocomplete\"\n        [maxlength]=\"maxlength\"\n        [helperText]=\"helperText\"\n        (changed)=\"changed($event)\"\n        (focused)=\"focused($event)\"\n        (blurred)=\"blurred($event)\"\n        (cleared)=\"cleared()\"\n      >\n        <svg icon-left width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\n      </zg-input>\n    `,\n  }),\n}"
+          "defaultValue": "{\n  args: {\n    label: 'Search',\n    placeholder: 'Search games',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <zg-input\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [value]=\"value\"\n        [type]=\"type\"\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [readonly]=\"readonly\"\n        [error]=\"error\"\n        [fullWidth]=\"fullWidth\"\n        [autocomplete]=\"autocomplete\"\n        [maxlength]=\"maxlength\"\n        [helperText]=\"helperText\"\n        (changed)=\"changed($event)\"\n        (focused)=\"focused($event)\"\n        (blurred)=\"blurred($event)\"\n        (cleared)=\"cleared()\"\n      >\n        <svg icon-left width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\n      </zg-input>\n    `,\n  }),\n}"
         },
         {
           "name": "WithRightIcon",
@@ -899,7 +899,141 @@
           "deprecated": false,
           "deprecationMessage": "",
           "type": "Story",
-          "defaultValue": "{\n  args: {\n    label: 'Buscar',\n    placeholder: 'Buscar juegos',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <zg-input\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [value]=\"value\"\n        [type]=\"type\"\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [readonly]=\"readonly\"\n        [error]=\"error\"\n        [fullWidth]=\"fullWidth\"\n        [autocomplete]=\"autocomplete\"\n        [maxlength]=\"maxlength\"\n        [helperText]=\"helperText\"\n        (changed)=\"changed($event)\"\n        (focused)=\"focused($event)\"\n        (blurred)=\"blurred($event)\"\n        (cleared)=\"cleared()\"\n      >\n        <svg icon-right width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\n      </zg-input>\n    `,\n  }),\n}"
+          "defaultValue": "{\n  args: {\n    label: 'Search',\n    placeholder: 'Search games',\n    value: '',\n  },\n  render: (args) => ({\n    props: args,\n    template: `\n      <zg-input\n        [label]=\"label\"\n        [placeholder]=\"placeholder\"\n        [value]=\"value\"\n        [type]=\"type\"\n        [size]=\"size\"\n        [disabled]=\"disabled\"\n        [readonly]=\"readonly\"\n        [error]=\"error\"\n        [fullWidth]=\"fullWidth\"\n        [autocomplete]=\"autocomplete\"\n        [maxlength]=\"maxlength\"\n        [helperText]=\"helperText\"\n        (changed)=\"changed($event)\"\n        (focused)=\"focused($event)\"\n        (blurred)=\"blurred($event)\"\n        (cleared)=\"cleared()\"\n      >\n        <svg icon-right width=\"20\" height=\"20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" viewBox=\"0 0 24 24\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><line x1=\"21\" y1=\"21\" x2=\"16.65\" y2=\"16.65\"/></svg>\n      </zg-input>\n    `,\n  }),\n}"
+        }
+      ],
+      "projects/ui/src/lib/atoms/chip/chip.stories.ts": [
+        {
+          "name": "Default",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  args: {\n    text: 'Sports',\n    variant: 'filled',\n    size: 'md',\n    selected: false,\n    disabled: false,\n  },\n}",
+          "rawdescription": "Default chip with filled variant",
+          "description": "<p>Default chip with filled variant</p>\n"
+        },
+        {
+          "name": "DisabledChip",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  name: 'Disabled State',\n  render: () => ({\n    props: {\n      enabledSelected: false,\n      disabledSelected: false,\n      onEnabledSelectedChange: function (value: boolean) {\n        this['enabledSelected'] = value;\n      },\n      onDisabledSelectedChange: function (value: boolean) {\n        this['disabledSelected'] = value;\n      },\n    },\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n        <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n          <zg-chip data-testid=\"enabled-chip\" [selected]=\"enabledSelected\" (selectedChange)=\"onEnabledSelectedChange($event)\">Enabled</zg-chip>\n          <zg-chip data-testid=\"disabled-chip\" [disabled]=\"true\" [selected]=\"disabledSelected\" (selectedChange)=\"onDisabledSelectedChange($event)\">Disabled</zg-chip>\n        </div>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n\n    // Try to click disabled chip\n    const disabledChip = canvas.getByTestId('disabled-chip').querySelector('button');\n    if (disabledChip) {\n      await userEvent.click(disabledChip);\n      // Should remain unselected (aria-pressed should be false)\n      await expect(disabledChip).toHaveAttribute('aria-pressed', 'false');\n    }\n\n    // Click enabled chip to verify it works\n    const enabledChip = canvas.getByTestId('enabled-chip').querySelector('button');\n    if (enabledChip) {\n      await userEvent.click(enabledChip);\n      await expect(enabledChip).toHaveAttribute('aria-pressed', 'true');\n    }\n  },\n}",
+          "rawdescription": "Disabled chips do not respond to clicks (with play function)",
+          "description": "<p>Disabled chips do not respond to clicks (with play function)</p>\n"
+        },
+        {
+          "name": "InteractiveToggle",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  name: 'Interactive Toggle',\n  render: () => ({\n    props: {\n      selected1: false,\n      selected2: false,\n      selected3: false,\n      onSelectedChange1: function (value: boolean) {\n        this['selected1'] = value;\n      },\n      onSelectedChange2: function (value: boolean) {\n        this['selected2'] = value;\n      },\n      onSelectedChange3: function (value: boolean) {\n        this['selected3'] = value;\n      },\n    },\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n        <p style=\"margin: 0; color: #666;\">Click on chips to toggle their selected state:</p>\n        <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n          <zg-chip data-testid=\"chip-1\" [selected]=\"selected1\" (selectedChange)=\"onSelectedChange1($event)\">Sports</zg-chip>\n          <zg-chip data-testid=\"chip-2\" [selected]=\"selected2\" (selectedChange)=\"onSelectedChange2($event)\">Slots</zg-chip>\n          <zg-chip data-testid=\"chip-3\" [selected]=\"selected3\" (selectedChange)=\"onSelectedChange3($event)\">Live Casino</zg-chip>\n        </div>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n\n    // Click first chip and verify it becomes selected\n    const chip1 = canvas.getByTestId('chip-1').querySelector('button');\n    if (chip1) {\n      await userEvent.click(chip1);\n      await expect(chip1).toHaveAttribute('aria-pressed', 'true');\n\n      // Click again to deselect\n      await userEvent.click(chip1);\n      await expect(chip1).toHaveAttribute('aria-pressed', 'false');\n    }\n  },\n}",
+          "rawdescription": "Interactive example with click toggle (with play function)",
+          "description": "<p>Interactive example with click toggle (with play function)</p>\n"
+        },
+        {
+          "name": "KeyboardNavigation",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  name: 'Keyboard Navigation',\n  render: () => ({\n    props: {\n      kbSelected1: false,\n      kbSelected2: false,\n      kbSelected3: false,\n      onKbSelectedChange1: function (value: boolean) {\n        this['kbSelected1'] = value;\n      },\n      onKbSelectedChange2: function (value: boolean) {\n        this['kbSelected2'] = value;\n      },\n      onKbSelectedChange3: function (value: boolean) {\n        this['kbSelected3'] = value;\n      },\n    },\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n        <p style=\"margin: 0; color: #666;\">Use Tab to focus and Enter/Space to toggle:</p>\n        <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n          <zg-chip data-testid=\"kb-chip-1\" [selected]=\"kbSelected1\" (selectedChange)=\"onKbSelectedChange1($event)\">First</zg-chip>\n          <zg-chip data-testid=\"kb-chip-2\" [selected]=\"kbSelected2\" (selectedChange)=\"onKbSelectedChange2($event)\">Second</zg-chip>\n          <zg-chip data-testid=\"kb-chip-3\" [selected]=\"kbSelected3\" (selectedChange)=\"onKbSelectedChange3($event)\">Third</zg-chip>\n        </div>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n\n    const chip = canvas.getByTestId('kb-chip-1').querySelector('button');\n    if (chip) {\n      // Focus the chip\n      chip.focus();\n\n      // Press Enter to toggle\n      await userEvent.keyboard('{Enter}');\n      await expect(chip).toHaveAttribute('aria-pressed', 'true');\n\n      // Press Space to toggle back\n      await userEvent.keyboard(' ');\n      await expect(chip).toHaveAttribute('aria-pressed', 'false');\n    }\n  },\n}",
+          "rawdescription": "Keyboard navigation example (with play function)",
+          "description": "<p>Keyboard navigation example (with play function)</p>\n"
+        },
+        {
+          "name": "meta",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Meta<ZgChipComponent>",
+          "defaultValue": "{\n  title: 'Atoms/Chip',\n  component: ZgChipComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['filled', 'outlined', 'ghost'],\n      description: 'Visual variant of the chip',\n      table: {\n        defaultValue: { summary: 'filled' },\n        type: { summary: 'ChipVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the chip',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'ChipSize' },\n      },\n    },\n    selected: {\n      control: 'boolean',\n      description: 'Whether the chip is in a selected state',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the chip is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Chip text content (alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n        type: { summary: 'string' },\n      },\n    },\n    clicked: {\n      action: 'clicked',\n      description: 'Emitted when the chip is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n    selectedChange: {\n      action: 'selectedChange',\n      description: 'Emitted when the selected state changes (enables two-way binding)',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
+          "rawdescription": "Chip component for interactive filters, tags, and selections.\n\n## Usage Guide\n\n**When to use:**\n- Filtering content (category filters, game type filters)\n- Displaying selected options in multi-select scenarios\n- Representing tags that can be added/removed\n- Navigation pills/tabs for content sections\n- Interactive category chips in iGaming (Sports, Slots, Live Casino)\n\n**When NOT to use:**\n- For static labels or status indicators (use Badge instead)\n- For primary actions (use Button instead)\n- For complex multi-step forms (consider other input types)\n- Non-interactive tags (use Badge instead)\n\n## Accessibility\n- ✅ Uses native `<button>` element for full keyboard support\n- ✅ `aria-pressed` indicates selected state\n- ✅ `type=\"button\"` prevents form submission\n- ✅ Fully navigable with keyboard (Enter/Space)\n- ✅ Visible focus state\n- ✅ Disabled state prevents all interaction\n- 💡 Use descriptive text (avoid single letters)\n- 💡 Consider grouping chips with fieldset/legend for filters",
+          "description": "<p>Chip component for interactive filters, tags, and selections.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Filtering content (category filters, game type filters)</li>\n<li>Displaying selected options in multi-select scenarios</li>\n<li>Representing tags that can be added/removed</li>\n<li>Navigation pills/tabs for content sections</li>\n<li>Interactive category chips in iGaming (Sports, Slots, Live Casino)</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>For static labels or status indicators (use Badge instead)</li>\n<li>For primary actions (use Button instead)</li>\n<li>For complex multi-step forms (consider other input types)</li>\n<li>Non-interactive tags (use Badge instead)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Uses native <code>&lt;button&gt;</code> element for full keyboard support</li>\n<li>✅ <code>aria-pressed</code> indicates selected state</li>\n<li>✅ <code>type=&quot;button&quot;</code> prevents form submission</li>\n<li>✅ Fully navigable with keyboard (Enter/Space)</li>\n<li>✅ Visible focus state</li>\n<li>✅ Disabled state prevents all interaction</li>\n<li>💡 Use descriptive text (avoid single letters)</li>\n<li>💡 Consider grouping chips with fieldset/legend for filters</li>\n</ul>\n"
+        },
+        {
+          "name": "RealWorldExamples",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  name: 'Real-world Examples',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 2rem; max-width: 800px;\">\n        <!-- Game category filters (horizontal) -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Game Category Filters:</h4>\n          <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\" [selected]=\"true\">All Games</zg-chip>\n            <zg-chip variant=\"outlined\">Slots</zg-chip>\n            <zg-chip variant=\"outlined\">Live Casino</zg-chip>\n            <zg-chip variant=\"outlined\">Sports</zg-chip>\n            <zg-chip variant=\"outlined\">Table Games</zg-chip>\n            <zg-chip variant=\"outlined\">Roulette</zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Active Filters (Removable):</h4>\n          <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;\">\n            <span style=\"color: #666; font-size: 14px;\">Applied filters:</span>\n            <zg-chip variant=\"filled\" size=\"sm\">\n              Sports\n              <svg icon-right width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n            <zg-chip variant=\"filled\" size=\"sm\">\n              Live\n              <svg icon-right width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n            <zg-chip variant=\"filled\" size=\"sm\">\n              Popular\n              <svg icon-right width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Sports Markets:</h4>\n          <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"ghost\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Football\n            </zg-chip>\n            <zg-chip variant=\"ghost\" [selected]=\"true\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Basketball\n            </zg-chip>\n            <zg-chip variant=\"ghost\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Tennis\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Size Variations:</h4>\n          <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n            <div style=\"display: flex; gap: 0.5rem; align-items: center;\">\n              <span style=\"width: 100px; color: #666; font-size: 14px;\">Small:</span>\n              <zg-chip size=\"sm\">New</zg-chip>\n              <zg-chip size=\"sm\">Trending</zg-chip>\n              <zg-chip size=\"sm\">Hot</zg-chip>\n            </div>\n            <div style=\"display: flex; gap: 0.75rem; align-items: center;\">\n              <span style=\"width: 100px; color: #666; font-size: 14px;\">Medium:</span>\n              <zg-chip size=\"md\">Featured</zg-chip>\n              <zg-chip size=\"md\">Popular</zg-chip>\n              <zg-chip size=\"md\">Live</zg-chip>\n            </div>\n            <div style=\"display: flex; gap: 1rem; align-items: center;\">\n              <span style=\"width: 100px; color: #666; font-size: 14px;\">Large:</span>\n              <zg-chip size=\"lg\">Jackpot</zg-chip>\n              <zg-chip size=\"lg\">Exclusive</zg-chip>\n            </div>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}",
+          "rawdescription": "Real-world examples: iGaming filters and tags",
+          "description": "<p>Real-world examples: iGaming filters and tags</p>\n"
+        },
+        {
+          "name": "SelectedVariants",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  name: 'Selected Variants',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n        <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n          <span style=\"width: 100%; font-weight: 600;\">Filled:</span>\n          <zg-chip variant=\"filled\">Not Selected</zg-chip>\n          <zg-chip variant=\"filled\" [selected]=\"true\">Selected</zg-chip>\n        </div>\n        <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n          <span style=\"width: 100%; font-weight: 600;\">Outlined:</span>\n          <zg-chip variant=\"outlined\">Not Selected</zg-chip>\n          <zg-chip variant=\"outlined\" [selected]=\"true\">Selected</zg-chip>\n        </div>\n        <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n          <span style=\"width: 100%; font-weight: 600;\">Ghost:</span>\n          <zg-chip variant=\"ghost\">Not Selected</zg-chip>\n          <zg-chip variant=\"ghost\" [selected]=\"true\">Selected</zg-chip>\n        </div>\n      </div>\n    `,\n  }),\n}",
+          "rawdescription": "Selected state variations across all variants",
+          "description": "<p>Selected state variations across all variants</p>\n"
+        },
+        {
+          "name": "Sizes",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  name: 'Sizes',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip size=\"sm\">Small</zg-chip>\n        <zg-chip size=\"md\">Medium</zg-chip>\n        <zg-chip size=\"lg\">Large</zg-chip>\n      </div>\n    `,\n  }),\n}",
+          "rawdescription": "All chip sizes side by side",
+          "description": "<p>All chip sizes side by side</p>\n"
+        },
+        {
+          "name": "States",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  name: 'States',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip>Normal</zg-chip>\n        <zg-chip [selected]=\"true\">Selected</zg-chip>\n        <zg-chip [disabled]=\"true\">Disabled</zg-chip>\n        <zg-chip [selected]=\"true\" [disabled]=\"true\">Selected + Disabled</zg-chip>\n      </div>\n    `,\n  }),\n}",
+          "rawdescription": "Chip states: normal, selected, disabled",
+          "description": "<p>Chip states: normal, selected, disabled</p>\n"
+        },
+        {
+          "name": "Variants",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  name: 'Variants',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip variant=\"filled\">Filled</zg-chip>\n        <zg-chip variant=\"outlined\">Outlined</zg-chip>\n        <zg-chip variant=\"ghost\">Ghost</zg-chip>\n      </div>\n    `,\n  }),\n}",
+          "rawdescription": "All chip variants side by side",
+          "description": "<p>All chip variants side by side</p>\n"
+        },
+        {
+          "name": "WithIcons",
+          "ctype": "miscellaneous",
+          "subtype": "variable",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "deprecated": false,
+          "deprecationMessage": "",
+          "type": "Story",
+          "defaultValue": "{\n  name: 'With Icons',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1.5rem;\">\n        <!-- Icon left -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Example: Category chips with icons</h4>\n          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Sports\n            </zg-chip>\n            <zg-chip variant=\"outlined\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <rect x=\"2\" y=\"2\" width=\"12\" height=\"12\" rx=\"2\" />\n              </svg>\n              Slots\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Example: Active filters with remove icon</h4>\n          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\">\n              Category\n              <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n            <zg-chip variant=\"outlined\">\n              Tag\n              <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Example: Active filters with checkmark icon</h4>\n          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\" [selected]=\"true\">\n              Active Filter\n              <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M3 8L6 11L13 4\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\" />\n              </svg>\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Example: Active filters with both icons</h4>\n          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\" [selected]=\"true\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Trending\n              <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M3 8L6 11L13 4\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\" />\n              </svg>\n            </zg-chip>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}",
+          "rawdescription": "Chips with icons using ng-content slots",
+          "description": "<p>Chips with icons using ng-content slots</p>\n"
         }
       ],
       "projects/ui/src/lib/atoms/button/button.stories.ts": [
@@ -1072,140 +1206,6 @@
           "description": "<p>Examples using ng-content with icon selectors and complex content</p>\n"
         }
       ],
-      "projects/ui/src/lib/atoms/chip/chip.stories.ts": [
-        {
-          "name": "Default",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  args: {\n    text: 'Sports',\n    variant: 'filled',\n    size: 'md',\n    selected: false,\n    disabled: false,\n  },\n}",
-          "rawdescription": "Default chip with filled variant",
-          "description": "<p>Default chip with filled variant</p>\n"
-        },
-        {
-          "name": "DisabledChip",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  name: 'Disabled State',\n  render: () => ({\n    props: {\n      enabledSelected: false,\n      disabledSelected: false,\n      onEnabledSelectedChange: function (value: boolean) {\n        this['enabledSelected'] = value;\n      },\n      onDisabledSelectedChange: function (value: boolean) {\n        this['disabledSelected'] = value;\n      },\n    },\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n        <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n          <zg-chip data-testid=\"enabled-chip\" [selected]=\"enabledSelected\" (selectedChange)=\"onEnabledSelectedChange($event)\">Enabled</zg-chip>\n          <zg-chip data-testid=\"disabled-chip\" [disabled]=\"true\" [selected]=\"disabledSelected\" (selectedChange)=\"onDisabledSelectedChange($event)\">Disabled</zg-chip>\n        </div>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n\n    // Try to click disabled chip\n    const disabledChip = canvas.getByTestId('disabled-chip').querySelector('button');\n    if (disabledChip) {\n      await userEvent.click(disabledChip);\n      // Should remain unselected (aria-pressed should be false)\n      await expect(disabledChip).toHaveAttribute('aria-pressed', 'false');\n    }\n\n    // Click enabled chip to verify it works\n    const enabledChip = canvas.getByTestId('enabled-chip').querySelector('button');\n    if (enabledChip) {\n      await userEvent.click(enabledChip);\n      await expect(enabledChip).toHaveAttribute('aria-pressed', 'true');\n    }\n  },\n}",
-          "rawdescription": "Disabled chips do not respond to clicks (with play function)",
-          "description": "<p>Disabled chips do not respond to clicks (with play function)</p>\n"
-        },
-        {
-          "name": "InteractiveToggle",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  name: 'Interactive Toggle',\n  render: () => ({\n    props: {\n      selected1: false,\n      selected2: false,\n      selected3: false,\n      onSelectedChange1: function (value: boolean) {\n        this['selected1'] = value;\n      },\n      onSelectedChange2: function (value: boolean) {\n        this['selected2'] = value;\n      },\n      onSelectedChange3: function (value: boolean) {\n        this['selected3'] = value;\n      },\n    },\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n        <p style=\"margin: 0; color: #666;\">Click on chips to toggle their selected state:</p>\n        <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n          <zg-chip data-testid=\"chip-1\" [selected]=\"selected1\" (selectedChange)=\"onSelectedChange1($event)\">Sports</zg-chip>\n          <zg-chip data-testid=\"chip-2\" [selected]=\"selected2\" (selectedChange)=\"onSelectedChange2($event)\">Slots</zg-chip>\n          <zg-chip data-testid=\"chip-3\" [selected]=\"selected3\" (selectedChange)=\"onSelectedChange3($event)\">Live Casino</zg-chip>\n        </div>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n\n    // Click first chip and verify it becomes selected\n    const chip1 = canvas.getByTestId('chip-1').querySelector('button');\n    if (chip1) {\n      await userEvent.click(chip1);\n      await expect(chip1).toHaveAttribute('aria-pressed', 'true');\n\n      // Click again to deselect\n      await userEvent.click(chip1);\n      await expect(chip1).toHaveAttribute('aria-pressed', 'false');\n    }\n  },\n}",
-          "rawdescription": "Interactive example with click toggle (with play function)",
-          "description": "<p>Interactive example with click toggle (with play function)</p>\n"
-        },
-        {
-          "name": "KeyboardNavigation",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  name: 'Keyboard Navigation',\n  render: () => ({\n    props: {\n      kbSelected1: false,\n      kbSelected2: false,\n      kbSelected3: false,\n      onKbSelectedChange1: function (value: boolean) {\n        this['kbSelected1'] = value;\n      },\n      onKbSelectedChange2: function (value: boolean) {\n        this['kbSelected2'] = value;\n      },\n      onKbSelectedChange3: function (value: boolean) {\n        this['kbSelected3'] = value;\n      },\n    },\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n        <p style=\"margin: 0; color: #666;\">Use Tab to focus and Enter/Space to toggle:</p>\n        <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n          <zg-chip data-testid=\"kb-chip-1\" [selected]=\"kbSelected1\" (selectedChange)=\"onKbSelectedChange1($event)\">First</zg-chip>\n          <zg-chip data-testid=\"kb-chip-2\" [selected]=\"kbSelected2\" (selectedChange)=\"onKbSelectedChange2($event)\">Second</zg-chip>\n          <zg-chip data-testid=\"kb-chip-3\" [selected]=\"kbSelected3\" (selectedChange)=\"onKbSelectedChange3($event)\">Third</zg-chip>\n        </div>\n      </div>\n    `,\n  }),\n  play: async ({ canvasElement }) => {\n    const canvas = within(canvasElement);\n\n    const chip = canvas.getByTestId('kb-chip-1').querySelector('button');\n    if (chip) {\n      // Focus the chip\n      chip.focus();\n\n      // Press Enter to toggle\n      await userEvent.keyboard('{Enter}');\n      await expect(chip).toHaveAttribute('aria-pressed', 'true');\n\n      // Press Space to toggle back\n      await userEvent.keyboard(' ');\n      await expect(chip).toHaveAttribute('aria-pressed', 'false');\n    }\n  },\n}",
-          "rawdescription": "Keyboard navigation example (with play function)",
-          "description": "<p>Keyboard navigation example (with play function)</p>\n"
-        },
-        {
-          "name": "meta",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Meta<ZgChipComponent>",
-          "defaultValue": "{\n  title: 'Atoms/Chip',\n  component: ZgChipComponent,\n  tags: ['autodocs'],\n  parameters: {\n    docs: {\n      source: {\n        type: 'dynamic',\n      },\n    },\n  },\n  argTypes: {\n    variant: {\n      control: 'select',\n      options: ['filled', 'outlined', 'ghost'],\n      description: 'Visual variant of the chip',\n      table: {\n        defaultValue: { summary: 'filled' },\n        type: { summary: 'ChipVariant' },\n      },\n    },\n    size: {\n      control: 'select',\n      options: ['sm', 'md', 'lg'],\n      description: 'Size of the chip',\n      table: {\n        defaultValue: { summary: 'md' },\n        type: { summary: 'ChipSize' },\n      },\n    },\n    selected: {\n      control: 'boolean',\n      description: 'Whether the chip is in a selected state',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    disabled: {\n      control: 'boolean',\n      description: 'Whether the chip is disabled',\n      table: {\n        defaultValue: { summary: 'false' },\n      },\n    },\n    text: {\n      control: 'text',\n      description: 'Chip text content (alternative to ng-content)',\n      table: {\n        defaultValue: { summary: 'undefined' },\n        type: { summary: 'string' },\n      },\n    },\n    clicked: {\n      action: 'clicked',\n      description: 'Emitted when the chip is clicked',\n      table: {\n        category: 'Events',\n      },\n    },\n    selectedChange: {\n      action: 'selectedChange',\n      description: 'Emitted when the selected state changes (enables two-way binding)',\n      table: {\n        category: 'Events',\n      },\n    },\n  },\n}",
-          "rawdescription": "Chip component for interactive filters, tags, and selections.\n\n## Usage Guide\n\n**When to use:**\n- Filtering content (category filters, game type filters)\n- Displaying selected options in multi-select scenarios\n- Representing tags that can be added/removed\n- Navigation pills/tabs for content sections\n- Interactive category chips in iGaming (Sports, Slots, Live Casino)\n\n**When NOT to use:**\n- For static labels or status indicators (use Badge instead)\n- For primary actions (use Button instead)\n- For complex multi-step forms (consider other input types)\n- Non-interactive tags (use Badge instead)\n\n## Accessibility\n- ✅ Uses native `<button>` element for full keyboard support\n- ✅ `aria-pressed` indicates selected state\n- ✅ `type=\"button\"` prevents form submission\n- ✅ Fully navigable with keyboard (Enter/Space)\n- ✅ Visible focus state\n- ✅ Disabled state prevents all interaction\n- 💡 Use descriptive text (avoid single letters)\n- 💡 Consider grouping chips with fieldset/legend for filters",
-          "description": "<p>Chip component for interactive filters, tags, and selections.</p>\n<h2>Usage Guide</h2>\n<p><strong>When to use:</strong></p>\n<ul>\n<li>Filtering content (category filters, game type filters)</li>\n<li>Displaying selected options in multi-select scenarios</li>\n<li>Representing tags that can be added/removed</li>\n<li>Navigation pills/tabs for content sections</li>\n<li>Interactive category chips in iGaming (Sports, Slots, Live Casino)</li>\n</ul>\n<p><strong>When NOT to use:</strong></p>\n<ul>\n<li>For static labels or status indicators (use Badge instead)</li>\n<li>For primary actions (use Button instead)</li>\n<li>For complex multi-step forms (consider other input types)</li>\n<li>Non-interactive tags (use Badge instead)</li>\n</ul>\n<h2>Accessibility</h2>\n<ul>\n<li>✅ Uses native <code>&lt;button&gt;</code> element for full keyboard support</li>\n<li>✅ <code>aria-pressed</code> indicates selected state</li>\n<li>✅ <code>type=&quot;button&quot;</code> prevents form submission</li>\n<li>✅ Fully navigable with keyboard (Enter/Space)</li>\n<li>✅ Visible focus state</li>\n<li>✅ Disabled state prevents all interaction</li>\n<li>💡 Use descriptive text (avoid single letters)</li>\n<li>💡 Consider grouping chips with fieldset/legend for filters</li>\n</ul>\n"
-        },
-        {
-          "name": "RealWorldExamples",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  name: 'Real-world Examples',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 2rem; max-width: 800px;\">\n        <!-- Game category filters (horizontal) -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Game Category Filters:</h4>\n          <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\" [selected]=\"true\">All Games</zg-chip>\n            <zg-chip variant=\"outlined\">Slots</zg-chip>\n            <zg-chip variant=\"outlined\">Live Casino</zg-chip>\n            <zg-chip variant=\"outlined\">Sports</zg-chip>\n            <zg-chip variant=\"outlined\">Table Games</zg-chip>\n            <zg-chip variant=\"outlined\">Roulette</zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Active Filters (Removable):</h4>\n          <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center;\">\n            <span style=\"color: #666; font-size: 14px;\">Applied filters:</span>\n            <zg-chip variant=\"filled\" size=\"sm\">\n              Sports\n              <svg icon-right width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n            <zg-chip variant=\"filled\" size=\"sm\">\n              Live\n              <svg icon-right width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n            <zg-chip variant=\"filled\" size=\"sm\">\n              Popular\n              <svg icon-right width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Sports Markets:</h4>\n          <div style=\"display: flex; gap: 0.75rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"ghost\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Football\n            </zg-chip>\n            <zg-chip variant=\"ghost\" [selected]=\"true\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Basketball\n            </zg-chip>\n            <zg-chip variant=\"ghost\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Tennis\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Size Variations:</h4>\n          <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n            <div style=\"display: flex; gap: 0.5rem; align-items: center;\">\n              <span style=\"width: 100px; color: #666; font-size: 14px;\">Small:</span>\n              <zg-chip size=\"sm\">New</zg-chip>\n              <zg-chip size=\"sm\">Trending</zg-chip>\n              <zg-chip size=\"sm\">Hot</zg-chip>\n            </div>\n            <div style=\"display: flex; gap: 0.75rem; align-items: center;\">\n              <span style=\"width: 100px; color: #666; font-size: 14px;\">Medium:</span>\n              <zg-chip size=\"md\">Featured</zg-chip>\n              <zg-chip size=\"md\">Popular</zg-chip>\n              <zg-chip size=\"md\">Live</zg-chip>\n            </div>\n            <div style=\"display: flex; gap: 1rem; align-items: center;\">\n              <span style=\"width: 100px; color: #666; font-size: 14px;\">Large:</span>\n              <zg-chip size=\"lg\">Jackpot</zg-chip>\n              <zg-chip size=\"lg\">Exclusive</zg-chip>\n            </div>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}",
-          "rawdescription": "Real-world examples: iGaming filters and tags",
-          "description": "<p>Real-world examples: iGaming filters and tags</p>\n"
-        },
-        {
-          "name": "SelectedVariants",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  name: 'Selected Variants',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1rem;\">\n        <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n          <span style=\"width: 100%; font-weight: 600;\">Filled:</span>\n          <zg-chip variant=\"filled\">Not Selected</zg-chip>\n          <zg-chip variant=\"filled\" [selected]=\"true\">Selected</zg-chip>\n        </div>\n        <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n          <span style=\"width: 100%; font-weight: 600;\">Outlined:</span>\n          <zg-chip variant=\"outlined\">Not Selected</zg-chip>\n          <zg-chip variant=\"outlined\" [selected]=\"true\">Selected</zg-chip>\n        </div>\n        <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n          <span style=\"width: 100%; font-weight: 600;\">Ghost:</span>\n          <zg-chip variant=\"ghost\">Not Selected</zg-chip>\n          <zg-chip variant=\"ghost\" [selected]=\"true\">Selected</zg-chip>\n        </div>\n      </div>\n    `,\n  }),\n}",
-          "rawdescription": "Selected state variations across all variants",
-          "description": "<p>Selected state variations across all variants</p>\n"
-        },
-        {
-          "name": "Sizes",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  name: 'Sizes',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip size=\"sm\">Small</zg-chip>\n        <zg-chip size=\"md\">Medium</zg-chip>\n        <zg-chip size=\"lg\">Large</zg-chip>\n      </div>\n    `,\n  }),\n}",
-          "rawdescription": "All chip sizes side by side",
-          "description": "<p>All chip sizes side by side</p>\n"
-        },
-        {
-          "name": "States",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  name: 'States',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip>Normal</zg-chip>\n        <zg-chip [selected]=\"true\">Selected</zg-chip>\n        <zg-chip [disabled]=\"true\">Disabled</zg-chip>\n        <zg-chip [selected]=\"true\" [disabled]=\"true\">Selected + Disabled</zg-chip>\n      </div>\n    `,\n  }),\n}",
-          "rawdescription": "Chip states: normal, selected, disabled",
-          "description": "<p>Chip states: normal, selected, disabled</p>\n"
-        },
-        {
-          "name": "Variants",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  name: 'Variants',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;\">\n        <zg-chip variant=\"filled\">Filled</zg-chip>\n        <zg-chip variant=\"outlined\">Outlined</zg-chip>\n        <zg-chip variant=\"ghost\">Ghost</zg-chip>\n      </div>\n    `,\n  }),\n}",
-          "rawdescription": "All chip variants side by side",
-          "description": "<p>All chip variants side by side</p>\n"
-        },
-        {
-          "name": "WithIcons",
-          "ctype": "miscellaneous",
-          "subtype": "variable",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
-          "deprecated": false,
-          "deprecationMessage": "",
-          "type": "Story",
-          "defaultValue": "{\n  name: 'With Icons',\n  render: () => ({\n    template: `\n      <div style=\"display: flex; flex-direction: column; gap: 1.5rem;\">\n        <!-- Icon left -->\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Example: Category chips with icons</h4>\n          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Sports\n            </zg-chip>\n            <zg-chip variant=\"outlined\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <rect x=\"2\" y=\"2\" width=\"12\" height=\"12\" rx=\"2\" />\n              </svg>\n              Slots\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Example: Active filters with remove icon</h4>\n          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\">\n              Category\n              <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n            <zg-chip variant=\"outlined\">\n              Tag\n              <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M4 4L12 12M12 4L4 12\" stroke=\"currentColor\" stroke-width=\"2\" />\n              </svg>\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Example: Active filters with checkmark icon</h4>\n          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\" [selected]=\"true\">\n              Active Filter\n              <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M3 8L6 11L13 4\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\" />\n              </svg>\n            </zg-chip>\n          </div>\n        </div>\n\n        <div>\n          <h4 style=\"margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;\">Example: Active filters with both icons</h4>\n          <div style=\"display: flex; gap: 1rem; flex-wrap: wrap;\">\n            <zg-chip variant=\"filled\" [selected]=\"true\">\n              <svg icon-left width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <circle cx=\"8\" cy=\"8\" r=\"7\" />\n              </svg>\n              Trending\n              <svg icon-right width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"currentColor\">\n                <path d=\"M3 8L6 11L13 4\" stroke=\"currentColor\" stroke-width=\"2\" fill=\"none\" />\n              </svg>\n            </zg-chip>\n          </div>\n        </div>\n      </div>\n    `,\n  }),\n}",
-          "rawdescription": "Chips with icons using ng-content slots",
-          "description": "<p>Chips with icons using ng-content slots</p>\n"
-        }
-      ],
       "projects/ui/.storybook/preview.ts": [
         {
           "name": "preview",
@@ -1235,13 +1235,13 @@
           "kind": 184
         }
       ],
-      "projects/ui/src/lib/atoms/button/button.stories.ts": [
+      "projects/ui/src/lib/atoms/chip/chip.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<ZgButtonComponent>",
-          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
+          "rawtype": "StoryObj<ZgChipComponent>",
+          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
@@ -1261,13 +1261,13 @@
           "kind": 184
         }
       ],
-      "projects/ui/src/lib/atoms/chip/chip.stories.ts": [
+      "projects/ui/src/lib/atoms/button/button.stories.ts": [
         {
           "name": "Story",
           "ctype": "miscellaneous",
           "subtype": "typealias",
-          "rawtype": "StoryObj<ZgChipComponent>",
-          "file": "projects/ui/src/lib/atoms/chip/chip.stories.ts",
+          "rawtype": "StoryObj<ZgButtonComponent>",
+          "file": "projects/ui/src/lib/atoms/button/button.stories.ts",
           "deprecated": false,
           "deprecationMessage": "",
           "description": "",
