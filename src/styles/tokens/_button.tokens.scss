@@ -1,0 +1,65 @@
+:root {
+  --zg-button-bg-primary: var(--zg-color-primary);
+  --zg-button-bg-primary-hover: var(--zg-color-primary-hover);
+  --zg-button-bg-primary-active: var(--zg-color-primary-active);
+
+  --zg-button-bg-secondary: transparent;
+  --zg-button-bg-secondary-hover: var(--zg-color-surface-hover);
+  --zg-button-bg-secondary-active: var(--zg-color-surface-alt);
+
+  --zg-button-bg-accent: var(--zg-color-accent);
+  --zg-button-bg-accent-hover: var(--zg-color-highlight);
+  --zg-button-bg-accent-active: var(--zg-color-accent);
+
+  --zg-button-bg-danger: var(--zg-color-error);
+  --zg-button-bg-danger-hover: var(--zg-color-error-hover);
+  --zg-button-bg-danger-active: var(--zg-color-error-active);
+
+  --zg-button-bg-ghost: transparent;
+  --zg-button-bg-ghost-hover: var(--zg-color-surface-alt);
+  --zg-button-bg-ghost-active: var(--zg-color-surface-hover);
+
+  --zg-button-text-primary: var(--zg-color-text-inverse);
+  --zg-button-text-secondary: var(--zg-color-primary);
+  --zg-button-text-accent: var(--zg-color-text-primary);
+  --zg-button-text-danger: var(--zg-color-text-inverse);
+  --zg-button-text-ghost: var(--zg-color-text-primary);
+
+  --zg-button-border-primary: var(--zg-color-primary);
+  --zg-button-border-secondary: var(--zg-color-primary);
+  --zg-button-border-accent: var(--zg-color-accent);
+  --zg-button-border-danger: var(--zg-color-error);
+  --zg-button-border-ghost: transparent;
+
+  --zg-button-height-sm: 2rem;
+  --zg-button-height-md: 2.5rem;
+  --zg-button-height-lg: 3rem;
+
+  --zg-button-padding-x-sm: var(--zg-spacing-4);
+  --zg-button-padding-x-md: var(--zg-spacing-6);
+  --zg-button-padding-x-lg: var(--zg-spacing-8);
+
+  --zg-button-padding-y-sm: var(--zg-spacing-2);
+  --zg-button-padding-y-md: var(--zg-spacing-3);
+  --zg-button-padding-y-lg: var(--zg-spacing-4);
+
+  --zg-button-icon-gap: var(--zg-spacing-2);
+
+  --zg-button-radius-default: var(--zg-radius-md);
+  --zg-button-radius-pill: var(--zg-radius-full);
+  --zg-button-radius-square: var(--zg-radius-sm);
+
+  --zg-button-font-family: var(--zg-font-family-base);
+  --zg-button-font-family-secondary: var(--zg-font-family-secondary);
+  --zg-button-font-size-sm: var(--zg-font-size-sm);
+  --zg-button-font-size-md: var(--zg-font-size-base);
+  --zg-button-font-size-lg: var(--zg-font-size-md);
+  --zg-button-font-weight: var(--zg-font-weight-medium);
+
+  --zg-button-disabled-opacity: 0.5;
+  --zg-button-transition: var(--zg-transition-fast);
+
+  --zg-button-focus-ring-color: var(--zg-color-primary);
+  --zg-button-focus-ring-width: 2px;
+  --zg-button-focus-ring-offset: 2px;
+}

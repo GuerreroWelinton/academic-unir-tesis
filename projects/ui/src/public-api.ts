@@ -7,3 +7,6 @@ export * from './lib/atoms/button/button.component';
 export * from './lib/atoms/input/input.component';
 export * from './lib/atoms/badge/badge.component';
 export * from './lib/atoms/chip/chip.component';
+
+// Molecules
+export * from './lib/molecules/game-card/game-card.component';
