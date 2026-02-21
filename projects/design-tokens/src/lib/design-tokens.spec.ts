@@ -59,8 +59,12 @@ describe('DesignTokens', () => {
       spacing: { 4: '1.25rem' },
       radius: { md: '0.75rem' },
       shadow: { md: '0 6px 14px rgba(0, 0, 0, 0.2)' },
+      zIndex: { modal: '2000' },
       transition: { fast: '120ms ease' },
       button: { bgPrimary: '#222222' },
+      input: { bg: '#f5f5f5' },
+      badge: { bgPrimary: '#333333' },
+      chip: { bgFilled: '#444444' },
       gameCard: { focusRingColor: '#33ff33' },
     });
 
@@ -70,8 +74,12 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.spacing[4])).toBe('1.25rem');
     expect(getTokenValue(DesignTokens.radius.md)).toBe('0.75rem');
     expect(getTokenValue(DesignTokens.shadow.md)).toBe('0 6px 14px rgba(0, 0, 0, 0.2)');
+    expect(getTokenValue(DesignTokens.zIndex.modal)).toBe('2000');
     expect(getTokenValue(DesignTokens.transition.fast)).toBe('120ms ease');
     expect(getTokenValue(DesignTokens.button.bgPrimary)).toBe('#222222');
+    expect(getTokenValue(DesignTokens.input.bg)).toBe('#f5f5f5');
+    expect(getTokenValue(DesignTokens.badge.bgPrimary)).toBe('#333333');
+    expect(getTokenValue(DesignTokens.chip.bgFilled)).toBe('#444444');
     expect(getTokenValue(DesignTokens.gameCard.focusRingColor)).toBe('#33ff33');
   });
 });
