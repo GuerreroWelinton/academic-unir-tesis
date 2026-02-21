@@ -1,0 +1,171 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.zg-game-card__surface {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zg-game-card-content-gap);
+  width: 100%;
+  color: var(--zg-game-card-title-color);
+}
+
+.zg-game-card__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--zg-game-card-radius);
+  background: var(--zg-game-card-bg);
+  border: 1px solid var(--zg-game-card-border-color);
+  box-shadow: var(--zg-game-card-shadow);
+}
+
+:host([data-aspect-ratio='portrait']) .zg-game-card__media {
+  aspect-ratio: var(--zg-game-card-aspect-ratio-portrait);
+}
+
+:host([data-aspect-ratio='square']) .zg-game-card__media {
+  aspect-ratio: var(--zg-game-card-aspect-ratio-square);
+}
+
+.zg-game-card__image,
+.zg-game-card__image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.zg-game-card__image-placeholder {
+  background: var(--zg-game-card-placeholder-bg);
+}
+
+.zg-game-card__top-row {
+  position: absolute;
+  z-index: 2;
+  top: var(--zg-game-card-top-row-offset);
+  left: var(--zg-game-card-top-row-offset);
+  right: var(--zg-game-card-top-row-offset);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--zg-game-card-top-row-gap);
+}
+
+.zg-game-card__icon-button {
+  border: none;
+  cursor: pointer;
+  width: var(--zg-game-card-icon-button-size);
+  height: var(--zg-game-card-icon-button-size);
+  border-radius: var(--zg-radius-full);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--zg-game-card-icon-color);
+  background: var(--zg-game-card-icon-button-bg);
+  transition: var(--zg-game-card-transition);
+
+  &:focus-visible {
+    outline: var(--zg-game-card-focus-ring-width) solid var(--zg-game-card-focus-ring-color);
+    outline-offset: var(--zg-game-card-focus-ring-offset);
+  }
+}
+
+.zg-game-card__favorite {
+  color: var(--zg-game-card-favorite-color);
+}
+
+:host([data-favorite='true']) .zg-game-card__favorite {
+  color: var(--zg-game-card-favorite-active-color);
+}
+
+.zg-game-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: var(--zg-game-card-overlay-padding);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--zg-game-card-overlay-bg);
+  opacity: 0;
+  transition: var(--zg-game-card-transition);
+}
+
+.zg-game-card__play-button {
+  border: none;
+  cursor: pointer;
+  min-height: var(--zg-game-card-play-button-height);
+  border-radius: var(--zg-radius-full);
+  padding: 0 var(--zg-game-card-play-button-padding-x);
+  font-family: var(--zg-font-family-base);
+  font-size: var(--zg-font-size-sm);
+  font-weight: var(--zg-font-weight-semibold);
+  color: var(--zg-game-card-play-button-color);
+  background: var(--zg-game-card-play-button-bg);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zg-game-card-play-button-gap);
+  text-transform: uppercase;
+  transition: var(--zg-game-card-transition);
+
+  &:focus-visible {
+    outline: var(--zg-game-card-focus-ring-width) solid var(--zg-game-card-focus-ring-color);
+    outline-offset: var(--zg-game-card-focus-ring-offset);
+  }
+}
+
+.zg-game-card__icon-slot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.zg-game-card__icon-fallback {
+  line-height: 1;
+}
+
+.zg-game-card__icon-slot:not(:empty) + .zg-game-card__icon-fallback {
+  display: none;
+}
+
+.zg-game-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zg-game-card-text-gap);
+}
+
+.zg-game-card__title {
+  margin: 0;
+  color: var(--zg-game-card-title-color);
+  font-family: var(--zg-font-family-base);
+  font-size: var(--zg-font-size-base);
+  font-weight: var(--zg-font-weight-semibold);
+  line-height: var(--zg-line-height-tight);
+}
+
+.zg-game-card__provider {
+  margin: 0;
+  color: var(--zg-game-card-provider-color);
+  font-family: var(--zg-font-family-base);
+  font-size: var(--zg-font-size-sm);
+  line-height: var(--zg-line-height-normal);
+}
+
+:host(:hover) .zg-game-card__overlay,
+:host(:focus-within) .zg-game-card__overlay {
+  opacity: 1;
+}
+
+:host([data-disabled='true']) .zg-game-card__surface {
+  opacity: var(--zg-game-card-disabled-opacity);
+}
+
+:host([data-disabled='true']) .zg-game-card__icon-button,
+:host([data-disabled='true']) .zg-game-card__play-button {
+  cursor: not-allowed;
+}

@@ -1,0 +1,43 @@
+:root {
+  --zg-game-card-bg: var(--zg-color-bg-dark);
+  --zg-game-card-border-color: var(--zg-color-border-dark);
+  --zg-game-card-radius: var(--zg-radius-lg);
+  --zg-game-card-shadow: var(--zg-shadow-md);
+  --zg-game-card-overlay-bg: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+  --zg-game-card-placeholder-bg: var(--zg-color-surface-alt);
+
+  --zg-game-card-title-color: var(--zg-color-text-inverse);
+  --zg-game-card-provider-color: var(--zg-color-text-secondary);
+
+  --zg-game-card-icon-button-bg: rgba(0, 0, 0, 0.45);
+  --zg-game-card-icon-color: var(--zg-color-text-inverse);
+  --zg-game-card-favorite-color: var(--zg-color-text-inverse);
+  --zg-game-card-favorite-active-color: var(--zg-color-favorite);
+
+  --zg-game-card-play-button-bg: var(--zg-color-primary);
+  --zg-game-card-play-button-color: var(--zg-color-text-inverse);
+
+  --zg-game-card-aspect-ratio-portrait: 3 / 4;
+  --zg-game-card-aspect-ratio-square: 1 / 1;
+
+  --zg-game-card-top-row-offset: var(--zg-spacing-2);
+  --zg-game-card-top-row-gap: var(--zg-spacing-2);
+  --zg-game-card-overlay-padding: var(--zg-spacing-3);
+  --zg-game-card-content-gap: var(--zg-spacing-2);
+  --zg-game-card-text-gap: var(--zg-spacing-1);
+
+  --zg-game-card-icon-button-size: 2rem;
+  --zg-game-card-play-button-height: 2rem;
+  --zg-game-card-play-button-padding-x: var(--zg-spacing-3);
+  --zg-game-card-play-button-gap: var(--zg-spacing-2);
+
+  --zg-game-card-disabled-opacity: 0.65;
+  --zg-game-card-transition: var(--zg-transition-fast);
+  --zg-game-card-focus-ring-color: var(--zg-color-primary-light);
+  --zg-game-card-focus-ring-width: 2px;
+  --zg-game-card-focus-ring-offset: 2px;
+}

@@ -184,6 +184,42 @@ export interface ButtonTokens {
 }
 
 /**
+ * Game card-specific tokens
+ */
+export interface GameCardTokens {
+  bg?: string;
+  borderColor?: string;
+  radius?: string;
+  shadow?: string;
+  overlayBg?: string;
+  placeholderBg?: string;
+  titleColor?: string;
+  providerColor?: string;
+  iconButtonBg?: string;
+  iconColor?: string;
+  favoriteColor?: string;
+  favoriteActiveColor?: string;
+  playButtonBg?: string;
+  playButtonColor?: string;
+  aspectRatioPortrait?: string;
+  aspectRatioSquare?: string;
+  topRowOffset?: string;
+  topRowGap?: string;
+  overlayPadding?: string;
+  contentGap?: string;
+  textGap?: string;
+  iconButtonSize?: string;
+  playButtonHeight?: string;
+  playButtonPaddingX?: string;
+  playButtonGap?: string;
+  disabledOpacity?: string;
+  transition?: string;
+  focusRingColor?: string;
+  focusRingWidth?: string;
+  focusRingOffset?: string;
+}
+
+/**
  * Complete theme configuration
  * Use this interface to define custom themes
  */
@@ -199,4 +235,5 @@ export interface Theme {
   shadow?: ShadowTokens;
   transition?: TransitionTokens;
   button?: ButtonTokens;
+  gameCard?: GameCardTokens;
 }
