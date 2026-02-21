@@ -22,6 +22,7 @@ describe('DesignTokens', () => {
     expect(DesignTokens.color.primary).toBe('--zg-color-primary');
     expect(DesignTokens.spacing[4]).toBe('--zg-spacing-4');
     expect(DesignTokens.radius.base).toBe('--zg-radius-base');
+    expect(DesignTokens.gameCard.bg).toBe('--zg-game-card-bg');
   });
 
   it('should set and get token value', () => {
@@ -34,5 +35,43 @@ describe('DesignTokens', () => {
     expect(getTokenValue('--zg-color-primary')).toBe('#123456');
     resetTheme();
     expect(getTokenValue('--zg-color-primary')).toBe('');
+  });
+
+  it('should apply game card token overrides', () => {
+    createTheme({
+      gameCard: {
+        bg: '#101010',
+        borderColor: '#202020',
+        playButtonBg: '#00aa00',
+      },
+    });
+
+    expect(getTokenValue(DesignTokens.gameCard.bg)).toBe('#101010');
+    expect(getTokenValue(DesignTokens.gameCard.borderColor)).toBe('#202020');
+    expect(getTokenValue(DesignTokens.gameCard.playButtonBg)).toBe('#00aa00');
+  });
+
+  it('should apply all supported override groups', () => {
+    createTheme({
+      primitives: { green800: '#0f0f0f' },
+      color: { primary: '#111111' },
+      typography: { fontFamilyBase: 'Arial, sans-serif' },
+      spacing: { 4: '1.25rem' },
+      radius: { md: '0.75rem' },
+      shadow: { md: '0 6px 14px rgba(0, 0, 0, 0.2)' },
+      transition: { fast: '120ms ease' },
+      button: { bgPrimary: '#222222' },
+      gameCard: { focusRingColor: '#33ff33' },
+    });
+
+    expect(getTokenValue('--zg-green-800')).toBe('#0f0f0f');
+    expect(getTokenValue(DesignTokens.color.primary)).toBe('#111111');
+    expect(getTokenValue(DesignTokens.typography.fontFamilyBase)).toBe('Arial, sans-serif');
+    expect(getTokenValue(DesignTokens.spacing[4])).toBe('1.25rem');
+    expect(getTokenValue(DesignTokens.radius.md)).toBe('0.75rem');
+    expect(getTokenValue(DesignTokens.shadow.md)).toBe('0 6px 14px rgba(0, 0, 0, 0.2)');
+    expect(getTokenValue(DesignTokens.transition.fast)).toBe('120ms ease');
+    expect(getTokenValue(DesignTokens.button.bgPrimary)).toBe('#222222');
+    expect(getTokenValue(DesignTokens.gameCard.focusRingColor)).toBe('#33ff33');
   });
 });
