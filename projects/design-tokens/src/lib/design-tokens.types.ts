@@ -1,14 +1,25 @@
-/**
- * ZGames Design Tokens - Type Definitions
- * Type definitions and interfaces for the design token system
- */
+import type {
+  badgeTokens,
+  buttonTokens,
+  chipTokens,
+  colorTokens,
+  gameCardTokens,
+  inputTokens,
+  radiusTokens,
+  shadowTokens,
+  spacingTokens,
+  transitionTokens,
+  typographyThemeTokens,
+  zIndexTokens,
+} from './tokens';
+
+export type TokenOverrides<T extends Record<string, string>> = Partial<Record<keyof T, string>>;
 
 /**
- * Primitive color scales for theming
- * These are the raw color values that can be overridden to create themes
+ * Primitive color scales for theming.
+ * These are raw values, not semantic aliases.
  */
 export interface PrimitiveTokens {
-  // Green scale
   green950?: string;
   green900?: string;
   green800?: string;
@@ -20,8 +31,6 @@ export interface PrimitiveTokens {
   green200?: string;
   green100?: string;
   green50?: string;
-
-  // Orange scale
   orange900?: string;
   orange800?: string;
   orange700?: string;
@@ -31,8 +40,6 @@ export interface PrimitiveTokens {
   orange300?: string;
   orange200?: string;
   orange100?: string;
-
-  // Red scale
   red900?: string;
   red800?: string;
   red700?: string;
@@ -43,8 +50,6 @@ export interface PrimitiveTokens {
   red200?: string;
   red100?: string;
   red50?: string;
-
-  // Yellow scale
   yellow900?: string;
   yellow800?: string;
   yellow700?: string;
@@ -54,8 +59,6 @@ export interface PrimitiveTokens {
   yellow300?: string;
   yellow200?: string;
   yellow100?: string;
-
-  // Blue scale
   blue900?: string;
   blue800?: string;
   blue700?: string;
@@ -65,8 +68,6 @@ export interface PrimitiveTokens {
   blue300?: string;
   blue200?: string;
   blue100?: string;
-
-  // Neutral scale
   neutral100?: string;
   neutral200?: string;
   neutral300?: string;
@@ -78,162 +79,31 @@ export interface PrimitiveTokens {
   neutral900?: string;
 }
 
-/**
- * Semantic color tokens
- * These provide meaningful names for colors based on their usage
- */
-export interface SemanticColorTokens {
-  // Primary brand colors
-  primary?: string;
-  primaryHover?: string;
-  primaryActive?: string;
-  primaryLight?: string;
-  primaryLighter?: string;
+export type SemanticColorTokens = TokenOverrides<typeof colorTokens>;
+export type TypographyTokens = TokenOverrides<typeof typographyThemeTokens>;
+export type SpacingTokens = TokenOverrides<typeof spacingTokens>;
+export type RadiusTokens = TokenOverrides<typeof radiusTokens>;
+export type ShadowTokens = TokenOverrides<typeof shadowTokens>;
+export type ZIndexTokens = TokenOverrides<typeof zIndexTokens>;
+export type TransitionTokens = TokenOverrides<typeof transitionTokens>;
+export type ButtonTokens = TokenOverrides<typeof buttonTokens>;
+export type InputTokens = TokenOverrides<typeof inputTokens>;
+export type BadgeTokens = TokenOverrides<typeof badgeTokens>;
+export type ChipTokens = TokenOverrides<typeof chipTokens>;
+export type GameCardTokens = TokenOverrides<typeof gameCardTokens>;
 
-  // Secondary colors
-  secondary?: string;
-  secondaryHover?: string;
-  secondaryActive?: string;
-
-  // Accent & Highlight
-  accent?: string;
-  highlight?: string;
-
-  // Semantic feedback colors
-  success?: string;
-  successLight?: string;
-  warning?: string;
-  warningLight?: string;
-  error?: string;
-  errorLight?: string;
-  info?: string;
-  infoLight?: string;
-
-  // iGaming specific colors
-  betBuilder?: string;
-  live?: string;
-  favorite?: string;
-  betOpen?: string;
-  betWon?: string;
-  betLost?: string;
-  betOther?: string;
-
-  // Surface & UI colors
-  surface?: string;
-  surfaceAlt?: string;
-  surfaceHover?: string;
-  border?: string;
-  borderDark?: string;
-
-  // Text colors
-  textPrimary?: string;
-  textSecondary?: string;
-  textDisabled?: string;
-  textInverse?: string;
-  textInfo?: string;
-
-  // Background colors
-  bgPrimary?: string;
-  bgSecondary?: string;
-  bgDark?: string;
-  bgOverlay?: string;
-  bgCard?: string;
-  bgHeader?: string;
-}
-
-/**
- * Typography tokens
- */
-export interface TypographyTokens {
-  fontFamilyBase?: string;
-  fontFamilySecondary?: string;
-}
-
-/**
- * Spacing tokens
- */
-export type SpacingTokens = Record<string, string>;
-
-/**
- * Border radius tokens
- */
-export type RadiusTokens = Record<string, string>;
-
-/**
- * Shadow tokens
- */
-export type ShadowTokens = Record<string, string>;
-
-/**
- * Transition tokens
- */
-export interface TransitionTokens {
-  fast?: string;
-  base?: string;
-  slow?: string;
-}
-
-/**
- * Button-specific tokens
- */
-export interface ButtonTokens {
-  bgPrimary?: string;
-  bgSecondary?: string;
-  colorPrimary?: string;
-  radius?: string;
-}
-
-/**
- * Game card-specific tokens
- */
-export interface GameCardTokens {
-  bg?: string;
-  borderColor?: string;
-  radius?: string;
-  shadow?: string;
-  overlayBg?: string;
-  placeholderBg?: string;
-  titleColor?: string;
-  providerColor?: string;
-  iconButtonBg?: string;
-  iconColor?: string;
-  favoriteColor?: string;
-  favoriteActiveColor?: string;
-  playButtonBg?: string;
-  playButtonColor?: string;
-  aspectRatioPortrait?: string;
-  aspectRatioSquare?: string;
-  topRowOffset?: string;
-  topRowGap?: string;
-  overlayPadding?: string;
-  contentGap?: string;
-  textGap?: string;
-  iconButtonSize?: string;
-  playButtonHeight?: string;
-  playButtonPaddingX?: string;
-  playButtonGap?: string;
-  disabledOpacity?: string;
-  transition?: string;
-  focusRingColor?: string;
-  focusRingWidth?: string;
-  focusRingOffset?: string;
-}
-
-/**
- * Complete theme configuration
- * Use this interface to define custom themes
- */
 export interface Theme {
-  // LAYER 1: Primitive color scales (recommended for theming)
   primitives?: PrimitiveTokens;
-
-  // LAYER 2: Semantic tokens (use only if you need specific overrides)
   color?: SemanticColorTokens;
   typography?: TypographyTokens;
   spacing?: SpacingTokens;
   radius?: RadiusTokens;
   shadow?: ShadowTokens;
+  zIndex?: ZIndexTokens;
   transition?: TransitionTokens;
   button?: ButtonTokens;
+  input?: InputTokens;
+  badge?: BadgeTokens;
+  chip?: ChipTokens;
   gameCard?: GameCardTokens;
 }
