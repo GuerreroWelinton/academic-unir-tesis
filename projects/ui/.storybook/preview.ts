@@ -18,11 +18,7 @@ const preview: Preview = {
       theme: customTheme,
     },
     backgrounds: {
-      default: 'light',
-      values: [
-        { name: 'dark', value: '#000000' },
-        { name: 'light', value: '#E5E5E5' },
-      ],
+      disable: true,
     },
     a11y: {
       options: {

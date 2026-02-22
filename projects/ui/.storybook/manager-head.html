@@ -1,9 +1,52 @@
-<!-- Google Fonts for Storybook UI (Sidebar, Toolbar) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap"
   rel="stylesheet"
 />
 
 <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+<script>
+  (function () {
+    function isDocsRoute() {
+      return window.location.href.includes('/docs/');
+    }
+
+    function getTargetControls() {
+      return Array.from(
+        document.querySelectorAll(
+          '[role="toolbar"] [aria-label^="Select client brand"], [role="toolbar"] [aria-label^="Select theme variant"]',
+        ),
+      );
+    }
+
+    function toggleThemeControlsVisibility() {
+      const hide = isDocsRoute();
+      const controls = getTargetControls();
+
+      controls.forEach((control) => {
+        if (hide) {
+          control.setAttribute('aria-hidden', 'true');
+          control.style.display = 'none';
+        } else {
+          control.removeAttribute('aria-hidden');
+          control.style.removeProperty('display');
+        }
+      });
+    }
+
+    function applyVisibility() {
+      toggleThemeControlsVisibility();
+    }
+
+    const observer = new MutationObserver(applyVisibility);
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+
+    window.addEventListener('hashchange', applyVisibility);
+    window.addEventListener('popstate', applyVisibility);
+    window.addEventListener('DOMContentLoaded', applyVisibility);
+
+    applyVisibility();
+  })();
+</script>

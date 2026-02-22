@@ -73,7 +73,7 @@ This local gate includes:
 ### SCSS Token Source (modular)
 
 - `src/styles/tokens/_index.scss` (aggregator)
-- `src/styles/tokens/_base.tokens.scss` (foundation)
+- `src/styles/tokens/_foundation.tokens.scss` (foundation)
 - `src/styles/tokens/_<component>.tokens.scss` (component tokens)
 - Compatibility entrypoint:
   - `src/styles/_tokens.scss`

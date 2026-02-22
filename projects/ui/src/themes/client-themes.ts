@@ -24,6 +24,9 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
   // Client 1 (ZGames) - Default brand
   client1: {
     light: {
+      typography: {
+        fontFamilyBase: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      },
       primitives: {
         green800: '#114b2a',
         green500: '#42c148',
@@ -32,8 +35,19 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
         neutral300: '#f5f5f5',
         neutral900: '#0a2c18',
       },
+      color: {
+        bgPrimary: '#fafafa',
+        bgSecondary: '#f5f5f5',
+        surface: '#ffffff',
+        textPrimary: '#0a2c18',
+        textSecondary: '#186b3c',
+        textInverse: '#ffffff',
+      },
     },
     dark: {
+      typography: {
+        fontFamilyBase: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      },
       primitives: {
         green800: '#114b2a',
         green500: '#42c148',
@@ -43,8 +57,19 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
         neutral400: '#27272a',
         neutral900: '#d4fd2b',
       },
+      color: {
+        bgPrimary: '#0e0e11',
+        bgSecondary: '#18181b',
+        surface: '#18181b',
+        textPrimary: '#d4fd2b',
+        textSecondary: '#a7d96a',
+        textInverse: '#ffffff',
+      },
     },
     christmas: {
+      typography: {
+        fontFamilyBase: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      },
       primitives: {
         green800: '#0f5132',
         green500: '#198754',
@@ -61,6 +86,12 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
         secondary: '#dc3545',
         accent: '#ffc107',
         error: '#bb2d3b',
+        bgPrimary: '#f8f9fa',
+        bgSecondary: '#ffffff',
+        surface: '#ffffff',
+        textPrimary: '#0a3622',
+        textSecondary: '#146c43',
+        textInverse: '#ffffff',
       },
     },
   },
@@ -68,6 +99,9 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
   // Client 2 - Purple/Yellow theme
   client2: {
     light: {
+      typography: {
+        fontFamilyBase: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      },
       primitives: {
         green800: '#6a1b9a',
         green500: '#8e24aa',
@@ -78,8 +112,19 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
         neutral300: '#e1bee7',
         neutral900: '#4a148c',
       },
+      color: {
+        bgPrimary: '#f3e5f5',
+        bgSecondary: '#e1bee7',
+        surface: '#ffffff',
+        textPrimary: '#4a148c',
+        textSecondary: '#6a1b9a',
+        textInverse: '#ffffff',
+      },
     },
     dark: {
+      typography: {
+        fontFamilyBase: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      },
       primitives: {
         green800: '#7b1fa2',
         green500: '#9c27b0',
@@ -90,8 +135,19 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
         neutral400: '#4a148c',
         neutral900: '#e1bee7',
       },
+      color: {
+        bgPrimary: '#1a0033',
+        bgSecondary: '#2d0052',
+        surface: '#2d0052',
+        textPrimary: '#e1bee7',
+        textSecondary: '#c792d8',
+        textInverse: '#ffffff',
+      },
     },
     christmas: {
+      typography: {
+        fontFamilyBase: "'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+      },
       primitives: {
         red500: '#c62828',
         red600: '#b71c1c',
@@ -110,7 +166,11 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
         accent: '#ffd700',
         highlight: '#ffcc00',
         bgPrimary: '#fff8e1',
+        bgSecondary: '#fff3cd',
+        surface: '#ffffff',
         textPrimary: '#1b5e20',
+        textSecondary: '#2e7d32',
+        textInverse: '#ffffff',
       },
     },
   },
