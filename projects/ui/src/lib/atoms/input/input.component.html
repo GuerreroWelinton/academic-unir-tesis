@@ -28,7 +28,10 @@
   </span>
   @if (!readonly() && !disabled() && value()) {
     <button type="button" class="zg-input__clear" (click)="onClear()" aria-label="Clear input">
-      <ng-content select="[clear-icon]"></ng-content>
+      <span class="zg-input__clear-icon-slot">
+        <ng-content select="[clear-icon]"></ng-content>
+      </span>
+      <span class="zg-input__clear-icon-fallback" aria-hidden="true">&times;</span>
     </button>
   }
 </div>
