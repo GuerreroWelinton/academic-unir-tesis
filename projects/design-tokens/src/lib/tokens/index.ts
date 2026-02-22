@@ -9,3 +9,4 @@ export * from './lucky-picker.tokens';
 export * from './section-title.tokens';
 export * from './section-actions.tokens';
 export * from './content-section-header.tokens';
+export * from './casino-ranked-games-carousel-section.tokens';

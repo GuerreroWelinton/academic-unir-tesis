@@ -1,0 +1,52 @@
+:host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.zg-casino-ranked-games-carousel-section__surface {
+  display: grid;
+  gap: var(--zg-casino-ranked-games-carousel-section-gap);
+  width: 100%;
+  min-width: 0;
+}
+
+.zg-casino-ranked-games-carousel-section__surface > * {
+  min-width: 0;
+}
+
+.zg-casino-ranked-games-carousel-section__item {
+  position: relative;
+  min-height: 100%;
+}
+
+.zg-casino-ranked-games-carousel-section__rank {
+  position: absolute;
+  inset-inline-start: var(--zg-casino-ranked-games-carousel-section-rank-inset-inline-start);
+  inset-block-start: var(--zg-casino-ranked-games-carousel-section-rank-inset-block-start);
+  transform: translateY(-50%);
+  z-index: 0;
+  font-family: var(--zg-casino-ranked-games-carousel-section-rank-font-family);
+  font-size: var(--zg-casino-ranked-games-carousel-section-rank-font-size);
+  font-weight: var(--zg-casino-ranked-games-carousel-section-rank-font-weight);
+  line-height: var(--zg-casino-ranked-games-carousel-section-rank-line-height);
+  color: transparent;
+  -webkit-text-stroke: var(--zg-casino-ranked-games-carousel-section-rank-stroke-width)
+    var(--zg-casino-ranked-games-carousel-section-rank-stroke-color);
+  opacity: var(--zg-casino-ranked-games-carousel-section-rank-opacity);
+  pointer-events: none;
+  user-select: none;
+}
+
+.zg-casino-ranked-games-carousel-section__card {
+  position: relative;
+  z-index: 1;
+}
+
+li[zg-horizontal-list-layout-items] {
+  margin-inline-end: var(--zg-casino-ranked-games-carousel-section-item-gap-inline-end);
+}
+
+li[zg-horizontal-list-layout-items]:first-child {
+  margin-inline-start: var(--zg-casino-ranked-games-carousel-section-item-gap-inline-end);
+}
