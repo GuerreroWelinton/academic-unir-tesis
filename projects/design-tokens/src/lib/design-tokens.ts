@@ -1,8 +1,8 @@
 import type {
   BadgeTokens,
   ButtonTokens,
+  CasinoGameCardTokens,
   ChipTokens,
-  GameCardTokens,
   InputTokens,
   PrimitiveTokens,
   RadiusTokens,
@@ -19,9 +19,9 @@ import type {
 import {
   badgeTokens,
   buttonTokens,
+  casinoGameCardTokens,
   chipTokens,
   colorTokens,
-  gameCardTokens,
   inputTokens,
   radiusTokens,
   shadowTokens,
@@ -44,7 +44,8 @@ export const DesignTokens = {
   input: inputTokens,
   badge: badgeTokens,
   chip: chipTokens,
-  gameCard: gameCardTokens,
+  casinoGameCard: casinoGameCardTokens,
+  gameCard: casinoGameCardTokens,
 } as const;
 
 type TokenMap = Record<string, string>;
@@ -102,7 +103,11 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
   applyTokenGroup(target, overrides.input as InputTokens, DesignTokens.input);
   applyTokenGroup(target, overrides.badge as BadgeTokens, DesignTokens.badge);
   applyTokenGroup(target, overrides.chip as ChipTokens, DesignTokens.chip);
-  applyTokenGroup(target, overrides.gameCard as GameCardTokens, DesignTokens.gameCard);
+  applyTokenGroup(
+    target,
+    overrides.casinoGameCard as CasinoGameCardTokens,
+    DesignTokens.casinoGameCard,
+  );
 }
 
 function getFirstTheme(clientThemes: Record<string, Theme> | undefined): Theme | undefined {

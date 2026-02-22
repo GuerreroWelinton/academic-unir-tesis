@@ -25,7 +25,8 @@ describe('DesignTokens', () => {
     expect(DesignTokens.color.primary).toBe('--zg-color-primary');
     expect(DesignTokens.spacing[4]).toBe('--zg-spacing-4');
     expect(DesignTokens.radius.base).toBe('--zg-radius-base');
-    expect(DesignTokens.gameCard.bg).toBe('--zg-game-card-bg');
+    expect(DesignTokens.casinoGameCard.bg).toBe('--zg-casino-game-card-bg');
+    expect(DesignTokens.gameCard.bg).toBe('--zg-casino-game-card-bg');
   });
 
   it('should set and get token value', () => {
@@ -40,18 +41,18 @@ describe('DesignTokens', () => {
     expect(getTokenValue('--zg-color-primary')).toBe('');
   });
 
-  it('should apply game card token overrides', () => {
+  it('should apply casino game card token overrides', () => {
     createTheme({
-      gameCard: {
+      casinoGameCard: {
         bg: '#101010',
         borderColor: '#202020',
         playButtonBg: '#00aa00',
       },
     });
 
-    expect(getTokenValue(DesignTokens.gameCard.bg)).toBe('#101010');
-    expect(getTokenValue(DesignTokens.gameCard.borderColor)).toBe('#202020');
-    expect(getTokenValue(DesignTokens.gameCard.playButtonBg)).toBe('#00aa00');
+    expect(getTokenValue(DesignTokens.casinoGameCard.bg)).toBe('#101010');
+    expect(getTokenValue(DesignTokens.casinoGameCard.borderColor)).toBe('#202020');
+    expect(getTokenValue(DesignTokens.casinoGameCard.playButtonBg)).toBe('#00aa00');
   });
 
   it('should apply all supported override groups', () => {
@@ -68,7 +69,7 @@ describe('DesignTokens', () => {
       input: { bg: '#f5f5f5' },
       badge: { bgPrimary: '#333333' },
       chip: { bgFilled: '#444444' },
-      gameCard: { focusRingColor: '#33ff33' },
+      casinoGameCard: { focusRingColor: '#33ff33' },
     });
 
     expect(getTokenValue('--zg-green-800')).toBe('#0f0f0f');
@@ -83,7 +84,7 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.input.bg)).toBe('#f5f5f5');
     expect(getTokenValue(DesignTokens.badge.bgPrimary)).toBe('#333333');
     expect(getTokenValue(DesignTokens.chip.bgFilled)).toBe('#444444');
-    expect(getTokenValue(DesignTokens.gameCard.focusRingColor)).toBe('#33ff33');
+    expect(getTokenValue(DesignTokens.casinoGameCard.focusRingColor)).toBe('#33ff33');
   });
 
   it('should resolve and apply themes from a registry', () => {

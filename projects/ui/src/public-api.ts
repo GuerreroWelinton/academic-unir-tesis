@@ -9,4 +9,4 @@ export * from './lib/atoms/badge/badge.component';
 export * from './lib/atoms/chip/chip.component';
 
 // Molecules
-export * from './lib/molecules/game-card/game-card.component';
+export * from './lib/molecules/casino/casino-game-card/casino-game-card.component';

@@ -4,7 +4,7 @@ import { expect } from '@storybook/jest';
 import { within } from '@storybook/testing-library';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideHeart, lucidePlay } from '@ng-icons/lucide';
-import { ZgGameCardComponent } from './game-card.component';
+import { ZgCasinoGameCardComponent } from './casino-game-card.component';
 
 /**
  * Game card molecule for catalog and lobby scenarios.
@@ -22,9 +22,9 @@ import { ZgGameCardComponent } from './game-card.component';
  * - Exposes `playAriaLabel` and `favoriteAriaLabel`.
  * - Supports `aria-pressed` for favorite toggle state.
  */
-const meta: Meta<ZgGameCardComponent> = {
-  title: 'Molecules/Game Card',
-  component: ZgGameCardComponent,
+const meta: Meta<ZgCasinoGameCardComponent> = {
+  title: 'Molecules/Casino/Game Card',
+  component: ZgCasinoGameCardComponent,
   tags: ['autodocs'],
   parameters: {
     docs: {
@@ -117,7 +117,7 @@ const meta: Meta<ZgGameCardComponent> = {
 };
 
 export default meta;
-type Story = StoryObj<ZgGameCardComponent>;
+type Story = StoryObj<ZgCasinoGameCardComponent>;
 
 export const Default: Story = {
   args: {
@@ -174,21 +174,21 @@ export const AspectRatios: Story = {
       <div style="display: grid; gap: var(--zg-spacing-4); font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
         <div>
           <div style="margin-bottom: var(--zg-spacing-2);">Portrait ratio</div>
-          <zg-game-card
+          <zg-casino-game-card
             title="Aviator"
             provider="Spribe"
             imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
             aspectRatio="portrait"
-          ></zg-game-card>
+          ></zg-casino-game-card>
         </div>
         <div>
           <div style="margin-bottom: var(--zg-spacing-2);">Square ratio</div>
-          <zg-game-card
+          <zg-casino-game-card
             title="Carnival Treasure"
             provider="SA Gaming"
             imageUrl="https://api-casino.zgames.tech/images/aleaplay/square/aviator.webp"
             aspectRatio="square"
-          ></zg-game-card>
+          ></zg-casino-game-card>
         </div>
       </div>
     `,
@@ -202,7 +202,7 @@ export const Composition: Story = {
   render: (args) => ({
     props: args,
     template: `
-      <zg-game-card
+      <zg-casino-game-card
         [title]="title"
         [provider]="provider"
         [imageUrl]="imageUrl"
@@ -224,7 +224,7 @@ export const Composition: Story = {
         </span>
         <ng-icon favorite-icon name="lucideHeart" size="1rem" aria-hidden="true"></ng-icon>
         <ng-icon play-icon name="lucidePlay" size="1rem" aria-hidden="true"></ng-icon>
-      </zg-game-card>
+      </zg-casino-game-card>
     `,
   }),
   args: {
@@ -239,14 +239,14 @@ export const AccessibilityDemo: Story = {
   },
   render: () => ({
     template: `
-      <zg-game-card
+      <zg-casino-game-card
         title="Aviator"
         provider="Spribe"
         imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
         playAriaLabel="Play Aviator game"
         favoriteAriaLabel="Mark Aviator as favorite"
         data-testid="a11y-card"
-      ></zg-game-card>
+      ></zg-casino-game-card>
     `,
   }),
   play: async ({ canvasElement }) => {

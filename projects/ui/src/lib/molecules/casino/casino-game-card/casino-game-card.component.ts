@@ -1,14 +1,15 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-export type GameCardAspectRatio = 'portrait' | 'square';
+export type CasinoGameCardAspectRatio = 'portrait' | 'square';
+export type GameCardAspectRatio = CasinoGameCardAspectRatio;
 
 @Component({
-  selector: 'zg-game-card',
+  selector: 'zg-casino-game-card, zg-game-card',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './game-card.component.html',
-  styleUrl: './game-card.component.scss',
+  templateUrl: './casino-game-card.component.html',
+  styleUrl: './casino-game-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class]': '"zg-game-card"',
@@ -17,7 +18,7 @@ export type GameCardAspectRatio = 'portrait' | 'square';
     '[attr.data-aspect-ratio]': 'aspectRatio()',
   },
 })
-export class ZgGameCardComponent {
+export class ZgCasinoGameCardComponent {
   title = input<string>('');
   provider = input<string>('');
   imageUrl = input<string>('');
@@ -26,7 +27,7 @@ export class ZgGameCardComponent {
   disabled = input<boolean>(false);
   favorite = input<boolean>(false);
   showFavorite = input<boolean>(true);
-  aspectRatio = input<GameCardAspectRatio>('portrait');
+  aspectRatio = input<CasinoGameCardAspectRatio>('portrait');
 
   playAriaLabel = input<string>('Play game');
   favoriteAriaLabel = input<string>('Toggle favorite');
@@ -52,3 +53,6 @@ export class ZgGameCardComponent {
     this.favoriteClicked.emit();
   }
 }
+
+// Backward-compatible alias
+export { ZgCasinoGameCardComponent as ZgGameCardComponent };
