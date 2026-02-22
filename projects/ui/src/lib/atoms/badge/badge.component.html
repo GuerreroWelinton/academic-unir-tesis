@@ -8,7 +8,7 @@
       @if (text()) {
         {{ displayText() }}
       } @else {
-        <ng-content></ng-content>
+        <ng-content select=":not([remove-icon]):not([zgBadgeRemoveIcon])"></ng-content>
       }
     </span>
 
@@ -20,7 +20,11 @@
         aria-label="Remove badge"
         (click)="handleRemove($event)"
       >
+        <span class="zg-badge__close-icon-slot">
+          <ng-content select="[remove-icon],[zgBadgeRemoveIcon]"></ng-content>
+        </span>
         <svg
+          class="zg-badge__close-icon-fallback"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"

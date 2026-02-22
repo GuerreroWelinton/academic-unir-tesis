@@ -1,6 +1,19 @@
+import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ZgBadgeComponent } from './badge.component';
 import { By } from '@angular/platform-browser';
+
+@Component({
+  standalone: true,
+  imports: [ZgBadgeComponent],
+  template: `
+    <zg-badge [removable]="true">
+      Filter
+      <span remove-icon data-testid="custom-remove-icon" aria-hidden="true">X</span>
+    </zg-badge>
+  `,
+})
+class TestHostBadgeWithCustomRemoveIconComponent {}
 
 describe('ZgBadgeComponent', () => {
   let component: ZgBadgeComponent;
@@ -9,7 +22,7 @@ describe('ZgBadgeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ZgBadgeComponent],
+      imports: [ZgBadgeComponent, TestHostBadgeWithCustomRemoveIconComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ZgBadgeComponent);
@@ -223,6 +236,21 @@ describe('ZgBadgeComponent', () => {
 
       const closeButton = fixture.debugElement.query(By.css('.zg-badge__close'));
       expect(closeButton.nativeElement.getAttribute('aria-label')).toBe('Remove badge');
+    });
+
+    it('should project custom remove icon into close button slot', async () => {
+      const hostFixture = TestBed.createComponent(TestHostBadgeWithCustomRemoveIconComponent);
+      hostFixture.detectChanges();
+
+      const hostElement = hostFixture.nativeElement as HTMLElement;
+      const closeButton = hostElement.querySelector('.zg-badge__close');
+      const customIcon = hostElement.querySelector('[data-testid="custom-remove-icon"]');
+      const content = hostElement.querySelector('.zg-badge__content');
+
+      expect(closeButton).toBeTruthy();
+      expect(customIcon).toBeTruthy();
+      expect(closeButton?.contains(customIcon as Node)).toBe(true);
+      expect(content?.textContent?.trim()).toBe('Filter');
     });
   });
 
