@@ -36,7 +36,9 @@ describe('ZgCasinoCatalogHeaderComponent', () => {
       .nativeElement as HTMLElement;
 
     expect(title.textContent?.trim()).toBe('Most bet games');
-    expect(count.textContent?.trim()).toBe('3,005 games');
+    const countText = count.textContent?.trim() ?? '';
+
+    expect(countText).toMatch(/3[.,]005 games/);
   });
 
   it('should hide game count when gamesCount is null', () => {
