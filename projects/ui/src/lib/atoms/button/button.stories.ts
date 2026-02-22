@@ -1,4 +1,9 @@
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { lucideArrowRight, lucideDownload, lucidePlus, lucideSave } from '@ng-icons/lucide';
 import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
+import { expect } from '@storybook/jest';
+import { within } from '@storybook/testing-library';
 import { ZgButtonComponent } from './button.component';
 
 /**
@@ -17,12 +22,12 @@ import { ZgButtonComponent } from './button.component';
  * - Displaying status (use badge/tag)
  *
  * ## Accessibility
- * - ✅ Keyboard navigation (Enter/Space)
- * - ✅ Focus visible states
- * - ✅ Disabled state prevents interaction
- * - ✅ Loading state with spinner
- * - 💡 Use descriptive text (avoid "Click here")
- * - 💡 Consider aria-label for icon-only buttons
+ * - Keyboard navigation (Enter/Space)
+ * - Focus visible states
+ * - Disabled state prevents interaction
+ * - Loading state with spinner
+ * - Use descriptive text (avoid "Click here")
+ * - Keep icon labels clear when combining icon + text
  */
 const meta: Meta<ZgButtonComponent> = {
   title: 'Atoms/Button',
@@ -35,6 +40,12 @@ const meta: Meta<ZgButtonComponent> = {
       },
     },
   },
+  decorators: [
+    moduleMetadata({
+      imports: [NgIconComponent],
+      providers: [provideIcons({ lucidePlus, lucideSave, lucideDownload, lucideArrowRight })],
+    }),
+  ],
   argTypes: {
     variant: {
       control: 'select',
@@ -142,9 +153,12 @@ export const Default: Story = {
  * All button variants side by side
  */
 export const Variants: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+      <div style="display: flex; gap: var(--zg-spacing-3); flex-wrap: wrap; align-items: center; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
         <zg-button variant="primary">Primary</zg-button>
         <zg-button variant="secondary">Secondary</zg-button>
         <zg-button variant="accent">Accent</zg-button>
@@ -160,9 +174,12 @@ export const Variants: Story = {
  * Different button sizes
  */
 export const Sizes: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; gap: 1rem; align-items: center;">
+      <div style="display: flex; gap: var(--zg-spacing-3); align-items: center; flex-wrap: wrap; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
         <zg-button size="sm">Small</zg-button>
         <zg-button size="md">Medium</zg-button>
         <zg-button size="lg">Large</zg-button>
@@ -175,12 +192,15 @@ export const Sizes: Story = {
  * Different button shapes (border radius)
  */
 export const Shapes: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; gap: 1rem; align-items: center;">
-        <zg-button shape="default">Default (8px)</zg-button>
-        <zg-button shape="pill">Pill (rounded)</zg-button>
-        <zg-button shape="square">Square (2px)</zg-button>
+      <div style="display: flex; gap: var(--zg-spacing-3); align-items: center; flex-wrap: wrap; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <zg-button shape="default">Default</zg-button>
+        <zg-button shape="pill">Pill</zg-button>
+        <zg-button shape="square">Square</zg-button>
       </div>
     `,
   }),
@@ -190,22 +210,25 @@ export const Shapes: Story = {
  * Font family variants (base, secondary)
  */
 export const FontFamilies: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-start;">
+      <div style="display: flex; flex-direction: column; gap: var(--zg-spacing-4); align-items: flex-start; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
         <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Base - Default</h4>
-          <zg-button fontFamily="base">Button with base font</zg-button>
+          <h4 style="margin: 0 0 var(--zg-spacing-2) 0; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">Base font</h4>
+          <zg-button fontFamily="base">Action</zg-button>
         </div>
         <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Secondary - For titles/highlights</h4>
-          <zg-button fontFamily="secondary" size="lg">Button with secondary font</zg-button>
+          <h4 style="margin: 0 0 var(--zg-spacing-2) 0; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">Secondary font</h4>
+          <zg-button fontFamily="secondary" size="lg">Action</zg-button>
         </div>
         <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Side by side comparison</h4>
-          <div style="display: flex; gap: 1rem; align-items: center;">
-            <zg-button variant="primary" fontFamily="base">Button with base font</zg-button>
-            <zg-button variant="primary" fontFamily="secondary">Button with secondary font</zg-button>
+          <h4 style="margin: 0 0 var(--zg-spacing-2) 0; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">Comparison</h4>
+          <div style="display: flex; gap: var(--zg-spacing-3); align-items: center; flex-wrap: wrap;">
+            <zg-button variant="primary" fontFamily="base">Base</zg-button>
+            <zg-button variant="primary" fontFamily="secondary">Secondary</zg-button>
           </div>
         </div>
       </div>
@@ -214,115 +237,62 @@ export const FontFamilies: Story = {
 };
 
 /**
- * Examples using ng-content with icon selectors and complex content
+ * Stateful behavior: disabled, loading, and full width
  */
-export const WithIcons: Story = {
+export const States: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
-        <!-- Icon left -->
-        <zg-button variant="primary">
-          <svg icon-left width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
-          </svg>
-          Add Item
-        </zg-button>
-
-        <!-- Icon right -->
-        <zg-button variant="accent">
-          Save File
-          <svg icon-right width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/>
-          </svg>
-        </zg-button>
-
-        <!-- Both icons -->
-        <zg-button variant="secondary">
-          <svg icon-left width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-          </svg>
-          Download
-          <svg icon-right width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
-          </svg>
-        </zg-button>
-
-        <!-- Icon only -->
-        <zg-button variant="ghost" shape="square" aria-label="Settings">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.87,17.38L11.24,20H12.76L13.13,17.39C14.32,17.14 15.37,16.5 16.14,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.39C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z"/>
-          </svg>
-        </zg-button>
+      <div style="display: grid; gap: var(--zg-spacing-4); max-width: 26rem; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <div style="display: flex; gap: var(--zg-spacing-3); flex-wrap: wrap;">
+          <zg-button variant="primary" data-testid="enabled-button">Enabled</zg-button>
+          <zg-button variant="primary" [disabled]="true" data-testid="disabled-button">Disabled</zg-button>
+          <zg-button variant="accent" [loading]="true" data-testid="loading-button">Loading</zg-button>
+        </div>
+        <div>
+          <div style="margin-bottom: var(--zg-spacing-2); font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">Full width</div>
+          <zg-button variant="secondary" [fullWidth]="true">Continue</zg-button>
+        </div>
       </div>
     `,
   }),
-  parameters: {
-    docs: {
-      description: {
-        story: `
-This story demonstrates the different ways to use ng-content with icon selectors:
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const disabledHost = canvas.getByTestId('disabled-button');
+    const loadingHost = canvas.getByTestId('loading-button');
+    const disabledNativeButton = disabledHost.querySelector('button');
+    const loadingSpinner = loadingHost.querySelector('.zg-button__spinner');
 
-**Available selectors:**
-- \`[icon-left]\` - Place icons before text content
-- \`[icon-right]\` - Place icons after text content
-- Default slot - Main button content (text, HTML, etc.)
-
-**Best practices:**
-- Use \`aria-label\` for icon-only buttons
-- Keep icon sizes consistent (16x16px recommended)
-- Use \`currentColor\` for icon fill to inherit button text color
-        `,
-      },
-    },
+    await expect(disabledNativeButton).toBeTruthy();
+    await expect(disabledNativeButton).toBeDisabled();
+    await expect(loadingSpinner).toBeTruthy();
   },
 };
 
 /**
- * Button with icon on the left
+ * Composition with projected icons
  */
-export const WithIconLeft: Story = {
+export const Composition: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <zg-button variant="primary">
-        <svg icon-left width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1.5a5.5 5.5 0 1 1 0 11 5.5 5.5 0 0 1 0-11z"/>
-          <path d="M10.5 6.5L7 10l-1.5-1.5"/>
-        </svg>
-        Save
-      </zg-button>
-    `,
-  }),
-};
-
-/**
- * Button with icon on the right
- */
-export const WithIconRight: Story = {
-  render: () => ({
-    template: `
-      <zg-button variant="secondary" size="sm">
-        All
-        <span icon-right style="font-size: 1.2em;">›</span>
-      </zg-button>
-    `,
-  }),
-};
-
-/**
- * Icon-only buttons (useful for navigation, actions)
- */
-export const IconOnly: Story = {
-  render: () => ({
-    template: `
-      <div style="display: flex; gap: 0.5rem; align-items: center;">
-        <zg-button variant="ghost" shape="square" size="sm" aria-label="Previous">
-          ‹
+      <div style="display: flex; gap: var(--zg-spacing-3); flex-wrap: wrap; align-items: center; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <zg-button variant="primary">
+          <ng-icon icon-left name="lucidePlus" size="1rem" aria-hidden="true"></ng-icon>
+          Add item
         </zg-button>
-        <zg-button variant="ghost" shape="square" size="sm" aria-label="Next">
-          ›
+        <zg-button variant="accent">
+          Save
+          <ng-icon icon-right name="lucideSave" size="1rem" aria-hidden="true"></ng-icon>
         </zg-button>
-        <zg-button variant="accent" shape="square" size="sm" aria-label="Add">
-          +
+        <zg-button variant="secondary">
+          <ng-icon icon-left name="lucideDownload" size="1rem" aria-hidden="true"></ng-icon>
+          Download
+          <ng-icon icon-right name="lucideArrowRight" size="1rem" aria-hidden="true"></ng-icon>
         </zg-button>
       </div>
     `,
@@ -330,104 +300,53 @@ export const IconOnly: Story = {
 };
 
 /**
- * Disabled state
+ * Accessibility checks (keyboard focus and disabled behavior)
  */
-export const Disabled: Story = {
+export const AccessibilityDemo: Story = {
+  name: 'Accessibility Demo',
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <zg-button variant="primary" [disabled]="true">Primary Disabled</zg-button>
-        <zg-button variant="secondary" [disabled]="true">Secondary Disabled</zg-button>
-        <zg-button variant="accent" [disabled]="true">Accent Disabled</zg-button>
-        <zg-button variant="danger" [disabled]="true">Danger Disabled</zg-button>
-      </div>
-    `,
-  }),
-};
-
-/**
- * Loading state with spinner
- */
-export const Loading: Story = {
-  render: () => ({
-    template: `
-      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-        <zg-button variant="primary" [loading]="true">Loading...</zg-button>
-        <zg-button variant="accent" size="lg" [loading]="true">Processing</zg-button>
-        <zg-button variant="secondary" size="sm" [loading]="true">Wait</zg-button>
-      </div>
-    `,
-  }),
-};
-
-/**
- * Full width button (useful in forms, mobile layouts)
- */
-export const FullWidth: Story = {
-  render: () => ({
-    template: `
-      <div style="max-width: 400px;">
-        <zg-button variant="primary" [fullWidth]="true">Full Width Button</zg-button>
-      </div>
-    `,
-  }),
-};
-
-/**
- * Real-world examples based on provided references
- */
-export const RealWorldExamples: Story = {
-  name: 'Real-world Examples',
-  render: () => ({
-    template: `
-      <div style="display: flex; flex-direction: column; gap: 2rem;">
-        <!-- CTA Button (Write to us) - With secondary font for highlight -->
+      <div style="display: flex; flex-direction: column; gap: var(--zg-spacing-4); font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
         <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Main CTA (with secondary font)</h4>
-          <zg-button variant="accent" shape="pill" size="lg" fontFamily="secondary">
-            WRITE TO US
-          </zg-button>
-        </div>
-
-        <!-- Alternative CTA Button with base font -->
-        <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Alternative CTA (with base font)</h4>
-          <zg-button variant="accent" shape="pill" size="lg">
-            Write to us
-          </zg-button>
-        </div>
-
-        <!-- Action Button (Save) -->
-        <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Primary variant with icon</h4>
-          <zg-button variant="primary">
-            <svg icon-left width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 1a2 2 0 0 1 2 2v2H6V3a2 2 0 0 1 2-2zm3 4V3a3 3 0 1 0-6 0v2H3.36a1 1 0 0 0-.98 1.17l.5 3.5A2 2 0 0 0 4.86 11H6v1a2 2 0 1 0 4 0v-1h1.14a2 2 0 0 0 1.98-1.67l.5-3.5a1 1 0 0 0-.98-1.17H11z"/>
-            </svg>
-            Save
-          </zg-button>
-        </div>
-
-        <!-- Navigation Group -->
-        <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Navigation</h4>
-          <div style="display: flex; gap: 0.5rem;">
-            <zg-button variant="primary" size="sm">
-              All
-              <span icon-right>›</span>
-            </zg-button>
-            <zg-button variant="ghost" shape="square" size="sm">‹</zg-button>
-            <zg-button variant="ghost" shape="square" size="sm">›</zg-button>
-            <zg-button variant="accent" shape="square" size="sm">+</zg-button>
+          <h4 style="margin: 0 0 var(--zg-spacing-2) 0; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+            Keyboard navigation
+          </h4>
+          <div style="display: flex; gap: var(--zg-spacing-2); flex-wrap: wrap;">
+            <zg-button variant="primary" data-testid="a11y-btn-1">First action</zg-button>
+            <zg-button variant="secondary" data-testid="a11y-btn-2">Second action</zg-button>
           </div>
         </div>
-
-        <!-- Danger action -->
         <div>
-          <h4 style="margin-bottom: 0.5rem; font-size: 0.875rem; color: #666;">Destructive action</h4>
-          <zg-button variant="danger">Delete bet</zg-button>
+          <h4 style="margin: 0 0 var(--zg-spacing-2) 0; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+            Disabled behavior
+          </h4>
+          <zg-button variant="danger" [disabled]="true" data-testid="a11y-disabled-btn">
+            Disabled action
+          </zg-button>
         </div>
       </div>
     `,
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const firstHost = canvas.getByTestId('a11y-btn-1');
+    const secondHost = canvas.getByTestId('a11y-btn-2');
+    const disabledHost = canvas.getByTestId('a11y-disabled-btn');
+    const firstNativeButton = firstHost.querySelector('button');
+    const secondNativeButton = secondHost.querySelector('button');
+    const disabledNativeButton = disabledHost.querySelector('button');
+
+    await expect(firstNativeButton).toBeTruthy();
+    await expect(secondNativeButton).toBeTruthy();
+    await expect(disabledNativeButton).toBeTruthy();
+
+    await expect(firstNativeButton).not.toBeDisabled();
+    await expect(firstNativeButton).toHaveAttribute('type', 'button');
+    await expect(secondNativeButton).not.toBeDisabled();
+    await expect(secondNativeButton).toHaveAttribute('type', 'button');
+    await expect(disabledNativeButton).toBeDisabled();
+  },
 };
