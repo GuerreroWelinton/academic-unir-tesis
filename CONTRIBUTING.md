@@ -2,118 +2,157 @@
 
 ## Purpose
 
-This repository contains an MVP of a reusable UI component library for iGaming (ZGames Technology) using **Angular 21** and **Storybook**. The focus is on creating consistent, accessible, and well-documented presentational (dumb) components.
+This repository contains an MVP of a reusable UI component library for iGaming (ZGames Technology) using **Angular 21** and **Storybook**. The focus is on building consistent, accessible, and well-documented presentational components.
+
+## Branching and Pull Requests (mandatory)
+
+- Create feature branches from `development`.
+- Open all feature PRs to `development`.
+- Do not open PRs directly to `main`.
+- `main` is reserved for integration/release promotion from `development`.
+
+## CI and Deploy Flow (current)
+
+Current GitHub Actions configuration:
+
+- `CI` workflow runs on:
+  - push to `main`
+  - pull_request targeting `main`
+- `Deploy to GitHub Pages` runs after successful `CI` on `main`.
+
+Because contribution PRs must target `development`, contributors must run the full local quality gate before opening/updating a PR:
+
+- `npm run ci:local`
+
+This local gate includes:
+
+- lint + format check
+- tests + coverage
+- app/libs build
+- Storybook build
 
 ## Architecture Rules (mandatory)
 
-- The `projects/ui` library only contains **presentational components**:
-  - receive data via `input`
-  - emit events via `output`
+- The `projects/ui` library only contains **presentational components**.
+- Library components:
+  - render UI
+  - receive data via signal `input`
+  - emit events via signal `output`
 - Forbidden in the library:
   - service injection
-  - business logic
-  - HTTP calls / API access
-  - access to router/store/localStorage (unless strictly UI and justified)
+  - business/domain logic
+  - HTTP/API access
+  - router/store/localStorage/sessionStorage access (unless strictly UI-related and justified)
+  - uncontrolled side effects
 
 ## Technical Conventions
 
 ### Modern Angular
 
-- All components must be **Standalone** (no NgModules)
-- **ChangeDetectionStrategy.OnPush** is mandatory
-- **Signals** for internal UI state when appropriate
-- Strict TypeScript, avoid `any`
+- Components must be **Standalone**.
+- **ChangeDetectionStrategy.OnPush** is mandatory.
+- Use **Signals** for internal UI state.
+- Strict typing; avoid `any`.
 
-### File Structure
+### Component Organization
 
-Component co-location in `projects/ui/src/lib/atoms/<component>/`:
+- Atomic Design folder structure:
+  - `projects/ui/src/lib/atoms/<component>/`
+  - `projects/ui/src/lib/molecules/<component>/`
+  - future: `organisms/`, `templates/`, `pages/`
+- Co-located files per component:
+  - `*.component.ts|html|scss`
+  - `*.stories.ts` (required)
+  - `*.spec.ts` (required)
 
-- `*.component.ts|html|scss`
-- `*.stories.ts` (required)
-- `*.spec.ts` (required)
+## Design Tokens (mandatory)
 
-### Atomic Design
+- All styles must consume design tokens (CSS variables).
+- Hardcoded brand values are forbidden.
 
-We use **Atomic Design** as a guide for component organization. Folders are structured by category (`atoms/`, `molecules/`, `organisms/`). Atoms should be simple and reusable, molecules combine atoms to create functional units, and organisms compose complete interfaces. To see the updated component index and classification, check **Storybook (sidebar)**.
+### SCSS Token Source (modular)
 
-### Design Tokens
+- `src/styles/tokens/_index.scss` (aggregator)
+- `src/styles/tokens/_base.tokens.scss` (foundation)
+- `src/styles/tokens/_<component>.tokens.scss` (component tokens)
+- Compatibility entrypoint:
+  - `src/styles/_tokens.scss`
 
-- **MANDATORY**: Styles must use design tokens from `src/styles/_tokens.scss`
-- **FORBIDDEN**: Hardcoding colors, spacing, typography, radius
-- Correct example: `color: var(--zg-color-primary)`
+### TypeScript Token Maps (`projects/design-tokens`)
 
-#### Token Architecture & Theming (Summary)
+- Token maps are modular in:
+  - `projects/design-tokens/src/lib/tokens/foundation.tokens.ts`
+  - `projects/design-tokens/src/lib/tokens/<component>.tokens.ts`
+  - `projects/design-tokens/src/lib/tokens/index.ts`
+- `DesignTokens` aggregates those maps in:
+  - `projects/design-tokens/src/lib/design-tokens.ts`
+- `design-tokens.types.ts` derives override types from token maps.
 
-##### 3-Layer Token System
+### Synchronization Rules
 
-- **Layer 1: Primitives** — Raw base values (e.g., --zg-green-800, --zg-neutral-200). Used for theme variations.
-- **Layer 2: Semantic Tokens** — Intention-based tokens (e.g., --zg-color-primary) referencing primitives. Used by multiple components.
-- **Layer 3: Component Tokens** — Component-specific tokens (e.g., --zg-button-bg-primary) referencing semantic tokens. Must NOT reference primitives directly.
-
-**Rule:** Component tokens must reference semantic tokens, not primitives, to ensure theme consistency.
-
-##### Theming Strategies
-
-- **Primitive Override:** Change base values for simple theme shifts (e.g., green800 → red).
-- **Semantic Override:** Override intention tokens for precise control (e.g., primary → custom color).
-- **Combined:** Use both for maximum flexibility (recommended).
-- **Component Tokens:** Usually inherit from Layer 2; rarely overridden directly.
-- Incorrect example: `color: #00b894`
+- If you add semantic/component tokens (`--zg-color-*`, `--zg-spacing-*`, `--zg-button-*`, `--zg-input-*`, etc.):
+  - update SCSS token module
+  - update TS token map in `projects/design-tokens/src/lib/tokens/`
+- If you add primitive scale tokens (`--zg-[color]-[number]`):
+  - no TS map update required
+  - they are handled dynamically through `createTheme({ primitives: ... })`
+- `createTheme()` must support all active groups:
+  - `color`, `typography`, `spacing`, `radius`, `shadow`, `zIndex`, `transition`, `button`, `input`, `badge`, `chip`, `gameCard`
 
 ## Storybook and Documentation
 
 Every component must have a `*.stories.ts` file with:
 
-- **Default** story (interactive with `args`)
-- Demo stories using `render()` for:
-  - Variants (all visual variants)
-  - Sizes (all sizes)
-  - States (disabled, loading, error, etc.)
-  - WithIcons (if applicable)
-  - RealWorldExamples
+- Default story
+- 2-3 relevant variants/states
+- Composition example (when applicable)
 
-### Story Documentation
+Rules:
 
-- Complete JSDoc in the component meta
-- **Usage Guide** with when to use/avoid
-- **Available ng-content selectors** if applicable
-- **Accessibility** checklist
-- Clear description of each argType
+- No emojis in story `name`.
+- Include usage guidance and accessibility notes in docs.
+- Keep API docs clear (`inputs`, `outputs`, types).
+
+Compodoc:
+
+- `npm run docs:ui`
+- `npm run docs:design-tokens`
 
 ## Accessibility (mandatory)
 
-- Use Storybook's addon-a11y for validation
-- Implement keyboard navigation (Enter/Space for buttons)
-- Visible focus states
-- ARIA attributes when appropriate
-- `aria-label` for icon-only components
+- Validate with Storybook addon-a11y.
+- Keyboard support (Enter/Space where applicable).
+- Visible focus states.
+- Correct ARIA usage.
+- `aria-label` for icon-only actions.
 
-**Note:** The a11y addon is configured to validate against **WCAG 2.1 Level AA** (`runOnly: { type: 'tag', values: ['wcag2aa', 'wcag21aa'] }`).
+WCAG target: **2.1 AA**.
 
 ## Unit Tests (minimum)
 
-Each component must have tests that verify:
+Each component must test:
 
-- Renders without errors
-- Respects key inputs (variant, size, disabled, etc.)
-- Emits correct outputs on interaction
-- Special states (loading, disabled, error)
+- render without errors
+- key inputs/states
+- outputs on interaction
 
-## Commits
+Tests must be focused, fast, and stable.
 
-Recommended convention:
+## Commit Convention
 
-- `feat(button):` new feature
-- `fix(button):` bugfix
+- `feat(scope):` new feature
+- `fix(scope):` bug fix
 - `docs:` documentation
-- `style:` tokens, styles, formatting
+- `style:` styles/tokens/formatting
 - `test:` tests
 - `chore:` tooling/config
 
-## Development Process
+## Development Workflow
 
-1. **Plan**: Review project instructions and define the component API
-2. **Implement**: Component + styles with tokens + basic tests
-3. **Document**: Complete stories with all use cases
-4. **Validate**: Accessibility in Storybook, passing tests
-5. **Review**: PR with clear API and use case description
+1. Define component API (`inputs`, `outputs`, types).
+2. Define variants/states and token usage.
+3. Implement component (Standalone + OnPush).
+4. Implement story in parallel.
+5. Implement tests in parallel.
+6. Validate a11y and run `npm run ci:local`.
+7. Open PR to `development` with clear scope and checklist.
