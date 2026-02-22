@@ -4,6 +4,7 @@ export * from './input.tokens';
 export * from './badge.tokens';
 export * from './chip.tokens';
 export * from './casino-game-card.tokens';
+export * from './lucky-picker.tokens';
 export * from './section-title.tokens';
 export * from './section-actions.tokens';
 export * from './content-section-header.tokens';

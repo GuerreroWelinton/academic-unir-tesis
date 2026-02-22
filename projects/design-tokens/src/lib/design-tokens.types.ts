@@ -6,6 +6,7 @@ import type {
   colorTokens,
   contentSectionHeaderTokens,
   inputTokens,
+  luckyPickerTokens,
   radiusTokens,
   sectionActionsTokens,
   sectionTitleTokens,
@@ -94,6 +95,7 @@ export type InputTokens = TokenOverrides<typeof inputTokens>;
 export type BadgeTokens = TokenOverrides<typeof badgeTokens>;
 export type ChipTokens = TokenOverrides<typeof chipTokens>;
 export type CasinoGameCardTokens = TokenOverrides<typeof casinoGameCardTokens>;
+export type LuckyPickerTokens = TokenOverrides<typeof luckyPickerTokens>;
 export type SectionTitleTokens = TokenOverrides<typeof sectionTitleTokens>;
 export type SectionActionsTokens = TokenOverrides<typeof sectionActionsTokens>;
 export type ContentSectionHeaderTokens = TokenOverrides<typeof contentSectionHeaderTokens>;
@@ -112,6 +114,7 @@ export interface Theme {
   badge?: BadgeTokens;
   chip?: ChipTokens;
   casinoGameCard?: CasinoGameCardTokens;
+  luckyPicker?: LuckyPickerTokens;
   sectionTitle?: SectionTitleTokens;
   sectionActions?: SectionActionsTokens;
   contentSectionHeader?: ContentSectionHeaderTokens;

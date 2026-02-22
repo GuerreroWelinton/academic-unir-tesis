@@ -29,6 +29,7 @@ describe('DesignTokens', () => {
     expect(DesignTokens.sectionActions.gap).toBe('--zg-section-actions-gap');
     expect(DesignTokens.contentSectionHeader.gap).toBe('--zg-content-section-header-gap');
     expect(DesignTokens.casinoGameCard.bg).toBe('--zg-casino-game-card-bg');
+    expect(DesignTokens.luckyPicker.bg).toBe('--zg-lucky-picker-bg');
     expect(DesignTokens.gameCard.bg).toBe('--zg-casino-game-card-bg');
   });
 
@@ -76,6 +77,7 @@ describe('DesignTokens', () => {
       sectionActions: { gap: '0.875rem' },
       contentSectionHeader: { gap: '1.125rem' },
       casinoGameCard: { focusRingColor: '#33ff33' },
+      luckyPicker: { bg: '#121212' },
     });
 
     expect(getTokenValue('--zg-green-800')).toBe('#0f0f0f');
@@ -94,6 +96,7 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.sectionActions.gap)).toBe('0.875rem');
     expect(getTokenValue(DesignTokens.contentSectionHeader.gap)).toBe('1.125rem');
     expect(getTokenValue(DesignTokens.casinoGameCard.focusRingColor)).toBe('#33ff33');
+    expect(getTokenValue(DesignTokens.luckyPicker.bg)).toBe('#121212');
   });
 
   it('should resolve and apply themes from a registry', () => {
