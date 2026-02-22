@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+.zg-breadcrumb__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--zg-breadcrumb-gap);
+  margin: 0;
+  padding: 0;
+}
+
+.zg-breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zg-breadcrumb-item-gap);
+  min-width: 0;
+}
+
+.zg-breadcrumb__link,
+.zg-breadcrumb__text {
+  font-family: var(--zg-breadcrumb-font-family);
+  font-size: var(--zg-breadcrumb-font-size);
+  font-weight: var(--zg-breadcrumb-font-weight);
+  line-height: var(--zg-breadcrumb-line-height);
+  text-decoration: none;
+}
+
+.zg-breadcrumb__link {
+  color: var(--zg-breadcrumb-link-color);
+  transition: color var(--zg-transition-fast);
+
+  &:hover {
+    color: var(--zg-breadcrumb-link-color-hover);
+  }
+
+  &:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 2px;
+  }
+}
+
+.zg-breadcrumb__text {
+  color: var(--zg-breadcrumb-link-color);
+}
+
+.zg-breadcrumb__text[data-current='true'] {
+  color: var(--zg-breadcrumb-current-color);
+}
+
+.zg-breadcrumb__separator {
+  color: var(--zg-breadcrumb-separator-color);
+  user-select: none;
+}

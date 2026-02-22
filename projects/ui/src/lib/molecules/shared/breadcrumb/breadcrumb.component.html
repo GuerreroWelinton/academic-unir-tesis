@@ -1,0 +1,29 @@
+<nav class="zg-breadcrumb__nav">
+  <ol class="zg-breadcrumb__list">
+    @for (item of items(); track item.id; let index = $index; let isLast = $last) {
+      <li class="zg-breadcrumb__item">
+        @if (item.href && !isDisabled(item, index)) {
+          <a
+            class="zg-breadcrumb__link"
+            [attr.href]="item.href"
+            (click)="onItemClick($event, item, index)"
+          >
+            {{ item.label }}
+          </a>
+        } @else {
+          <span
+            class="zg-breadcrumb__text"
+            [attr.aria-current]="isCurrent(item, index) ? 'page' : null"
+            [attr.data-current]="isCurrent(item, index) ? true : null"
+          >
+            {{ item.label }}
+          </span>
+        }
+
+        @if (!isLast) {
+          <span class="zg-breadcrumb__separator" aria-hidden="true">{{ separator() }}</span>
+        }
+      </li>
+    }
+  </ol>
+</nav>

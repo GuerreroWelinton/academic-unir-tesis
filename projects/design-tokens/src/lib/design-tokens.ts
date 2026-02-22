@@ -1,6 +1,8 @@
 import type {
   BadgeTokens,
+  BreadcrumbTokens,
   ButtonTokens,
+  CasinoCatalogHeaderTokens,
   CasinoGameCardTokens,
   CasinoProviderParallaxShowcaseTokens,
   CasinoRankedGamesCarouselSectionTokens,
@@ -27,7 +29,9 @@ import type {
 
 import {
   badgeTokens,
+  breadcrumbTokens,
   buttonTokens,
+  casinoCatalogHeaderTokens,
   casinoGameCardTokens,
   casinoProviderParallaxShowcaseTokens,
   casinoRankedGamesCarouselSectionTokens,
@@ -62,6 +66,8 @@ export const DesignTokens = {
   input: inputTokens,
   badge: badgeTokens,
   chip: chipTokens,
+  casinoCatalogHeader: casinoCatalogHeaderTokens,
+  breadcrumb: breadcrumbTokens,
   sectionTitle: sectionTitleTokens,
   sectionActions: sectionActionsTokens,
   contentSectionHeader: contentSectionHeaderTokens,
@@ -130,6 +136,12 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
   applyTokenGroup(target, overrides.input as InputTokens, DesignTokens.input);
   applyTokenGroup(target, overrides.badge as BadgeTokens, DesignTokens.badge);
   applyTokenGroup(target, overrides.chip as ChipTokens, DesignTokens.chip);
+  applyTokenGroup(
+    target,
+    overrides.casinoCatalogHeader as CasinoCatalogHeaderTokens,
+    DesignTokens.casinoCatalogHeader,
+  );
+  applyTokenGroup(target, overrides.breadcrumb as BreadcrumbTokens, DesignTokens.breadcrumb);
   applyTokenGroup(target, overrides.sectionTitle as SectionTitleTokens, DesignTokens.sectionTitle);
   applyTokenGroup(
     target,

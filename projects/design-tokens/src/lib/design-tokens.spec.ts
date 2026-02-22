@@ -28,6 +28,8 @@ describe('DesignTokens', () => {
     expect(DesignTokens.sectionTitle.fontSizeMd).toBe('--zg-section-title-font-size-md');
     expect(DesignTokens.sectionActions.gap).toBe('--zg-section-actions-gap');
     expect(DesignTokens.contentSectionHeader.gap).toBe('--zg-content-section-header-gap');
+    expect(DesignTokens.casinoCatalogHeader.gap).toBe('--zg-casino-catalog-header-gap');
+    expect(DesignTokens.breadcrumb.gap).toBe('--zg-breadcrumb-gap');
     expect(DesignTokens.casinoGameCard.bg).toBe('--zg-casino-game-card-bg');
     expect(DesignTokens.casinoProviderCarousel.gap).toBe('--zg-casino-provider-carousel-gap');
     expect(DesignTokens.casinoSearchBar.gap).toBe('--zg-casino-search-bar-gap');
@@ -81,6 +83,8 @@ describe('DesignTokens', () => {
       input: { bg: '#f5f5f5' },
       badge: { bgPrimary: '#333333' },
       chip: { bgFilled: '#444444' },
+      casinoCatalogHeader: { gap: '1.5rem' },
+      breadcrumb: { gap: '0.375rem' },
       sectionTitle: { textColorPrimary: '#118811' },
       sectionActions: { gap: '0.875rem' },
       contentSectionHeader: { gap: '1.125rem' },
@@ -104,6 +108,8 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.input.bg)).toBe('#f5f5f5');
     expect(getTokenValue(DesignTokens.badge.bgPrimary)).toBe('#333333');
     expect(getTokenValue(DesignTokens.chip.bgFilled)).toBe('#444444');
+    expect(getTokenValue(DesignTokens.casinoCatalogHeader.gap)).toBe('1.5rem');
+    expect(getTokenValue(DesignTokens.breadcrumb.gap)).toBe('0.375rem');
     expect(getTokenValue(DesignTokens.sectionTitle.textColorPrimary)).toBe('#118811');
     expect(getTokenValue(DesignTokens.sectionActions.gap)).toBe('0.875rem');
     expect(getTokenValue(DesignTokens.contentSectionHeader.gap)).toBe('1.125rem');

@@ -14,10 +14,12 @@ export * from './lib/molecules/casino/casino-game-card/casino-game-card.componen
 export * from './lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.component';
 export * from './lib/molecules/casino/lucky-picker/lucky-picker.component';
 export * from './lib/molecules/casino/casino-search-bar/casino-search-bar.component';
+export * from './lib/molecules/casino/casino-catalog-header/casino-catalog-header.component';
 export * from './lib/molecules/shared/category-filter-tabs/category-filter-tabs.component';
 export * from './lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.component';
 export * from './lib/molecules/shared/section-actions/section-actions.component';
 export * from './lib/molecules/shared/content-section-header/content-section-header.component';
+export * from './lib/molecules/shared/breadcrumb/breadcrumb.component';
 
 // Organisms
 export * from './lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component';
