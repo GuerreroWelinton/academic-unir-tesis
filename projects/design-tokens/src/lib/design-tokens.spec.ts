@@ -27,6 +27,7 @@ describe('DesignTokens', () => {
     expect(DesignTokens.radius.base).toBe('--zg-radius-base');
     expect(DesignTokens.sectionTitle.fontSizeMd).toBe('--zg-section-title-font-size-md');
     expect(DesignTokens.sectionActions.gap).toBe('--zg-section-actions-gap');
+    expect(DesignTokens.contentSectionHeader.gap).toBe('--zg-content-section-header-gap');
     expect(DesignTokens.casinoGameCard.bg).toBe('--zg-casino-game-card-bg');
     expect(DesignTokens.gameCard.bg).toBe('--zg-casino-game-card-bg');
   });
@@ -72,7 +73,8 @@ describe('DesignTokens', () => {
       badge: { bgPrimary: '#333333' },
       chip: { bgFilled: '#444444' },
       sectionTitle: { textColorPrimary: '#118811' },
-      sectionActions: { gap: '0.625rem' },
+      sectionActions: { gap: '0.875rem' },
+      contentSectionHeader: { gap: '1.125rem' },
       casinoGameCard: { focusRingColor: '#33ff33' },
     });
 
@@ -89,7 +91,8 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.badge.bgPrimary)).toBe('#333333');
     expect(getTokenValue(DesignTokens.chip.bgFilled)).toBe('#444444');
     expect(getTokenValue(DesignTokens.sectionTitle.textColorPrimary)).toBe('#118811');
-    expect(getTokenValue(DesignTokens.sectionActions.gap)).toBe('0.625rem');
+    expect(getTokenValue(DesignTokens.sectionActions.gap)).toBe('0.875rem');
+    expect(getTokenValue(DesignTokens.contentSectionHeader.gap)).toBe('1.125rem');
     expect(getTokenValue(DesignTokens.casinoGameCard.focusRingColor)).toBe('#33ff33');
   });
 

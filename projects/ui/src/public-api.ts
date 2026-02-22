@@ -13,3 +13,4 @@ export * from './lib/atoms/section-title/section-title.component';
 export * from './lib/molecules/casino/casino-game-card/casino-game-card.component';
 export * from './lib/molecules/shared/category-filter-tabs/category-filter-tabs.component';
 export * from './lib/molecules/shared/section-actions/section-actions.component';
+export * from './lib/molecules/shared/content-section-header/content-section-header.component';

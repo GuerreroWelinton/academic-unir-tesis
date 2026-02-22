@@ -4,6 +4,7 @@ import type {
   casinoGameCardTokens,
   chipTokens,
   colorTokens,
+  contentSectionHeaderTokens,
   inputTokens,
   radiusTokens,
   sectionActionsTokens,
@@ -95,6 +96,7 @@ export type ChipTokens = TokenOverrides<typeof chipTokens>;
 export type CasinoGameCardTokens = TokenOverrides<typeof casinoGameCardTokens>;
 export type SectionTitleTokens = TokenOverrides<typeof sectionTitleTokens>;
 export type SectionActionsTokens = TokenOverrides<typeof sectionActionsTokens>;
+export type ContentSectionHeaderTokens = TokenOverrides<typeof contentSectionHeaderTokens>;
 
 export interface Theme {
   primitives?: PrimitiveTokens;
@@ -112,6 +114,7 @@ export interface Theme {
   casinoGameCard?: CasinoGameCardTokens;
   sectionTitle?: SectionTitleTokens;
   sectionActions?: SectionActionsTokens;
+  contentSectionHeader?: ContentSectionHeaderTokens;
 }
 
 export type ThemeRegistry<TClient extends string = string> = Record<TClient, Record<string, Theme>>;

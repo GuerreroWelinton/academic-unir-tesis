@@ -3,11 +3,12 @@ import type {
   ButtonTokens,
   CasinoGameCardTokens,
   ChipTokens,
+  ContentSectionHeaderTokens,
   InputTokens,
   PrimitiveTokens,
   RadiusTokens,
-  SectionActionsTokens,
   SemanticColorTokens,
+  SectionActionsTokens,
   SectionTitleTokens,
   ShadowTokens,
   SpacingTokens,
@@ -24,6 +25,7 @@ import {
   casinoGameCardTokens,
   chipTokens,
   colorTokens,
+  contentSectionHeaderTokens,
   inputTokens,
   radiusTokens,
   sectionActionsTokens,
@@ -50,6 +52,7 @@ export const DesignTokens = {
   chip: chipTokens,
   sectionTitle: sectionTitleTokens,
   sectionActions: sectionActionsTokens,
+  contentSectionHeader: contentSectionHeaderTokens,
   casinoGameCard: casinoGameCardTokens,
   gameCard: casinoGameCardTokens,
 } as const;
@@ -114,6 +117,11 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
     target,
     overrides.sectionActions as SectionActionsTokens,
     DesignTokens.sectionActions,
+  );
+  applyTokenGroup(
+    target,
+    overrides.contentSectionHeader as ContentSectionHeaderTokens,
+    DesignTokens.contentSectionHeader,
   );
   applyTokenGroup(
     target,
