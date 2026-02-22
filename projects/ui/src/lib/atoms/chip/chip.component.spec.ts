@@ -1,7 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ZgChipComponent } from './chip.component';
-import { DebugElement } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+
+@Component({
+  standalone: true,
+  imports: [ZgChipComponent],
+  template: `
+    <zg-chip>
+      <span icon-left data-testid="slot-icon-left">L</span>
+      <span data-testid="slot-label">Chip Label</span>
+      <span icon-right data-testid="slot-icon-right">R</span>
+    </zg-chip>
+  `,
+})
+class TestHostChipSlotsComponent {}
 
 describe('ZgChipComponent', () => {
   let component: ZgChipComponent;
@@ -10,13 +23,34 @@ describe('ZgChipComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ZgChipComponent],
+      imports: [ZgChipComponent, TestHostChipSlotsComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ZgChipComponent);
     component = fixture.componentInstance;
     buttonElement = fixture.debugElement.query(By.css('.zg-chip__button'));
     fixture.detectChanges();
+  });
+
+  describe('Slot Projection', () => {
+    it('should project icon-left and icon-right into their own slots', () => {
+      const hostFixture = TestBed.createComponent(TestHostChipSlotsComponent);
+      hostFixture.detectChanges();
+
+      const hostElement = hostFixture.nativeElement as HTMLElement;
+      const iconLeftSlot = hostElement.querySelector('.zg-chip__icon-left');
+      const iconRightSlot = hostElement.querySelector('.zg-chip__icon-right');
+      const contentSlot = hostElement.querySelector('.zg-chip__content');
+      const iconLeft = hostElement.querySelector('[data-testid="slot-icon-left"]');
+      const iconRight = hostElement.querySelector('[data-testid="slot-icon-right"]');
+      const label = hostElement.querySelector('[data-testid="slot-label"]');
+
+      expect(iconLeftSlot?.contains(iconLeft as Node)).toBe(true);
+      expect(iconRightSlot?.contains(iconRight as Node)).toBe(true);
+      expect(contentSlot?.contains(label as Node)).toBe(true);
+      expect(contentSlot?.contains(iconLeft as Node)).toBe(false);
+      expect(contentSlot?.contains(iconRight as Node)).toBe(false);
+    });
   });
 
   describe('Component Initialization', () => {
