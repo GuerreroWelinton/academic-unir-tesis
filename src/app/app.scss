@@ -21,4 +21,32 @@
     color: var(--zg-color-text-secondary);
     margin-bottom: var(--zg-spacing-16);
   }
+
+  .theme-controls {
+    display: flex;
+    gap: var(--zg-spacing-12);
+    margin-bottom: var(--zg-spacing-16);
+    flex-wrap: wrap;
+    justify-content: center;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--zg-spacing-4);
+      color: var(--zg-color-text-primary);
+      font-size: var(--zg-font-size-sm);
+      font-weight: var(--zg-font-weight-medium);
+    }
+
+    select {
+      min-width: 180px;
+      border: 1px solid var(--zg-color-border);
+      border-radius: var(--zg-radius-sm);
+      padding: var(--zg-spacing-8) var(--zg-spacing-12);
+      background: var(--zg-color-surface);
+      color: var(--zg-color-text-primary);
+      font-size: var(--zg-font-size-sm);
+    }
+  }
 }

@@ -1,6 +1,24 @@
 <div class="app-container">
   <h1>ZGames UI Library</h1>
-  <p>Component library with design tokens and multi-client theming.</p>
+  <p>Component library with design tokens and consumer-owned theming.</p>
+  <section class="theme-controls" aria-label="Theme controls">
+    <label>
+      Client
+      <select [value]="selectedClient()" (change)="onClientChange($event)">
+        @for (client of clientOptions; track client) {
+          <option [value]="client">{{ client }}</option>
+        }
+      </select>
+    </label>
+    <label>
+      Variant
+      <select [value]="selectedVariant()" (change)="onThemeChange($event)">
+        @for (variant of themeOptions(); track variant) {
+          <option [value]="variant">{{ variant }}</option>
+        }
+      </select>
+    </label>
+  </section>
   <router-outlet />
   <zg-button text="Probar UI" (clicked)="onButtonClick()"></zg-button>
 </div>

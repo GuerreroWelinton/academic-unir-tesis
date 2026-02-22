@@ -1,8 +1,11 @@
 import {
+  applyThemeFromRegistry,
   createTheme,
   DesignTokens,
+  getThemeVariantsFromRegistry,
   getTokenValue,
   resetTheme,
+  resolveThemeFromRegistry,
   setTokenValue,
 } from './design-tokens';
 
@@ -81,5 +84,37 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.badge.bgPrimary)).toBe('#333333');
     expect(getTokenValue(DesignTokens.chip.bgFilled)).toBe('#444444');
     expect(getTokenValue(DesignTokens.gameCard.focusRingColor)).toBe('#33ff33');
+  });
+
+  it('should resolve and apply themes from a registry', () => {
+    const registry = {
+      demo: {
+        light: { color: { primary: '#101010' } },
+        dark: { color: { primary: '#202020' } },
+      },
+      fallback: {
+        light: { color: { primary: '#303030' } },
+      },
+    } as const;
+
+    const resolved = resolveThemeFromRegistry(registry, 'demo', 'dark', 'fallback');
+    expect(resolved.color?.primary).toBe('#202020');
+
+    applyThemeFromRegistry(registry, 'demo', {
+      variant: 'dark',
+      fallbackClientId: 'fallback',
+    });
+    expect(getTokenValue(DesignTokens.color.primary)).toBe('#202020');
+  });
+
+  it('should return available theme variants from a registry', () => {
+    const registry = {
+      demo: {
+        light: { color: { primary: '#101010' } },
+        dark: { color: { primary: '#202020' } },
+      },
+    } as const;
+
+    expect(getThemeVariantsFromRegistry(registry, 'demo')).toEqual(['light', 'dark']);
   });
 });

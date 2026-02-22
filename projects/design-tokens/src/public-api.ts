@@ -3,11 +3,9 @@
  */
 
 export {
-  DesignTokens,
-  getTokenValue,
-  setTokenValue,
-  createTheme,
   resetTheme,
+  getThemeVariantsFromRegistry,
+  applyThemeFromRegistry,
 } from './lib/design-tokens';
 
 export type {
@@ -25,4 +23,5 @@ export type {
   BadgeTokens,
   ChipTokens,
   GameCardTokens,
+  ThemeRegistry,
 } from './lib/design-tokens.types';

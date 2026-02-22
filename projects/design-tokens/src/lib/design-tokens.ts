@@ -10,6 +10,7 @@ import type {
   ShadowTokens,
   SpacingTokens,
   Theme,
+  ThemeRegistry,
   TransitionTokens,
   TypographyTokens,
   ZIndexTokens,
@@ -102,6 +103,82 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
   applyTokenGroup(target, overrides.badge as BadgeTokens, DesignTokens.badge);
   applyTokenGroup(target, overrides.chip as ChipTokens, DesignTokens.chip);
   applyTokenGroup(target, overrides.gameCard as GameCardTokens, DesignTokens.gameCard);
+}
+
+function getFirstTheme(clientThemes: Record<string, Theme> | undefined): Theme | undefined {
+  if (!clientThemes) {
+    return undefined;
+  }
+  const [firstTheme] = Object.values(clientThemes);
+  return firstTheme;
+}
+
+export function resolveThemeFromRegistry<TClient extends string>(
+  registry: ThemeRegistry<TClient>,
+  clientId: TClient,
+  variant = 'light',
+  fallbackClientId: TClient = clientId,
+  fallbackVariant = 'light',
+): Theme {
+  const clientThemes = registry[clientId];
+  const fallbackClientThemes = registry[fallbackClientId];
+
+  const resolvedTheme =
+    clientThemes?.[variant] ??
+    clientThemes?.[fallbackVariant] ??
+    fallbackClientThemes?.[variant] ??
+    fallbackClientThemes?.[fallbackVariant] ??
+    getFirstTheme(clientThemes) ??
+    getFirstTheme(fallbackClientThemes);
+
+  if (!resolvedTheme) {
+    throw new Error('No theme could be resolved from the provided registry.');
+  }
+
+  return resolvedTheme;
+}
+
+export function getThemeVariantsFromRegistry<TClient extends string>(
+  registry: ThemeRegistry<TClient>,
+  clientId: TClient,
+  fallbackClientId?: TClient,
+): string[] {
+  const clientThemes =
+    registry[clientId] || (fallbackClientId ? registry[fallbackClientId] : undefined);
+  return clientThemes ? Object.keys(clientThemes) : [];
+}
+
+export function applyThemeFromRegistry<TClient extends string>(
+  registry: ThemeRegistry<TClient>,
+  clientId: TClient,
+  options?: {
+    variant?: string;
+    fallbackClientId?: TClient;
+    fallbackVariant?: string;
+    element?: HTMLElement;
+    resetFirst?: boolean;
+  },
+): Theme {
+  const variant = options?.variant || 'light';
+  const fallbackClientId = options?.fallbackClientId ?? clientId;
+  const fallbackVariant = options?.fallbackVariant || 'light';
+  const element = options?.element;
+  const resetFirst = options?.resetFirst ?? true;
+
+  const theme = resolveThemeFromRegistry(
+    registry,
+    clientId,
+    variant,
+    fallbackClientId,
+    fallbackVariant,
+  );
+
+  if (resetFirst) {
+    resetTheme(element);
+  }
+
+  createTheme(theme, element);
+  return theme;
 }
 
 export function resetTheme(element?: HTMLElement): void {

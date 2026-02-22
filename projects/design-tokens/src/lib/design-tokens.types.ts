@@ -107,3 +107,5 @@ export interface Theme {
   chip?: ChipTokens;
   gameCard?: GameCardTokens;
 }
+
+export type ThemeRegistry<TClient extends string = string> = Record<TClient, Record<string, Theme>>;

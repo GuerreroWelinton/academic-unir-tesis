@@ -1,26 +1,20 @@
 /**
  * Client Theme Configurations
- * Each client can have multiple theme variants with flexible naming
+ * Each client can have multiple theme variants with flexible naming.
  */
 
-import { createTheme, resetTheme, type Theme } from '@zg/design-tokens';
+import type { ThemeRegistry } from '@zgames/design-tokens';
 
 /**
- * Client theme configuration
- * Flexible record allowing any theme variant names (light, dark, christmas, promo-gold, etc.)
- */
-export type ClientThemeConfig = Record<string, Theme>;
-
-/**
- * Available clients
+ * Available clients.
  */
 export type ClientId = 'client1' | 'client2';
 
 /**
- * Client themes registry
- * Define all client themes here
+ * Client themes registry.
+ * Define all client themes here.
  */
-export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
+export const CLIENT_THEMES: ThemeRegistry<ClientId> = {
   // Client 1 (ZGames) - Default brand
   client1: {
     light: {
@@ -175,39 +169,3 @@ export const CLIENT_THEMES: Record<ClientId, ClientThemeConfig> = {
     },
   },
 };
-
-/**
- * Get theme configuration for a specific client and variant
- * @param clientId - The client identifier
- * @param variant - Theme variant name (e.g., 'light', 'dark', 'christmas', 'promo-gold')
- * @returns Theme configuration
- */
-export function getClientTheme(clientId: ClientId, variant = 'light'): Theme {
-  const clientThemes = CLIENT_THEMES[clientId];
-  return clientThemes[variant] || CLIENT_THEMES['client1']['light'];
-}
-
-/**
- * Get available variants for a client
- * @param clientId - The client identifier
- * @returns Array of available theme variant names
- */
-export function getAvailableVariants(clientId: ClientId): string[] {
-  const clientThemes = CLIENT_THEMES[clientId];
-  return Object.keys(clientThemes);
-}
-
-/**
- * Apply client theme to document
- * @param clientId - The client identifier
- * @param variant - Theme variant name
- */
-export function applyClientTheme(clientId: ClientId, variant = 'light'): void {
-  const theme = getClientTheme(clientId, variant);
-
-  // Reset previous theme to avoid conflicts
-  resetTheme();
-
-  // Apply new theme
-  createTheme(theme);
-}

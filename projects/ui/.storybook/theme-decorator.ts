@@ -1,16 +1,19 @@
 import type { Decorator, Preview } from '@storybook/angular';
-import { resetTheme } from '@zg/design-tokens';
-import { applyClientTheme, type ClientId } from '../src/themes/client-themes';
+import { applyThemeFromRegistry, resetTheme } from '@zgames/design-tokens';
+import { STORYBOOK_CLIENT_THEMES, type StorybookClientId } from './client-themes';
 
 /**
  * Global theme decorator for Storybook
  */
 export const withTheme: Decorator = (story, context) => {
-  const clientId = (context.globals['client'] as ClientId) || 'client1';
+  const clientId = (context.globals['client'] as StorybookClientId) || 'client1';
   const variant = (context.globals['theme'] as string) || 'light';
 
   if (context.viewMode === 'story') {
-    applyClientTheme(clientId, variant);
+    applyThemeFromRegistry(STORYBOOK_CLIENT_THEMES, clientId, {
+      variant,
+      fallbackClientId: 'client1',
+    });
   } else {
     resetTheme();
   }
