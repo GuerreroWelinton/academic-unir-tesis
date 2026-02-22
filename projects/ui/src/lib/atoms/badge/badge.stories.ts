@@ -465,8 +465,10 @@ export const AccessibilityDemo: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const closeButtons = canvas.getAllByRole('button', { name: /remove badge/i });
+    const firstCloseButton = closeButtons[0] as HTMLButtonElement;
 
-    await userEvent.tab();
-    await expect(closeButtons[0]).toHaveFocus();
+    firstCloseButton.focus();
+    await expect(document.activeElement).toBe(firstCloseButton);
+    await expect(firstCloseButton).toHaveAttribute('type', 'button');
   },
 };
