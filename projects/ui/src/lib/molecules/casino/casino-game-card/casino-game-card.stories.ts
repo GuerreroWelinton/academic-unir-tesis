@@ -125,7 +125,7 @@ export const Default: Story = {
   args: {
     title: 'Aviator',
     provider: 'Spribe',
-    imageUrl: 'https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp',
+    imageUrl: 'https://placehold.co/300x400?text=Aviator',
     ctaLabel: 'Play now',
     disabled: false,
     favorite: false,
@@ -150,16 +150,16 @@ export const Variants: Story = {
           <zg-casino-game-card
             title="Aviator"
             provider="Spribe"
-            imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
+            imageUrl="https://placehold.co/300x400?text=Aviator"
             aspectRatio="portrait"
           ></zg-casino-game-card>
         </div>
         <div>
           <div style="margin-bottom: var(--zg-spacing-2);">Square ratio</div>
           <zg-casino-game-card
-            title="Carnival Treasure"
-            provider="SA Gaming"
-            imageUrl="https://api-casino.zgames.tech/images/aleaplay/square/aviator.webp"
+            title="Aviator"
+            provider="Spribe"
+            imageUrl="https://placehold.co/320x320?text=Aviator"
             aspectRatio="square"
           ></zg-casino-game-card>
         </div>
@@ -178,14 +178,14 @@ export const States: Story = {
         <zg-casino-game-card
           title="Aviator"
           provider="Spribe"
-          imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
+          imageUrl="https://placehold.co/300x400?text=Aviator"
           [favorite]="false"
           favoriteAriaLabel="Toggle favorite"
         ></zg-casino-game-card>
         <zg-casino-game-card
           title="Aviator"
           provider="Spribe"
-          imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
+          imageUrl="https://placehold.co/300x400?text=Aviator"
           [favorite]="true"
           favoriteAriaLabel="Toggle favorite"
         ></zg-casino-game-card>
@@ -262,7 +262,7 @@ export const AccessibilityDemo: Story = {
       <zg-casino-game-card
         title="Aviator"
         provider="Spribe"
-        imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
+        imageUrl="https://placehold.co/300x400?text=Aviator"
         playAriaLabel="Play Aviator game"
         favoriteAriaLabel="Mark Aviator as favorite"
         data-testid="a11y-card"
