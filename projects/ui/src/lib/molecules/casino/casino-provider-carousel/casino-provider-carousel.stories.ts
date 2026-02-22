@@ -76,6 +76,16 @@ const meta: Meta<ZgCasinoProviderCarouselComponent> = {
       description: 'Duration used by autoplay loop animation',
       table: { defaultValue: { summary: '24s' } },
     },
+    logoWidth: {
+      control: 'number',
+      description: 'Intrinsic logo width used by NgOptimizedImage',
+      table: { defaultValue: { summary: '130' } },
+    },
+    logoHeight: {
+      control: 'number',
+      description: 'Intrinsic logo height used by NgOptimizedImage',
+      table: { defaultValue: { summary: '40' } },
+    },
     providerSelected: {
       action: 'providerSelected',
       description: 'Emitted when a provider is clicked',
@@ -87,6 +97,8 @@ const meta: Meta<ZgCasinoProviderCarouselComponent> = {
     ariaLabel: 'Casino providers carousel',
     emptyMessage: 'No providers available',
     animationDuration: '24s',
+    logoWidth: 130,
+    logoHeight: 40,
   },
 };
 

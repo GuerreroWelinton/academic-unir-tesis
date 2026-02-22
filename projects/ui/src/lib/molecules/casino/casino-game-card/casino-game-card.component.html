@@ -3,8 +3,10 @@
     @if (imageUrl()) {
       <img
         class="zg-game-card__image"
-        [src]="imageUrl()"
+        [ngSrc]="imageUrl()"
         [alt]="effectiveImageAlt()"
+        fill
+        sizes="(max-width: 640px) 45vw, 20vw"
         loading="lazy"
       />
     } @else {

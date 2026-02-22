@@ -1,3 +1,4 @@
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
 
 export interface CasinoProviderCarouselItem {
@@ -11,6 +12,7 @@ export interface CasinoProviderCarouselItem {
 @Component({
   selector: 'zg-casino-provider-carousel',
   standalone: true,
+  imports: [NgOptimizedImage],
   templateUrl: './casino-provider-carousel.component.html',
   styleUrl: './casino-provider-carousel.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -24,6 +26,8 @@ export class ZgCasinoProviderCarouselComponent {
   ariaLabel = input<string>('Casino providers carousel');
   emptyMessage = input<string>('No providers available');
   animationDuration = input<string>('24s');
+  logoWidth = input<number>(130);
+  logoHeight = input<number>(40);
 
   providerSelected = output<CasinoProviderCarouselItem>();
 

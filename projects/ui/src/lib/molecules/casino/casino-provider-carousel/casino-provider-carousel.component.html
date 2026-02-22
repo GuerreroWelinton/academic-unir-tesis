@@ -20,8 +20,10 @@
             >
               <img
                 class="zg-casino-provider-carousel__logo"
-                [src]="item.logoUrl"
+                [ngSrc]="item.logoUrl"
                 [alt]="getProviderLogoAlt(item)"
+                [width]="logoWidth()"
+                [height]="logoHeight()"
                 loading="lazy"
               />
               <span class="zg-casino-provider-carousel__name">{{ item.name }}</span>
@@ -35,8 +37,10 @@
               <div class="zg-casino-provider-carousel__item-button" tabindex="-1">
                 <img
                   class="zg-casino-provider-carousel__logo"
-                  [src]="item.logoUrl"
+                  [ngSrc]="item.logoUrl"
                   [alt]=""
+                  [width]="logoWidth()"
+                  [height]="logoHeight()"
                   loading="lazy"
                 />
                 <span class="zg-casino-provider-carousel__name">{{ item.name }}</span>

@@ -44,7 +44,7 @@ const meta: Meta<ZgCasinoGameCardComponent> = {
       const storyObj = story();
       return {
         ...storyObj,
-        template: `<div style="max-width: 220px;">${storyObj.template}</div>`,
+        template: `<div style="max-width: 200px;">${storyObj.template}</div>`,
       };
     },
   ],
@@ -174,7 +174,7 @@ export const States: Story = {
   },
   render: () => ({
     template: `
-      <div style="display: grid; gap: var(--zg-spacing-4); max-width: 220px;">
+      <div style="display: grid; gap: var(--zg-spacing-4); max-width: 200px;">
         <zg-casino-game-card
           title="Aviator"
           provider="Spribe"

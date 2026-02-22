@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, input, output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 export type CasinoGameCardAspectRatio = 'portrait' | 'square';
 export type GameCardAspectRatio = CasinoGameCardAspectRatio;
@@ -7,7 +7,7 @@ export type GameCardAspectRatio = CasinoGameCardAspectRatio;
 @Component({
   selector: 'zg-casino-game-card, zg-game-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './casino-game-card.component.html',
   styleUrl: './casino-game-card.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
