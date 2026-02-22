@@ -39,7 +39,7 @@ export const STORYBOOK_CLIENT_THEMES: ThemeRegistry<StorybookClientId> = {
         neutral900: '#d4fd2b',
       },
       color: {
-        bgPrimary: '#0e0e11',
+        bgPrimary: '#27272a',
         bgSecondary: '#18181b',
         surface: '#18181b',
         textPrimary: '#d4fd2b',

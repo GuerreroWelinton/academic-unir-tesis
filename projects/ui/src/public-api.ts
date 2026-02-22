@@ -20,3 +20,4 @@ export * from './lib/molecules/shared/content-section-header/content-section-hea
 
 // Organisms
 export * from './lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component';
+export * from './lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.component';
