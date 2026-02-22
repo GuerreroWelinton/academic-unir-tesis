@@ -1,0 +1,71 @@
+:host {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--zg-section-title-gap);
+}
+
+.zg-section-title__text {
+  margin: 0;
+  color: var(--zg-section-title-text-color);
+  font-weight: var(--zg-section-title-font-weight);
+  line-height: var(--zg-section-title-line-height);
+  text-transform: uppercase;
+  font-family: var(--zg-section-title-font-family-secondary);
+}
+
+:host([data-font-family='base']) .zg-section-title__text {
+  font-family: var(--zg-section-title-font-family-base);
+}
+
+:host([data-font-family='secondary']) .zg-section-title__text {
+  font-family: var(--zg-section-title-font-family-secondary);
+}
+
+:host([data-tone='primary']) .zg-section-title__text {
+  color: var(--zg-section-title-text-color-primary);
+}
+
+:host([data-tone='success']) .zg-section-title__text {
+  color: var(--zg-section-title-text-color-success);
+}
+
+:host([data-size='sm']) .zg-section-title__text {
+  font-size: var(--zg-section-title-font-size-sm);
+}
+
+:host([data-size='md']) .zg-section-title__text {
+  font-size: var(--zg-section-title-font-size-md);
+}
+
+:host([data-size='lg']) .zg-section-title__text {
+  font-size: var(--zg-section-title-font-size-lg);
+}
+
+.zg-section-title__accent {
+  display: flex;
+  align-items: center;
+  gap: var(--zg-section-title-accent-gap);
+}
+
+.zg-section-title__accent-base {
+  width: var(--zg-section-title-accent-segment-width);
+  height: var(--zg-section-title-accent-height);
+  background-color: var(--zg-section-title-text-color-primary);
+}
+
+.zg-section-title__accent-warning {
+  width: var(--zg-section-title-accent-segment-width);
+  height: var(--zg-section-title-accent-height);
+  background-color: var(--zg-section-title-accent-warning-color);
+}
+
+.zg-section-title__accent-success,
+.zg-section-title__accent-success-2 {
+  width: var(--zg-section-title-accent-segment-width);
+  height: var(--zg-section-title-accent-height);
+  background-color: var(--zg-section-title-accent-success-color);
+}
+
+.zg-section-title__accent-success-2 {
+  background-color: var(--zg-section-title-accent-base-color);
+}

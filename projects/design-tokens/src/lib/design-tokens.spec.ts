@@ -25,6 +25,7 @@ describe('DesignTokens', () => {
     expect(DesignTokens.color.primary).toBe('--zg-color-primary');
     expect(DesignTokens.spacing[4]).toBe('--zg-spacing-4');
     expect(DesignTokens.radius.base).toBe('--zg-radius-base');
+    expect(DesignTokens.sectionTitle.fontSizeMd).toBe('--zg-section-title-font-size-md');
     expect(DesignTokens.casinoGameCard.bg).toBe('--zg-casino-game-card-bg');
     expect(DesignTokens.gameCard.bg).toBe('--zg-casino-game-card-bg');
   });
@@ -69,6 +70,7 @@ describe('DesignTokens', () => {
       input: { bg: '#f5f5f5' },
       badge: { bgPrimary: '#333333' },
       chip: { bgFilled: '#444444' },
+      sectionTitle: { textColorPrimary: '#118811' },
       casinoGameCard: { focusRingColor: '#33ff33' },
     });
 
@@ -84,6 +86,7 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.input.bg)).toBe('#f5f5f5');
     expect(getTokenValue(DesignTokens.badge.bgPrimary)).toBe('#333333');
     expect(getTokenValue(DesignTokens.chip.bgFilled)).toBe('#444444');
+    expect(getTokenValue(DesignTokens.sectionTitle.textColorPrimary)).toBe('#118811');
     expect(getTokenValue(DesignTokens.casinoGameCard.focusRingColor)).toBe('#33ff33');
   });
 

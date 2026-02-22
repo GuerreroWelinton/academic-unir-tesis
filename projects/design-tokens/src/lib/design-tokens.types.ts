@@ -6,6 +6,7 @@ import type {
   colorTokens,
   inputTokens,
   radiusTokens,
+  sectionTitleTokens,
   shadowTokens,
   spacingTokens,
   transitionTokens,
@@ -91,6 +92,7 @@ export type InputTokens = TokenOverrides<typeof inputTokens>;
 export type BadgeTokens = TokenOverrides<typeof badgeTokens>;
 export type ChipTokens = TokenOverrides<typeof chipTokens>;
 export type CasinoGameCardTokens = TokenOverrides<typeof casinoGameCardTokens>;
+export type SectionTitleTokens = TokenOverrides<typeof sectionTitleTokens>;
 
 export interface Theme {
   primitives?: PrimitiveTokens;
@@ -106,6 +108,7 @@ export interface Theme {
   badge?: BadgeTokens;
   chip?: ChipTokens;
   casinoGameCard?: CasinoGameCardTokens;
+  sectionTitle?: SectionTitleTokens;
 }
 
 export type ThemeRegistry<TClient extends string = string> = Record<TClient, Record<string, Theme>>;
