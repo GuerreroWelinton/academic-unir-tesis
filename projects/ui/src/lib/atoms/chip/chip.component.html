@@ -17,7 +17,7 @@
     @if (text()) {
       {{ text() }}
     } @else {
-      <ng-content></ng-content>
+      <ng-content select=":not([icon-left]):not([icon-right])"></ng-content>
     }
   </span>
 
