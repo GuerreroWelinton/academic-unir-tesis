@@ -16,6 +16,24 @@ const sampleItems: CategoryFilterTabItem[] = [
   { id: 'crash', label: 'Crash' },
 ];
 
+/**
+ * Category Filter Tabs for section-level navigation and filtering.
+ *
+ * ## Usage Guide
+ * **When to use:**
+ * - Horizontal category switching (casino, sports, providers, etc.).
+ * - Controlled selection flows with `selectedId` + `selectedIdChange`.
+ * - Simple filter bars where container handles data/query logic.
+ *
+ * **When NOT to use:**
+ * - As a router/navigation replacement with page-level side effects.
+ * - For complex multi-select filtering with domain logic in the component.
+ *
+ * ## Accessibility
+ * - Uses native `button` semantics via `zg-chip` for keyboard and focus behavior.
+ * - Supports disabled state per item and globally.
+ * - Exposes group label through `ariaLabel` on the wrapping `nav`.
+ */
 const meta: Meta<ZgCategoryFilterTabsComponent> = {
   title: 'Molecules/Shared/Category Filter Tabs',
   component: ZgCategoryFilterTabsComponent,
@@ -92,7 +110,7 @@ export const Default: Story = {
   },
 };
 
-export const VariantStyles: Story = {
+export const Variants: Story = {
   parameters: {
     controls: { disable: true },
   },
@@ -119,7 +137,7 @@ export const VariantStyles: Story = {
   }),
 };
 
-export const WithDisabledItems: Story = {
+export const States: Story = {
   args: {
     items: [
       { id: 'all', label: 'All games' },
@@ -139,7 +157,7 @@ export const WithDisabledItems: Story = {
   },
 };
 
-export const WithIconTemplates: Story = {
+export const Composition: Story = {
   parameters: {
     controls: { disable: true },
   },

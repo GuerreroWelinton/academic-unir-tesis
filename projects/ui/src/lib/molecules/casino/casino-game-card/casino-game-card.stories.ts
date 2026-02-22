@@ -7,15 +7,17 @@ import { lucideHeart, lucidePlay } from '@ng-icons/lucide';
 import { ZgCasinoGameCardComponent } from './casino-game-card.component';
 
 /**
- * Game card molecule for catalog and lobby scenarios.
- *
- * ## Purpose
- * - Display game image, title, provider, and primary call to action.
- * - Support favorite toggle and projected slots for badge and icons.
+ * Casino game card for lobby/catalog scenarios.
  *
  * ## Usage Guide
- * - Handle outputs (`playClicked`, `favoriteClicked`) in a container.
- * - Keep business rules (auth, feature flags, limits) outside this component.
+ * **When to use:**
+ * - Showing game thumbnails in catalog/grid sections.
+ * - Exposing primary action (`playClicked`) and optional favorite toggle.
+ * - Composing badges/icons through projected slots.
+ *
+ * **When NOT to use:**
+ * - For non-game cards or generic product cards without casino semantics.
+ * - For business-rule orchestration (auth, limits, segmentation). Keep that in containers.
  *
  * ## Accessibility
  * - Uses native `button` elements for actions.
@@ -135,37 +137,8 @@ export const Default: Story = {
   },
 };
 
-export const Favorite: Story = {
-  args: {
-    ...Default.args,
-    favorite: true,
-  },
-  parameters: {
-    controls: { disable: true },
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const favoriteButton = canvas.getByRole('button', { name: /toggle favorite/i });
-    await expect(favoriteButton).toHaveAttribute('aria-pressed', 'true');
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    ...Default.args,
-    disabled: true,
-  },
-  parameters: {
-    controls: { disable: true },
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    await expect(canvas.getByRole('button', { name: /play game/i })).toBeDisabled();
-    await expect(canvas.getByRole('button', { name: /toggle favorite/i })).toBeDisabled();
-  },
-};
-
-export const AspectRatios: Story = {
+export const Variants: Story = {
+  name: 'Variants (Aspect Ratios)',
   parameters: {
     controls: { disable: true },
   },
@@ -193,6 +166,53 @@ export const AspectRatios: Story = {
       </div>
     `,
   }),
+};
+
+export const States: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => ({
+    template: `
+      <div style="display: grid; gap: var(--zg-spacing-4); max-width: 220px;">
+        <zg-casino-game-card
+          title="Aviator"
+          provider="Spribe"
+          imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
+          [favorite]="false"
+          favoriteAriaLabel="Toggle favorite"
+        ></zg-casino-game-card>
+        <zg-casino-game-card
+          title="Aviator"
+          provider="Spribe"
+          imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
+          [favorite]="true"
+          favoriteAriaLabel="Toggle favorite"
+        ></zg-casino-game-card>
+      </div>
+    `,
+  }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const favoriteButtons = canvas.getAllByRole('button', { name: /toggle favorite/i });
+    await expect(favoriteButtons[0]).toHaveAttribute('aria-pressed', 'false');
+    await expect(favoriteButtons[1]).toHaveAttribute('aria-pressed', 'true');
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    ...Default.args,
+    disabled: true,
+  },
+  parameters: {
+    controls: { disable: true },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await expect(canvas.getByRole('button', { name: /play game/i })).toBeDisabled();
+    await expect(canvas.getByRole('button', { name: /toggle favorite/i })).toBeDisabled();
+  },
 };
 
 export const Composition: Story = {
