@@ -82,6 +82,12 @@ const meta: Meta<ZgCategoryFilterTabsComponent> = {
       description: 'Accessible label for tab group',
       table: { defaultValue: { summary: 'Category filters' } },
     },
+    layoutMode: {
+      control: 'select',
+      options: ['scroll', 'wrap'],
+      description: 'Layout behavior for the tabs row',
+      table: { defaultValue: { summary: 'scroll' } },
+    },
     selectedIdChange: {
       action: 'selectedIdChange',
       description: 'Emitted when selected category changes',
@@ -107,6 +113,7 @@ export const Default: Story = {
     chipSize: 'md',
     disabled: false,
     ariaLabel: 'Casino categories',
+    layoutMode: 'scroll',
   },
 };
 

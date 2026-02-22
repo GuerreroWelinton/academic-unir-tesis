@@ -17,3 +17,6 @@ export * from './lib/molecules/shared/category-filter-tabs/category-filter-tabs.
 export * from './lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.component';
 export * from './lib/molecules/shared/section-actions/section-actions.component';
 export * from './lib/molecules/shared/content-section-header/content-section-header.component';
+
+// Organisms
+export * from './lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component';
