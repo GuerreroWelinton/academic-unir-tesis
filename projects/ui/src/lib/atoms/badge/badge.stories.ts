@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { expect } from '@storybook/jest';
 import { userEvent, within } from '@storybook/testing-library';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { lucideAlertCircle, lucideBell, lucideCheck, lucideInfo } from '@ng-icons/lucide';
 import { ZgBadgeComponent } from './badge.component';
 
 /**
@@ -21,13 +24,13 @@ import { ZgBadgeComponent } from './badge.component';
  * - As form validation (use input error state)
  *
  * ## Accessibility
- * - ✅ role="status" for screen readers
- * - ✅ Close button with aria-label
- * - ✅ Keyboard navigation for removable badges
- * - ✅ Focus visible states on close button
- * - ✅ Sufficient color contrast (WCAG AA)
- * - 💡 Use descriptive text (avoid single letters)
- * - 💡 Provide context for screen readers when needed
+ * - role="status" for screen readers
+ * - Close button with aria-label
+ * - Keyboard navigation for removable badges
+ * - Focus visible states on close button
+ * - Sufficient color contrast (WCAG AA)
+ * - Use descriptive text (avoid single letters)
+ * - Provide context for screen readers when needed
  */
 const meta: Meta<ZgBadgeComponent> = {
   title: 'Atoms/Badge',
@@ -40,6 +43,12 @@ const meta: Meta<ZgBadgeComponent> = {
       },
     },
   },
+  decorators: [
+    moduleMetadata({
+      imports: [NgIconComponent],
+      providers: [provideIcons({ lucideBell, lucideCheck, lucideAlertCircle, lucideInfo })],
+    }),
+  ],
   argTypes: {
     variant: {
       control: 'select',
@@ -129,9 +138,12 @@ export const Default: Story = {
  */
 export const Variants: Story = {
   name: 'Variants',
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+      <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-3); align-items: center; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">
         <zg-badge variant="primary" text="Primary"></zg-badge>
         <zg-badge variant="secondary" text="Secondary"></zg-badge>
         <zg-badge variant="success" text="Success"></zg-badge>
@@ -149,28 +161,15 @@ export const Variants: Story = {
  */
 export const Sizes: Story = {
   name: 'Sizes',
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+      <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-3); align-items: center; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">
         <zg-badge size="sm" variant="primary" text="Small"></zg-badge>
         <zg-badge size="md" variant="primary" text="Medium"></zg-badge>
         <zg-badge size="lg" variant="primary" text="Large"></zg-badge>
-      </div>
-    `,
-  }),
-};
-
-/**
- * All shape variants (default, pill, square)
- */
-export const Shapes: Story = {
-  name: 'Shapes',
-  render: () => ({
-    template: `
-      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-        <zg-badge shape="default" variant="info" text="Default"></zg-badge>
-        <zg-badge shape="pill" variant="info" text="Pill"></zg-badge>
-        <zg-badge shape="square" variant="info" text="Square"></zg-badge>
       </div>
     `,
   }),
@@ -181,9 +180,12 @@ export const Shapes: Story = {
  */
 export const Removable: Story = {
   name: 'Removable',
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+      <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-3); align-items: center; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">
         <zg-badge variant="primary" text="Tag 1" [removable]="true" data-testid="badge-1"></zg-badge>
         <zg-badge variant="success" text="Category" [removable]="true" data-testid="badge-2"></zg-badge>
         <zg-badge variant="info" text="Filter" [removable]="true" data-testid="badge-3"></zg-badge>
@@ -203,9 +205,6 @@ export const Removable: Story = {
     const closeButtons = canvas.getAllByRole('button', { name: /remove badge/i });
     await expect(closeButtons).toHaveLength(4);
 
-    // Wait a moment
-    await new Promise((resolve) => setTimeout(resolve, 300));
-
     // Click first close button
     await userEvent.click(closeButtons[0]);
   },
@@ -216,33 +215,73 @@ export const Removable: Story = {
  */
 export const DotMode: Story = {
   name: 'Dot Mode',
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: center;">
-        <div style="position: relative; display: inline-block;">
-          <span style="font-size: 24px;">🔔</span>
-          <zg-badge variant="error" [dot]="true" style="position: absolute; top: 0; right: -8px;" data-testid="dot-badge-1"></zg-badge>
+      <div
+        style="display: grid; gap: var(--zg-spacing-4); max-width: 44rem; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);"
+      >
+        <div style="display: flex; gap: var(--zg-spacing-3); flex-wrap: wrap;">
+          <div
+            style="position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 6rem; height: 2.25rem; padding: 0 var(--zg-spacing-3); border-radius: var(--zg-radius-md); background: var(--zg-color-surface-alt); border: 1px solid var(--zg-color-border);"
+          >
+            Alerts
+            <zg-badge
+              variant="error"
+              [dot]="true"
+              style="position: absolute; top: -0.25rem; right: -0.25rem;"
+              data-testid="dot-badge-1"
+            ></zg-badge>
+          </div>
+
+          <div
+            style="position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 6rem; height: 2.25rem; padding: 0 var(--zg-spacing-3); border-radius: var(--zg-radius-md); background: var(--zg-color-surface-alt); border: 1px solid var(--zg-color-border);"
+          >
+            Messages
+            <zg-badge
+              variant="success"
+              [dot]="true"
+              style="position: absolute; top: -0.25rem; right: -0.25rem;"
+              data-testid="dot-badge-2"
+            ></zg-badge>
+          </div>
         </div>
 
-        <div style="position: relative; display: inline-block; padding: 8px 16px; background: #f0f0f0; border-radius: 8px;">
-          <span>Messages</span>
-          <zg-badge variant="primary" [dot]="true" style="position: absolute; top: 4px; right: 4px;" data-testid="dot-badge-2"></zg-badge>
+        <div style="display: flex; align-items: center; gap: var(--zg-spacing-3); flex-wrap: wrap;">
+          <span style="font-weight: var(--zg-font-weight-medium); min-width: 5.5rem;">Dot sizes</span>
+          <div style="display: inline-flex; align-items: center; gap: var(--zg-spacing-2); padding: var(--zg-spacing-2) var(--zg-spacing-3); border-radius: var(--zg-radius-md); background: var(--zg-color-bg-secondary);">
+            <zg-badge variant="success" size="sm" [dot]="true"></zg-badge>
+            <zg-badge variant="success" size="md" [dot]="true"></zg-badge>
+            <zg-badge variant="success" size="lg" [dot]="true"></zg-badge>
+          </div>
         </div>
 
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <span style="font-weight: 500;">Dot sizes:</span>
-          <zg-badge variant="success" size="sm" [dot]="true"></zg-badge>
-          <zg-badge variant="success" size="md" [dot]="true"></zg-badge>
-          <zg-badge variant="success" size="lg" [dot]="true"></zg-badge>
-        </div>
-
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <span style="font-weight: 500;">All variants:</span>
-          <zg-badge variant="primary" [dot]="true"></zg-badge>
-          <zg-badge variant="success" [dot]="true"></zg-badge>
-          <zg-badge variant="warning" [dot]="true"></zg-badge>
-          <zg-badge variant="error" [dot]="true"></zg-badge>
-          <zg-badge variant="info" [dot]="true"></zg-badge>
+        <div style="display: flex; align-items: center; gap: var(--zg-spacing-3); flex-wrap: wrap;">
+          <span style="font-weight: var(--zg-font-weight-medium); min-width: 5.5rem;">Variants</span>
+          <div style="display: inline-flex; align-items: center; gap: var(--zg-spacing-3); padding: var(--zg-spacing-2) var(--zg-spacing-3); border-radius: var(--zg-radius-md); background: var(--zg-color-bg-secondary);">
+            <div style="display: inline-flex; align-items: center; gap: var(--zg-spacing-1);">
+              <zg-badge variant="primary" [dot]="true"></zg-badge>
+              <span style="font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">Primary</span>
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: var(--zg-spacing-1);">
+              <zg-badge variant="success" [dot]="true"></zg-badge>
+              <span style="font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">Success</span>
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: var(--zg-spacing-1);">
+              <zg-badge variant="warning" [dot]="true"></zg-badge>
+              <span style="font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">Warning</span>
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: var(--zg-spacing-1);">
+              <zg-badge variant="error" [dot]="true"></zg-badge>
+              <span style="font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">Error</span>
+            </div>
+            <div style="display: inline-flex; align-items: center; gap: var(--zg-spacing-1);">
+              <zg-badge variant="info" [dot]="true"></zg-badge>
+              <span style="font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">Info</span>
+            </div>
+          </div>
         </div>
       </div>
     `,
@@ -267,33 +306,36 @@ export const DotMode: Story = {
  */
 export const NumericWithMax: Story = {
   name: 'Numeric with Max',
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; flex-direction: column; gap: 24px;">
-        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-          <span style="font-weight: 500; min-width: 120px;">Below max:</span>
+      <div style="display: flex; flex-direction: column; gap: var(--zg-spacing-6); font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">
+        <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-3); align-items: center;">
+          <span style="font-weight: var(--zg-font-weight-medium); min-width: 7.5rem;">Below max:</span>
           <zg-badge variant="error" text="5" [max]="99" data-testid="badge-5"></zg-badge>
           <zg-badge variant="error" text="42" [max]="99"></zg-badge>
           <zg-badge variant="error" text="99" [max]="99" data-testid="badge-99"></zg-badge>
         </div>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-          <span style="font-weight: 500; min-width: 120px;">Above max (99+):</span>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-3); align-items: center;">
+          <span style="font-weight: var(--zg-font-weight-medium); min-width: 7.5rem;">Above max (99+):</span>
           <zg-badge variant="error" text="100" [max]="99" data-testid="badge-100"></zg-badge>
           <zg-badge variant="error" text="250" [max]="99" data-testid="badge-250"></zg-badge>
           <zg-badge variant="error" text="1000" [max]="99"></zg-badge>
         </div>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-          <span style="font-weight: 500; min-width: 120px;">Different max (9+):</span>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-3); align-items: center;">
+          <span style="font-weight: var(--zg-font-weight-medium); min-width: 7.5rem;">Different max (9+):</span>
           <zg-badge variant="primary" text="8" [max]="9"></zg-badge>
           <zg-badge variant="primary" text="9" [max]="9"></zg-badge>
           <zg-badge variant="primary" text="10" [max]="9" data-testid="badge-10-max9"></zg-badge>
           <zg-badge variant="primary" text="50" [max]="9"></zg-badge>
         </div>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-          <span style="font-weight: 500; min-width: 120px;">No max limit:</span>
+        <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-3); align-items: center;">
+          <span style="font-weight: var(--zg-font-weight-medium); min-width: 7.5rem;">No max limit:</span>
           <zg-badge variant="success" text="150"></zg-badge>
           <zg-badge variant="success" text="999"></zg-badge>
           <zg-badge variant="success" text="10000"></zg-badge>
@@ -326,59 +368,48 @@ export const NumericWithMax: Story = {
 };
 
 /**
- * Status indicators for common use cases
- */
-export const StatusIndicators: Story = {
-  name: 'Status Indicators',
-  render: () => ({
-    template: `
-      <div style="display: flex; flex-direction: column; gap: 16px;">
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="min-width: 100px;">New content:</span>
-          <zg-badge variant="primary" text="New" size="sm"></zg-badge>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="min-width: 100px;">Active status:</span>
-          <zg-badge variant="success" text="Active" size="sm"></zg-badge>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="min-width: 100px;">Pending:</span>
-          <zg-badge variant="warning" text="Pending" size="sm"></zg-badge>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="min-width: 100px;">Error state:</span>
-          <zg-badge variant="error" text="Error" size="sm"></zg-badge>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="min-width: 100px;">Info:</span>
-          <zg-badge variant="info" text="Beta" size="sm"></zg-badge>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 12px;">
-          <span style="min-width: 100px;">Neutral:</span>
-          <zg-badge variant="neutral" text="Draft" size="sm"></zg-badge>
-        </div>
-      </div>
-    `,
-  }),
-};
-
-/**
  * Badge composition with ng-content
  */
-export const WithContent: Story = {
-  name: 'With ng-content',
+export const Composition: Story = {
+  name: 'Composition',
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-        <zg-badge variant="primary">Custom Content</zg-badge>
-        <zg-badge variant="success">✓ Verified</zg-badge>
-        <zg-badge variant="error">⚠ Alert</zg-badge>
-        <zg-badge variant="info">ℹ Info</zg-badge>
+      <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-3); align-items: center; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">
+        <zg-badge variant="primary">
+          <span style="display: inline-flex; align-items: center; gap: var(--zg-spacing-1);">
+            <ng-icon name="lucideBell" size="0.875rem" aria-hidden="true"></ng-icon>
+            Updates
+          </span>
+        </zg-badge>
+        <zg-badge variant="success">
+          <span style="display: inline-flex; align-items: center; gap: var(--zg-spacing-1);">
+            <ng-icon name="lucideCheck" size="0.875rem" aria-hidden="true"></ng-icon>
+            Verified
+          </span>
+        </zg-badge>
+        <zg-badge variant="error">
+          <span style="display: inline-flex; align-items: center; gap: var(--zg-spacing-1);">
+            <ng-icon name="lucideAlertCircle" size="0.875rem" aria-hidden="true"></ng-icon>
+            Alert
+          </span>
+        </zg-badge>
+        <zg-badge variant="info">
+          <span style="display: inline-flex; align-items: center; gap: var(--zg-spacing-1);">
+            <ng-icon name="lucideInfo" size="0.875rem" aria-hidden="true"></ng-icon>
+            Info
+          </span>
+        </zg-badge>
+        <zg-badge variant="warning" text="Closable" [removable]="true">
+          <ng-icon
+            remove-icon
+            name="lucideAlertCircle"
+            size="0.75rem"
+            aria-hidden="true"
+          ></ng-icon>
+        </zg-badge>
       </div>
     `,
   }),
@@ -389,14 +420,17 @@ export const WithContent: Story = {
  */
 export const AccessibilityDemo: Story = {
   name: 'Accessibility Demo',
+  parameters: {
+    controls: { disable: true },
+  },
   render: () => ({
     template: `
-      <div style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: var(--zg-spacing-6); font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary);">
         <div>
-          <h3 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600;">
+          <h3 style="margin: 0 0 var(--zg-spacing-3) 0; font-size: var(--zg-font-size-sm); font-weight: var(--zg-font-weight-medium); color: var(--zg-color-text-primary);">
             Keyboard Navigation (Tab through removable badges)
           </h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-2);">
             <zg-badge variant="primary" text="Tag 1" [removable]="true"></zg-badge>
             <zg-badge variant="success" text="Tag 2" [removable]="true"></zg-badge>
             <zg-badge variant="info" text="Tag 3" [removable]="true"></zg-badge>
@@ -404,10 +438,10 @@ export const AccessibilityDemo: Story = {
         </div>
 
         <div>
-          <h3 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600;">
+          <h3 style="margin: 0 0 var(--zg-spacing-3) 0; font-size: var(--zg-font-size-sm); font-weight: var(--zg-font-weight-medium); color: var(--zg-color-text-primary);">
             Color Contrast (WCAG AA Compliant)
           </h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-2);">
             <zg-badge variant="primary" text="4.5:1"></zg-badge>
             <zg-badge variant="success" text="4.5:1"></zg-badge>
             <zg-badge variant="error" text="4.5:1"></zg-badge>
@@ -416,10 +450,10 @@ export const AccessibilityDemo: Story = {
         </div>
 
         <div>
-          <h3 style="margin: 0 0 12px 0; font-size: 14px; font-weight: 600;">
+          <h3 style="margin: 0 0 var(--zg-spacing-3) 0; font-size: var(--zg-font-size-sm); font-weight: var(--zg-font-weight-medium); color: var(--zg-color-text-primary);">
             Screen Reader Support (role="status")
           </h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; flex-wrap: wrap; gap: var(--zg-spacing-2);">
             <zg-badge variant="success" text="Payment Successful"></zg-badge>
             <zg-badge variant="error" text="Action Required"></zg-badge>
             <zg-badge variant="info" text="New Message"></zg-badge>
@@ -428,4 +462,11 @@ export const AccessibilityDemo: Story = {
       </div>
     `,
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const closeButtons = canvas.getAllByRole('button', { name: /remove badge/i });
+
+    await userEvent.tab();
+    await expect(closeButtons[0]).toHaveFocus();
+  },
 };
