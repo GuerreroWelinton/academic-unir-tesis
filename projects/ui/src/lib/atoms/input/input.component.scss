@@ -41,6 +41,10 @@
   font-family: var(--zg-input-font-family);
 }
 
+.zg-input__field::placeholder {
+  color: var(--zg-input-placeholder-color);
+}
+
 .zg-input__clear {
   background: none;
   border: none;
@@ -95,6 +99,10 @@
   color: var(--zg-input-color-disabled);
 }
 
+:host(.zg-input--disabled) .zg-input__field {
+  color: var(--zg-input-color-disabled);
+}
+
 :host(.zg-input--focused) .zg-input__wrapper {
   border-color: var(--zg-input-border-focused);
   box-shadow: 0 0 0 var(--zg-input-focus-ring-width) var(--zg-input-focus-ring);
@@ -108,6 +116,7 @@
 }
 :host([data-size='lg']) .zg-input__wrapper {
   min-height: var(--zg-input-height-lg);
+  padding: 0 var(--zg-input-padding-x-lg);
   font-size: var(--zg-input-font-size-lg);
 }
 
@@ -120,6 +129,9 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  color: var(--zg-input-icon-color);
+  font-size: var(--zg-input-icon-size);
+  line-height: 1;
 
   &:empty {
     display: none;
@@ -132,13 +144,5 @@
 
   &--right {
     order: 1; // Aparece después del input
-  }
-
-  // Icon sizing (SVG/img)
-  ::ng-deep svg,
-  ::ng-deep img {
-    width: 1em;
-    height: 1em;
-    display: block;
   }
 }

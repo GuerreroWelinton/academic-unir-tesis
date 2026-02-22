@@ -1,7 +1,16 @@
-import { ChangeDetectionStrategy, Component, computed, input, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export type InputSize = 'sm' | 'md' | 'lg';
+export type InputType = 'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
 let nextInputId = 0;
 
 @Component({
@@ -27,7 +36,7 @@ export class ZgInputComponent {
   public readonly helperId = `${this.id}-helper`;
 
   /** Input type */
-  type = input<string>('text');
+  type = input<InputType>('text');
 
   /** Input value */
   value = input<string>('');
@@ -76,6 +85,7 @@ export class ZgInputComponent {
 
   /** Internal: is focused */
   protected isFocused = signal(false);
+  protected internalValue = signal('');
 
   /** Host classes */
   protected hostClasses = computed(() => {
@@ -97,9 +107,27 @@ export class ZgInputComponent {
     return null;
   });
 
+  protected showClearButton = computed(() => {
+    return !this.readonly() && !this.disabled() && this.internalValue().length > 0;
+  });
+
+  protected inputAriaLabel = computed(() => {
+    if (this.label().trim()) {
+      return null;
+    }
+    return this.placeholder().trim() || 'Input field';
+  });
+
+  constructor() {
+    effect(() => {
+      this.internalValue.set(this.value());
+    });
+  }
+
   /** Handle input event */
   protected onInput(event: Event) {
     const target = event.target as HTMLInputElement;
+    this.internalValue.set(target.value);
     this.changed.emit(target.value);
   }
 
@@ -117,6 +145,7 @@ export class ZgInputComponent {
 
   /** Handle clear button click */
   protected onClear() {
+    this.internalValue.set('');
     this.cleared.emit();
     this.changed.emit('');
   }

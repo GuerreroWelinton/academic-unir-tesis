@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/angular';
+import { moduleMetadata } from '@storybook/angular';
 import { expect } from '@storybook/jest';
 import { within } from '@storybook/testing-library';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { lucideHeart, lucidePlay } from '@ng-icons/lucide';
 import { ZgGameCardComponent } from './game-card.component';
 
 /**
@@ -8,10 +11,10 @@ import { ZgGameCardComponent } from './game-card.component';
  *
  * ## Purpose
  * - Display game image, title, provider, and primary call to action.
- * - Support favorite toggle and projected slots for badge/icons.
+ * - Support favorite toggle and projected slots for badge and icons.
  *
  * ## Usage Guide
- * - Use `playClicked` and `favoriteClicked` outputs in a container.
+ * - Handle outputs (`playClicked`, `favoriteClicked`) in a container.
  * - Keep business rules (auth, feature flags, limits) outside this component.
  *
  * ## Accessibility
@@ -31,10 +34,17 @@ const meta: Meta<ZgGameCardComponent> = {
     },
   },
   decorators: [
-    (story) => ({
-      ...story(),
-      template: `<div style="max-width: 220px;">${story().template}</div>`,
+    moduleMetadata({
+      imports: [NgIconComponent],
+      providers: [provideIcons({ lucideHeart, lucidePlay })],
     }),
+    (story) => {
+      const storyObj = story();
+      return {
+        ...storyObj,
+        template: `<div style="max-width: 220px;">${storyObj.template}</div>`,
+      };
+    },
   ],
   argTypes: {
     title: {
@@ -54,7 +64,7 @@ const meta: Meta<ZgGameCardComponent> = {
     },
     imageAlt: {
       control: 'text',
-      description: 'Alternative text for the image',
+      description: 'Alternative text for image',
       table: { defaultValue: { summary: '' } },
     },
     ctaLabel: {
@@ -74,7 +84,7 @@ const meta: Meta<ZgGameCardComponent> = {
     },
     showFavorite: {
       control: 'boolean',
-      description: 'Shows or hides the favorite button',
+      description: 'Show or hide favorite button',
       table: { defaultValue: { summary: 'true' } },
     },
     aspectRatio: {
@@ -130,6 +140,9 @@ export const Favorite: Story = {
     ...Default.args,
     favorite: true,
   },
+  parameters: {
+    controls: { disable: true },
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const favoriteButton = canvas.getByRole('button', { name: /toggle favorite/i });
@@ -142,6 +155,9 @@ export const Disabled: Story = {
     ...Default.args,
     disabled: true,
   },
+  parameters: {
+    controls: { disable: true },
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     await expect(canvas.getByRole('button', { name: /play game/i })).toBeDisabled();
@@ -149,17 +165,40 @@ export const Disabled: Story = {
   },
 };
 
-export const SquareRatio: Story = {
-  args: {
-    ...Default.args,
-    imageUrl: 'https://api-casino.zgames.tech/images/aleaplay/square/aviator.webp',
-    title: 'Carnival Treasure',
-    provider: 'SA Gaming',
-    aspectRatio: 'square',
+export const AspectRatios: Story = {
+  parameters: {
+    controls: { disable: true },
   },
+  render: () => ({
+    template: `
+      <div style="display: grid; gap: var(--zg-spacing-4); font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <div>
+          <div style="margin-bottom: var(--zg-spacing-2);">Portrait ratio</div>
+          <zg-game-card
+            title="Aviator"
+            provider="Spribe"
+            imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
+            aspectRatio="portrait"
+          ></zg-game-card>
+        </div>
+        <div>
+          <div style="margin-bottom: var(--zg-spacing-2);">Square ratio</div>
+          <zg-game-card
+            title="Carnival Treasure"
+            provider="SA Gaming"
+            imageUrl="https://api-casino.zgames.tech/images/aleaplay/square/aviator.webp"
+            aspectRatio="square"
+          ></zg-game-card>
+        </div>
+      </div>
+    `,
+  }),
 };
 
-export const WithSlots: Story = {
+export const Composition: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
   render: (args) => ({
     props: args,
     template: `
@@ -177,13 +216,14 @@ export const WithSlots: Story = {
             border-radius: var(--zg-radius-full);
             background: var(--zg-color-bg-dark);
             color: var(--zg-color-text-inverse);
-            font-size: var(--zg-font-size-xs);
+            font-size: var(--zg-font-size-sm);
+            font-weight: var(--zg-font-weight-medium);
           "
         >
           Top 10
         </span>
-        <span favorite-icon aria-hidden="true">★</span>
-        <span play-icon aria-hidden="true">▶</span>
+        <ng-icon favorite-icon name="lucideHeart" size="1rem" aria-hidden="true"></ng-icon>
+        <ng-icon play-icon name="lucidePlay" size="1rem" aria-hidden="true"></ng-icon>
       </zg-game-card>
     `,
   }),
@@ -192,9 +232,29 @@ export const WithSlots: Story = {
   },
 };
 
-export const WithoutFavorite: Story = {
-  args: {
-    ...Default.args,
-    showFavorite: false,
+export const AccessibilityDemo: Story = {
+  name: 'Accessibility Demo',
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => ({
+    template: `
+      <zg-game-card
+        title="Aviator"
+        provider="Spribe"
+        imageUrl="https://api-casino.zgames.tech/images/aleaplay/vertical/aviator.webp"
+        playAriaLabel="Play Aviator game"
+        favoriteAriaLabel="Mark Aviator as favorite"
+        data-testid="a11y-card"
+      ></zg-game-card>
+    `,
+  }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const playButton = canvas.getByRole('button', { name: /play aviator game/i });
+    const favoriteButton = canvas.getByRole('button', { name: /mark aviator as favorite/i });
+
+    await expect(playButton).toHaveAttribute('type', 'button');
+    await expect(favoriteButton).toHaveAttribute('aria-pressed', 'false');
   },
 };

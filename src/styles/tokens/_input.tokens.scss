@@ -19,6 +19,7 @@
   --zg-input-font-family: var(--zg-font-family-base);
   --zg-input-color: var(--zg-color-text-primary);
   --zg-input-color-disabled: var(--zg-color-text-disabled);
+  --zg-input-placeholder-color: var(--zg-color-text-secondary);
 
   --zg-input-padding-x-sm: var(--zg-spacing-2);
   --zg-input-padding-x-md: var(--zg-spacing-4);
@@ -31,6 +32,8 @@
 
   --zg-input-clear-color: var(--zg-color-text-secondary);
   --zg-input-clear-padding: var(--zg-spacing-2);
+  --zg-input-icon-color: var(--zg-color-text-secondary);
+  --zg-input-icon-size: 1rem;
 
   --zg-input-error-color: var(--zg-color-error);
   --zg-input-error-font-size: var(--zg-font-size-sm);
