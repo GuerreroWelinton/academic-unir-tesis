@@ -5,6 +5,7 @@ import type {
   ChipTokens,
   ContentSectionHeaderTokens,
   InputTokens,
+  LuckyPickerTokens,
   PrimitiveTokens,
   RadiusTokens,
   SemanticColorTokens,
@@ -27,6 +28,7 @@ import {
   colorTokens,
   contentSectionHeaderTokens,
   inputTokens,
+  luckyPickerTokens,
   radiusTokens,
   sectionActionsTokens,
   sectionTitleTokens,
@@ -54,6 +56,7 @@ export const DesignTokens = {
   sectionActions: sectionActionsTokens,
   contentSectionHeader: contentSectionHeaderTokens,
   casinoGameCard: casinoGameCardTokens,
+  luckyPicker: luckyPickerTokens,
   gameCard: casinoGameCardTokens,
 } as const;
 
@@ -128,6 +131,7 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
     overrides.casinoGameCard as CasinoGameCardTokens,
     DesignTokens.casinoGameCard,
   );
+  applyTokenGroup(target, overrides.luckyPicker as LuckyPickerTokens, DesignTokens.luckyPicker);
 }
 
 function getFirstTheme(clientThemes: Record<string, Theme> | undefined): Theme | undefined {

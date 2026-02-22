@@ -1,0 +1,28 @@
+:root {
+  --zg-lucky-picker-bg: var(--zg-color-surface);
+  --zg-lucky-picker-bg-highlight: var(--zg-color-surface-alt);
+  --zg-lucky-picker-border-color: var(--zg-color-border);
+  --zg-lucky-picker-border-color-highlight: var(--zg-color-primary);
+  --zg-lucky-picker-radius: var(--zg-radius-lg);
+
+  --zg-lucky-picker-title-color: var(--zg-color-text-primary);
+  --zg-lucky-picker-title-font-family: var(--zg-font-family-secondary);
+  --zg-lucky-picker-title-font-size: var(--zg-font-size-xl);
+  --zg-lucky-picker-title-font-weight: var(--zg-font-weight-semibold);
+
+  --zg-lucky-picker-description-color: var(--zg-color-text-secondary);
+  --zg-lucky-picker-description-font-family: var(--zg-font-family-base);
+  --zg-lucky-picker-description-font-size: var(--zg-font-size-md);
+  --zg-lucky-picker-description-font-weight: var(--zg-font-weight-regular);
+
+  --zg-lucky-picker-gap: var(--zg-spacing-4);
+  --zg-lucky-picker-content-gap: var(--zg-spacing-1);
+  --zg-lucky-picker-padding-y: var(--zg-spacing-4);
+  --zg-lucky-picker-padding-x: var(--zg-spacing-5);
+  --zg-lucky-picker-padding-y-sm: var(--zg-spacing-3);
+  --zg-lucky-picker-padding-x-sm: var(--zg-spacing-4);
+  --zg-lucky-picker-padding-y-lg: var(--zg-spacing-5);
+  --zg-lucky-picker-padding-x-lg: var(--zg-spacing-6);
+
+  --zg-lucky-picker-disabled-opacity: 0.6;
+}
