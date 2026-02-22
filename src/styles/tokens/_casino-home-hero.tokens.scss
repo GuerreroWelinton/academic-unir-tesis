@@ -1,0 +1,51 @@
+:root {
+  --zg-casino-home-hero-min-height: 32rem;
+  --zg-casino-home-hero-min-height-desktop: 34rem;
+  --zg-casino-home-hero-radius: var(--zg-radius-md);
+
+  --zg-casino-home-hero-background-position: center center;
+  --zg-casino-home-hero-overlay-opacity: 0.55;
+
+  --zg-casino-home-hero-padding-x: var(--zg-spacing-6);
+  --zg-casino-home-hero-padding-y: var(--zg-spacing-8);
+  --zg-casino-home-hero-padding-x-desktop: var(--zg-spacing-10);
+  --zg-casino-home-hero-padding-y-desktop: var(--zg-spacing-10);
+  --zg-casino-home-hero-content-gap: var(--zg-spacing-3);
+  --zg-casino-home-hero-content-max-width: min(72%, 24rem);
+  --zg-casino-home-hero-content-max-width-desktop: min(52%, 34rem);
+
+  --zg-casino-home-hero-title-color: var(--zg-orange-500);
+  --zg-casino-home-hero-title-font-family: var(--zg-font-family-secondary);
+  --zg-casino-home-hero-title-font-size: clamp(4.75rem, 8vw, 7.25rem);
+  --zg-casino-home-hero-title-font-weight: var(--zg-font-weight-semibold);
+  --zg-casino-home-hero-title-line-height: 0.95;
+  --zg-casino-home-hero-title-shadow: 0 3px 0 rgba(0, 0, 0, 0.55);
+
+  --zg-casino-home-hero-description-color: var(--zg-color-text-inverse);
+  --zg-casino-home-hero-description-font-family: var(--zg-font-family-base);
+  --zg-casino-home-hero-description-font-size: clamp(1.65rem, 2.4vw, 2.75rem);
+  --zg-casino-home-hero-description-font-weight: var(--zg-font-weight-semibold);
+  --zg-casino-home-hero-description-line-height: 1.15;
+
+  --zg-casino-home-hero-highlight-color: var(--zg-orange-500);
+  --zg-casino-home-hero-highlight-font-family: var(--zg-font-family-base);
+  --zg-casino-home-hero-highlight-font-size: clamp(1.75rem, 2.5vw, 2.95rem);
+  --zg-casino-home-hero-highlight-font-weight: var(--zg-font-weight-semibold);
+  --zg-casino-home-hero-highlight-line-height: 1.1;
+
+  --zg-casino-home-hero-caption-color: var(--zg-color-primary-light);
+  --zg-casino-home-hero-caption-font-family: var(--zg-font-family-secondary);
+  --zg-casino-home-hero-caption-font-size: clamp(1.35rem, 1.9vw, 2rem);
+  --zg-casino-home-hero-caption-font-weight: var(--zg-font-weight-bold);
+  --zg-casino-home-hero-caption-line-height: 0.95;
+
+  --zg-casino-home-hero-text-shadow: 0 2px 4px rgba(0, 0, 0, 0.45);
+
+  --zg-casino-home-hero-character-width-mobile: min(60%, 16rem);
+  --zg-casino-home-hero-character-height-desktop: min(112%, 44rem);
+  --zg-casino-home-hero-character-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+
+  --zg-casino-home-hero-zoom-duration: 8000ms;
+  --zg-casino-home-hero-zoom-scale-min: 1;
+  --zg-casino-home-hero-zoom-scale-max: 1.06;
+}

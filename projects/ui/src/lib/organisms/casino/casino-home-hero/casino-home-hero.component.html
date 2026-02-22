@@ -1,0 +1,30 @@
+<section class="zg-casino-home-hero__surface">
+  <img
+    class="zg-casino-home-hero__background"
+    [ngSrc]="backgroundImageUrl()"
+    [alt]="backgroundImageAlt()"
+    fill
+    sizes="100vw"
+    priority
+  />
+  <div class="zg-casino-home-hero__overlay"></div>
+
+  <div class="zg-casino-home-hero__layout">
+    <div class="zg-casino-home-hero__content">
+      <h1 class="zg-casino-home-hero__title">{{ title() }}</h1>
+      <p class="zg-casino-home-hero__description">{{ description() }}</p>
+      <p class="zg-casino-home-hero__highlight">{{ highlightText() }}</p>
+      <p class="zg-casino-home-hero__caption">{{ caption() }}</p>
+    </div>
+
+    <img
+      class="zg-casino-home-hero__character"
+      [class.zg-casino-home-hero__character--zoom]="zoomEnabled()"
+      [ngSrc]="characterImageUrl()"
+      [alt]="characterImageAlt()"
+      width="900"
+      height="1045"
+      sizes="(min-width: 768px) 58vw, 60vw"
+    />
+  </div>
+</section>

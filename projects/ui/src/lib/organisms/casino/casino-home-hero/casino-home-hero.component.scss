@@ -1,0 +1,145 @@
+:host {
+  display: block;
+}
+
+.zg-casino-home-hero__surface {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: var(--zg-casino-home-hero-min-height);
+  border-radius: var(--zg-casino-home-hero-radius);
+}
+
+.zg-casino-home-hero__background {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--zg-casino-home-hero-background-position);
+}
+
+.zg-casino-home-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, var(--zg-casino-home-hero-overlay-opacity)) 0%,
+    rgba(0, 0, 0, 0.22) 58%,
+    rgba(0, 0, 0, 0.06) 100%
+  );
+}
+
+.zg-casino-home-hero__content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: var(--zg-casino-home-hero-content-gap);
+  max-width: var(--zg-casino-home-hero-content-max-width);
+}
+
+.zg-casino-home-hero__layout {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: var(--zg-casino-home-hero-padding-x);
+  min-height: inherit;
+  height: 100%;
+  padding: var(--zg-casino-home-hero-padding-y) var(--zg-casino-home-hero-padding-x);
+}
+
+.zg-casino-home-hero__title {
+  margin: 0;
+  color: var(--zg-casino-home-hero-title-color);
+  font-family: var(--zg-casino-home-hero-title-font-family);
+  font-size: var(--zg-casino-home-hero-title-font-size);
+  font-weight: var(--zg-casino-home-hero-title-font-weight);
+  line-height: var(--zg-casino-home-hero-title-line-height);
+  text-transform: uppercase;
+  text-shadow: var(--zg-casino-home-hero-title-shadow);
+}
+
+.zg-casino-home-hero__description,
+.zg-casino-home-hero__highlight,
+.zg-casino-home-hero__caption {
+  margin: 0;
+  text-shadow: var(--zg-casino-home-hero-text-shadow);
+}
+
+.zg-casino-home-hero__description {
+  color: var(--zg-casino-home-hero-description-color);
+  font-family: var(--zg-casino-home-hero-description-font-family);
+  font-size: var(--zg-casino-home-hero-description-font-size);
+  font-weight: var(--zg-casino-home-hero-description-font-weight);
+  line-height: var(--zg-casino-home-hero-description-line-height);
+}
+
+.zg-casino-home-hero__highlight {
+  color: var(--zg-casino-home-hero-highlight-color);
+  font-family: var(--zg-casino-home-hero-highlight-font-family);
+  font-size: var(--zg-casino-home-hero-highlight-font-size);
+  font-weight: var(--zg-casino-home-hero-highlight-font-weight);
+  line-height: var(--zg-casino-home-hero-highlight-line-height);
+}
+
+.zg-casino-home-hero__caption {
+  color: var(--zg-casino-home-hero-caption-color);
+  font-family: var(--zg-casino-home-hero-caption-font-family);
+  font-size: var(--zg-casino-home-hero-caption-font-size);
+  font-weight: var(--zg-casino-home-hero-caption-font-weight);
+  line-height: var(--zg-casino-home-hero-caption-line-height);
+  text-transform: uppercase;
+}
+
+.zg-casino-home-hero__character {
+  position: relative;
+  z-index: 2;
+  justify-self: end;
+  align-self: center;
+  width: var(--zg-casino-home-hero-character-width-mobile);
+  height: auto;
+  max-width: 100%;
+  transform-origin: center bottom;
+  filter: drop-shadow(var(--zg-casino-home-hero-character-shadow));
+}
+
+.zg-casino-home-hero__character--zoom {
+  animation: zg-casino-home-hero-zoom var(--zg-casino-home-hero-zoom-duration) ease-in-out infinite;
+}
+
+@keyframes zg-casino-home-hero-zoom {
+  0%,
+  100% {
+    transform: scale(var(--zg-casino-home-hero-zoom-scale-min));
+  }
+  50% {
+    transform: scale(var(--zg-casino-home-hero-zoom-scale-max));
+  }
+}
+
+@media (min-width: 768px) {
+  .zg-casino-home-hero__surface {
+    min-height: var(--zg-casino-home-hero-min-height-desktop);
+  }
+
+  .zg-casino-home-hero__content {
+    max-width: var(--zg-casino-home-hero-content-max-width-desktop);
+  }
+
+  .zg-casino-home-hero__layout {
+    grid-template-columns: minmax(0, 1fr) minmax(20rem, 1fr);
+    column-gap: var(--zg-casino-home-hero-padding-x-desktop);
+    padding: var(--zg-casino-home-hero-padding-y-desktop)
+      var(--zg-casino-home-hero-padding-x-desktop);
+  }
+
+  .zg-casino-home-hero__character {
+    width: auto;
+    height: var(--zg-casino-home-hero-character-height-desktop);
+    align-self: center;
+    max-height: 100%;
+    max-width: none;
+  }
+}
