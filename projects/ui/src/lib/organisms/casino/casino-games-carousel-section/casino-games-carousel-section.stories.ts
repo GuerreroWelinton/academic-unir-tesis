@@ -124,7 +124,7 @@ type Story = StoryObj<ZgCasinoGamesCarouselSectionComponent>;
 
 export const Default: Story = {
   args: {
-    title: 'Los mas apostados',
+    title: 'Most bet games',
     items: sampleItems,
     showTitleAccent: true,
   },

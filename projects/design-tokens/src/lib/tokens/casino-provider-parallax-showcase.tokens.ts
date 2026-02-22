@@ -1,0 +1,17 @@
+export const casinoProviderParallaxShowcaseTokens = {
+  minHeight: '--zg-casino-provider-parallax-showcase-min-height',
+  backgroundPosition: '--zg-casino-provider-parallax-showcase-background-position',
+  overlayColor: '--zg-casino-provider-parallax-showcase-overlay-color',
+  overlayStrengthStart: '--zg-casino-provider-parallax-showcase-overlay-strength-start',
+  overlayStrengthEnd: '--zg-casino-provider-parallax-showcase-overlay-strength-end',
+  contentColumns: '--zg-casino-provider-parallax-showcase-content-columns',
+  contentGap: '--zg-casino-provider-parallax-showcase-content-gap',
+  contentPadding: '--zg-casino-provider-parallax-showcase-content-padding',
+  introGap: '--zg-casino-provider-parallax-showcase-intro-gap',
+  titleColor: '--zg-casino-provider-parallax-showcase-title-color',
+  titleFontFamily: '--zg-casino-provider-parallax-showcase-title-font-family',
+  titleFontSize: '--zg-casino-provider-parallax-showcase-title-font-size',
+  titleFontWeight: '--zg-casino-provider-parallax-showcase-title-font-weight',
+  titleLineHeight: '--zg-casino-provider-parallax-showcase-title-line-height',
+  gamesTextColor: '--zg-casino-provider-parallax-showcase-games-text-color',
+} as const;

@@ -1,0 +1,21 @@
+:root {
+  --zg-casino-provider-parallax-showcase-min-height: 380px;
+  --zg-casino-provider-parallax-showcase-background-position: center left;
+  --zg-casino-provider-parallax-showcase-overlay-color: var(--zg-neutral-900);
+  --zg-casino-provider-parallax-showcase-overlay-strength-start: 70%;
+  --zg-casino-provider-parallax-showcase-overlay-strength-end: 15%;
+
+  --zg-casino-provider-parallax-showcase-content-columns: minmax(260px, 1fr) minmax(0, 1.3fr);
+  --zg-casino-provider-parallax-showcase-content-gap: var(--zg-spacing-4);
+  --zg-casino-provider-parallax-showcase-content-padding: var(--zg-spacing-5);
+
+  --zg-casino-provider-parallax-showcase-intro-gap: var(--zg-spacing-3);
+
+  --zg-casino-provider-parallax-showcase-title-color: var(--zg-color-text-inverse);
+  --zg-casino-provider-parallax-showcase-title-font-family: var(--zg-font-family-secondary);
+  --zg-casino-provider-parallax-showcase-title-font-size: var(--zg-font-size-3xl);
+  --zg-casino-provider-parallax-showcase-title-font-weight: var(--zg-font-weight-semibold);
+  --zg-casino-provider-parallax-showcase-title-line-height: var(--zg-line-height-tight);
+
+  --zg-casino-provider-parallax-showcase-games-text-color: var(--zg-color-text-inverse);
+}

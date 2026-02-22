@@ -30,6 +30,13 @@ describe('DesignTokens', () => {
     expect(DesignTokens.contentSectionHeader.gap).toBe('--zg-content-section-header-gap');
     expect(DesignTokens.casinoGameCard.bg).toBe('--zg-casino-game-card-bg');
     expect(DesignTokens.casinoProviderCarousel.gap).toBe('--zg-casino-provider-carousel-gap');
+    expect(DesignTokens.casinoSearchBar.gap).toBe('--zg-casino-search-bar-gap');
+    expect(DesignTokens.casinoTwoRowGamesCarouselSection.gap).toBe(
+      '--zg-casino-two-row-games-carousel-section-gap',
+    );
+    expect(DesignTokens.casinoProviderParallaxShowcase.minHeight).toBe(
+      '--zg-casino-provider-parallax-showcase-min-height',
+    );
     expect(DesignTokens.luckyPicker.bg).toBe('--zg-lucky-picker-bg');
     expect(DesignTokens.gameCard.bg).toBe('--zg-casino-game-card-bg');
   });
@@ -79,6 +86,9 @@ describe('DesignTokens', () => {
       contentSectionHeader: { gap: '1.125rem' },
       casinoGameCard: { focusRingColor: '#33ff33' },
       casinoProviderCarousel: { gap: '0.5rem' },
+      casinoSearchBar: { gap: '0.625rem' },
+      casinoTwoRowGamesCarouselSection: { gap: '1rem' },
+      casinoProviderParallaxShowcase: { minHeight: '30rem' },
       luckyPicker: { bg: '#121212' },
     });
 
@@ -99,6 +109,9 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.contentSectionHeader.gap)).toBe('1.125rem');
     expect(getTokenValue(DesignTokens.casinoGameCard.focusRingColor)).toBe('#33ff33');
     expect(getTokenValue(DesignTokens.casinoProviderCarousel.gap)).toBe('0.5rem');
+    expect(getTokenValue(DesignTokens.casinoSearchBar.gap)).toBe('0.625rem');
+    expect(getTokenValue(DesignTokens.casinoTwoRowGamesCarouselSection.gap)).toBe('1rem');
+    expect(getTokenValue(DesignTokens.casinoProviderParallaxShowcase.minHeight)).toBe('30rem');
     expect(getTokenValue(DesignTokens.luckyPicker.bg)).toBe('#121212');
   });
 

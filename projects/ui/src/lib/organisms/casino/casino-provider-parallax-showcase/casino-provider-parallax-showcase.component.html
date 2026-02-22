@@ -1,0 +1,29 @@
+<section
+  class="zg-casino-provider-parallax-showcase__surface"
+  [attr.aria-label]="sectionAriaLabel()"
+  [ngStyle]="{ 'background-image': 'url(' + backgroundImageUrl() + ')' }"
+>
+  <div class="zg-casino-provider-parallax-showcase__content">
+    <aside class="zg-casino-provider-parallax-showcase__intro">
+      <h2 class="zg-casino-provider-parallax-showcase__title">{{ providerName() }}</h2>
+      <zg-button type="button" variant="primary" shape="square" (clicked)="onCtaClick()">
+        <span class="zg-casino-provider-parallax-showcase__sr-only">{{ ctaAriaLabel() }}</span>
+        <span aria-hidden="true">›</span>
+      </zg-button>
+    </aside>
+
+    <div class="zg-casino-provider-parallax-showcase__games">
+      <zg-casino-two-row-games-carousel-section
+        [showHeader]="false"
+        [showAllAction]="false"
+        [sectionAriaLabel]="'Provider games list'"
+        [listAriaLabel]="'Provider games two row carousel'"
+        [items]="items()"
+        [cardWidth]="cardWidth()"
+        [scrollStep]="scrollStep()"
+        (playRequested)="onPlayRequested($event)"
+        (favoriteRequested)="onFavoriteRequested($event)"
+      ></zg-casino-two-row-games-carousel-section>
+    </div>
+  </div>
+</section>

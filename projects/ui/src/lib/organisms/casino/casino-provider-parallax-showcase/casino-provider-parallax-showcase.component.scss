@@ -1,0 +1,99 @@
+:host {
+  display: block;
+}
+
+.zg-casino-provider-parallax-showcase__surface {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--zg-radius-lg);
+  min-height: var(--zg-casino-provider-parallax-showcase-min-height);
+  background-size: cover;
+  background-position: var(--zg-casino-provider-parallax-showcase-background-position);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.zg-casino-provider-parallax-showcase__surface::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    color-mix(
+      in srgb,
+      var(--zg-casino-provider-parallax-showcase-overlay-color)
+        var(--zg-casino-provider-parallax-showcase-overlay-strength-start),
+      transparent
+    ),
+    color-mix(
+      in srgb,
+      var(--zg-casino-provider-parallax-showcase-overlay-color)
+        var(--zg-casino-provider-parallax-showcase-overlay-strength-end),
+      transparent
+    )
+  );
+}
+
+.zg-casino-provider-parallax-showcase__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: var(--zg-casino-provider-parallax-showcase-content-columns);
+  align-items: end;
+  gap: var(--zg-casino-provider-parallax-showcase-content-gap);
+  padding: var(--zg-casino-provider-parallax-showcase-content-padding);
+}
+
+.zg-casino-provider-parallax-showcase__intro {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--zg-casino-provider-parallax-showcase-intro-gap);
+  align-self: end;
+  min-height: auto;
+}
+
+.zg-casino-provider-parallax-showcase__title {
+  margin: 0;
+  color: var(--zg-casino-provider-parallax-showcase-title-color);
+  font-family: var(--zg-casino-provider-parallax-showcase-title-font-family);
+  font-size: var(--zg-casino-provider-parallax-showcase-title-font-size);
+  font-weight: var(--zg-casino-provider-parallax-showcase-title-font-weight);
+  line-height: var(--zg-casino-provider-parallax-showcase-title-line-height);
+}
+
+.zg-casino-provider-parallax-showcase__games {
+  min-width: 0;
+  align-self: end;
+}
+
+.zg-casino-provider-parallax-showcase__games :where(.zg-game-card__title),
+.zg-casino-provider-parallax-showcase__games :where(.zg-game-card__provider) {
+  color: var(--zg-casino-provider-parallax-showcase-games-text-color);
+}
+
+.zg-casino-provider-parallax-showcase__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1024px) {
+  .zg-casino-provider-parallax-showcase__content {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .zg-casino-provider-parallax-showcase__surface {
+    background-attachment: scroll;
+  }
+
+  .zg-casino-provider-parallax-showcase__intro {
+    min-height: auto;
+  }
+}

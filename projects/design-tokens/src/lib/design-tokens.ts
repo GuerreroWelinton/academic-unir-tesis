@@ -2,8 +2,11 @@ import type {
   BadgeTokens,
   ButtonTokens,
   CasinoGameCardTokens,
+  CasinoProviderParallaxShowcaseTokens,
   CasinoRankedGamesCarouselSectionTokens,
   CasinoProviderCarouselTokens,
+  CasinoSearchBarTokens,
+  CasinoTwoRowGamesCarouselSectionTokens,
   ChipTokens,
   ContentSectionHeaderTokens,
   InputTokens,
@@ -26,8 +29,11 @@ import {
   badgeTokens,
   buttonTokens,
   casinoGameCardTokens,
+  casinoProviderParallaxShowcaseTokens,
   casinoRankedGamesCarouselSectionTokens,
   casinoProviderCarouselTokens,
+  casinoSearchBarTokens,
+  casinoTwoRowGamesCarouselSectionTokens,
   chipTokens,
   colorTokens,
   contentSectionHeaderTokens,
@@ -62,6 +68,9 @@ export const DesignTokens = {
   casinoGameCard: casinoGameCardTokens,
   casinoRankedGamesCarouselSection: casinoRankedGamesCarouselSectionTokens,
   casinoProviderCarousel: casinoProviderCarouselTokens,
+  casinoSearchBar: casinoSearchBarTokens,
+  casinoTwoRowGamesCarouselSection: casinoTwoRowGamesCarouselSectionTokens,
+  casinoProviderParallaxShowcase: casinoProviderParallaxShowcaseTokens,
   luckyPicker: luckyPickerTokens,
   gameCard: casinoGameCardTokens,
 } as const;
@@ -146,6 +155,21 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
     target,
     overrides.casinoProviderCarousel as CasinoProviderCarouselTokens,
     DesignTokens.casinoProviderCarousel,
+  );
+  applyTokenGroup(
+    target,
+    overrides.casinoSearchBar as CasinoSearchBarTokens,
+    DesignTokens.casinoSearchBar,
+  );
+  applyTokenGroup(
+    target,
+    overrides.casinoTwoRowGamesCarouselSection as CasinoTwoRowGamesCarouselSectionTokens,
+    DesignTokens.casinoTwoRowGamesCarouselSection,
+  );
+  applyTokenGroup(
+    target,
+    overrides.casinoProviderParallaxShowcase as CasinoProviderParallaxShowcaseTokens,
+    DesignTokens.casinoProviderParallaxShowcase,
   );
   applyTokenGroup(target, overrides.luckyPicker as LuckyPickerTokens, DesignTokens.luckyPicker);
 }
