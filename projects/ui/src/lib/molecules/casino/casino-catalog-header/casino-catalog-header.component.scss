@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+.zg-casino-catalog-header__surface {
+  display: grid;
+  gap: var(--zg-casino-catalog-header-gap);
+}
+
+.zg-casino-catalog-header__content {
+  display: grid;
+  gap: var(--zg-casino-catalog-header-content-gap);
+}
+
+.zg-casino-catalog-header__title {
+  margin: 0;
+  color: var(--zg-casino-catalog-header-title-color);
+  font-family: var(--zg-casino-catalog-header-title-font-family);
+  font-size: var(--zg-casino-catalog-header-title-font-size);
+  font-weight: var(--zg-casino-catalog-header-title-font-weight);
+  line-height: var(--zg-casino-catalog-header-title-line-height);
+}
+
+.zg-casino-catalog-header__count {
+  margin: 0;
+  color: var(--zg-casino-catalog-header-count-color);
+  font-family: var(--zg-casino-catalog-header-count-font-family);
+  font-size: var(--zg-casino-catalog-header-count-font-size);
+  font-weight: var(--zg-casino-catalog-header-count-font-weight);
+  line-height: var(--zg-casino-catalog-header-count-line-height);
+}
+
+.zg-casino-catalog-header__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zg-casino-catalog-header-actions-gap);
+}

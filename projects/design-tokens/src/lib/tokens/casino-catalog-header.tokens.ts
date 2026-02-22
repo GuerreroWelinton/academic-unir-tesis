@@ -1,0 +1,15 @@
+export const casinoCatalogHeaderTokens = {
+  gap: '--zg-casino-catalog-header-gap',
+  contentGap: '--zg-casino-catalog-header-content-gap',
+  actionsGap: '--zg-casino-catalog-header-actions-gap',
+  titleColor: '--zg-casino-catalog-header-title-color',
+  titleFontFamily: '--zg-casino-catalog-header-title-font-family',
+  titleFontSize: '--zg-casino-catalog-header-title-font-size',
+  titleFontWeight: '--zg-casino-catalog-header-title-font-weight',
+  titleLineHeight: '--zg-casino-catalog-header-title-line-height',
+  countColor: '--zg-casino-catalog-header-count-color',
+  countFontFamily: '--zg-casino-catalog-header-count-font-family',
+  countFontSize: '--zg-casino-catalog-header-count-font-size',
+  countFontWeight: '--zg-casino-catalog-header-count-font-weight',
+  countLineHeight: '--zg-casino-catalog-header-count-line-height',
+} as const;
