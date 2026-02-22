@@ -1,0 +1,24 @@
+:root {
+  --zg-section-title-text-color: var(--zg-color-text-primary);
+  --zg-section-title-text-color-primary: var(--zg-color-primary);
+  --zg-section-title-text-color-success: var(--zg-color-success);
+
+  --zg-section-title-font-family-base: var(--zg-font-family-base);
+  --zg-section-title-font-family-secondary: var(--zg-font-family-secondary);
+  --zg-section-title-font-weight: var(--zg-font-weight-bold);
+  --zg-section-title-line-height: var(--zg-line-height-tight);
+
+  --zg-section-title-font-size-sm: var(--zg-font-size-md);
+  --zg-section-title-font-size-md: var(--zg-font-size-xl);
+  --zg-section-title-font-size-lg: var(--zg-font-size-2xl);
+
+  --zg-section-title-gap: var(--zg-spacing-1);
+  --zg-section-title-accent-gap: var(--zg-spacing-1);
+  --zg-section-title-accent-base-width: calc(var(--zg-spacing-8) + var(--zg-spacing-6));
+  --zg-section-title-accent-segment-width: var(--zg-spacing-4);
+  --zg-section-title-accent-height: var(--zg-radius-sm);
+
+  --zg-section-title-accent-base-color: var(--zg-color-border);
+  --zg-section-title-accent-warning-color: var(--zg-color-warning);
+  --zg-section-title-accent-success-color: var(--zg-color-success);
+}
