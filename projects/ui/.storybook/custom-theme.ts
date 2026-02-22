@@ -6,7 +6,7 @@ export default create({
   brandUrl: '',
   brandImage: 'logo.png',
 
-  fontBase: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontBase: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   fontCode: '"Fira Code", monospace',
 
   appBg: '#f8fafc',
