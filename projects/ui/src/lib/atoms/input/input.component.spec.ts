@@ -1,7 +1,30 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ZgInputComponent } from './input.component';
 import { By } from '@angular/platform-browser';
-import { DebugElement } from '@angular/core';
+import { Component, DebugElement } from '@angular/core';
+
+@Component({
+  standalone: true,
+  imports: [ZgInputComponent],
+  template: `
+    <zg-input label="Search" placeholder="Search value">
+      <span icon-left data-testid="left-icon">L</span>
+      <span icon-right data-testid="right-icon">R</span>
+    </zg-input>
+  `,
+})
+class TestHostInputIconsComponent {}
+
+@Component({
+  standalone: true,
+  imports: [ZgInputComponent],
+  template: `
+    <zg-input label="Clearable" [value]="'value'" [readonly]="false" [disabled]="false">
+      <span clear-icon data-testid="custom-clear-icon">*</span>
+    </zg-input>
+  `,
+})
+class TestHostInputClearIconComponent {}
 
 describe('ZgInputComponent', () => {
   let component: ZgInputComponent;
@@ -10,7 +33,7 @@ describe('ZgInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ZgInputComponent],
+      imports: [ZgInputComponent, TestHostInputIconsComponent, TestHostInputClearIconComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ZgInputComponent);
@@ -124,5 +147,46 @@ describe('ZgInputComponent', () => {
     expect(firstId).not.toBe(secondId);
     expect(component.inputId).toContain(firstId);
     expect(otherFixture.componentInstance.inputId).toContain(secondId);
+  });
+
+  it('should project icon-left and icon-right into their slots', () => {
+    const hostFixture = TestBed.createComponent(TestHostInputIconsComponent);
+    hostFixture.detectChanges();
+
+    const hostElement = hostFixture.nativeElement as HTMLElement;
+    const leftIconSlot = hostElement.querySelector('.zg-input__icon--left');
+    const rightIconSlot = hostElement.querySelector('.zg-input__icon--right');
+    const leftIcon = hostElement.querySelector('[data-testid="left-icon"]');
+    const rightIcon = hostElement.querySelector('[data-testid="right-icon"]');
+
+    expect(leftIconSlot?.contains(leftIcon as Node)).toBe(true);
+    expect(rightIconSlot?.contains(rightIcon as Node)).toBe(true);
+  });
+
+  it('should show fallback clear icon when custom clear icon is not projected', () => {
+    fixture.componentRef.setInput('value', 'abc');
+    fixture.componentRef.setInput('readonly', false);
+    fixture.componentRef.setInput('disabled', false);
+    fixture.detectChanges();
+
+    const fallback = fixture.debugElement.query(By.css('.zg-input__clear-icon-fallback'));
+    const slot = fixture.debugElement.query(By.css('.zg-input__clear-icon-slot'));
+
+    expect(slot).toBeTruthy();
+    expect(fallback).toBeTruthy();
+    expect(fallback.nativeElement.textContent).toContain('×');
+  });
+
+  it('should render projected custom clear icon', () => {
+    const hostFixture = TestBed.createComponent(TestHostInputClearIconComponent);
+    hostFixture.detectChanges();
+
+    const hostElement = hostFixture.nativeElement as HTMLElement;
+    const customClearIcon = hostElement.querySelector('[data-testid="custom-clear-icon"]');
+    const clearButton = hostElement.querySelector('.zg-input__clear');
+
+    expect(clearButton).toBeTruthy();
+    expect(customClearIcon).toBeTruthy();
+    expect(clearButton?.contains(customClearIcon as Node)).toBe(true);
   });
 });

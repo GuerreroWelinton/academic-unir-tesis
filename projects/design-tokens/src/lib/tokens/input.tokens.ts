@@ -32,5 +32,7 @@ export const inputTokens = {
   helperFontSize: '--zg-input-helper-font-size',
   helperMarginTop: '--zg-input-helper-margin-top',
   focusRing: '--zg-input-focus-ring',
+  focusRingWidth: '--zg-input-focus-ring-width',
+  transition: '--zg-input-transition',
   iconGap: '--zg-input-icon-gap',
 } as const;

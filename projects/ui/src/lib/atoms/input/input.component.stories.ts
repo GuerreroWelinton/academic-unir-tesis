@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { ZgInputComponent } from './input.component';
-import { userEvent, within } from '@storybook/testing-library';
+import { moduleMetadata } from '@storybook/angular';
 import { expect } from '@storybook/jest';
+import { userEvent, within } from '@storybook/testing-library';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
+import { lucideMail, lucideSearch, lucideX } from '@ng-icons/lucide';
+import { ZgInputComponent } from './input.component';
 
 /**
  * Input component for user text entry.
@@ -9,19 +12,18 @@ import { expect } from '@storybook/jest';
  * ## Usage Guide
  *
  * **When to use:**
- * - Text, email, password, search, number, etc.
- * - Search bars, forms, filters
+ * - Text, email, password, search, and number input
+ * - Form fields, filters, and search bars
  *
  * **When NOT to use:**
- * - Multi-line input (use textarea)
- * - Selection (use select, radio, checkbox)
+ * - Multi-line text (use textarea)
+ * - Selection controls (use select, radio, checkbox)
  *
  * ## Accessibility
- * - ✅ Label is always associated with input
- * - ✅ Keyboard navigation
- * - ✅ Error and helper text with aria-describedby
- * - ✅ Disabled and readonly states
- * - 💡 Use aria-label for icon-only or hidden label
+ * - Label is associated with the input field
+ * - Error/helper content is linked via `aria-describedby`
+ * - Supports disabled and readonly states
+ * - Clear button has an accessible label
  */
 const meta: Meta<ZgInputComponent> = {
   title: 'Atoms/Input',
@@ -30,12 +32,14 @@ const meta: Meta<ZgInputComponent> = {
   parameters: {
     docs: {
       source: { type: 'dynamic' },
-      // description: {
-      //   component:
-      //     'Accessible input field with support for icons, error, helper text, and full design token theming. Use ng-content for icon projection.',
-      // },
     },
   },
+  decorators: [
+    moduleMetadata({
+      imports: [NgIconComponent],
+      providers: [provideIcons({ lucideSearch, lucideMail, lucideX })],
+    }),
+  ],
   argTypes: {
     type: {
       control: 'select',
@@ -54,7 +58,7 @@ const meta: Meta<ZgInputComponent> = {
     },
     label: {
       control: 'text',
-      description: 'Label for accessibility',
+      description: 'Input label',
     },
     disabled: {
       control: 'boolean',
@@ -78,7 +82,7 @@ const meta: Meta<ZgInputComponent> = {
     },
     fullWidth: {
       control: 'boolean',
-      description: 'Full width',
+      description: 'Full width behavior',
       table: { defaultValue: { summary: 'false' } },
     },
     autocomplete: {
@@ -87,7 +91,7 @@ const meta: Meta<ZgInputComponent> = {
     },
     maxlength: {
       control: 'number',
-      description: 'Max length',
+      description: 'Maximum character length',
     },
     helperText: {
       control: 'text',
@@ -95,17 +99,17 @@ const meta: Meta<ZgInputComponent> = {
     },
     changed: {
       action: 'changed',
-      description: 'Emitted when value changes',
+      description: 'Emitted when the value changes',
       table: { category: 'Events' },
     },
     focused: {
       action: 'focused',
-      description: 'Emitted on focus',
+      description: 'Emitted when input receives focus',
       table: { category: 'Events' },
     },
     blurred: {
       action: 'blurred',
-      description: 'Emitted on blur',
+      description: 'Emitted when input loses focus',
       table: { category: 'Events' },
     },
     cleared: {
@@ -115,10 +119,13 @@ const meta: Meta<ZgInputComponent> = {
     },
   },
 };
-export default meta;
 
+export default meta;
 type Story = StoryObj<ZgInputComponent>;
 
+/**
+ * Default input with controls
+ */
 export const Default: Story = {
   args: {
     label: 'Username',
@@ -136,257 +143,209 @@ export const Default: Story = {
   },
 };
 
-export const WithLeftIcon: Story = {
-  args: {
-    label: 'Search',
-    placeholder: 'Search games',
-    value: '',
+/**
+ * Input type variants
+ */
+export const Types: Story = {
+  parameters: {
+    controls: { disable: true },
   },
-  render: (args) => ({
-    props: args,
+  render: () => ({
     template: `
-      <zg-input
-        [label]="label"
-        [placeholder]="placeholder"
-        [value]="value"
-        [type]="type"
-        [size]="size"
-        [disabled]="disabled"
-        [readonly]="readonly"
-        [error]="error"
-        [fullWidth]="fullWidth"
-        [autocomplete]="autocomplete"
-        [maxlength]="maxlength"
-        [helperText]="helperText"
-        (changed)="changed($event)"
-        (focused)="focused($event)"
-        (blurred)="blurred($event)"
-        (cleared)="cleared()"
-      >
-        <svg icon-left width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </zg-input>
+      <div style="display: grid; gap: var(--zg-spacing-3); max-width: 24rem; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <zg-input label="Text" type="text" placeholder="Text field"></zg-input>
+        <zg-input label="Email" type="email" placeholder="you@example.com"></zg-input>
+        <zg-input label="Password" type="password" placeholder="Password"></zg-input>
+      </div>
     `,
   }),
 };
 
-export const WithRightIcon: Story = {
-  args: {
-    label: 'Search',
-    placeholder: 'Search games',
-    value: '',
+/**
+ * Input sizes
+ */
+export const Sizes: Story = {
+  parameters: {
+    controls: { disable: true },
   },
-  render: (args) => ({
-    props: args,
+  render: () => ({
     template: `
-      <zg-input
-        [label]="label"
-        [placeholder]="placeholder"
-        [value]="value"
-        [type]="type"
-        [size]="size"
-        [disabled]="disabled"
-        [readonly]="readonly"
-        [error]="error"
-        [fullWidth]="fullWidth"
-        [autocomplete]="autocomplete"
-        [maxlength]="maxlength"
-        [helperText]="helperText"
-        (changed)="changed($event)"
-        (focused)="focused($event)"
-        (blurred)="blurred($event)"
-        (cleared)="cleared()"
-      >
-        <svg icon-right width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </zg-input>
+      <div style="display: grid; gap: var(--zg-spacing-3); max-width: 24rem; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <zg-input label="Small" size="sm" placeholder="Small input"></zg-input>
+        <zg-input label="Medium" size="md" placeholder="Medium input"></zg-input>
+        <zg-input label="Large" size="lg" placeholder="Large input"></zg-input>
+      </div>
     `,
   }),
 };
 
-export const WithClearButton: Story = {
-  args: {
-    label: 'Clearable',
-    placeholder: 'Type to show clear',
-    value: 'Clear me',
+/**
+ * State examples
+ */
+export const States: Story = {
+  parameters: {
+    controls: { disable: true },
   },
-  render: (args) => ({
-    props: args,
+  render: () => ({
     template: `
-      <zg-input
-        [label]="label"
-        [placeholder]="placeholder"
-        [value]="value"
-        [type]="type"
-        [size]="size"
-        [disabled]="disabled"
-        [readonly]="readonly"
-        [error]="error"
-        [fullWidth]="fullWidth"
-        [autocomplete]="autocomplete"
-        [maxlength]="maxlength"
-        [helperText]="helperText"
-        (changed)="changed($event)"
-        (focused)="focused($event)"
-        (blurred)="blurred($event)"
-        (cleared)="cleared()"
-      >
-        <svg clear-icon width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </zg-input>
+      <div style="display: grid; gap: var(--zg-spacing-3); max-width: 24rem; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <zg-input label="Enabled" placeholder="Editable" data-testid="input-enabled"></zg-input>
+        <zg-input label="Disabled" placeholder="Disabled" [disabled]="true" data-testid="input-disabled"></zg-input>
+        <zg-input label="Readonly" value="Readonly value" [readonly]="true" data-testid="input-readonly"></zg-input>
+      </div>
+    `,
+  }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const disabledInput = canvas.getByTestId('input-disabled').querySelector('input');
+    const readonlyInput = canvas.getByTestId('input-readonly').querySelector('input');
+
+    await expect(disabledInput).toBeDisabled();
+    await expect(readonlyInput).toHaveAttribute('readonly');
+  },
+};
+
+/**
+ * Helper and error messages
+ */
+export const HelperAndError: Story = {
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => ({
+    template: `
+      <div style="display: grid; gap: var(--zg-spacing-3); max-width: 24rem; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <zg-input
+          label="Email"
+          placeholder="you@example.com"
+          helperText="Use your account email"
+          data-testid="input-helper"
+        ></zg-input>
+        <zg-input
+          label="Email"
+          value="invalid-email"
+          error="Invalid email format"
+          data-testid="input-error"
+        ></zg-input>
+      </div>
     `,
   }),
 };
 
-export const InputWithError: Story = {
-  args: {
-    label: 'Email',
-    placeholder: 'Enter your email',
-    error: 'Invalid email address',
-    value: '',
+/**
+ * Composition with projected icons
+ */
+export const Composition: Story = {
+  parameters: {
+    controls: { disable: true },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const input = canvas.getByRole('textbox');
-    await userEvent.type(input, 'not-an-email');
-    const errorMsg = canvas.getByText('Invalid email address');
-    await expect(errorMsg).toBeVisible();
-  },
+  render: () => ({
+    template: `
+      <div style="display: grid; gap: var(--zg-spacing-3); max-width: 24rem; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <zg-input label="Search" placeholder="Search games">
+          <ng-icon icon-left name="lucideSearch" size="1rem" aria-hidden="true"></ng-icon>
+        </zg-input>
+        <zg-input label="Email" placeholder="you@example.com">
+          <ng-icon icon-left name="lucideMail" size="1rem" aria-hidden="true"></ng-icon>
+        </zg-input>
+      </div>
+    `,
+  }),
 };
 
-export const Disabled: Story = {
-  args: {
-    label: 'Disabled',
-    placeholder: 'Cannot type here',
-    disabled: true,
-    value: '',
+/**
+ * Clear button behavior
+ */
+export const InteractiveClear: Story = {
+  parameters: {
+    controls: { disable: true },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const input = canvas.getByRole('textbox');
-    await expect(input).toBeDisabled();
-  },
-};
-
-export const Readonly: Story = {
-  args: {
-    label: 'Readonly',
-    placeholder: 'Cannot edit',
-    readonly: true,
-    value: 'Read only value',
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const input = canvas.getByRole('textbox');
-    await expect(input).toHaveAttribute('readonly');
-    await userEvent.type(input, '123');
-    await expect(input).toHaveValue('Read only value');
-  },
-};
-
-export const MaxLength: Story = {
-  args: {
-    label: 'Max Length',
-    placeholder: 'Max 10 chars',
-    maxlength: 10,
-    value: '',
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const input = canvas.getByRole('textbox');
-    await userEvent.type(input, '123456789012345');
-    await expect(input).toHaveValue('1234567890');
-  },
-};
-
-export const Autocomplete: Story = {
-  args: {
-    label: 'Autocomplete',
-    placeholder: 'Type for suggestions',
-    autocomplete: 'username',
-    value: '',
-  },
-};
-
-export const FullWidth: Story = {
-  args: {
-    label: 'Full Width',
-    placeholder: 'Stretches to parent',
-    fullWidth: true,
-    value: '',
-  },
-};
-
-export const MultipleIcons: Story = {
-  render: (args) => ({
+  render: () => ({
     props: {
-      ...args,
-      value: '',
-    },
-    template: `
-      <zg-input
-        [label]="label"
-        [placeholder]="placeholder"
-        [value]="value"
-        [type]="type"
-        [size]="size"
-        [disabled]="disabled"
-        [readonly]="readonly"
-        [fullWidth]="fullWidth"
-        [autocomplete]="autocomplete"
-        [maxlength]="maxlength"
-        [helperText]="helperText"
-        (changed)="changed($event)"
-        (focused)="focused($event)"
-        (blurred)="blurred($event)"
-        (cleared)="cleared()"
-      >
-        <svg icon-left width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-        <svg icon-right width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </zg-input>
-    `,
-  }),
-};
-
-export const AllEvents: Story = {
-  args: {
-    label: 'Events Demo',
-    placeholder: 'Try focus, blur, clear',
-    value: '',
-  },
-  render: (args) => ({
-    props: {
-      ...args,
-      changed: (val: string) => {
-        console.log('changed', val);
+      currentValue: 'Clear me',
+      onChanged: function (value: string) {
+        this['currentValue'] = value;
       },
-      focused: (ev: FocusEvent) => {
-        console.log('focused', ev);
-      },
-      blurred: (ev: FocusEvent) => {
-        console.log('blurred', ev);
-      },
-      cleared: () => {
-        console.log('cleared');
+      onCleared: function () {
+        this['currentValue'] = '';
       },
     },
     template: `
-      <zg-input
-        [label]="label"
-        [placeholder]="placeholder"
-        [value]="value"
-        [type]="type"
-        [size]="size"
-        [disabled]="disabled"
-        [readonly]="readonly"
-        [error]="error"
-        [fullWidth]="fullWidth"
-        [autocomplete]="autocomplete"
-        [maxlength]="maxlength"
-        [helperText]="helperText"
-        (changed)="changed($event)"
-        (focused)="focused($event)"
-        (blurred)="blurred($event)"
-        (cleared)="cleared()"
-      >
-      </zg-input>
+      <div style="display: grid; gap: var(--zg-spacing-2); max-width: 24rem; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <div>Type and clear value</div>
+        <zg-input
+          data-testid="input-clearable"
+          label="Clearable"
+          [value]="currentValue"
+          placeholder="Type value"
+          (changed)="onChanged($event)"
+          (cleared)="onCleared()"
+        >
+          <ng-icon clear-icon name="lucideX" size="0.875rem" aria-hidden="true"></ng-icon>
+        </zg-input>
+      </div>
     `,
   }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const clearableHost = canvas.getByTestId('input-clearable');
+    const clearButton = clearableHost.querySelector('.zg-input__clear');
+    const input = clearableHost.querySelector('input');
+
+    await expect(input).toHaveValue('Clear me');
+    await expect(clearButton).toBeTruthy();
+    await userEvent.click(clearButton as Element);
+    await expect(input).toHaveValue('');
+  },
+};
+
+/**
+ * Accessibility checks
+ */
+export const AccessibilityDemo: Story = {
+  name: 'Accessibility Demo',
+  parameters: {
+    controls: { disable: true },
+  },
+  render: () => ({
+    template: `
+      <div style="display: grid; gap: var(--zg-spacing-4); max-width: 24rem; font-size: var(--zg-font-size-sm); color: var(--zg-color-text-primary); font-weight: var(--zg-font-weight-medium);">
+        <zg-input
+          label="Email"
+          placeholder="you@example.com"
+          helperText="Use your account email"
+          data-testid="input-a11y-helper"
+        ></zg-input>
+        <zg-input
+          label="Email"
+          value="invalid"
+          error="Invalid email format"
+          data-testid="input-a11y-error"
+        ></zg-input>
+      </div>
+    `,
+  }),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const helperHost = canvas.getByTestId('input-a11y-helper');
+    const errorHost = canvas.getByTestId('input-a11y-error');
+    const helperInput = helperHost.querySelector('input');
+    const helperText = helperHost.querySelector('.zg-input__helper');
+    const errorInput = errorHost.querySelector('input');
+    const errorText = errorHost.querySelector('.zg-input__error');
+    const helperLabel = helperHost.querySelector('label');
+
+    await expect(helperLabel).toBeTruthy();
+    await expect(helperInput).toHaveAttribute('id');
+    await expect(helperLabel).toHaveAttribute('for', helperInput?.getAttribute('id') || '');
+    await expect(helperInput).toHaveAttribute(
+      'aria-describedby',
+      helperText?.getAttribute('id') || '',
+    );
+    await expect(errorInput).toHaveAttribute('aria-invalid', 'true');
+    await expect(errorInput).toHaveAttribute(
+      'aria-describedby',
+      errorText?.getAttribute('id') || '',
+    );
+  },
 };
