@@ -1,0 +1,28 @@
+<nav class="zg-category-filter-tabs__nav" [attr.aria-label]="ariaLabel()">
+  <ul class="zg-category-filter-tabs__list">
+    @for (item of items(); track item.id) {
+      <li class="zg-category-filter-tabs__item">
+        <zg-chip
+          [size]="chipSize()"
+          [variant]="chipVariant()"
+          [selected]="isSelected(item)"
+          [disabled]="isItemDisabled(item)"
+          [attr.data-category-id]="item.id"
+          (clicked)="onItemClicked(item)"
+        >
+          <ng-container icon-left>
+            @if (item.iconTemplate; as iconTemplate) {
+              <span class="zg-category-filter-tabs__icon">
+                <ng-container
+                  [ngTemplateOutlet]="iconTemplate"
+                  [ngTemplateOutletContext]="{ $implicit: item }"
+                ></ng-container>
+              </span>
+            }
+          </ng-container>
+          {{ item.label }}
+        </zg-chip>
+      </li>
+    }
+  </ul>
+</nav>
