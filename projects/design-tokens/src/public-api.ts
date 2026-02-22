@@ -3,25 +3,24 @@
  */
 
 export {
-  resetTheme,
-  getThemeVariantsFromRegistry,
   applyThemeFromRegistry,
+  getThemeVariantsFromRegistry,
+  resetTheme,
 } from './lib/design-tokens';
 
 export type {
-  Theme,
-  PrimitiveTokens,
-  SemanticColorTokens,
-  TypographyTokens,
-  SpacingTokens,
-  RadiusTokens,
-  ShadowTokens,
-  ZIndexTokens,
-  TransitionTokens,
-  ButtonTokens,
-  InputTokens,
   BadgeTokens,
+  ButtonTokens,
   ChipTokens,
-  GameCardTokens,
+  InputTokens,
+  PrimitiveTokens,
+  RadiusTokens,
+  SemanticColorTokens,
+  ShadowTokens,
+  SpacingTokens,
+  Theme,
   ThemeRegistry,
+  TransitionTokens,
+  TypographyTokens,
+  ZIndexTokens,
 } from './lib/design-tokens.types';

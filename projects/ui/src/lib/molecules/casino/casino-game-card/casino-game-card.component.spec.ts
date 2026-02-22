@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { ZgGameCardComponent } from './game-card.component';
+import { ZgCasinoGameCardComponent } from './casino-game-card.component';
 
-describe('ZgGameCardComponent', () => {
-  let component: ZgGameCardComponent;
-  let fixture: ComponentFixture<ZgGameCardComponent>;
+describe('ZgCasinoGameCardComponent', () => {
+  let component: ZgCasinoGameCardComponent;
+  let fixture: ComponentFixture<ZgCasinoGameCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ZgGameCardComponent],
+      imports: [ZgCasinoGameCardComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ZgGameCardComponent);
+    fixture = TestBed.createComponent(ZgCasinoGameCardComponent);
     component = fixture.componentInstance;
     fixture.componentRef.setInput('title', 'Aviator');
     fixture.componentRef.setInput('provider', 'Spribe');
