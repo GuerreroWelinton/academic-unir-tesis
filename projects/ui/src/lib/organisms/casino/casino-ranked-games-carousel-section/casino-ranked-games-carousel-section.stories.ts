@@ -195,7 +195,7 @@ export const Composition: Story = {
         title="Top 10 casino"
         [items]="items"
         [showAllAction]="true"
-        allActionLabel="Todos"
+        allActionLabel="All"
       ></zg-casino-ranked-games-carousel-section>
     `,
   }),

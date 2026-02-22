@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+.zg-casino-search-bar__form {
+  width: 100%;
+}
+
+.zg-casino-search-bar__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--zg-casino-search-bar-gap);
+}
+
+.zg-casino-search-bar__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--zg-casino-search-bar-icon-color);
+}
+
+.zg-casino-search-bar__providers-button {
+  white-space: nowrap;
+}
+
+.zg-casino-search-bar__providers-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .zg-casino-search-bar__content {
+    grid-template-columns: 1fr;
+  }
+}
