@@ -11,6 +11,7 @@ export {
 export type {
   BadgeTokens,
   ButtonTokens,
+  CasinoProviderCarouselTokens,
   ChipTokens,
   InputTokens,
   LuckyPickerTokens,

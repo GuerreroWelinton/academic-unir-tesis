@@ -1,0 +1,131 @@
+:host {
+  display: block;
+}
+
+.zg-casino-provider-carousel__region {
+  display: block;
+}
+
+.zg-casino-provider-carousel__empty {
+  margin: 0;
+  padding: var(--zg-casino-provider-carousel-empty-padding-y)
+    var(--zg-casino-provider-carousel-empty-padding-x);
+  border-radius: var(--zg-casino-provider-carousel-item-radius);
+  border: 1px dashed var(--zg-casino-provider-carousel-item-border-color);
+  color: var(--zg-casino-provider-carousel-empty-color);
+  text-align: center;
+  font-size: var(--zg-casino-provider-carousel-name-font-size);
+}
+
+.zg-casino-provider-carousel__viewport {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 var(--zg-casino-provider-carousel-mask-fade-size),
+    #000 calc(100% - var(--zg-casino-provider-carousel-mask-fade-size)),
+    transparent 100%
+  );
+}
+
+.zg-casino-provider-carousel__track {
+  display: flex;
+  align-items: stretch;
+  width: max-content;
+  gap: var(--zg-casino-provider-carousel-gap);
+  padding: var(--zg-casino-provider-carousel-padding-y) 0;
+}
+
+.zg-casino-provider-carousel__track--animated {
+  animation-name: zg-casino-provider-carousel-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: var(
+    --zg-casino-provider-carousel-animation-duration,
+    var(--zg-casino-provider-carousel-default-animation-duration)
+  );
+}
+
+.zg-casino-provider-carousel__item {
+  list-style: none;
+  min-width: var(--zg-casino-provider-carousel-item-min-width);
+}
+
+.zg-casino-provider-carousel__item-button {
+  width: 100%;
+  min-height: var(--zg-casino-provider-carousel-item-min-height);
+  border: 1px solid var(--zg-casino-provider-carousel-item-border-color);
+  border-radius: var(--zg-casino-provider-carousel-item-radius);
+  background: var(--zg-casino-provider-carousel-item-bg);
+  padding: var(--zg-casino-provider-carousel-item-padding-y)
+    var(--zg-casino-provider-carousel-item-padding-x);
+  display: grid;
+  gap: var(--zg-casino-provider-carousel-content-gap);
+  justify-items: center;
+  align-content: center;
+  cursor: pointer;
+  transition:
+    transform var(--zg-casino-provider-carousel-transition),
+    border-color var(--zg-casino-provider-carousel-transition),
+    background-color var(--zg-casino-provider-carousel-transition);
+}
+
+button.zg-casino-provider-carousel__item-button:focus-visible {
+  outline: var(--zg-casino-provider-carousel-focus-ring-width) solid
+    var(--zg-casino-provider-carousel-focus-ring-color);
+  outline-offset: var(--zg-casino-provider-carousel-focus-ring-offset);
+}
+
+button.zg-casino-provider-carousel__item-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: var(--zg-casino-provider-carousel-item-border-color-hover);
+}
+
+button.zg-casino-provider-carousel__item-button:disabled {
+  cursor: not-allowed;
+  opacity: var(--zg-casino-provider-carousel-disabled-opacity);
+}
+
+.zg-casino-provider-carousel__logo {
+  width: auto;
+  height: var(--zg-casino-provider-carousel-logo-height);
+  max-width: var(--zg-casino-provider-carousel-logo-max-width);
+  object-fit: contain;
+}
+
+.zg-casino-provider-carousel__name {
+  color: var(--zg-casino-provider-carousel-name-color);
+  font-family: var(--zg-casino-provider-carousel-name-font-family);
+  font-size: var(--zg-casino-provider-carousel-name-font-size);
+  font-weight: var(--zg-casino-provider-carousel-name-font-weight);
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+:host(:hover) .zg-casino-provider-carousel__track--animated,
+:host(:focus-within) .zg-casino-provider-carousel__track--animated {
+  animation-play-state: paused;
+}
+
+@supports selector(:has(*)) {
+  :host(:has(.zg-casino-provider-carousel__item-button:focus-visible))
+    .zg-casino-provider-carousel__track--animated {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .zg-casino-provider-carousel__track--animated {
+    animation: none;
+  }
+}
+
+@keyframes zg-casino-provider-carousel-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - (var(--zg-casino-provider-carousel-gap) / 2)));
+  }
+}
