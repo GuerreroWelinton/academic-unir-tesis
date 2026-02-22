@@ -5,6 +5,7 @@
 
 import type { Decorator } from '@storybook/angular';
 import { applyClientTheme, type ClientId } from '../src/themes/client-themes';
+import { GlobalTypes } from 'storybook/internal/types';
 
 /**
  * Global theme decorator for Storybook
@@ -24,7 +25,7 @@ export const withTheme: Decorator = (story, context) => {
  * Global types for Storybook toolbar
  * Add this to .storybook/preview.ts
  */
-export const globalTypes = {
+export const globalTypes: GlobalTypes = {
   client: {
     name: 'Client',
     description: 'Select client brand',
@@ -52,4 +53,4 @@ export const globalTypes = {
       dynamicTitle: true,
     },
   },
-} as const;
+};

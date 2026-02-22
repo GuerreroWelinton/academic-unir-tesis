@@ -60,6 +60,8 @@ __screenshots__/
 # Internal Project Instructions (Do Not Commit)
 .github/instructions/project.instructions.md
 AGENTS.md
+AGENTS-ES.md
+COMPONENTS_STANDARDS.md
 pending-tasks.json
 
 # System Files
