@@ -7,6 +7,7 @@ import { lucideTag } from '@ng-icons/lucide';
 import { ZgBadgeComponent } from '../../../atoms/badge/badge.component';
 import { ZgButtonComponent } from '../../../atoms/button/button.component';
 import { ZgChipComponent } from '../../../atoms/chip/chip.component';
+import { ZgCasinoGameCardComponent } from '../../casino/casino-game-card/casino-game-card.component';
 import { ZgHorizontalListLayoutComponent } from './horizontal-list-layout.component';
 
 interface DemoChipItem {
@@ -55,7 +56,13 @@ const meta: Meta<ZgHorizontalListLayoutComponent> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [ZgBadgeComponent, ZgButtonComponent, ZgChipComponent, NgIconComponent],
+      imports: [
+        ZgBadgeComponent,
+        ZgButtonComponent,
+        ZgChipComponent,
+        ZgCasinoGameCardComponent,
+        NgIconComponent,
+      ],
       providers: [provideIcons({ lucideTag })],
     }),
   ],
@@ -64,6 +71,28 @@ const meta: Meta<ZgHorizontalListLayoutComponent> = {
       control: 'text',
       description: 'Accessible label used by the wrapping nav element',
       table: { defaultValue: { summary: 'Horizontal list' } },
+    },
+    layoutMode: {
+      control: 'select',
+      options: ['scroll', 'wrap'],
+      description: 'Layout behavior: single-row scroll or multi-row wrap',
+      table: { defaultValue: { summary: 'scroll' } },
+    },
+    scrollStep: {
+      control: { type: 'number', min: 80, step: 20 },
+      description: 'Horizontal pixels scrolled by public next/prev methods',
+      table: { defaultValue: { summary: '320' } },
+    },
+    scrollBehavior: {
+      control: 'select',
+      options: ['auto', 'smooth'],
+      description: 'Scroll behavior used by public next/prev methods',
+      table: { defaultValue: { summary: 'smooth' } },
+    },
+    scrollStateChange: {
+      action: 'scrollStateChange',
+      description: 'Emitted when horizontal scroll availability changes',
+      table: { category: 'Events' },
     },
   },
 };
@@ -74,6 +103,9 @@ type Story = StoryObj<ZgHorizontalListLayoutComponent>;
 export const Default: Story = {
   args: {
     ariaLabel: 'Casino categories',
+    layoutMode: 'scroll',
+    scrollStep: 320,
+    scrollBehavior: 'smooth',
   },
   render: (args) => ({
     props: {
@@ -81,7 +113,12 @@ export const Default: Story = {
       items: sampleItems,
     },
     template: `
-      <zg-horizontal-list-layout [ariaLabel]="ariaLabel">
+      <zg-horizontal-list-layout
+        [ariaLabel]="ariaLabel"
+        [layoutMode]="layoutMode"
+        [scrollStep]="scrollStep"
+        [scrollBehavior]="scrollBehavior"
+      >
         @for (item of items; track item.id) {
           <li zg-horizontal-list-layout-items>
             <zg-chip
@@ -225,6 +262,48 @@ export const OtherAtoms: Story = {
           <li zg-horizontal-list-layout-items><zg-badge variant="info">New</zg-badge></li>
         </zg-horizontal-list-layout>
       </div>
+    `,
+  }),
+};
+
+export const WithGameCards: Story = {
+  parameters: { controls: { disable: true } },
+  render: () => ({
+    props: {
+      cards: [
+        {
+          id: 'blackjack-8',
+          title: 'Blackjack 8',
+          provider: 'Lucky Streak',
+          imageUrl: 'https://placehold.co/260x360?text=Blackjack+8',
+        },
+        {
+          id: 'bonus-poker',
+          title: 'Bonus Poker',
+          provider: 'Genii',
+          imageUrl: 'https://placehold.co/260x360?text=Bonus+Poker',
+        },
+        {
+          id: 'aces-faces',
+          title: 'Aces and Faces',
+          provider: 'Genii',
+          imageUrl: 'https://placehold.co/260x360?text=Aces+and+Faces',
+        },
+      ],
+    },
+    template: `
+      <zg-horizontal-list-layout ariaLabel="Featured games" layoutMode="scroll">
+        @for (card of cards; track card.id) {
+          <li zg-horizontal-list-layout-items style="width: 180px;">
+            <zg-casino-game-card
+              [title]="card.title"
+              [provider]="card.provider"
+              [imageUrl]="card.imageUrl"
+              ctaLabel="Play now"
+            ></zg-casino-game-card>
+          </li>
+        }
+      </zg-horizontal-list-layout>
     `,
   }),
 };

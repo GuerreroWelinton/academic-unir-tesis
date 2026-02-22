@@ -8,7 +8,7 @@ import { ZgHorizontalListLayoutComponent } from './horizontal-list-layout.compon
   standalone: true,
   imports: [ZgHorizontalListLayoutComponent, ZgChipComponent],
   template: `
-    <zg-horizontal-list-layout [ariaLabel]="ariaLabel">
+    <zg-horizontal-list-layout [ariaLabel]="ariaLabel" [layoutMode]="layoutMode">
       @for (item of items; track item.id) {
         <li zg-horizontal-list-layout-items>
           <zg-chip [selected]="item.selected" [disabled]="item.disabled">{{ item.label }}</zg-chip>
@@ -19,6 +19,7 @@ import { ZgHorizontalListLayoutComponent } from './horizontal-list-layout.compon
 })
 class TestHostHorizontalListLayoutComponent {
   ariaLabel = 'Casino categories';
+  layoutMode: 'scroll' | 'wrap' = 'scroll';
   items = [
     { id: 'all', label: 'All games', selected: true, disabled: false },
     { id: 'slots', label: 'Slots', selected: false, disabled: false },
@@ -54,6 +55,20 @@ describe('ZgHorizontalListLayoutComponent', () => {
     expect(nav.nativeElement.getAttribute('aria-label')).toBe('Casino categories');
   });
 
+  it('should expose layout mode in host attribute', () => {
+    const isolatedFixture = TestBed.createComponent(ZgHorizontalListLayoutComponent);
+    isolatedFixture.componentRef.setInput('layoutMode', 'scroll');
+    isolatedFixture.detectChanges();
+
+    const host = isolatedFixture.nativeElement as HTMLElement;
+    expect(host.getAttribute('data-layout-mode')).toBe('scroll');
+
+    isolatedFixture.componentRef.setInput('layoutMode', 'wrap');
+    isolatedFixture.detectChanges();
+
+    expect(host.getAttribute('data-layout-mode')).toBe('wrap');
+  });
+
   it('should project chip items rendered by host loop', () => {
     const items = fixture.debugElement.queryAll(By.css('li[zg-horizontal-list-layout-items]'));
     const chips = fixture.debugElement.queryAll(By.css('zg-chip'));
@@ -77,5 +92,21 @@ describe('ZgHorizontalListLayoutComponent', () => {
 
     expect(nav).toBeTruthy();
     expect(items.length).toBe(0);
+  });
+
+  it('should emit scroll state when list can scroll', () => {
+    const layoutDebug = fixture.debugElement.query(By.directive(ZgHorizontalListLayoutComponent));
+    const layoutComponent = layoutDebug.componentInstance as ZgHorizontalListLayoutComponent;
+    const navElement = fixture.debugElement.query(By.css('.zg-horizontal-list-layout__nav'))
+      .nativeElement as HTMLElement;
+    const emitSpy = vi.spyOn(layoutComponent.scrollStateChange, 'emit');
+
+    Object.defineProperty(navElement, 'scrollWidth', { value: 900, configurable: true });
+    Object.defineProperty(navElement, 'clientWidth', { value: 300, configurable: true });
+    Object.defineProperty(navElement, 'scrollLeft', { value: 120, configurable: true });
+
+    layoutComponent.refreshScrollState();
+
+    expect(emitSpy).toHaveBeenCalledWith({ canScrollPrev: true, canScrollNext: true });
   });
 });

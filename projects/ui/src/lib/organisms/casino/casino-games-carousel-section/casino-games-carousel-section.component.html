@@ -1,0 +1,77 @@
+<section class="zg-casino-games-carousel-section__surface" [attr.aria-label]="sectionAriaLabel()">
+  <zg-content-section-header>
+    <zg-section-title
+      zg-content-section-header-title
+      [label]="title()"
+      [tone]="titleTone()"
+      [size]="titleSize()"
+      [showAccent]="showTitleAccent()"
+    ></zg-section-title>
+
+    <zg-section-actions
+      zg-content-section-header-actions
+      [groupAriaLabel]="actionsGroupAriaLabel()"
+    >
+      @if (showAllAction()) {
+        <zg-button
+          zg-section-actions-all
+          variant="primary"
+          shape="pill"
+          [size]="effectiveActionsSize()"
+          (clicked)="onViewAllClicked()"
+        >
+          {{ allActionLabel() }}
+        </zg-button>
+      }
+
+      <zg-button
+        zg-section-actions-prev
+        variant="secondary"
+        shape="square"
+        [size]="effectiveActionsSize()"
+        aria-label="Previous games"
+        [disabled]="!canScrollPrev()"
+        (clicked)="onPreviousClicked()"
+      >
+        ‹
+      </zg-button>
+      <zg-button
+        zg-section-actions-next
+        variant="secondary"
+        shape="square"
+        [size]="effectiveActionsSize()"
+        aria-label="Next games"
+        [disabled]="!canScrollNext()"
+        (clicked)="onNextClicked()"
+      >
+        ›
+      </zg-button>
+    </zg-section-actions>
+  </zg-content-section-header>
+
+  <zg-horizontal-list-layout
+    #listLayout
+    [ariaLabel]="listAriaLabel()"
+    layoutMode="scroll"
+    [scrollStep]="scrollStep()"
+    (scrollStateChange)="onScrollStateChange($event)"
+  >
+    @for (item of items(); track item.id) {
+      <li zg-horizontal-list-layout-items [style.width.px]="cardWidth()">
+        <zg-casino-game-card
+          [title]="item.title"
+          [provider]="item.provider ?? ''"
+          [imageUrl]="item.imageUrl"
+          [imageAlt]="item.imageAlt ?? ''"
+          [ctaLabel]="item.ctaLabel ?? 'Play now'"
+          [favorite]="item.favorite ?? false"
+          [disabled]="item.disabled ?? false"
+          [showFavorite]="item.showFavorite ?? true"
+          [aspectRatio]="item.aspectRatio ?? 'portrait'"
+          (playClicked)="onPlayRequested(item)"
+          (favoriteClicked)="onFavoriteRequested(item)"
+        ></zg-casino-game-card>
+      </li>
+    }
+  </zg-horizontal-list-layout>
+</section>

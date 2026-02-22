@@ -113,6 +113,16 @@ describe('ZgCategoryFilterTabsComponent', () => {
     expect(nav.nativeElement.getAttribute('aria-label')).toBe('Casino category filters');
   });
 
+  it('should expose layout mode in host attribute', () => {
+    const host = fixture.nativeElement as HTMLElement;
+    expect(host.getAttribute('data-layout-mode')).toBe('scroll');
+
+    fixture.componentRef.setInput('layoutMode', 'wrap');
+    fixture.detectChanges();
+
+    expect(host.getAttribute('data-layout-mode')).toBe('wrap');
+  });
+
   it('should render projected icon template when item provides iconTemplate', () => {
     const hostFixture = TestBed.createComponent(TestHostCategoryFilterTabsComponent);
     hostFixture.detectChanges();

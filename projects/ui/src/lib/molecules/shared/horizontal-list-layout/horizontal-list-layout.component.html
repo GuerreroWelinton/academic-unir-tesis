@@ -1,4 +1,9 @@
-<nav class="zg-horizontal-list-layout__nav" [attr.aria-label]="ariaLabel()">
+<nav
+  #navElement
+  class="zg-horizontal-list-layout__nav"
+  [attr.aria-label]="ariaLabel()"
+  (scroll)="onNavScroll()"
+>
   <ul class="zg-horizontal-list-layout__list">
     <ng-content select="[zg-horizontal-list-layout-items]"></ng-content>
   </ul>

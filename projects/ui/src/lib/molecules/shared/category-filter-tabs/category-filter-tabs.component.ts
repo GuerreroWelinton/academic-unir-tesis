@@ -13,6 +13,8 @@ export interface CategoryFilterTabItem {
   iconTemplate?: TemplateRef<{ $implicit: CategoryFilterTabItem }>;
 }
 
+export type CategoryFilterTabsLayoutMode = 'scroll' | 'wrap';
+
 @Component({
   selector: 'zg-category-filter-tabs',
   standalone: true,
@@ -22,6 +24,7 @@ export interface CategoryFilterTabItem {
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     '[class]': '"zg-category-filter-tabs"',
+    '[attr.data-layout-mode]': 'layoutMode()',
   },
 })
 export class ZgCategoryFilterTabsComponent {
@@ -31,6 +34,7 @@ export class ZgCategoryFilterTabsComponent {
   chipSize = input<ChipSize>('md');
   disabled = input<boolean>(false);
   ariaLabel = input<string>('Category filters');
+  layoutMode = input<CategoryFilterTabsLayoutMode>('scroll');
 
   selectedIdChange = output<string>();
   changed = output<CategoryFilterTabItem>();
