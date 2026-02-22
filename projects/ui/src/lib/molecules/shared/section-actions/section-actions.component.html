@@ -1,54 +1,14 @@
 <div class="zg-section-actions__group" role="group" [attr.aria-label]="groupAriaLabel()">
-  <zg-button
-    class="zg-section-actions__all"
-    [variant]="allVariant()"
-    [size]="size()"
-    [shape]="allShape()"
-    [fontFamily]="fontFamily()"
-    [disabled]="disableAll()"
-    [attr.aria-label]="allAriaLabel()"
-    (clicked)="onAllClicked()"
-  >
-    @if (allContentTemplate(); as contentTemplate) {
-      <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
-    } @else {
-      {{ allLabel() }}
-    }
-  </zg-button>
+  <div class="zg-section-actions__all">
+    <ng-content select="[zg-section-actions-all]"></ng-content>
+  </div>
 
   <div class="zg-section-actions__nav">
-    <zg-button
-      class="zg-section-actions__nav-button"
-      [variant]="navVariant()"
-      [size]="size()"
-      [shape]="navShape()"
-      [fontFamily]="fontFamily()"
-      [disabled]="disablePrev()"
-      [attr.aria-label]="prevAriaLabel()"
-      (clicked)="onPrevClicked()"
-    >
-      @if (prevContentTemplate(); as contentTemplate) {
-        <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
-      } @else {
-        {{ prevLabel() }}
-      }
-    </zg-button>
-
-    <zg-button
-      class="zg-section-actions__nav-button"
-      [variant]="navVariant()"
-      [size]="size()"
-      [shape]="navShape()"
-      [fontFamily]="fontFamily()"
-      [disabled]="disableNext()"
-      [attr.aria-label]="nextAriaLabel()"
-      (clicked)="onNextClicked()"
-    >
-      @if (nextContentTemplate(); as contentTemplate) {
-        <ng-container [ngTemplateOutlet]="contentTemplate"></ng-container>
-      } @else {
-        {{ nextLabel() }}
-      }
-    </zg-button>
+    <div class="zg-section-actions__nav-button">
+      <ng-content select="[zg-section-actions-prev]"></ng-content>
+    </div>
+    <div class="zg-section-actions__nav-button">
+      <ng-content select="[zg-section-actions-next]"></ng-content>
+    </div>
   </div>
 </div>

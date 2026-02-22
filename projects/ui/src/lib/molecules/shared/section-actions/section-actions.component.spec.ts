@@ -1,121 +1,118 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
+import { ZgButtonComponent } from '../../../atoms/button/button.component';
 import { ZgSectionActionsComponent } from './section-actions.component';
 
 @Component({
   standalone: true,
-  imports: [ZgSectionActionsComponent],
+  imports: [ZgSectionActionsComponent, ZgButtonComponent],
   template: `
-    <ng-template #allTpl>
-      <span data-testid="all-template">View all games</span>
-    </ng-template>
-    <ng-template #prevTpl>
-      <span data-testid="prev-template">Previous games</span>
-    </ng-template>
-    <ng-template #nextTpl>
-      <span data-testid="next-template">Next games</span>
-    </ng-template>
+    <zg-section-actions [groupAriaLabel]="groupAriaLabel">
+      <zg-button
+        zg-section-actions-all
+        [variant]="'primary'"
+        [shape]="'pill'"
+        [size]="'md'"
+        [fontFamily]="'base'"
+        (clicked)="allClicks = allClicks + 1"
+      >
+        All
+      </zg-button>
 
-    <zg-section-actions
-      [allContentTemplate]="allTpl"
-      [prevContentTemplate]="prevTpl"
-      [nextContentTemplate]="nextTpl"
-    ></zg-section-actions>
+      <zg-button
+        zg-section-actions-prev
+        [variant]="'secondary'"
+        [shape]="'square'"
+        [size]="'md'"
+        [fontFamily]="'base'"
+        (clicked)="prevClicks = prevClicks + 1"
+      >
+        ‹
+      </zg-button>
+
+      <zg-button
+        zg-section-actions-next
+        [variant]="'secondary'"
+        [shape]="'square'"
+        [size]="'md'"
+        [fontFamily]="'base'"
+        (clicked)="nextClicks = nextClicks + 1"
+      >
+        ›
+      </zg-button>
+    </zg-section-actions>
   `,
 })
-class TestHostSectionActionsTemplatesComponent {}
+class TestHostSectionActionsComponent {
+  groupAriaLabel = 'Section actions';
+  allClicks = 0;
+  prevClicks = 0;
+  nextClicks = 0;
+}
+
+@Component({
+  standalone: true,
+  imports: [ZgSectionActionsComponent],
+  template: `<zg-section-actions></zg-section-actions>`,
+})
+class TestHostEmptySectionActionsComponent {}
 
 describe('ZgSectionActionsComponent', () => {
-  let fixture: ComponentFixture<ZgSectionActionsComponent>;
-  let component: ZgSectionActionsComponent;
+  let fixture: ComponentFixture<TestHostSectionActionsComponent>;
+  let host: TestHostSectionActionsComponent;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ZgSectionActionsComponent, TestHostSectionActionsTemplatesComponent],
+      imports: [
+        ZgSectionActionsComponent,
+        TestHostSectionActionsComponent,
+        TestHostEmptySectionActionsComponent,
+      ],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ZgSectionActionsComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(TestHostSectionActionsComponent);
+    host = fixture.componentInstance;
     fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(fixture).toBeTruthy();
   });
 
-  it('should render all and nav labels', () => {
-    fixture.componentRef.setInput('allLabel', 'Todos');
-    fixture.componentRef.setInput('prevLabel', '‹');
-    fixture.componentRef.setInput('nextLabel', '›');
-    fixture.detectChanges();
-
-    const buttons = fixture.debugElement.queryAll(By.css('button'));
-    expect(buttons[0].nativeElement.textContent.trim()).toBe('Todos');
-    expect(buttons[1].nativeElement.textContent.trim()).toBe('‹');
-    expect(buttons[2].nativeElement.textContent.trim()).toBe('›');
+  it('should project all three slot actions', () => {
+    const hostElement = fixture.nativeElement as HTMLElement;
+    expect(hostElement.querySelector('[zg-section-actions-all]')).toBeTruthy();
+    expect(hostElement.querySelector('[zg-section-actions-prev]')).toBeTruthy();
+    expect(hostElement.querySelector('[zg-section-actions-next]')).toBeTruthy();
   });
 
-  it('should emit allClicked when all button is clicked', () => {
-    const emitSpy = vi.spyOn(component.allClicked, 'emit');
-    const allButton = fixture.debugElement.queryAll(By.css('button'))[0];
+  it('should set group aria label from input', () => {
+    const isolatedFixture = TestBed.createComponent(ZgSectionActionsComponent);
+    isolatedFixture.componentRef.setInput('groupAriaLabel', 'Top games actions');
+    isolatedFixture.detectChanges();
 
-    allButton.nativeElement.click();
-
-    expect(emitSpy).toHaveBeenCalledTimes(1);
+    const group = isolatedFixture.debugElement.query(By.css('[role="group"]'));
+    expect(group.nativeElement.getAttribute('aria-label')).toBe('Top games actions');
   });
 
-  it('should emit prevClicked and nextClicked on nav clicks', () => {
-    const prevSpy = vi.spyOn(component.prevClicked, 'emit');
-    const nextSpy = vi.spyOn(component.nextClicked, 'emit');
+  it('should delegate click handling to projected buttons', () => {
     const buttons = fixture.debugElement.queryAll(By.css('button'));
 
-    buttons[1].nativeElement.click();
-    buttons[2].nativeElement.click();
-
-    expect(prevSpy).toHaveBeenCalledTimes(1);
-    expect(nextSpy).toHaveBeenCalledTimes(1);
-  });
-
-  it('should disable buttons by input flags', () => {
-    fixture.componentRef.setInput('disableAll', true);
-    fixture.componentRef.setInput('disablePrev', true);
-    fixture.componentRef.setInput('disableNext', true);
-    fixture.detectChanges();
-
-    const buttons = fixture.debugElement.queryAll(By.css('button'));
-    expect(buttons[0].nativeElement.disabled).toBe(true);
-    expect(buttons[1].nativeElement.disabled).toBe(true);
-    expect(buttons[2].nativeElement.disabled).toBe(true);
-  });
-
-  it('should not emit events when buttons are disabled', () => {
-    const allSpy = vi.spyOn(component.allClicked, 'emit');
-    const prevSpy = vi.spyOn(component.prevClicked, 'emit');
-    const nextSpy = vi.spyOn(component.nextClicked, 'emit');
-
-    fixture.componentRef.setInput('disableAll', true);
-    fixture.componentRef.setInput('disablePrev', true);
-    fixture.componentRef.setInput('disableNext', true);
-    fixture.detectChanges();
-
-    const buttons = fixture.debugElement.queryAll(By.css('button'));
     buttons[0].nativeElement.click();
     buttons[1].nativeElement.click();
     buttons[2].nativeElement.click();
 
-    expect(allSpy).not.toHaveBeenCalled();
-    expect(prevSpy).not.toHaveBeenCalled();
-    expect(nextSpy).not.toHaveBeenCalled();
+    expect(host.allClicks).toBe(1);
+    expect(host.prevClicks).toBe(1);
+    expect(host.nextClicks).toBe(1);
   });
 
-  it('should render projected templates when template inputs are provided', () => {
-    const hostFixture = TestBed.createComponent(TestHostSectionActionsTemplatesComponent);
-    hostFixture.detectChanges();
+  it('should render without projected content', () => {
+    const emptyFixture = TestBed.createComponent(TestHostEmptySectionActionsComponent);
+    emptyFixture.detectChanges();
 
-    const hostElement = hostFixture.nativeElement as HTMLElement;
-    expect(hostElement.querySelector('[data-testid="all-template"]')).toBeTruthy();
-    expect(hostElement.querySelector('[data-testid="prev-template"]')).toBeTruthy();
-    expect(hostElement.querySelector('[data-testid="next-template"]')).toBeTruthy();
+    const buttons = emptyFixture.debugElement.queryAll(By.css('button'));
+    expect(buttons.length).toBe(0);
   });
 });

@@ -14,26 +14,10 @@
   gap: var(--zg-section-actions-nav-gap);
 }
 
-:host([data-size='sm']) .zg-section-actions__all {
-  min-width: var(--zg-section-actions-all-min-width-sm);
+.zg-section-actions__all {
+  display: inline-flex;
 }
 
-:host([data-size='md']) .zg-section-actions__all {
-  min-width: var(--zg-section-actions-all-min-width-md);
-}
-
-:host([data-size='lg']) .zg-section-actions__all {
-  min-width: var(--zg-section-actions-all-min-width-lg);
-}
-
-:host([data-size='sm']) .zg-section-actions__nav-button {
-  min-width: var(--zg-section-actions-nav-min-width-sm);
-}
-
-:host([data-size='md']) .zg-section-actions__nav-button {
-  min-width: var(--zg-section-actions-nav-min-width-md);
-}
-
-:host([data-size='lg']) .zg-section-actions__nav-button {
-  min-width: var(--zg-section-actions-nav-min-width-lg);
+.zg-section-actions__nav-button {
+  display: inline-flex;
 }

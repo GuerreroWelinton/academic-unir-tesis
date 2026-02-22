@@ -4,14 +4,14 @@
 
 .zg-content-section-header__container {
   display: flex;
-  align-items: var(--zg-content-section-header-align-items);
-  justify-content: var(--zg-content-section-header-justify-content);
+  align-items: flex-end;
+  justify-content: space-between;
   gap: var(--zg-content-section-header-gap);
-  flex-wrap: var(--zg-content-section-header-wrap);
+  flex-wrap: wrap;
 }
 
 .zg-content-section-header__title {
-  min-width: var(--zg-content-section-header-title-min-width);
+  min-width: 0;
 }
 
 .zg-content-section-header__actions {

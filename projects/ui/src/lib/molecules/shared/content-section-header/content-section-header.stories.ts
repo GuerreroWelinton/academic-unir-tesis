@@ -4,6 +4,7 @@ import { expect } from '@storybook/jest';
 import { userEvent, within } from '@storybook/testing-library';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideArrowRight, lucideChevronLeft, lucideChevronRight } from '@ng-icons/lucide';
+import { ZgButtonComponent } from '../../../atoms/button/button.component';
 import { ZgSectionTitleComponent } from '../../../atoms/section-title/section-title.component';
 import { ZgSectionActionsComponent } from '../section-actions/section-actions.component';
 import { ZgContentSectionHeaderComponent } from './content-section-header.component';
@@ -39,7 +40,12 @@ const meta: Meta<ZgContentSectionHeaderComponent> = {
   },
   decorators: [
     moduleMetadata({
-      imports: [NgIconComponent, ZgSectionTitleComponent, ZgSectionActionsComponent],
+      imports: [
+        NgIconComponent,
+        ZgButtonComponent,
+        ZgSectionTitleComponent,
+        ZgSectionActionsComponent,
+      ],
       providers: [provideIcons({ lucideArrowRight, lucideChevronLeft, lucideChevronRight })],
     }),
   ],
@@ -59,13 +65,17 @@ export const Default: Story = {
           tone="primary"
           [showAccent]="true"
         ></zg-section-title>
-        <zg-section-actions
-          zg-content-section-header-actions
-          allLabel="All"
-          allAriaLabel="View all games"
-          prevAriaLabel="Previous games"
-          nextAriaLabel="Next games"
-        ></zg-section-actions>
+        <zg-section-actions zg-content-section-header-actions>
+          <zg-button zg-section-actions-all variant="primary" shape="pill" aria-label="View all games">
+            All
+          </zg-button>
+          <zg-button zg-section-actions-prev variant="secondary" shape="square" aria-label="Previous games">
+            ‹
+          </zg-button>
+          <zg-button zg-section-actions-next variant="secondary" shape="square" aria-label="Next games">
+            ›
+          </zg-button>
+        </zg-section-actions>
       </zg-content-section-header>
     `,
   }),
@@ -78,12 +88,20 @@ export const Variants: Story = {
       <div style="display:grid;gap:var(--zg-spacing-5);">
         <zg-content-section-header>
           <zg-section-title zg-content-section-header-title label="Most Bet Games" tone="primary" [showAccent]="true"></zg-section-title>
-          <zg-section-actions zg-content-section-header-actions allVariant="primary" navVariant="secondary"></zg-section-actions>
+          <zg-section-actions zg-content-section-header-actions>
+            <zg-button zg-section-actions-all variant="primary" shape="pill">All</zg-button>
+            <zg-button zg-section-actions-prev variant="secondary" shape="square">‹</zg-button>
+            <zg-button zg-section-actions-next variant="secondary" shape="square">›</zg-button>
+          </zg-section-actions>
         </zg-content-section-header>
 
         <zg-content-section-header>
           <zg-section-title zg-content-section-header-title label="Featured Providers" tone="default"></zg-section-title>
-          <zg-section-actions zg-content-section-header-actions allVariant="accent" navVariant="ghost"></zg-section-actions>
+          <zg-section-actions zg-content-section-header-actions>
+            <zg-button zg-section-actions-all variant="accent" shape="pill">Explore</zg-button>
+            <zg-button zg-section-actions-prev variant="ghost" shape="square">‹</zg-button>
+            <zg-button zg-section-actions-next variant="ghost" shape="square">›</zg-button>
+          </zg-section-actions>
         </zg-content-section-header>
       </div>
     `,
@@ -97,15 +115,27 @@ export const Sizes: Story = {
       <div style="display:grid;gap:var(--zg-spacing-5);">
         <zg-content-section-header>
           <zg-section-title zg-content-section-header-title label="Small" size="sm"></zg-section-title>
-          <zg-section-actions zg-content-section-header-actions size="sm"></zg-section-actions>
+          <zg-section-actions zg-content-section-header-actions>
+            <zg-button zg-section-actions-all variant="primary" shape="pill" size="sm">All</zg-button>
+            <zg-button zg-section-actions-prev variant="secondary" shape="square" size="sm">‹</zg-button>
+            <zg-button zg-section-actions-next variant="secondary" shape="square" size="sm">›</zg-button>
+          </zg-section-actions>
         </zg-content-section-header>
         <zg-content-section-header>
           <zg-section-title zg-content-section-header-title label="Medium" size="md"></zg-section-title>
-          <zg-section-actions zg-content-section-header-actions size="md"></zg-section-actions>
+          <zg-section-actions zg-content-section-header-actions>
+            <zg-button zg-section-actions-all variant="primary" shape="pill" size="md">All</zg-button>
+            <zg-button zg-section-actions-prev variant="secondary" shape="square" size="md">‹</zg-button>
+            <zg-button zg-section-actions-next variant="secondary" shape="square" size="md">›</zg-button>
+          </zg-section-actions>
         </zg-content-section-header>
         <zg-content-section-header>
           <zg-section-title zg-content-section-header-title label="Large" size="lg"></zg-section-title>
-          <zg-section-actions zg-content-section-header-actions size="lg"></zg-section-actions>
+          <zg-section-actions zg-content-section-header-actions>
+            <zg-button zg-section-actions-all variant="primary" shape="pill" size="lg">All</zg-button>
+            <zg-button zg-section-actions-prev variant="secondary" shape="square" size="lg">‹</zg-button>
+            <zg-button zg-section-actions-next variant="secondary" shape="square" size="lg">›</zg-button>
+          </zg-section-actions>
         </zg-content-section-header>
       </div>
     `,
@@ -119,7 +149,11 @@ export const States: Story = {
       <div style="display:grid;gap:var(--zg-spacing-5);">
         <zg-content-section-header data-testid="with-actions">
           <zg-section-title zg-content-section-header-title label="With actions"></zg-section-title>
-          <zg-section-actions zg-content-section-header-actions></zg-section-actions>
+          <zg-section-actions zg-content-section-header-actions>
+            <zg-button zg-section-actions-all variant="primary" shape="pill">All</zg-button>
+            <zg-button zg-section-actions-prev variant="secondary" shape="square">‹</zg-button>
+            <zg-button zg-section-actions-next variant="secondary" shape="square">›</zg-button>
+          </zg-section-actions>
         </zg-content-section-header>
 
         <zg-content-section-header data-testid="without-actions">
@@ -142,34 +176,30 @@ export const Composition: Story = {
   parameters: { controls: { disable: true } },
   render: () => ({
     template: `
-      <ng-template #allTpl>
-        <span style="display:inline-flex;align-items:center;gap:var(--zg-spacing-2);">
-          All games
-          <ng-icon name="lucideArrowRight" size="1rem" aria-hidden="true"></ng-icon>
-        </span>
-      </ng-template>
-      <ng-template #prevTpl>
-        <ng-icon name="lucideChevronLeft" size="1rem" aria-hidden="true"></ng-icon>
-      </ng-template>
-      <ng-template #nextTpl>
-        <ng-icon name="lucideChevronRight" size="1rem" aria-hidden="true"></ng-icon>
-      </ng-template>
-
       <zg-content-section-header>
         <zg-section-title
           zg-content-section-header-title
           label="Most Bet Games"
           [showAccent]="true"
         ></zg-section-title>
-        <zg-section-actions
-          zg-content-section-header-actions
-          [allContentTemplate]="allTpl"
-          [prevContentTemplate]="prevTpl"
-          [nextContentTemplate]="nextTpl"
-          allAriaLabel="View all games"
-          prevAriaLabel="Previous games"
-          nextAriaLabel="Next games"
-        ></zg-section-actions>
+        <zg-section-actions zg-content-section-header-actions>
+          <zg-button
+            zg-section-actions-all
+            variant="primary"
+            shape="pill"
+            aria-label="View all games"
+            style="display:inline-flex;align-items:center;gap:var(--zg-spacing-2);"
+          >
+            All games
+            <ng-icon name="lucideArrowRight" size="1rem" aria-hidden="true"></ng-icon>
+          </zg-button>
+          <zg-button zg-section-actions-prev variant="secondary" shape="square" aria-label="Previous games">
+            <ng-icon name="lucideChevronLeft" size="1rem" aria-hidden="true"></ng-icon>
+          </zg-button>
+          <zg-button zg-section-actions-next variant="secondary" shape="square" aria-label="Next games">
+            <ng-icon name="lucideChevronRight" size="1rem" aria-hidden="true"></ng-icon>
+          </zg-button>
+        </zg-section-actions>
       </zg-content-section-header>
     `,
   }),
@@ -204,7 +234,11 @@ export const InteractivePreview: Story = {
         <zg-content-section-header data-testid="interactive-header">
           <zg-section-title zg-content-section-header-title label="Interactive header"></zg-section-title>
           @if (showActions) {
-            <zg-section-actions zg-content-section-header-actions></zg-section-actions>
+            <zg-section-actions zg-content-section-header-actions>
+              <zg-button zg-section-actions-all variant="primary" shape="pill">All</zg-button>
+              <zg-button zg-section-actions-prev variant="secondary" shape="square">‹</zg-button>
+              <zg-button zg-section-actions-next variant="secondary" shape="square">›</zg-button>
+            </zg-section-actions>
           }
         </zg-content-section-header>
       </div>
@@ -233,16 +267,17 @@ export const AccessibilityDemo: Story = {
           [ariaLevel]="3"
           [showAccent]="true"
         ></zg-section-title>
-        <zg-section-actions
-          zg-content-section-header-actions
-          allLabel="View all top games"
-          prevLabel="Previous games"
-          nextLabel="Next games"
-          groupAriaLabel="Top games actions"
-          allAriaLabel="View all top games"
-          prevAriaLabel="Previous games"
-          nextAriaLabel="Next games"
-        ></zg-section-actions>
+        <zg-section-actions zg-content-section-header-actions groupAriaLabel="Top games actions">
+          <zg-button zg-section-actions-all variant="primary" shape="pill" aria-label="View all top games">
+            View all top games
+          </zg-button>
+          <zg-button zg-section-actions-prev variant="secondary" shape="square" aria-label="Previous games">
+            Previous games
+          </zg-button>
+          <zg-button zg-section-actions-next variant="secondary" shape="square" aria-label="Next games">
+            Next games
+          </zg-button>
+        </zg-section-actions>
       </zg-content-section-header>
     `,
   }),
