@@ -15,8 +15,8 @@
     "target": "ES2022",
     "module": "preserve",
     "paths": {
-      "@zg/design-tokens": ["./projects/design-tokens/src/public-api.ts"],
-      "@zg/ui": ["./projects/ui/src/public-api.ts"],
+      "@zgames/design-tokens": ["./projects/design-tokens/src/public-api.ts"],
+      "@zgames/ui": ["./projects/ui/src/public-api.ts"],
       "design-tokens": ["./dist/design-tokens"],
       "ui": ["./dist/ui"]
     }

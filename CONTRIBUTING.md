@@ -31,6 +31,15 @@ This local gate includes:
 - app/libs build
 - Storybook build
 
+## Namespace and Local Development Flow (mandatory)
+
+- Canonical import namespace is `@zgames/*`.
+- For local development in this monorepo, `tsconfig.json` resolves:
+  - `@zgames/ui` -> `projects/ui/src/public-api.ts`
+  - `@zgames/design-tokens` -> `projects/design-tokens/src/public-api.ts`
+- This avoids drift against published npm packages during day-to-day development.
+- Release/consumer flow remains package-based (`@zgames/ui`, `@zgames/design-tokens`) after publishing from `dist/*`.
+
 ## Architecture Rules (mandatory)
 
 - The `projects/ui` library only contains **presentational components**.
