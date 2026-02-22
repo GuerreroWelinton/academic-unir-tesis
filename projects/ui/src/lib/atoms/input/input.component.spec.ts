@@ -63,6 +63,18 @@ describe('ZgInputComponent', () => {
     expect(spy).toHaveBeenCalledWith('abc');
   });
 
+  it('should show clear button after typing even without external value binding', () => {
+    fixture.componentRef.setInput('label', 'Search');
+    fixture.detectChanges();
+
+    inputElement.nativeElement.value = 'typed';
+    inputElement.nativeElement.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+
+    const clearBtn = fixture.debugElement.query(By.css('.zg-input__clear'));
+    expect(clearBtn).toBeTruthy();
+  });
+
   it('should emit focused event on focus', () => {
     const spy = vi.spyOn(component.focused, 'emit');
     inputElement.nativeElement.dispatchEvent(new FocusEvent('focus'));
@@ -135,6 +147,16 @@ describe('ZgInputComponent', () => {
 
     expect(input.getAttribute('aria-describedby')).toBe(helper.id);
     expect(helper.id).toContain(component.id);
+  });
+
+  it('should provide aria-label fallback when visible label is missing', () => {
+    fixture.componentRef.setInput('label', '   ');
+    fixture.componentRef.setInput('placeholder', 'Search games');
+    fixture.detectChanges();
+
+    const input = fixture.debugElement.query(By.css('.zg-input__field'))
+      .nativeElement as HTMLInputElement;
+    expect(input.getAttribute('aria-label')).toBe('Search games');
   });
 
   it('should generate unique ids per component instance', () => {

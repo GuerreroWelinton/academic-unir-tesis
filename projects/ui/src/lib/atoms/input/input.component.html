@@ -1,4 +1,4 @@
-@if (label()) {
+@if (label().trim()) {
   <label class="zg-input__label" [attr.for]="inputId">
     {{ label() }}
   </label>
@@ -16,17 +16,18 @@
     [attr.readonly]="readonly() ? true : null"
     [attr.autocomplete]="autocomplete() || null"
     [attr.maxlength]="maxlength() || null"
-    [value]="value()"
+    [value]="internalValue()"
     (input)="onInput($event)"
     (focus)="onFocus($event)"
     (blur)="onBlur($event)"
     [attr.aria-invalid]="error() ? 'true' : null"
     [attr.aria-describedby]="describedBy()"
+    [attr.aria-label]="inputAriaLabel()"
   />
   <span class="zg-input__icon zg-input__icon--right">
     <ng-content select="[icon-right]"></ng-content>
   </span>
-  @if (!readonly() && !disabled() && value()) {
+  @if (showClearButton()) {
     <button type="button" class="zg-input__clear" (click)="onClear()" aria-label="Clear input">
       <span class="zg-input__clear-icon-slot">
         <ng-content select="[clear-icon]"></ng-content>

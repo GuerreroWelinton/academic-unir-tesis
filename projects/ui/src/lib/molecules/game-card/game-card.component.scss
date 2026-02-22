@@ -72,6 +72,7 @@
 }
 
 .zg-game-card__favorite {
+  margin-inline-start: auto;
   color: var(--zg-game-card-favorite-color);
 }
 
@@ -122,6 +123,29 @@
 
   &:empty {
     display: none;
+  }
+}
+
+.zg-game-card__icon-slot:empty + .zg-game-card__icon-fallback {
+  display: inline-flex;
+}
+
+.zg-game-card__icon-slot:not(:empty) + .zg-game-card__icon-fallback {
+  display: none;
+}
+
+.zg-game-card__icon-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  font-size: var(--zg-font-size-sm);
+  font-weight: var(--zg-font-weight-semibold);
+
+  svg {
+    display: block;
+    width: 0.875rem;
+    height: 0.875rem;
   }
 }
 

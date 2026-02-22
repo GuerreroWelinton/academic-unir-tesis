@@ -43,7 +43,7 @@ const meta: Meta<ZgInputComponent> = {
   argTypes: {
     type: {
       control: 'select',
-      options: ['text', 'password', 'email', 'number', 'search'],
+      options: ['text', 'password', 'email', 'number', 'search', 'tel', 'url'],
       description: 'Input type',
       table: { defaultValue: { summary: 'text' } },
     },
@@ -146,7 +146,7 @@ export const Default: Story = {
 /**
  * Input type variants
  */
-export const Types: Story = {
+export const Variants: Story = {
   parameters: {
     controls: { disable: true },
   },
