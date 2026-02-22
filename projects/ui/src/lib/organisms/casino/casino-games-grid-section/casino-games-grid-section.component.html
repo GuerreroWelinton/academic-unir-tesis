@@ -1,0 +1,25 @@
+<section class="zg-casino-games-grid-section__surface" [attr.aria-label]="sectionAriaLabel()">
+  <zg-casino-catalog-header
+    [breadcrumbs]="breadcrumbs()"
+    [breadcrumbAriaLabel]="breadcrumbAriaLabel()"
+    [title]="title()"
+    [gamesCount]="gamesCount()"
+    [gamesCountSuffix]="gamesCountSuffix()"
+    [ariaLabel]="headerAriaLabel()"
+    (breadcrumbItemClicked)="onBreadcrumbItemClicked($event)"
+  >
+    <div zg-casino-catalog-header-actions class="zg-casino-games-grid-section__actions">
+      <ng-content select="[zg-games-grid-section-actions]"></ng-content>
+    </div>
+  </zg-casino-catalog-header>
+
+  <section class="zg-casino-games-grid-section__grid" [attr.aria-label]="gridAriaLabel()">
+    @if (showEmptyState()) {
+      <p class="zg-casino-games-grid-section__empty">{{ emptyStateLabel() }}</p>
+    } @else {
+      <ng-content
+        select="zg-casino-game-card, zg-game-card, [zg-games-grid-section-item]"
+      ></ng-content>
+    }
+  </section>
+</section>

@@ -10,6 +10,7 @@ import type {
   casinoTwoRowGamesCarouselSectionTokens,
   chipTokens,
   casinoCatalogHeaderTokens,
+  casinoGamesGridSectionTokens,
   colorTokens,
   contentSectionHeaderTokens,
   inputTokens,
@@ -102,6 +103,7 @@ export type InputTokens = TokenOverrides<typeof inputTokens>;
 export type BadgeTokens = TokenOverrides<typeof badgeTokens>;
 export type ChipTokens = TokenOverrides<typeof chipTokens>;
 export type CasinoCatalogHeaderTokens = TokenOverrides<typeof casinoCatalogHeaderTokens>;
+export type CasinoGamesGridSectionTokens = TokenOverrides<typeof casinoGamesGridSectionTokens>;
 export type BreadcrumbTokens = TokenOverrides<typeof breadcrumbTokens>;
 export type CasinoGameCardTokens = TokenOverrides<typeof casinoGameCardTokens>;
 export type CasinoRankedGamesCarouselSectionTokens = TokenOverrides<
@@ -134,6 +136,7 @@ export interface Theme {
   badge?: BadgeTokens;
   chip?: ChipTokens;
   casinoCatalogHeader?: CasinoCatalogHeaderTokens;
+  casinoGamesGridSection?: CasinoGamesGridSectionTokens;
   breadcrumb?: BreadcrumbTokens;
   casinoGameCard?: CasinoGameCardTokens;
   casinoRankedGamesCarouselSection?: CasinoRankedGamesCarouselSectionTokens;
