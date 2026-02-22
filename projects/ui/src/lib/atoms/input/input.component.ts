@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, computed, input, output, signal } f
 import { CommonModule } from '@angular/common';
 
 export type InputSize = 'sm' | 'md' | 'lg';
+let nextInputId = 0;
 
 @Component({
   selector: 'zg-input',
@@ -20,7 +21,10 @@ export type InputSize = 'sm' | 'md' | 'lg';
 })
 export class ZgInputComponent {
   /** Unique id for input/label association */
-  public id = Math.random().toString(36).substring(2, 10);
+  public readonly id = `zg-input-${nextInputId++}`;
+  public readonly inputId = `${this.id}-field`;
+  public readonly errorId = `${this.id}-error`;
+  public readonly helperId = `${this.id}-helper`;
 
   /** Input type */
   type = input<string>('text');
@@ -81,6 +85,16 @@ export class ZgInputComponent {
     if (this.disabled()) classes.push('zg-input--disabled');
     if (this.isFocused()) classes.push('zg-input--focused');
     return classes.join(' ');
+  });
+
+  protected describedBy = computed(() => {
+    if (this.error()) {
+      return this.errorId;
+    }
+    if (this.helperText()) {
+      return this.helperId;
+    }
+    return null;
   });
 
   /** Handle input event */

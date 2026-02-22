@@ -40,6 +40,20 @@ describe('ZgInputComponent', () => {
     expect(spy).toHaveBeenCalledWith('abc');
   });
 
+  it('should emit focused event on focus', () => {
+    const spy = vi.spyOn(component.focused, 'emit');
+    inputElement.nativeElement.dispatchEvent(new FocusEvent('focus'));
+    fixture.detectChanges();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
+  it('should emit blurred event on blur', () => {
+    const spy = vi.spyOn(component.blurred, 'emit');
+    inputElement.nativeElement.dispatchEvent(new FocusEvent('blur'));
+    fixture.detectChanges();
+    expect(spy).toHaveBeenCalledTimes(1);
+  });
+
   it('should show error text', () => {
     fixture.componentRef.setInput('error', 'Invalid email');
     fixture.componentRef.setInput('helperText', 'Must be a valid email');
@@ -72,5 +86,43 @@ describe('ZgInputComponent', () => {
     fixture.componentRef.setInput('value', 'read only');
     fixture.detectChanges();
     expect(inputElement.nativeElement.readOnly).toBe(true);
+  });
+
+  it('should set unique aria-describedby id for error text', () => {
+    fixture.componentRef.setInput('error', 'Invalid');
+    fixture.detectChanges();
+
+    const input = fixture.debugElement.query(By.css('.zg-input__field'))
+      .nativeElement as HTMLInputElement;
+    const error = fixture.debugElement.query(By.css('.zg-input__error'))
+      .nativeElement as HTMLElement;
+
+    expect(input.getAttribute('aria-describedby')).toBe(error.id);
+    expect(error.id).toContain(component.id);
+  });
+
+  it('should set unique aria-describedby id for helper text', () => {
+    fixture.componentRef.setInput('helperText', 'Helper');
+    fixture.detectChanges();
+
+    const input = fixture.debugElement.query(By.css('.zg-input__field'))
+      .nativeElement as HTMLInputElement;
+    const helper = fixture.debugElement.query(By.css('.zg-input__helper'))
+      .nativeElement as HTMLElement;
+
+    expect(input.getAttribute('aria-describedby')).toBe(helper.id);
+    expect(helper.id).toContain(component.id);
+  });
+
+  it('should generate unique ids per component instance', () => {
+    const otherFixture = TestBed.createComponent(ZgInputComponent);
+    otherFixture.detectChanges();
+
+    const firstId = component.id;
+    const secondId = otherFixture.componentInstance.id;
+
+    expect(firstId).not.toBe(secondId);
+    expect(component.inputId).toContain(firstId);
+    expect(otherFixture.componentInstance.inputId).toContain(secondId);
   });
 });

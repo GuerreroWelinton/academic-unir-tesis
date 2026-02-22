@@ -125,14 +125,6 @@
   }
 }
 
-.zg-game-card__icon-fallback {
-  line-height: 1;
-}
-
-.zg-game-card__icon-slot:not(:empty) + .zg-game-card__icon-fallback {
-  display: none;
-}
-
 .zg-game-card__content {
   display: flex;
   flex-direction: column;

@@ -46,17 +46,14 @@ describe('ZgGameCardComponent', () => {
     expect(emitSpy).toHaveBeenCalledTimes(1);
   });
 
-  it('should emit favoriteToggled with toggled value', () => {
-    fixture.componentRef.setInput('favorite', false);
-    fixture.detectChanges();
-
-    const emitSpy = vi.spyOn(component.favoriteToggled, 'emit');
+  it('should emit favoriteClicked when favorite button is clicked', () => {
+    const emitSpy = vi.spyOn(component.favoriteClicked, 'emit');
     const button = fixture.debugElement.query(By.css('.zg-game-card__favorite'))
       .nativeElement as HTMLButtonElement;
 
     button.click();
 
-    expect(emitSpy).toHaveBeenCalledWith(true);
+    expect(emitSpy).toHaveBeenCalledTimes(1);
   });
 
   it('should not emit events when disabled', () => {
@@ -64,7 +61,7 @@ describe('ZgGameCardComponent', () => {
     fixture.detectChanges();
 
     const playSpy = vi.spyOn(component.playClicked, 'emit');
-    const favSpy = vi.spyOn(component.favoriteToggled, 'emit');
+    const favSpy = vi.spyOn(component.favoriteClicked, 'emit');
 
     const playButton = fixture.debugElement.query(By.css('.zg-game-card__play-button'))
       .nativeElement as HTMLButtonElement;

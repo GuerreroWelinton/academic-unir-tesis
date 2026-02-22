@@ -22,7 +22,7 @@ export class ZgGameCardComponent {
   provider = input<string>('');
   imageUrl = input<string>('');
   imageAlt = input<string>('');
-  ctaLabel = input<string>('Jugar ahora');
+  ctaLabel = input<string>('Play now');
   disabled = input<boolean>(false);
   favorite = input<boolean>(false);
   showFavorite = input<boolean>(true);
@@ -32,7 +32,7 @@ export class ZgGameCardComponent {
   favoriteAriaLabel = input<string>('Toggle favorite');
 
   playClicked = output<void>();
-  favoriteToggled = output<boolean>();
+  favoriteClicked = output<void>();
 
   protected effectiveImageAlt = computed(() => this.imageAlt() || this.title() || 'Game cover');
 
@@ -49,6 +49,6 @@ export class ZgGameCardComponent {
     if (this.disabled()) {
       return;
     }
-    this.favoriteToggled.emit(!this.favorite());
+    this.favoriteClicked.emit();
   }
 }
