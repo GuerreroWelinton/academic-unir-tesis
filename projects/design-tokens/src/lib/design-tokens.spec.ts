@@ -29,6 +29,7 @@ describe('DesignTokens', () => {
     expect(DesignTokens.sectionActions.gap).toBe('--zg-section-actions-gap');
     expect(DesignTokens.contentSectionHeader.gap).toBe('--zg-content-section-header-gap');
     expect(DesignTokens.casinoCatalogHeader.gap).toBe('--zg-casino-catalog-header-gap');
+    expect(DesignTokens.casinoHomeHero.minHeight).toBe('--zg-casino-home-hero-min-height');
     expect(DesignTokens.casinoGamesGridSection.gap).toBe('--zg-casino-games-grid-section-gap');
     expect(DesignTokens.breadcrumb.gap).toBe('--zg-breadcrumb-gap');
     expect(DesignTokens.casinoGameCard.bg).toBe('--zg-casino-game-card-bg');
@@ -85,6 +86,7 @@ describe('DesignTokens', () => {
       badge: { bgPrimary: '#333333' },
       chip: { bgFilled: '#444444' },
       casinoCatalogHeader: { gap: '1.5rem' },
+      casinoHomeHero: { overlayOpacity: '0.65' },
       casinoGamesGridSection: { gridGap: '0.75rem' },
       breadcrumb: { gap: '0.375rem' },
       sectionTitle: { textColorPrimary: '#118811' },
@@ -111,6 +113,7 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.badge.bgPrimary)).toBe('#333333');
     expect(getTokenValue(DesignTokens.chip.bgFilled)).toBe('#444444');
     expect(getTokenValue(DesignTokens.casinoCatalogHeader.gap)).toBe('1.5rem');
+    expect(getTokenValue(DesignTokens.casinoHomeHero.overlayOpacity)).toBe('0.65');
     expect(getTokenValue(DesignTokens.casinoGamesGridSection.gridGap)).toBe('0.75rem');
     expect(getTokenValue(DesignTokens.breadcrumb.gap)).toBe('0.375rem');
     expect(getTokenValue(DesignTokens.sectionTitle.textColorPrimary)).toBe('#118811');

@@ -24,6 +24,7 @@ export * from './lib/molecules/shared/breadcrumb/breadcrumb.component';
 // Organisms
 export * from './lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component';
 export * from './lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.component';
+export * from './lib/organisms/casino/casino-home-hero/casino-home-hero.component';
 export * from './lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.component';
 export * from './lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.component';
 export * from './lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.component';
