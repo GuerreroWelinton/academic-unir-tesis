@@ -29,6 +29,7 @@ describe('DesignTokens', () => {
     expect(DesignTokens.sectionActions.gap).toBe('--zg-section-actions-gap');
     expect(DesignTokens.contentSectionHeader.gap).toBe('--zg-content-section-header-gap');
     expect(DesignTokens.casinoGameCard.bg).toBe('--zg-casino-game-card-bg');
+    expect(DesignTokens.casinoProviderCarousel.gap).toBe('--zg-casino-provider-carousel-gap');
     expect(DesignTokens.luckyPicker.bg).toBe('--zg-lucky-picker-bg');
     expect(DesignTokens.gameCard.bg).toBe('--zg-casino-game-card-bg');
   });
@@ -77,6 +78,7 @@ describe('DesignTokens', () => {
       sectionActions: { gap: '0.875rem' },
       contentSectionHeader: { gap: '1.125rem' },
       casinoGameCard: { focusRingColor: '#33ff33' },
+      casinoProviderCarousel: { gap: '0.5rem' },
       luckyPicker: { bg: '#121212' },
     });
 
@@ -96,6 +98,7 @@ describe('DesignTokens', () => {
     expect(getTokenValue(DesignTokens.sectionActions.gap)).toBe('0.875rem');
     expect(getTokenValue(DesignTokens.contentSectionHeader.gap)).toBe('1.125rem');
     expect(getTokenValue(DesignTokens.casinoGameCard.focusRingColor)).toBe('#33ff33');
+    expect(getTokenValue(DesignTokens.casinoProviderCarousel.gap)).toBe('0.5rem');
     expect(getTokenValue(DesignTokens.luckyPicker.bg)).toBe('#121212');
   });
 

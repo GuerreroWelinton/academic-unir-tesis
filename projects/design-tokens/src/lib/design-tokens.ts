@@ -2,6 +2,7 @@ import type {
   BadgeTokens,
   ButtonTokens,
   CasinoGameCardTokens,
+  CasinoProviderCarouselTokens,
   ChipTokens,
   ContentSectionHeaderTokens,
   InputTokens,
@@ -24,6 +25,7 @@ import {
   badgeTokens,
   buttonTokens,
   casinoGameCardTokens,
+  casinoProviderCarouselTokens,
   chipTokens,
   colorTokens,
   contentSectionHeaderTokens,
@@ -56,6 +58,7 @@ export const DesignTokens = {
   sectionActions: sectionActionsTokens,
   contentSectionHeader: contentSectionHeaderTokens,
   casinoGameCard: casinoGameCardTokens,
+  casinoProviderCarousel: casinoProviderCarouselTokens,
   luckyPicker: luckyPickerTokens,
   gameCard: casinoGameCardTokens,
 } as const;
@@ -130,6 +133,11 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
     target,
     overrides.casinoGameCard as CasinoGameCardTokens,
     DesignTokens.casinoGameCard,
+  );
+  applyTokenGroup(
+    target,
+    overrides.casinoProviderCarousel as CasinoProviderCarouselTokens,
+    DesignTokens.casinoProviderCarousel,
   );
   applyTokenGroup(target, overrides.luckyPicker as LuckyPickerTokens, DesignTokens.luckyPicker);
 }
