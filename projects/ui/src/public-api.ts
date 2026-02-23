@@ -28,6 +28,7 @@ export * from './lib/organisms/casino/casino-home-hero/casino-home-hero.componen
 export * from './lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.component';
 export * from './lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.component';
 export * from './lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.component';
+export * from './lib/organisms/shared/site-header/site-header.component';
 
 // Templates
 export * from './lib/templates/casino/casino-home-template/casino-home-template.component';

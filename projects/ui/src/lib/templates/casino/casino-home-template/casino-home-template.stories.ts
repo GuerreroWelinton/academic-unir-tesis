@@ -8,6 +8,7 @@ import { ZgCasinoHomeHeroComponent } from '../../../organisms/casino/casino-home
 import { ZgCasinoProviderParallaxShowcaseComponent } from '../../../organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.component';
 import { ZgCasinoRankedGamesCarouselSectionComponent } from '../../../organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.component';
 import { ZgCasinoTwoRowGamesCarouselSectionComponent } from '../../../organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.component';
+import { ZgSiteHeaderComponent } from '../../../organisms/shared/site-header/site-header.component';
 import { ZgCasinoHomeTemplateComponent } from './casino-home-template.component';
 
 const categories = [
@@ -314,6 +315,14 @@ const providerItems = [
   },
 ];
 
+const siteHeaderNavItems = [
+  { id: 'sports', label: 'SPORTS', href: '#sports' },
+  { id: 'casino', label: 'CASINO', href: '#casino', active: true },
+  { id: 'live-casino', label: 'LIVE CASINO', href: '#live-casino' },
+  { id: 'virtuals', label: 'VIRTUALS', href: '#virtuals' },
+  { id: 'promotions', label: 'PROMOTIONS', href: '#promotions' },
+];
+
 /**
  * Casino home layout wrapper focused on composition order through slot projection.
  *
@@ -346,6 +355,7 @@ const meta: Meta<ZgCasinoHomeTemplateComponent> = {
         ZgCasinoProviderParallaxShowcaseComponent,
         ZgCasinoProviderCarouselComponent,
         ZgLuckyPickerComponent,
+        ZgSiteHeaderComponent,
       ],
     }),
   ],
@@ -364,9 +374,26 @@ type Story = StoryObj<ZgCasinoHomeTemplateComponent>;
 
 export const Default: Story = {
   render: (args) => ({
-    props: { ...args, categories, portraitGames, squareGames, providerItems, allGamesTwoRowItems },
+    props: {
+      ...args,
+      categories,
+      portraitGames,
+      squareGames,
+      providerItems,
+      allGamesTwoRowItems,
+      siteHeaderNavItems,
+    },
     template: `
       <zg-casino-home-template>
+        <zg-site-header
+          zg-casino-home-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
 
         <zg-casino-home-hero
           zg-casino-home-template-hero
@@ -447,9 +474,26 @@ export const Default: Story = {
 
 export const HomeWithoutHero: Story = {
   render: (args) => ({
-    props: { ...args, categories, portraitGames, squareGames, providerItems, allGamesTwoRowItems },
+    props: {
+      ...args,
+      categories,
+      portraitGames,
+      squareGames,
+      providerItems,
+      allGamesTwoRowItems,
+      siteHeaderNavItems,
+    },
     template: `
       <zg-casino-home-template>
+        <zg-site-header
+          zg-casino-home-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
         <zg-casino-search-bar zg-casino-home-template-search></zg-casino-search-bar>
         <zg-category-filter-tabs
           zg-casino-home-template-categories
@@ -480,9 +524,26 @@ export const HomeWithoutHero: Story = {
 
 export const ProviderFocusedStructure: Story = {
   render: (args) => ({
-    props: { ...args, categories, portraitGames, squareGames, providerItems, allGamesTwoRowItems },
+    props: {
+      ...args,
+      categories,
+      portraitGames,
+      squareGames,
+      providerItems,
+      allGamesTwoRowItems,
+      siteHeaderNavItems,
+    },
     template: `
       <zg-casino-home-template>
+        <zg-site-header
+          zg-casino-home-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
         <zg-casino-home-hero
           zg-casino-home-template-hero
           title="CASINO"
@@ -528,9 +589,18 @@ export const ProviderFocusedStructure: Story = {
 
 export const CarouselHeavyStructure: Story = {
   render: (args) => ({
-    props: { ...args, categories, portraitGames },
+    props: { ...args, categories, portraitGames, siteHeaderNavItems },
     template: `
       <zg-casino-home-template>
+        <zg-site-header
+          zg-casino-home-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
         <zg-casino-home-hero zg-casino-home-template-hero></zg-casino-home-hero>
         <zg-casino-search-bar zg-casino-home-template-search></zg-casino-search-bar>
         <zg-category-filter-tabs
@@ -561,9 +631,25 @@ export const CarouselHeavyStructure: Story = {
 
 export const MixedSectionOrder: Story = {
   render: (args) => ({
-    props: { ...args, categories, portraitGames, squareGames, allGamesTwoRowItems },
+    props: {
+      ...args,
+      categories,
+      portraitGames,
+      squareGames,
+      allGamesTwoRowItems,
+      siteHeaderNavItems,
+    },
     template: `
       <zg-casino-home-template>
+        <zg-site-header
+          zg-casino-home-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
         <zg-casino-home-hero zg-casino-home-template-hero></zg-casino-home-hero>
         <zg-casino-search-bar zg-casino-home-template-search></zg-casino-search-bar>
         <zg-category-filter-tabs
@@ -599,6 +685,9 @@ export const Composition: Story = {
   render: () => ({
     template: `
       <zg-casino-home-template>
+        <div zg-casino-home-template-header style="padding:var(--zg-spacing-4);background:var(--zg-color-surface);border-radius:var(--zg-radius-md);">
+          Header slot
+        </div>
         <div zg-casino-home-template-hero style="padding:var(--zg-spacing-6);background:var(--zg-color-surface);border-radius:var(--zg-radius-md);">
           Hero slot
         </div>

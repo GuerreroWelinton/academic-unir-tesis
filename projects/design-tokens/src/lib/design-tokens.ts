@@ -20,6 +20,7 @@ import type {
   SemanticColorTokens,
   SectionActionsTokens,
   SectionTitleTokens,
+  SiteHeaderTokens,
   ShadowTokens,
   SpacingTokens,
   Theme,
@@ -50,6 +51,7 @@ import {
   radiusTokens,
   sectionActionsTokens,
   sectionTitleTokens,
+  siteHeaderTokens,
   shadowTokens,
   spacingTokens,
   transitionTokens,
@@ -77,6 +79,7 @@ export const DesignTokens = {
   sectionTitle: sectionTitleTokens,
   sectionActions: sectionActionsTokens,
   contentSectionHeader: contentSectionHeaderTokens,
+  siteHeader: siteHeaderTokens,
   casinoGameCard: casinoGameCardTokens,
   casinoRankedGamesCarouselSection: casinoRankedGamesCarouselSectionTokens,
   casinoProviderCarousel: casinoProviderCarouselTokens,
@@ -169,6 +172,7 @@ export function createTheme(overrides: Theme, element?: HTMLElement): void {
     overrides.contentSectionHeader as ContentSectionHeaderTokens,
     DesignTokens.contentSectionHeader,
   );
+  applyTokenGroup(target, overrides.siteHeader as SiteHeaderTokens, DesignTokens.siteHeader);
   applyTokenGroup(
     target,
     overrides.casinoGameCard as CasinoGameCardTokens,

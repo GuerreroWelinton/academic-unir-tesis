@@ -19,6 +19,7 @@ import type {
   radiusTokens,
   sectionActionsTokens,
   sectionTitleTokens,
+  siteHeaderTokens,
   shadowTokens,
   spacingTokens,
   transitionTokens,
@@ -123,6 +124,7 @@ export type LuckyPickerTokens = TokenOverrides<typeof luckyPickerTokens>;
 export type SectionTitleTokens = TokenOverrides<typeof sectionTitleTokens>;
 export type SectionActionsTokens = TokenOverrides<typeof sectionActionsTokens>;
 export type ContentSectionHeaderTokens = TokenOverrides<typeof contentSectionHeaderTokens>;
+export type SiteHeaderTokens = TokenOverrides<typeof siteHeaderTokens>;
 
 export interface Theme {
   primitives?: PrimitiveTokens;
@@ -151,6 +153,7 @@ export interface Theme {
   sectionTitle?: SectionTitleTokens;
   sectionActions?: SectionActionsTokens;
   contentSectionHeader?: ContentSectionHeaderTokens;
+  siteHeader?: SiteHeaderTokens;
 }
 
 export type ThemeRegistry<TClient extends string = string> = Record<TClient, Record<string, Theme>>;
