@@ -22,6 +22,7 @@
   min-width: 0;
 }
 
+.zg-casino-home-template__header,
 .zg-casino-home-template__hero,
 .zg-casino-home-template__search,
 .zg-casino-home-template__categories,
@@ -34,12 +35,17 @@
   gap: var(--zg-spacing-4);
 }
 
+.zg-casino-home-template__header > *,
 .zg-casino-home-template__hero > *,
 .zg-casino-home-template__search > *,
 .zg-casino-home-template__categories > *,
 .zg-casino-home-template__sections > * {
   max-width: 100%;
   min-width: 0;
+}
+
+.zg-casino-home-template__header:empty {
+  display: none;
 }
 
 @media (max-width: 48rem) {
@@ -51,6 +57,7 @@
     gap: var(--zg-spacing-5);
   }
 
+  .zg-casino-home-template__header,
   .zg-casino-home-template__hero,
   .zg-casino-home-template__search,
   .zg-casino-home-template__categories,

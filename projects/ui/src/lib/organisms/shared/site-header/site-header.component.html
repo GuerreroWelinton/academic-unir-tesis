@@ -1,0 +1,87 @@
+<header class="zg-site-header__surface">
+  <a
+    class="zg-site-header__brand"
+    [attr.href]="brandHref()"
+    (click)="onBrandClick($event)"
+    [attr.aria-label]="brandLabel()"
+  >
+    @if (logoUrl()) {
+      <img
+        class="zg-site-header__brand-logo"
+        [ngSrc]="logoUrl()!"
+        [alt]="logoAlt()"
+        [width]="logoWidth()"
+        [height]="logoHeight()"
+      />
+    } @else {
+      {{ brandLabel() }}
+    }
+  </a>
+
+  <button
+    class="zg-site-header__menu-toggle"
+    type="button"
+    (click)="toggleNav()"
+    [attr.aria-expanded]="navOpen()"
+    [attr.aria-controls]="'zg-site-header-nav'"
+  >
+    <span class="zg-site-header__menu-icon" aria-hidden="true"></span>
+    <span>Menu</span>
+  </button>
+
+  <nav
+    class="zg-site-header__nav"
+    [attr.aria-label]="navAriaLabel()"
+    id="zg-site-header-nav"
+    [attr.data-open]="navOpen() ? true : null"
+  >
+    <ul class="zg-site-header__nav-list">
+      @for (item of navItems(); track item.id) {
+        <li class="zg-site-header__nav-item">
+          @if (item.href) {
+            <a
+              class="zg-site-header__nav-link"
+              [attr.href]="item.href"
+              [attr.aria-current]="item.active === true ? 'page' : null"
+              [attr.data-active]="item.active === true ? true : null"
+              [attr.aria-disabled]="item.disabled === true ? 'true' : null"
+              (click)="onNavItemClick($event, item)"
+            >
+              {{ item.label }}
+            </a>
+          } @else {
+            <button
+              type="button"
+              class="zg-site-header__nav-button"
+              [disabled]="item.disabled === true"
+              [attr.aria-current]="item.active === true ? 'page' : null"
+              [attr.data-active]="item.active === true ? true : null"
+              (click)="onNavItemClick($event, item)"
+            >
+              {{ item.label }}
+            </button>
+          }
+        </li>
+      }
+    </ul>
+  </nav>
+
+  @if (showAuthActions()) {
+    <div class="zg-site-header__actions">
+      <button
+        type="button"
+        class="zg-site-header__action zg-site-header__action--secondary"
+        (click)="onLoginClick()"
+      >
+        {{ loginLabel() }}
+      </button>
+      <button
+        type="button"
+        class="zg-site-header__action zg-site-header__action--primary"
+        (click)="onRegisterClick()"
+      >
+        {{ registerLabel() }}
+      </button>
+    </div>
+  }
+</header>
