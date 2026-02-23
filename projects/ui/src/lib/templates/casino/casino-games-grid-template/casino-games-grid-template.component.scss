@@ -3,6 +3,8 @@
   width: 100%;
   max-width: 100%;
   --zg-casino-games-grid-template-gutter: var(--zg-spacing-4);
+  --zg-casino-games-grid-template-header-sticky-top: 0;
+  --zg-casino-games-grid-template-header-sticky-z-index: var(--zg-z-index-sticky);
 }
 
 .zg-casino-games-grid-template__surface {
@@ -34,6 +36,14 @@
   gap: var(--zg-spacing-4);
 }
 
+.zg-casino-games-grid-template__header {
+  position: sticky;
+  top: var(--zg-casino-games-grid-template-header-sticky-top);
+  z-index: var(--zg-casino-games-grid-template-header-sticky-z-index);
+  background: transparent;
+  margin-block-end: var(--zg-spacing-6);
+}
+
 .zg-casino-games-grid-template__header > *,
 .zg-casino-games-grid-template__search > *,
 .zg-casino-games-grid-template__categories > *,
@@ -61,5 +71,9 @@
   .zg-casino-games-grid-template__categories,
   .zg-casino-games-grid-template__main {
     gap: var(--zg-spacing-5);
+  }
+
+  .zg-casino-games-grid-template__header {
+    margin-block-end: var(--zg-spacing-5);
   }
 }

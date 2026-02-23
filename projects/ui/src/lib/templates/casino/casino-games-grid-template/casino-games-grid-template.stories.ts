@@ -288,6 +288,7 @@ export const Default: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="slots"
           layoutMode="scroll"
         ></zg-category-filter-tabs>
@@ -339,6 +340,7 @@ export const MostBetPage: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="slots"
           layoutMode="scroll"
         ></zg-category-filter-tabs>
@@ -395,6 +397,7 @@ export const MostPlayedGamesPage: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="videoslots"
           layoutMode="scroll"
         ></zg-category-filter-tabs>
@@ -446,6 +449,7 @@ export const AllGamesPage: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="live-dealer"
           layoutMode="scroll"
         ></zg-category-filter-tabs>
@@ -564,6 +568,7 @@ export const AccessibilityDemo: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="slots"
           layoutMode="scroll"
         ></zg-category-filter-tabs>
