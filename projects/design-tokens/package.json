@@ -1,6 +1,6 @@
 {
   "name": "@zgames/design-tokens",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Design tokens library for ZGames Technology (iGaming) providing CSS variables and theming utilities for UI components.",
   "author": "welinton guerrero",
   "repository": {
