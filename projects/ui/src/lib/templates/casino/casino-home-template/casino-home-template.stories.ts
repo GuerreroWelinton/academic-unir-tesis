@@ -12,29 +12,21 @@ import { ZgCasinoHomeTemplateComponent } from './casino-home-template.component'
 
 const categories = [
   { id: 'slots', label: 'Slots' },
+  { id: 'videoslots', label: 'Videoslots' },
   { id: 'live', label: 'Live dealer' },
-  { id: 'table', label: 'Table games' },
-  { id: 'slots', label: 'Slots' },
-  { id: 'live', label: 'Live dealer' },
-  { id: 'table', label: 'Table games' },
-  { id: 'slots', label: 'Slots' },
-  { id: 'live', label: 'Live dealer' },
-  { id: 'table', label: 'Table games' },
-  { id: 'slots', label: 'Slots' },
-  { id: 'live', label: 'Live dealer' },
-  { id: 'table', label: 'Table games' },
-  { id: 'slots', label: 'Slots' },
-  { id: 'live', label: 'Live dealer' },
-  { id: 'table', label: 'Table games' },
-  { id: 'slots', label: 'Slots' },
-  { id: 'live', label: 'Live dealer' },
-  { id: 'table', label: 'Table games' },
-  { id: 'slots', label: 'Slots' },
-  { id: 'live', label: 'Live dealer' },
-  { id: 'table', label: 'Table games' },
-  { id: 'slots', label: 'Slots' },
-  { id: 'live', label: 'Live dealer' },
-  { id: 'table', label: 'Table games' },
+  { id: 'othergames', label: 'Othergames' },
+  { id: 'instant-win', label: 'Instant win' },
+  { id: 'table-cards', label: 'Table & cards' },
+  { id: 'tablegames', label: 'Tablegames' },
+  { id: 'videopoker', label: 'Videopoker' },
+  { id: 'scratch-card', label: 'Scratch card' },
+  { id: 'crash', label: 'Crash' },
+  { id: 'virtual-sports', label: 'Virtual sports' },
+  { id: 'video-bingo-keno', label: 'Video bingo & keno' },
+  { id: 'bingo', label: 'Bingo' },
+  { id: 'lottery', label: 'Lottery' },
+  { id: 'poker', label: 'Poker' },
+  { id: 'fish-shooting', label: 'Fish & shooting' },
 ];
 
 const portraitGames = [
@@ -45,7 +37,13 @@ const portraitGames = [
     imageUrl: 'https://placehold.co/260x360?text=Blackjack+8',
   },
   {
-    id: '5-lions',
+    id: 'blackjack-16',
+    title: 'Blackjack 16',
+    provider: 'Lucky Streak',
+    imageUrl: 'https://placehold.co/260x360?text=Blackjack+16',
+  },
+  {
+    id: '5-lions-gold',
     title: '5 Lions Gold',
     provider: 'Pragmatic Play',
     imageUrl: 'https://placehold.co/260x360?text=5+Lions+Gold',
@@ -81,26 +79,44 @@ const portraitGames = [
     imageUrl: 'https://placehold.co/260x360?text=Jacks+or+Better',
   },
   {
-    id: 'coin-strike-2',
-    title: 'Coin Strike 2',
-    provider: 'Playson',
-    imageUrl: 'https://placehold.co/260x360?text=Coin+Strike+2',
-  },
-  {
-    id: 'thunder-coins',
-    title: 'Thunder Coins XXL',
-    provider: 'Playson',
-    imageUrl: 'https://placehold.co/260x360?text=Thunder+Coins+XXL',
-  },
-  {
     id: 'aviator',
     title: 'Aviator',
     provider: 'Spribe',
     imageUrl: 'https://placehold.co/260x360?text=Aviator',
   },
+  {
+    id: 'sea-of-wealth-hunt-for-coins',
+    title: 'Sea of Wealth: Hunt for Coins',
+    provider: 'Evoplay',
+    imageUrl: 'https://placehold.co/260x360?text=Sea+of+Wealth:+Hunt+for+Coins',
+  },
 ];
 
 const squareGames = [
+  {
+    id: 'sea-of-wealth-hunt-for-coins',
+    title: 'Sea of Wealth: Hunt for Coins',
+    provider: 'Evoplay',
+    imageUrl: 'https://placehold.co/260x360?text=Sea+of+Wealth:+Hunt+for+Coins',
+  },
+  {
+    id: 'carnival-treasure',
+    title: 'Carnival Treasure',
+    provider: 'SA Gaming',
+    imageUrl: 'https://placehold.co/320x320?text=Carnival+Treasure',
+  },
+  {
+    id: 'fish-prawn-crab-m',
+    title: 'Fish Prawn Crab M',
+    provider: 'SA Gaming',
+    imageUrl: 'https://placehold.co/320x320?text=Fish+Prawn+Crab+M',
+  },
+  {
+    id: 'ultra-roulette',
+    title: 'Ultra Roulette',
+    provider: 'SA Gaming',
+    imageUrl: 'https://placehold.co/320x320?text=Ultra+Roulette',
+  },
   {
     id: 'roulette-c',
     title: 'Roulette C',
@@ -114,10 +130,46 @@ const squareGames = [
     imageUrl: 'https://placehold.co/320x320?text=Baccarat+C07',
   },
   {
-    id: 'dragon-tiger',
-    title: 'Dragon Tiger',
+    id: 'baccarat-d01',
+    title: 'Baccarat D01',
     provider: 'SA Gaming',
-    imageUrl: 'https://placehold.co/320x320?text=Dragon+Tiger',
+    imageUrl: 'https://placehold.co/320x320?text=Baccarat+D01',
+  },
+  {
+    id: 'roulette-d',
+    title: 'Roulette D',
+    provider: 'SA Gaming',
+    imageUrl: 'https://placehold.co/320x320?text=Roulette+D',
+  },
+  {
+    id: 'xoc-dia-d',
+    title: 'Xoc Dia D',
+    provider: 'SA Gaming',
+    imageUrl: 'https://placehold.co/320x320?text=Xoc+Dia+D',
+  },
+  {
+    id: 'speed-baccarat-d08',
+    title: 'Speed Baccarat D08',
+    provider: 'SA Gaming',
+    imageUrl: 'https://placehold.co/320x320?text=Speed+Baccarat+D08',
+  },
+  {
+    id: 'dragon-tiger-d',
+    title: 'Dragon Tiger D',
+    provider: 'SA Gaming',
+    imageUrl: 'https://placehold.co/320x320?text=Dragon+Tiger+D',
+  },
+  {
+    id: 'sic-bo-d',
+    title: 'Sic Bo D',
+    provider: 'SA Gaming',
+    imageUrl: 'https://placehold.co/320x320?text=Sic+Bo+D',
+  },
+  {
+    id: 'speed-baccarat-c08',
+    title: 'Speed Baccarat C08',
+    provider: 'SA Gaming',
+    imageUrl: 'https://placehold.co/320x320?text=Speed+Baccarat+C08',
   },
   {
     id: 'pok-deng',
@@ -126,28 +178,16 @@ const squareGames = [
     imageUrl: 'https://placehold.co/320x320?text=Pok+Deng',
   },
   {
-    id: 'speed-baccarat',
-    title: 'Speed Baccarat',
+    id: 'andar-bahar-m',
+    title: 'Andar Bahar M',
     provider: 'SA Gaming',
-    imageUrl: 'https://placehold.co/320x320?text=Speed+Baccarat',
+    imageUrl: 'https://placehold.co/320x320?text=Andar+Bahar+M',
   },
   {
-    id: 'sic-bo',
-    title: 'Sic Bo',
+    id: 'blackjack-m',
+    title: 'Blackjack M',
     provider: 'SA Gaming',
-    imageUrl: 'https://placehold.co/320x320?text=Sic+Bo',
-  },
-  {
-    id: 'andar-bahar',
-    title: 'Andar Bahar',
-    provider: 'SA Gaming',
-    imageUrl: 'https://placehold.co/320x320?text=Andar+Bahar',
-  },
-  {
-    id: 'teen-patti',
-    title: 'Teen Patti',
-    provider: 'OneTouch',
-    imageUrl: 'https://placehold.co/320x320?text=Teen+Patti',
+    imageUrl: 'https://placehold.co/320x320?text=Blackjack+M',
   },
   {
     id: 'roulette-m',
@@ -156,34 +196,72 @@ const squareGames = [
     imageUrl: 'https://placehold.co/320x320?text=Roulette+M',
   },
   {
-    id: 'dragon-tiger-m',
-    title: 'Dragon Tiger M',
-    provider: 'SA Gaming',
-    imageUrl: 'https://placehold.co/320x320?text=Dragon+Tiger+M',
-  },
-  {
-    id: 'baccarat-d06',
-    title: 'Baccarat D06',
-    provider: 'SA Gaming',
-    imageUrl: 'https://placehold.co/320x320?text=Baccarat+D06',
-  },
-  {
-    id: 'blackjack-m',
-    title: 'Blackjack M',
-    provider: 'SA Gaming',
-    imageUrl: 'https://placehold.co/320x320?text=Blackjack+M',
+    id: 'dragon-tiger',
+    title: 'Dragon Tiger',
+    provider: 'KAGaming',
+    imageUrl: 'https://placehold.co/320x320?text=Dragon+Tiger',
   },
 ];
 
-const allGamesTwoRowItems = [
-  ...squareGames,
-  ...squareGames.map((item, index) => ({
-    ...item,
-    id: `${item.id}-dup-${index}`,
-  })),
+const allGamesExtraItems = [
+  {
+    id: 'mega-roulette',
+    title: 'Mega Roulette',
+    provider: 'KAGaming',
+    imageUrl: 'https://placehold.co/320x320?text=Mega+Roulette',
+  },
+  {
+    id: 'american-roulette',
+    title: 'American Roulette',
+    provider: 'KAGaming',
+    imageUrl: 'https://placehold.co/320x320?text=American+Roulette',
+  },
+  {
+    id: 'french-roulette',
+    title: 'French Roulette',
+    provider: 'KAGaming',
+    imageUrl: 'https://placehold.co/320x320?text=French+Roulette',
+  },
+  {
+    id: 'european-roulette',
+    title: 'European Roulette',
+    provider: 'KAGaming',
+    imageUrl: 'https://placehold.co/320x320?text=European+Roulette',
+  },
+  {
+    id: 'roulette',
+    title: 'Roulette',
+    provider: 'OneTouch',
+    imageUrl: 'https://placehold.co/320x320?text=Roulette',
+  },
+  {
+    id: 'blackjack',
+    title: 'Blackjack',
+    provider: 'OneTouch',
+    imageUrl: 'https://placehold.co/320x320?text=Blackjack',
+  },
+  {
+    id: 'teen-patti',
+    title: 'Teen Patti',
+    provider: 'OneTouch',
+    imageUrl: 'https://placehold.co/320x320?text=Teen+Patti',
+  },
+  {
+    id: 'baccarat-triple-treat',
+    title: 'Baccarat Triple Treat',
+    provider: 'OneTouch',
+    imageUrl: 'https://placehold.co/320x320?text=Baccarat+Triple+Treat',
+  },
 ];
+
+const allGamesTwoRowItems = [...squareGames, ...allGamesExtraItems];
 
 const providerItems = [
+  {
+    id: 'wazdan',
+    name: 'WAZDAN',
+    logoUrl: 'https://placehold.co/260x80?text=WAZDAN',
+  },
   {
     id: 'kagaming',
     name: 'KAGAMING',
@@ -195,19 +273,29 @@ const providerItems = [
     logoUrl: 'https://placehold.co/260x80?text=EVOPLAY',
   },
   {
-    id: 'playson',
-    name: 'PLAYSON',
-    logoUrl: 'https://placehold.co/260x80?text=PLAYSON',
+    id: 'ct-interactive',
+    name: 'CT INTERACTIVE',
+    logoUrl: 'https://placehold.co/260x80?text=CT+INTERACTIVE',
   },
   {
-    id: 'pragmatic-play',
-    name: 'PRAGMATIC PLAY',
-    logoUrl: 'https://placehold.co/260x80?text=PRAGMATIC+PLAY',
+    id: 'betsoft',
+    name: 'BETSOFT',
+    logoUrl: 'https://placehold.co/260x80?text=BETSOFT',
+  },
+  {
+    id: 'onlyplay',
+    name: 'ONLYPLAY',
+    logoUrl: 'https://placehold.co/260x80?text=ONLYPLAY',
   },
   {
     id: 'habanero',
     name: 'HABANERO',
     logoUrl: 'https://placehold.co/260x80?text=HABANERO',
+  },
+  {
+    id: 'pragmatic-play',
+    name: 'PRAGMATIC PLAY',
+    logoUrl: 'https://placehold.co/260x80?text=PRAGMATIC+PLAY',
   },
   {
     id: 'spribe',
@@ -220,19 +308,9 @@ const providerItems = [
     logoUrl: 'https://placehold.co/260x80?text=SA+GAMING',
   },
   {
-    id: 'onetouch',
-    name: 'ONETOUCH',
-    logoUrl: 'https://placehold.co/260x80?text=ONETOUCH',
-  },
-  {
-    id: 'betsoft',
-    name: 'BETSOFT',
-    logoUrl: 'https://placehold.co/260x80?text=BETSOFT',
-  },
-  {
-    id: 'booming-games',
-    name: 'BOOMING GAMES',
-    logoUrl: 'https://placehold.co/260x80?text=BOOMING+GAMES',
+    id: 'caleta',
+    name: 'CALETA',
+    logoUrl: 'https://placehold.co/260x80?text=CALETA',
   },
 ];
 
@@ -417,7 +495,7 @@ export const ProviderFocusedStructure: Story = {
         <zg-category-filter-tabs
           zg-casino-home-template-categories
           [items]="categories"
-          selectedId="table"
+          selectedId="table-cards"
         ></zg-category-filter-tabs>
 
         <zg-casino-provider-parallax-showcase

@@ -31,3 +31,4 @@ export * from './lib/organisms/casino/casino-provider-parallax-showcase/casino-p
 
 // Templates
 export * from './lib/templates/casino/casino-home-template/casino-home-template.component';
+export * from './lib/templates/casino/casino-games-grid-template/casino-games-grid-template.component';
