@@ -17,3 +17,4 @@ export * from './casino-games-grid-section.tokens';
 export * from './casino-home-hero.tokens';
 export * from './casino-two-row-games-carousel-section.tokens';
 export * from './casino-provider-parallax-showcase.tokens';
+export * from './site-header.tokens';

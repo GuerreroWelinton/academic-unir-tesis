@@ -4,6 +4,7 @@ import { ZgCasinoGameCardComponent } from '../../../molecules/casino/casino-game
 import { ZgCasinoSearchBarComponent } from '../../../molecules/casino/casino-search-bar/casino-search-bar.component';
 import { ZgCategoryFilterTabsComponent } from '../../../molecules/shared/category-filter-tabs/category-filter-tabs.component';
 import { ZgCasinoGamesGridSectionComponent } from '../../../organisms/casino/casino-games-grid-section/casino-games-grid-section.component';
+import { ZgSiteHeaderComponent } from '../../../organisms/shared/site-header/site-header.component';
 import { ZgCasinoGamesGridTemplateComponent } from './casino-games-grid-template.component';
 
 const categories = [
@@ -15,6 +16,14 @@ const categories = [
   { id: 'videopoker', label: 'Videopoker' },
   { id: 'crash', label: 'Crash' },
   { id: 'bingo', label: 'Bingo' },
+];
+
+const siteHeaderNavItems = [
+  { id: 'sports', label: 'SPORTS', href: '#sports' },
+  { id: 'casino', label: 'CASINO', href: '#casino', active: true },
+  { id: 'live-casino', label: 'LIVE CASINO', href: '#live-casino' },
+  { id: 'virtuals', label: 'VIRTUALS', href: '#virtuals' },
+  { id: 'promotions', label: 'PROMOTIONS', href: '#promotions' },
 ];
 
 const baseGridGames = [
@@ -238,6 +247,7 @@ const meta: Meta<ZgCasinoGamesGridTemplateComponent> = {
         ZgCategoryFilterTabsComponent,
         ZgCasinoGamesGridSectionComponent,
         ZgCasinoGameCardComponent,
+        ZgSiteHeaderComponent,
       ],
     }),
   ],
@@ -256,9 +266,19 @@ type Story = StoryObj<ZgCasinoGamesGridTemplateComponent>;
 
 export const Default: Story = {
   render: () => ({
-    props: { categories, gridGames, allGamesCount: gridGames.length },
+    props: { categories, gridGames, allGamesCount: gridGames.length, siteHeaderNavItems },
     template: `
       <zg-casino-games-grid-template>
+        <zg-site-header
+          zg-casino-games-grid-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
+
         <zg-casino-search-bar
           zg-casino-games-grid-template-search
           placeholder="Search games"
@@ -268,6 +288,7 @@ export const Default: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="slots"
           layoutMode="scroll"
         ></zg-category-filter-tabs>
@@ -282,10 +303,6 @@ export const Default: Story = {
           title="All games"
           [gamesCount]="allGamesCount"
         >
-          <div zg-games-grid-section-actions style="display:flex;gap:var(--zg-spacing-2);">
-            <zg-button variant="secondary" size="sm">Providers</zg-button>
-          </div>
-
           @for (item of gridGames; track item.id) {
             <zg-casino-game-card
               [title]="item.title"
@@ -302,9 +319,19 @@ export const Default: Story = {
 
 export const MostBetPage: Story = {
   render: () => ({
-    props: { categories, mostBetGames, mostBetCount: mostBetGames.length },
+    props: { categories, mostBetGames, mostBetCount: mostBetGames.length, siteHeaderNavItems },
     template: `
       <zg-casino-games-grid-template>
+        <zg-site-header
+          zg-casino-games-grid-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
+
         <zg-casino-search-bar
           zg-casino-games-grid-template-search
           placeholder="Search games"
@@ -313,6 +340,7 @@ export const MostBetPage: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="slots"
           layoutMode="scroll"
         ></zg-category-filter-tabs>
@@ -343,9 +371,24 @@ export const MostBetPage: Story = {
 
 export const MostPlayedGamesPage: Story = {
   render: () => ({
-    props: { categories, mostPlayedGames, mostPlayedCount: mostPlayedGames.length },
+    props: {
+      categories,
+      mostPlayedGames,
+      mostPlayedCount: mostPlayedGames.length,
+      siteHeaderNavItems,
+    },
     template: `
       <zg-casino-games-grid-template>
+        <zg-site-header
+          zg-casino-games-grid-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
+
         <zg-casino-search-bar
           zg-casino-games-grid-template-search
           placeholder="Search games"
@@ -354,6 +397,7 @@ export const MostPlayedGamesPage: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="videoslots"
           layoutMode="scroll"
         ></zg-category-filter-tabs>
@@ -384,9 +428,19 @@ export const MostPlayedGamesPage: Story = {
 
 export const AllGamesPage: Story = {
   render: () => ({
-    props: { categories, gridGames, allGamesCount: gridGames.length },
+    props: { categories, gridGames, allGamesCount: gridGames.length, siteHeaderNavItems },
     template: `
       <zg-casino-games-grid-template>
+        <zg-site-header
+          zg-casino-games-grid-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
+
         <zg-casino-search-bar
           zg-casino-games-grid-template-search
           placeholder="Search games"
@@ -395,6 +449,7 @@ export const AllGamesPage: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="live-dealer"
           layoutMode="scroll"
         ></zg-category-filter-tabs>
@@ -426,9 +481,19 @@ export const AllGamesPage: Story = {
 
 export const WithoutCategories: Story = {
   render: () => ({
-    props: { gridGames, allGamesCount: gridGames.length },
+    props: { gridGames, allGamesCount: gridGames.length, siteHeaderNavItems },
     template: `
       <zg-casino-games-grid-template>
+        <zg-site-header
+          zg-casino-games-grid-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
+
         <zg-casino-search-bar
           zg-casino-games-grid-template-search
           placeholder="Search games"
@@ -463,6 +528,9 @@ export const Composition: Story = {
   render: () => ({
     template: `
       <zg-casino-games-grid-template>
+        <div zg-casino-games-grid-template-header style="padding:var(--zg-spacing-4);background:var(--zg-color-surface);border-radius:var(--zg-radius-md);">
+          Header slot
+        </div>
         <div zg-casino-games-grid-template-search style="padding:var(--zg-spacing-4);background:var(--zg-color-surface);border-radius:var(--zg-radius-md);">
           Search slot
         </div>
@@ -479,9 +547,19 @@ export const Composition: Story = {
 
 export const AccessibilityDemo: Story = {
   render: () => ({
-    props: { categories, gridGames, allGamesCount: gridGames.length },
+    props: { categories, gridGames, allGamesCount: gridGames.length, siteHeaderNavItems },
     template: `
       <zg-casino-games-grid-template>
+        <zg-site-header
+          zg-casino-games-grid-template-header
+          brandLabel="Brand"
+          logoUrl="https://placehold.co/280x80?text=Logo"
+          logoAlt="Brand logo"
+          [logoWidth]="140"
+          [logoHeight]="40"
+          [navItems]="siteHeaderNavItems"
+        ></zg-site-header>
+
         <zg-casino-search-bar
           zg-casino-games-grid-template-search
           placeholder="Search games"
@@ -490,6 +568,7 @@ export const AccessibilityDemo: Story = {
         <zg-category-filter-tabs
           zg-casino-games-grid-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="slots"
           layoutMode="scroll"
         ></zg-category-filter-tabs>

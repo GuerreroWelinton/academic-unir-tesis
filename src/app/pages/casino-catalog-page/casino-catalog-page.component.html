@@ -1,0 +1,83 @@
+<zg-casino-games-grid-template>
+  <zg-site-header
+    zg-casino-games-grid-template-header
+    class="casino-catalog-page__header"
+    brandLabel="ZGames Casino"
+    brandHref="/casino"
+    logoUrl="/logo_header.png"
+    logoAlt="ZGames logo"
+    [logoWidth]="128"
+    [logoHeight]="36"
+    navAriaLabel="Casino catalog navigation"
+    [navItems]="navItems()"
+    loginLabel="LOG IN"
+    registerLabel="SIGN UP"
+    (brandClicked)="onBrandClicked()"
+    (navItemClicked)="onNavItemClicked($event)"
+    (loginClicked)="onLoginClicked()"
+    (registerClicked)="onRegisterClicked()"
+  ></zg-site-header>
+
+  <zg-casino-search-bar
+    zg-casino-games-grid-template-search
+    [query]="searchQuery()"
+    placeholder="Search by game, provider or category"
+    providersLabel="Providers"
+    providersAriaLabel="Open provider filters"
+    (queryChange)="onSearchChanged($event)"
+    (providersClicked)="onProvidersClicked()"
+  ></zg-casino-search-bar>
+
+  <zg-category-filter-tabs
+    zg-casino-games-grid-template-categories
+    [items]="categoryItems()"
+    [chipVariant]="'filled'"
+    [selectedId]="selectedCategory()"
+    ariaLabel="Casino game categories"
+    (selectedIdChange)="onCategoryChanged($event)"
+  ></zg-category-filter-tabs>
+
+  <div zg-casino-games-grid-template-main>
+    <zg-casino-games-grid-section
+      [breadcrumbs]="vm().breadcrumbs"
+      [title]="vm().title"
+      [gamesCount]="vm().gamesCount"
+      gamesCountSuffix="games"
+      sectionAriaLabel="Casino games catalog"
+      gridAriaLabel="Casino games"
+      [showEmptyState]="vm().games.length === 0"
+      emptyStateLabel="No games found for the current filters."
+      (breadcrumbItemClicked)="onBreadcrumbItemClicked($event)"
+    >
+      <div zg-games-grid-section-actions class="casino-catalog-page__meta">
+        <span> Showing {{ vm().games.length }} of {{ filteredGames().length }} </span>
+      </div>
+
+      @for (game of vm().games; track game.id) {
+        <zg-casino-game-card
+          zg-games-grid-section-item
+          [title]="game.title"
+          [provider]="game.provider"
+          [imageUrl]="game.imageUrl"
+          [imageAlt]="game.imageAlt"
+          ctaLabel="Play now"
+          [playAriaLabel]="'Play ' + game.title"
+          [favoriteAriaLabel]="'Add ' + game.title + ' to favorites'"
+          (playClicked)="onGamePlayClicked(game)"
+        ></zg-casino-game-card>
+      }
+    </zg-casino-games-grid-section>
+
+    @if (hasMoreGames()) {
+      <div #loadMoreAnchor class="casino-catalog-page__load-more-anchor" aria-hidden="true"></div>
+    }
+
+    @if (hasMoreGames() && !supportsIntersectionObserver) {
+      <div class="casino-catalog-page__load-more-fallback">
+        <button type="button" class="casino-catalog-page__load-more-button" (click)="loadMore()">
+          Load more games
+        </button>
+      </div>
+    }
+  </div>
+</zg-casino-games-grid-template>

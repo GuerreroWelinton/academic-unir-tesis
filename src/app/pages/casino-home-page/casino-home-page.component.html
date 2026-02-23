@@ -1,0 +1,111 @@
+<zg-casino-home-template>
+  <zg-site-header
+    zg-casino-home-template-header
+    class="casino-home-page__header"
+    brandLabel="ZGames Casino"
+    brandHref="/casino"
+    logoUrl="/logo_header.png"
+    logoAlt="ZGames logo"
+    [logoWidth]="128"
+    [logoHeight]="36"
+    navAriaLabel="Casino home navigation"
+    [navItems]="navItems()"
+    loginLabel="LOG IN"
+    registerLabel="SIGN UP"
+    (brandClicked)="onBrandClicked()"
+    (navItemClicked)="onNavItemClicked($event)"
+    (loginClicked)="onLoginClicked()"
+    (registerClicked)="onRegisterClicked()"
+  ></zg-site-header>
+
+  <zg-casino-home-hero
+    zg-casino-home-template-hero
+    title="CASINO"
+    description="Diversion, luck and big prizes await."
+    highlightText="Start playing and win big!"
+    caption="Luck follows you"
+    backgroundImageUrl="https://api-backoffice.zgames.tech/uploads/banner/de5cc4e9-4e3d-4758-846d-4940fba061f7.jpg"
+    characterImageUrl="https://api-backoffice.zgames.tech/uploads/banner/77f3b21a-6e2b-4fcb-9f8b-e99b4f28bcc0.png"
+  ></zg-casino-home-hero>
+
+  <zg-casino-search-bar
+    zg-casino-home-template-search
+    [query]="searchQuery()"
+    placeholder="Search by game, provider or category"
+    providersLabel="PROVIDERS"
+    providersAriaLabel="Open provider filters"
+    (queryChange)="onSearchChanged($event)"
+    (providersClicked)="onProvidersClicked()"
+  ></zg-casino-search-bar>
+
+  <zg-category-filter-tabs
+    zg-casino-home-template-categories
+    [items]="categoryItems()"
+    [chipVariant]="'filled'"
+    [selectedId]="selectedCategory()"
+    ariaLabel="Casino home categories"
+    layoutMode="scroll"
+    (selectedIdChange)="onCategoryChanged($event)"
+  ></zg-category-filter-tabs>
+
+  <zg-casino-games-carousel-section
+    zg-casino-home-template-section
+    title="Most bet"
+    [items]="mostBetGames()"
+    allActionLabel="All"
+    (viewAllClicked)="onMostBetViewAllClicked()"
+    (playRequested)="onGamePlayRequested($event)"
+    (favoriteRequested)="onGameFavoriteRequested($event)"
+  ></zg-casino-games-carousel-section>
+
+  <zg-casino-ranked-games-carousel-section
+    zg-casino-home-template-section
+    title="Top 10 casino"
+    [items]="rankedGames()"
+    (playRequested)="onGamePlayRequested($event)"
+    (favoriteRequested)="onGameFavoriteRequested($event)"
+  ></zg-casino-ranked-games-carousel-section>
+
+  <zg-casino-games-carousel-section
+    zg-casino-home-template-section
+    title="Most played"
+    [items]="mostPlayedGames()"
+    allActionLabel="All"
+    (viewAllClicked)="onMostPlayedViewAllClicked()"
+    (playRequested)="onGamePlayRequested($event)"
+    (favoriteRequested)="onGameFavoriteRequested($event)"
+  ></zg-casino-games-carousel-section>
+
+  <zg-casino-provider-parallax-showcase
+    zg-casino-home-template-section
+    providerName="Videoslots"
+    backgroundImageUrl="https://api-backoffice.zgames.tech/uploads/banner/b4a7fdd0-b562-48b5-84db-9f8ca70a7173instant_win.jpg"
+    [items]="twoRowGames()"
+    (playRequested)="onGamePlayRequested($event)"
+    (favoriteRequested)="onGameFavoriteRequested($event)"
+  ></zg-casino-provider-parallax-showcase>
+
+  <zg-casino-provider-carousel
+    zg-casino-home-template-section
+    [items]="providerItems"
+    (providerSelected)="onProviderSelected($event)"
+  ></zg-casino-provider-carousel>
+
+  <zg-lucky-picker
+    zg-casino-home-template-section
+    title="Not sure what to play?"
+    description="Let luck pick your next game."
+    actionLabel="Pick for me"
+    (actionClicked)="onLuckyPickerClicked()"
+  ></zg-lucky-picker>
+
+  <zg-casino-two-row-games-carousel-section
+    zg-casino-home-template-section
+    title="All games"
+    [items]="twoRowGames()"
+    allActionLabel="All"
+    (viewAllClicked)="onAllGamesViewAllClicked()"
+    (playRequested)="onGamePlayRequested($event)"
+    (favoriteRequested)="onGameFavoriteRequested($event)"
+  ></zg-casino-two-row-games-carousel-section>
+</zg-casino-home-template>
