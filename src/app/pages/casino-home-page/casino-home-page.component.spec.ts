@@ -66,6 +66,30 @@ describe('CasinoHomePageComponent', () => {
     expect(navigateSpy).toHaveBeenCalledWith('/casino');
   });
 
+  it('should navigate to /casino when brand is clicked', () => {
+    const fixture = TestBed.createComponent(CasinoHomePageComponent);
+    const component = fixture.componentInstance;
+    const router = TestBed.inject(Router);
+    const navigateSpy = vi.spyOn(router, 'navigateByUrl').mockResolvedValue(true);
+    fixture.detectChanges();
+
+    component.onBrandClicked();
+
+    expect(navigateSpy).toHaveBeenCalledWith('/casino');
+  });
+
+  it('should ignore header nav item without route', () => {
+    const fixture = TestBed.createComponent(CasinoHomePageComponent);
+    const component = fixture.componentInstance;
+    const router = TestBed.inject(Router);
+    const navigateSpy = vi.spyOn(router, 'navigateByUrl').mockResolvedValue(true);
+    fixture.detectChanges();
+
+    component.onNavItemClicked({ id: 'unknown', label: 'UNKNOWN' } as SiteHeaderNavItem);
+
+    expect(navigateSpy).not.toHaveBeenCalled();
+  });
+
   it('should navigate to catalog routes from section actions', () => {
     const fixture = TestBed.createComponent(CasinoHomePageComponent);
     const component = fixture.componentInstance;

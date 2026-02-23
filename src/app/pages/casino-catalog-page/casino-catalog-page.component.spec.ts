@@ -1,6 +1,8 @@
 import { TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 import { provideRouter } from '@angular/router';
 import { RouterTestingHarness } from '@angular/router/testing';
+import { vi } from 'vitest';
 import { routes } from '../../app.routes';
 import { CasinoCatalogPageComponent } from './casino-catalog-page.component';
 
@@ -47,5 +49,53 @@ describe('CasinoCatalogPageComponent', () => {
     component.loadMore();
     harness.detectChanges();
     expect(countCards()).toBe(48);
+  });
+
+  it('should navigate to /casino when brand is clicked', () => {
+    const fixture = TestBed.createComponent(CasinoCatalogPageComponent);
+    const component = fixture.componentInstance;
+    const router = TestBed.inject(Router);
+    const navigateSpy = vi.spyOn(router, 'navigateByUrl').mockResolvedValue(true);
+    fixture.detectChanges();
+
+    component.onBrandClicked();
+
+    expect(navigateSpy).toHaveBeenCalledWith('/casino');
+  });
+
+  it('should not navigate when breadcrumb item is catalog', () => {
+    const fixture = TestBed.createComponent(CasinoCatalogPageComponent);
+    const component = fixture.componentInstance;
+    const router = TestBed.inject(Router);
+    const navigateSpy = vi.spyOn(router, 'navigateByUrl').mockResolvedValue(true);
+    fixture.detectChanges();
+
+    component.onBreadcrumbItemClicked({ id: 'catalog' });
+
+    expect(navigateSpy).not.toHaveBeenCalled();
+  });
+
+  it('should navigate to /casino when breadcrumb item is not catalog', () => {
+    const fixture = TestBed.createComponent(CasinoCatalogPageComponent);
+    const component = fixture.componentInstance;
+    const router = TestBed.inject(Router);
+    const navigateSpy = vi.spyOn(router, 'navigateByUrl').mockResolvedValue(true);
+    fixture.detectChanges();
+
+    component.onBreadcrumbItemClicked({ id: 'home' });
+
+    expect(navigateSpy).toHaveBeenCalledWith('/casino');
+  });
+
+  it('should keep visibleCount when loadMore is called without more games', () => {
+    const fixture = TestBed.createComponent(CasinoCatalogPageComponent);
+    const component = fixture.componentInstance;
+    fixture.detectChanges();
+
+    component.visibleCount.set(component.filteredGames().length);
+    const before = component.visibleCount();
+    component.loadMore();
+
+    expect(component.visibleCount()).toBe(before);
   });
 });
