@@ -1,0 +1,17 @@
+:root {
+  --zg-casino-catalog-header-gap: var(--zg-spacing-3);
+  --zg-casino-catalog-header-content-gap: var(--zg-spacing-1);
+  --zg-casino-catalog-header-actions-gap: var(--zg-spacing-2);
+
+  --zg-casino-catalog-header-title-color: var(--zg-color-text-primary);
+  --zg-casino-catalog-header-title-font-family: var(--zg-font-family-secondary);
+  --zg-casino-catalog-header-title-font-size: var(--zg-font-size-4xl);
+  --zg-casino-catalog-header-title-font-weight: var(--zg-font-weight-semibold);
+  --zg-casino-catalog-header-title-line-height: var(--zg-line-height-tight);
+
+  --zg-casino-catalog-header-count-color: var(--zg-color-text-secondary);
+  --zg-casino-catalog-header-count-font-family: var(--zg-font-family-base);
+  --zg-casino-catalog-header-count-font-size: var(--zg-font-size-md);
+  --zg-casino-catalog-header-count-font-weight: var(--zg-font-weight-regular);
+  --zg-casino-catalog-header-count-line-height: var(--zg-line-height-normal);
+}

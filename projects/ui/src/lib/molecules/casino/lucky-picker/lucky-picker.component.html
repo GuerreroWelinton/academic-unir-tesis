@@ -1,0 +1,22 @@
+<section class="zg-lucky-picker__surface" [attr.aria-label]="ariaLabel()">
+  <div class="zg-lucky-picker__content">
+    <h3 class="zg-lucky-picker__title">{{ title() }}</h3>
+    @if (description()) {
+      <p class="zg-lucky-picker__description">{{ description() }}</p>
+    }
+  </div>
+
+  <div class="zg-lucky-picker__action">
+    <zg-button
+      [variant]="buttonVariant()"
+      [size]="size()"
+      shape="pill"
+      [disabled]="disabled()"
+      [aria-label]="actionAriaLabel()"
+      (clicked)="onActionClick()"
+    >
+      <ng-content select="[icon-left]"></ng-content>
+      {{ actionLabel() }}
+    </zg-button>
+  </div>
+</section>

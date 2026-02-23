@@ -1,0 +1,23 @@
+:host {
+  display: inline-flex;
+}
+
+.zg-section-actions__group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zg-section-actions-gap);
+}
+
+.zg-section-actions__nav {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zg-section-actions-nav-gap);
+}
+
+.zg-section-actions__all {
+  display: inline-flex;
+}
+
+.zg-section-actions__nav-button {
+  display: inline-flex;
+}

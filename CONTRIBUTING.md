@@ -1,119 +1,63 @@
 # Contributing
 
-## Purpose
+## Scope
 
-This repository contains an MVP of a reusable UI component library for iGaming (ZGames Technology) using **Angular 21** and **Storybook**. The focus is on creating consistent, accessible, and well-documented presentational (dumb) components.
+This repo builds an MVP UI library (`@zgames/ui`) and design tokens (`@zgames/design-tokens`) with Angular 21 + Storybook.
 
-## Architecture Rules (mandatory)
+## Branch and PR
 
-- The `projects/ui` library only contains **presentational components**:
-  - receive data via `input`
-  - emit events via `output`
-- Forbidden in the library:
-  - service injection
-  - business logic
-  - HTTP calls / API access
-  - access to router/store/localStorage (unless strictly UI and justified)
+- Create branches from `development`.
+- Open PRs to `development`.
+- Do not open feature PRs directly to `main`.
 
-## Technical Conventions
+## Core Rules
 
-### Modern Angular
+- UI library components are presentational only.
+- Use `Standalone` + `ChangeDetectionStrategy.OnPush`.
+- Use signal `input` / `output` with strict typing (no `any`).
+- Keep business logic, services, API calls, and store/router access out of the library.
 
-- All components must be **Standalone** (no NgModules)
-- **ChangeDetectionStrategy.OnPush** is mandatory
-- **Signals** for internal UI state when appropriate
-- Strict TypeScript, avoid `any`
+## Structure
 
-### File Structure
+- `atoms` are `shared` by default.
+- `molecules` can be `shared` or domain-based (`casino`, `sport`, ...).
+- Co-locate files per component:
+  - `*.component.ts|html|scss`
+  - `*.stories.ts`
+  - `*.spec.ts`
 
-Component co-location in `projects/ui/src/lib/atoms/<component>/`:
+## Styles and Tokens
 
-- `*.component.ts|html|scss`
-- `*.stories.ts` (required)
-- `*.spec.ts` (required)
+- Use design tokens (CSS variables). Do not hardcode brand values.
+- If you add semantic/component tokens, update both:
+  - SCSS token file in `src/styles/tokens/`
+  - TS token map in `projects/design-tokens/src/lib/tokens/`
+- Primitive scale tokens (`--zg-[color]-[number]`) do not require TS map updates.
 
-### Atomic Design
+## Storybook and Tests
 
-We use **Atomic Design** as a guide for component organization. Folders are structured by category (`atoms/`, `molecules/`, `organisms/`). Atoms should be simple and reusable, molecules combine atoms to create functional units, and organisms compose complete interfaces. To see the updated component index and classification, check **Storybook (sidebar)**.
+- Every component must have stories and unit tests.
+- Include accessibility coverage (keyboard/focus/ARIA) and run addon-a11y.
+- Keep story/testing conventions consistent across the repo:
+  - clear `argTypes` for public inputs/outputs
+  - accessibility-focused stories when applicable
+  - focused, deterministic interaction tests
 
-### Design Tokens
+## Before Opening a PR
 
-- **MANDATORY**: Styles must use design tokens from `src/styles/_tokens.scss`
-- **FORBIDDEN**: Hardcoding colors, spacing, typography, radius
-- Correct example: `color: var(--zg-color-primary)`
+Run:
 
-#### Token Architecture & Theming (Summary)
+```bash
+npm run ci:local
+```
 
-##### 3-Layer Token System
+This validates lint, format, tests, builds, and Storybook build.
 
-- **Layer 1: Primitives** — Raw base values (e.g., --zg-green-800, --zg-neutral-200). Used for theme variations.
-- **Layer 2: Semantic Tokens** — Intention-based tokens (e.g., --zg-color-primary) referencing primitives. Used by multiple components.
-- **Layer 3: Component Tokens** — Component-specific tokens (e.g., --zg-button-bg-primary) referencing semantic tokens. Must NOT reference primitives directly.
+## Commit Format
 
-**Rule:** Component tokens must reference semantic tokens, not primitives, to ensure theme consistency.
-
-##### Theming Strategies
-
-- **Primitive Override:** Change base values for simple theme shifts (e.g., green800 → red).
-- **Semantic Override:** Override intention tokens for precise control (e.g., primary → custom color).
-- **Combined:** Use both for maximum flexibility (recommended).
-- **Component Tokens:** Usually inherit from Layer 2; rarely overridden directly.
-- Incorrect example: `color: #00b894`
-
-## Storybook and Documentation
-
-Every component must have a `*.stories.ts` file with:
-
-- **Default** story (interactive with `args`)
-- Demo stories using `render()` for:
-  - Variants (all visual variants)
-  - Sizes (all sizes)
-  - States (disabled, loading, error, etc.)
-  - WithIcons (if applicable)
-  - RealWorldExamples
-
-### Story Documentation
-
-- Complete JSDoc in the component meta
-- **Usage Guide** with when to use/avoid
-- **Available ng-content selectors** if applicable
-- **Accessibility** checklist
-- Clear description of each argType
-
-## Accessibility (mandatory)
-
-- Use Storybook's addon-a11y for validation
-- Implement keyboard navigation (Enter/Space for buttons)
-- Visible focus states
-- ARIA attributes when appropriate
-- `aria-label` for icon-only components
-
-**Note:** The a11y addon is configured to validate against **WCAG 2.1 Level AA** (`runOnly: { type: 'tag', values: ['wcag2aa', 'wcag21aa'] }`).
-
-## Unit Tests (minimum)
-
-Each component must have tests that verify:
-
-- Renders without errors
-- Respects key inputs (variant, size, disabled, etc.)
-- Emits correct outputs on interaction
-- Special states (loading, disabled, error)
-
-## Commits
-
-Recommended convention:
-
-- `feat(button):` new feature
-- `fix(button):` bugfix
-- `docs:` documentation
-- `style:` tokens, styles, formatting
-- `test:` tests
-- `chore:` tooling/config
-
-## Development Process
-
-1. **Plan**: Review project instructions and define the component API
-2. **Implement**: Component + styles with tokens + basic tests
-3. **Document**: Complete stories with all use cases
-4. **Validate**: Accessibility in Storybook, passing tests
-5. **Review**: PR with clear API and use case description
+- `feat(scope): ...`
+- `fix(scope): ...`
+- `docs: ...`
+- `style: ...`
+- `test: ...`
+- `chore: ...`

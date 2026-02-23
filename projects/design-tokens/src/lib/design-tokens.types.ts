@@ -1,14 +1,38 @@
-/**
- * ZGames Design Tokens - Type Definitions
- * Type definitions and interfaces for the design token system
- */
+import type {
+  badgeTokens,
+  breadcrumbTokens,
+  buttonTokens,
+  casinoGameCardTokens,
+  casinoProviderParallaxShowcaseTokens,
+  casinoRankedGamesCarouselSectionTokens,
+  casinoProviderCarouselTokens,
+  casinoSearchBarTokens,
+  casinoTwoRowGamesCarouselSectionTokens,
+  chipTokens,
+  casinoCatalogHeaderTokens,
+  casinoHomeHeroTokens,
+  casinoGamesGridSectionTokens,
+  colorTokens,
+  contentSectionHeaderTokens,
+  inputTokens,
+  luckyPickerTokens,
+  radiusTokens,
+  sectionActionsTokens,
+  sectionTitleTokens,
+  shadowTokens,
+  spacingTokens,
+  transitionTokens,
+  typographyThemeTokens,
+  zIndexTokens,
+} from './tokens';
+
+export type TokenOverrides<T extends Record<string, string>> = Partial<Record<keyof T, string>>;
 
 /**
- * Primitive color scales for theming
- * These are the raw color values that can be overridden to create themes
+ * Primitive color scales for theming.
+ * These are raw values, not semantic aliases.
  */
 export interface PrimitiveTokens {
-  // Green scale
   green950?: string;
   green900?: string;
   green800?: string;
@@ -20,8 +44,6 @@ export interface PrimitiveTokens {
   green200?: string;
   green100?: string;
   green50?: string;
-
-  // Orange scale
   orange900?: string;
   orange800?: string;
   orange700?: string;
@@ -31,8 +53,6 @@ export interface PrimitiveTokens {
   orange300?: string;
   orange200?: string;
   orange100?: string;
-
-  // Red scale
   red900?: string;
   red800?: string;
   red700?: string;
@@ -43,8 +63,6 @@ export interface PrimitiveTokens {
   red200?: string;
   red100?: string;
   red50?: string;
-
-  // Yellow scale
   yellow900?: string;
   yellow800?: string;
   yellow700?: string;
@@ -54,8 +72,6 @@ export interface PrimitiveTokens {
   yellow300?: string;
   yellow200?: string;
   yellow100?: string;
-
-  // Blue scale
   blue900?: string;
   blue800?: string;
   blue700?: string;
@@ -65,8 +81,6 @@ export interface PrimitiveTokens {
   blue300?: string;
   blue200?: string;
   blue100?: string;
-
-  // Neutral scale
   neutral100?: string;
   neutral200?: string;
   neutral300?: string;
@@ -78,125 +92,65 @@ export interface PrimitiveTokens {
   neutral900?: string;
 }
 
-/**
- * Semantic color tokens
- * These provide meaningful names for colors based on their usage
- */
-export interface SemanticColorTokens {
-  // Primary brand colors
-  primary?: string;
-  primaryHover?: string;
-  primaryActive?: string;
-  primaryLight?: string;
-  primaryLighter?: string;
+export type SemanticColorTokens = TokenOverrides<typeof colorTokens>;
+export type TypographyTokens = TokenOverrides<typeof typographyThemeTokens>;
+export type SpacingTokens = TokenOverrides<typeof spacingTokens>;
+export type RadiusTokens = TokenOverrides<typeof radiusTokens>;
+export type ShadowTokens = TokenOverrides<typeof shadowTokens>;
+export type ZIndexTokens = TokenOverrides<typeof zIndexTokens>;
+export type TransitionTokens = TokenOverrides<typeof transitionTokens>;
+export type ButtonTokens = TokenOverrides<typeof buttonTokens>;
+export type InputTokens = TokenOverrides<typeof inputTokens>;
+export type BadgeTokens = TokenOverrides<typeof badgeTokens>;
+export type ChipTokens = TokenOverrides<typeof chipTokens>;
+export type CasinoCatalogHeaderTokens = TokenOverrides<typeof casinoCatalogHeaderTokens>;
+export type CasinoHomeHeroTokens = TokenOverrides<typeof casinoHomeHeroTokens>;
+export type CasinoGamesGridSectionTokens = TokenOverrides<typeof casinoGamesGridSectionTokens>;
+export type BreadcrumbTokens = TokenOverrides<typeof breadcrumbTokens>;
+export type CasinoGameCardTokens = TokenOverrides<typeof casinoGameCardTokens>;
+export type CasinoRankedGamesCarouselSectionTokens = TokenOverrides<
+  typeof casinoRankedGamesCarouselSectionTokens
+>;
+export type CasinoProviderCarouselTokens = TokenOverrides<typeof casinoProviderCarouselTokens>;
+export type CasinoSearchBarTokens = TokenOverrides<typeof casinoSearchBarTokens>;
+export type CasinoTwoRowGamesCarouselSectionTokens = TokenOverrides<
+  typeof casinoTwoRowGamesCarouselSectionTokens
+>;
+export type CasinoProviderParallaxShowcaseTokens = TokenOverrides<
+  typeof casinoProviderParallaxShowcaseTokens
+>;
+export type LuckyPickerTokens = TokenOverrides<typeof luckyPickerTokens>;
+export type SectionTitleTokens = TokenOverrides<typeof sectionTitleTokens>;
+export type SectionActionsTokens = TokenOverrides<typeof sectionActionsTokens>;
+export type ContentSectionHeaderTokens = TokenOverrides<typeof contentSectionHeaderTokens>;
 
-  // Secondary colors
-  secondary?: string;
-  secondaryHover?: string;
-  secondaryActive?: string;
-
-  // Accent & Highlight
-  accent?: string;
-  highlight?: string;
-
-  // Semantic feedback colors
-  success?: string;
-  successLight?: string;
-  warning?: string;
-  warningLight?: string;
-  error?: string;
-  errorLight?: string;
-  info?: string;
-  infoLight?: string;
-
-  // iGaming specific colors
-  betBuilder?: string;
-  live?: string;
-  favorite?: string;
-  betOpen?: string;
-  betWon?: string;
-  betLost?: string;
-  betOther?: string;
-
-  // Surface & UI colors
-  surface?: string;
-  surfaceAlt?: string;
-  surfaceHover?: string;
-  border?: string;
-  borderDark?: string;
-
-  // Text colors
-  textPrimary?: string;
-  textSecondary?: string;
-  textDisabled?: string;
-  textInverse?: string;
-  textInfo?: string;
-
-  // Background colors
-  bgPrimary?: string;
-  bgSecondary?: string;
-  bgDark?: string;
-  bgOverlay?: string;
-  bgCard?: string;
-  bgHeader?: string;
-}
-
-/**
- * Typography tokens
- */
-export interface TypographyTokens {
-  fontFamilyBase?: string;
-  fontFamilySecondary?: string;
-}
-
-/**
- * Spacing tokens
- */
-export type SpacingTokens = Record<string, string>;
-
-/**
- * Border radius tokens
- */
-export type RadiusTokens = Record<string, string>;
-
-/**
- * Shadow tokens
- */
-export type ShadowTokens = Record<string, string>;
-
-/**
- * Transition tokens
- */
-export interface TransitionTokens {
-  fast?: string;
-  base?: string;
-  slow?: string;
-}
-
-/**
- * Button-specific tokens
- */
-export interface ButtonTokens {
-  bgPrimary?: string;
-  bgSecondary?: string;
-  colorPrimary?: string;
-  radius?: string;
-}
-
-/**
- * Complete theme configuration
- * Use this interface to define custom themes
- */
 export interface Theme {
-  // LAYER 1: Primitive color scales (recommended for theming)
   primitives?: PrimitiveTokens;
-
-  // LAYER 2: Semantic tokens (use only if you need specific overrides)
   color?: SemanticColorTokens;
   typography?: TypographyTokens;
   spacing?: SpacingTokens;
   radius?: RadiusTokens;
   shadow?: ShadowTokens;
+  zIndex?: ZIndexTokens;
   transition?: TransitionTokens;
   button?: ButtonTokens;
+  input?: InputTokens;
+  badge?: BadgeTokens;
+  chip?: ChipTokens;
+  casinoCatalogHeader?: CasinoCatalogHeaderTokens;
+  casinoHomeHero?: CasinoHomeHeroTokens;
+  casinoGamesGridSection?: CasinoGamesGridSectionTokens;
+  breadcrumb?: BreadcrumbTokens;
+  casinoGameCard?: CasinoGameCardTokens;
+  casinoRankedGamesCarouselSection?: CasinoRankedGamesCarouselSectionTokens;
+  casinoProviderCarousel?: CasinoProviderCarouselTokens;
+  casinoSearchBar?: CasinoSearchBarTokens;
+  casinoTwoRowGamesCarouselSection?: CasinoTwoRowGamesCarouselSectionTokens;
+  casinoProviderParallaxShowcase?: CasinoProviderParallaxShowcaseTokens;
+  luckyPicker?: LuckyPickerTokens;
+  sectionTitle?: SectionTitleTokens;
+  sectionActions?: SectionActionsTokens;
+  contentSectionHeader?: ContentSectionHeaderTokens;
 }
+
+export type ThemeRegistry<TClient extends string = string> = Record<TClient, Record<string, Theme>>;

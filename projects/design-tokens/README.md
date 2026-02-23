@@ -1,4 +1,4 @@
-# @zgames/zgames-design-tokens
+# @zgames/design-tokens
 
 Design tokens library for ZGames Technology (iGaming). Provides CSS variables and theming utilities for UI components.
 
@@ -11,7 +11,7 @@ Design tokens library for ZGames Technology (iGaming). Provides CSS variables an
 ## Installation
 
 ```bash
-npm install @zgames/zgames-design-tokens
+npm install @zgames/design-tokens
 ```
 
 ## Usage
@@ -19,13 +19,13 @@ npm install @zgames/zgames-design-tokens
 Import the CSS variables in your global styles:
 
 ```scss
-@import '@zgames/zgames-design-tokens/styles/tokens';
+@import '@zgames/design-tokens/styles/tokens';
 ```
 
 Or use the theming utilities in TypeScript:
 
 ```typescript
-import { createTheme } from '@zgames/zgames-design-tokens';
+import { applyThemeFromRegistry } from '@zgames/design-tokens';
 ```
 
 ## Build
@@ -34,7 +34,7 @@ import { createTheme } from '@zgames/zgames-design-tokens';
 npm run build:design-tokens
 ```
 
-Artifacts in `dist/zgames-design-tokens/`.
+Artifacts in `dist/design-tokens/`.
 
 ## Testing
 
@@ -50,7 +50,7 @@ npm run test:design-tokens:coverage
 ## Publish
 
 ```bash
-cd dist/zgames-design-tokens
+cd dist/design-tokens
 npm publish --access public
 ```
 

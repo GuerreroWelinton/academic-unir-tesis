@@ -1,0 +1,15 @@
+:root {
+  --zg-casino-ranked-games-carousel-section-gap: var(--zg-spacing-4);
+  --zg-casino-ranked-games-carousel-section-rank-inset-inline-start: calc(
+    var(--zg-spacing-24) * -1
+  );
+  --zg-casino-ranked-games-carousel-section-rank-inset-block-start: 50%;
+  --zg-casino-ranked-games-carousel-section-rank-font-family: var(--zg-font-family-base);
+  --zg-casino-ranked-games-carousel-section-rank-font-size: clamp(16rem, 32vw, 22rem);
+  --zg-casino-ranked-games-carousel-section-rank-font-weight: var(--zg-font-weight-bold);
+  --zg-casino-ranked-games-carousel-section-rank-line-height: 1;
+  --zg-casino-ranked-games-carousel-section-rank-stroke-width: 0.2rem;
+  --zg-casino-ranked-games-carousel-section-rank-stroke-color: var(--zg-green-600);
+  --zg-casino-ranked-games-carousel-section-rank-opacity: 0.9;
+  --zg-casino-ranked-games-carousel-section-item-gap-inline-end: var(--zg-spacing-24);
+}

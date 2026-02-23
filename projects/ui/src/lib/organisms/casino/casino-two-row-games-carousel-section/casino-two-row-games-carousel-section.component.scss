@@ -1,0 +1,25 @@
+:host {
+  display: block;
+}
+
+.zg-casino-two-row-games-carousel-section__surface {
+  display: grid;
+  gap: var(--zg-casino-two-row-games-carousel-section-gap);
+}
+
+.zg-casino-two-row-games-carousel-section__column-item {
+  flex: 0 0 auto;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.zg-casino-two-row-games-carousel-section__column {
+  display: grid;
+  width: 100%;
+  min-width: 0;
+}
+
+.zg-casino-two-row-games-carousel-section__column > zg-casino-game-card {
+  width: 100%;
+  min-width: 0;
+}

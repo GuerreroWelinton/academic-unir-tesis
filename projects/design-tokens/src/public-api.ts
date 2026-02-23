@@ -3,19 +3,27 @@
  */
 
 export {
-  DesignTokens,
-  getTokenValue,
-  setTokenValue,
-  createTheme,
+  applyThemeFromRegistry,
+  getThemeVariantsFromRegistry,
   resetTheme,
-  // Types
-  type Theme,
-  type PrimitiveTokens,
-  type SemanticColorTokens,
-  type TypographyTokens,
-  type SpacingTokens,
-  type RadiusTokens,
-  type ShadowTokens,
-  type TransitionTokens,
-  type ButtonTokens,
 } from './lib/design-tokens';
+
+export type {
+  BadgeTokens,
+  ButtonTokens,
+  CasinoRankedGamesCarouselSectionTokens,
+  CasinoProviderCarouselTokens,
+  ChipTokens,
+  InputTokens,
+  LuckyPickerTokens,
+  PrimitiveTokens,
+  RadiusTokens,
+  SemanticColorTokens,
+  ShadowTokens,
+  SpacingTokens,
+  Theme,
+  ThemeRegistry,
+  TransitionTokens,
+  TypographyTokens,
+  ZIndexTokens,
+} from './lib/design-tokens.types';

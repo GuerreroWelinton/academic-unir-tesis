@@ -1,30 +1,30 @@
-/**
- * Storybook Theme Decorator
- * Allows theme switching in Storybook controls
- */
-
-import type { Decorator } from '@storybook/angular';
-import { applyClientTheme, type ClientId } from '../src/themes/client-themes';
+import type { Decorator, Preview } from '@storybook/angular';
+import { applyThemeFromRegistry, resetTheme } from '@zgames/design-tokens';
+import { STORYBOOK_CLIENT_THEMES, type StorybookClientId } from './client-themes';
 
 /**
  * Global theme decorator for Storybook
- * Add this to .storybook/preview.ts
  */
 export const withTheme: Decorator = (story, context) => {
-  const clientId = (context.globals['client'] as ClientId) || 'client1';
+  const clientId = (context.globals['client'] as StorybookClientId) || 'client1';
   const variant = (context.globals['theme'] as string) || 'light';
 
-  // Apply theme (handles reset + createTheme internally)
-  applyClientTheme(clientId, variant);
+  if (context.viewMode === 'story') {
+    applyThemeFromRegistry(STORYBOOK_CLIENT_THEMES, clientId, {
+      variant,
+      fallbackClientId: 'client1',
+    });
+  } else {
+    resetTheme();
+  }
 
   return story();
 };
 
 /**
  * Global types for Storybook toolbar
- * Add this to .storybook/preview.ts
  */
-export const globalTypes = {
+export const globalTypes: NonNullable<Preview['globalTypes']> = {
   client: {
     name: 'Client',
     description: 'Select client brand',
@@ -52,4 +52,4 @@ export const globalTypes = {
       dynamicTitle: true,
     },
   },
-} as const;
+};

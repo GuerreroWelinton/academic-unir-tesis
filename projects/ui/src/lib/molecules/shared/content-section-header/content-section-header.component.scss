@@ -1,0 +1,28 @@
+:host {
+  display: block;
+}
+
+.zg-content-section-header__container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--zg-content-section-header-gap);
+  flex-wrap: wrap;
+}
+
+.zg-content-section-header__title {
+  min-width: 0;
+}
+
+.zg-content-section-header__actions {
+  margin-inline-start: var(--zg-content-section-header-actions-offset);
+}
+
+.zg-content-section-header__title:empty,
+.zg-content-section-header__actions:empty {
+  display: none;
+}
+
+.zg-content-section-header__actions:empty {
+  margin-inline-start: 0;
+}

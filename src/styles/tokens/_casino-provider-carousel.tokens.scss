@@ -1,0 +1,34 @@
+:root {
+  --zg-casino-provider-carousel-gap: var(--zg-spacing-3);
+  --zg-casino-provider-carousel-padding-y: var(--zg-spacing-2);
+  --zg-casino-provider-carousel-mask-fade-size: var(--zg-spacing-4);
+  --zg-casino-provider-carousel-default-animation-duration: 24s;
+
+  --zg-casino-provider-carousel-item-min-width: 9rem;
+  --zg-casino-provider-carousel-item-min-height: 5rem;
+  --zg-casino-provider-carousel-item-padding-y: var(--zg-spacing-2);
+  --zg-casino-provider-carousel-item-padding-x: var(--zg-spacing-3);
+  --zg-casino-provider-carousel-item-radius: var(--zg-radius-md);
+  --zg-casino-provider-carousel-item-bg: var(--zg-color-bg-card);
+  --zg-casino-provider-carousel-item-border-color: var(--zg-color-border);
+  --zg-casino-provider-carousel-item-border-color-hover: var(--zg-color-primary);
+  --zg-casino-provider-carousel-content-gap: var(--zg-spacing-2);
+
+  --zg-casino-provider-carousel-logo-height: 1.5rem;
+  --zg-casino-provider-carousel-logo-max-width: 6.5rem;
+
+  --zg-casino-provider-carousel-name-color: var(--zg-color-text-primary);
+  --zg-casino-provider-carousel-name-font-family: var(--zg-font-family-base);
+  --zg-casino-provider-carousel-name-font-size: var(--zg-font-size-sm);
+  --zg-casino-provider-carousel-name-font-weight: var(--zg-font-weight-semibold);
+
+  --zg-casino-provider-carousel-empty-color: var(--zg-color-text-secondary);
+  --zg-casino-provider-carousel-empty-padding-y: var(--zg-spacing-5);
+  --zg-casino-provider-carousel-empty-padding-x: var(--zg-spacing-4);
+
+  --zg-casino-provider-carousel-disabled-opacity: 0.55;
+  --zg-casino-provider-carousel-transition: var(--zg-transition-fast);
+  --zg-casino-provider-carousel-focus-ring-color: var(--zg-color-primary-light);
+  --zg-casino-provider-carousel-focus-ring-width: 2px;
+  --zg-casino-provider-carousel-focus-ring-offset: 2px;
+}

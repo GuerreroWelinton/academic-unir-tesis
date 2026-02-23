@@ -1,0 +1,14 @@
+<div class="zg-section-actions__group" role="group" [attr.aria-label]="groupAriaLabel()">
+  <div class="zg-section-actions__all">
+    <ng-content select="[zg-section-actions-all]"></ng-content>
+  </div>
+
+  <div class="zg-section-actions__nav">
+    <div class="zg-section-actions__nav-button">
+      <ng-content select="[zg-section-actions-prev]"></ng-content>
+    </div>
+    <div class="zg-section-actions__nav-button">
+      <ng-content select="[zg-section-actions-next]"></ng-content>
+    </div>
+  </div>
+</div>

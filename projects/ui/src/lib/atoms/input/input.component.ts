@@ -1,7 +1,17 @@
-import { ChangeDetectionStrategy, Component, computed, input, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  effect,
+  input,
+  output,
+  signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 export type InputSize = 'sm' | 'md' | 'lg';
+export type InputType = 'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
+let nextInputId = 0;
 
 @Component({
   selector: 'zg-input',
@@ -20,10 +30,13 @@ export type InputSize = 'sm' | 'md' | 'lg';
 })
 export class ZgInputComponent {
   /** Unique id for input/label association */
-  public id = Math.random().toString(36).substring(2, 10);
+  public readonly id = `zg-input-${nextInputId++}`;
+  public readonly inputId = `${this.id}-field`;
+  public readonly errorId = `${this.id}-error`;
+  public readonly helperId = `${this.id}-helper`;
 
   /** Input type */
-  type = input<string>('text');
+  type = input<InputType>('text');
 
   /** Input value */
   value = input<string>('');
@@ -72,6 +85,7 @@ export class ZgInputComponent {
 
   /** Internal: is focused */
   protected isFocused = signal(false);
+  protected internalValue = signal('');
 
   /** Host classes */
   protected hostClasses = computed(() => {
@@ -83,9 +97,37 @@ export class ZgInputComponent {
     return classes.join(' ');
   });
 
+  protected describedBy = computed(() => {
+    if (this.error()) {
+      return this.errorId;
+    }
+    if (this.helperText()) {
+      return this.helperId;
+    }
+    return null;
+  });
+
+  protected showClearButton = computed(() => {
+    return !this.readonly() && !this.disabled() && this.internalValue().length > 0;
+  });
+
+  protected inputAriaLabel = computed(() => {
+    if (this.label().trim()) {
+      return null;
+    }
+    return this.placeholder().trim() || 'Input field';
+  });
+
+  constructor() {
+    effect(() => {
+      this.internalValue.set(this.value());
+    });
+  }
+
   /** Handle input event */
   protected onInput(event: Event) {
     const target = event.target as HTMLInputElement;
+    this.internalValue.set(target.value);
     this.changed.emit(target.value);
   }
 
@@ -103,6 +145,7 @@ export class ZgInputComponent {
 
   /** Handle clear button click */
   protected onClear() {
+    this.internalValue.set('');
     this.cleared.emit();
     this.changed.emit('');
   }

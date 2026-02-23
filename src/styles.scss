@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+// Load font files for app and Storybook preview
+@use './styles/fonts' as *;
+
 // Import design tokens - Single source of truth for design system
 @use './styles/tokens' as *;
 

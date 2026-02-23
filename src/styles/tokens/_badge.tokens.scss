@@ -1,0 +1,50 @@
+:root {
+  --zg-badge-bg-primary: var(--zg-color-primary);
+  --zg-badge-bg-secondary: var(--zg-color-secondary);
+  --zg-badge-bg-success: var(--zg-color-success);
+  --zg-badge-bg-warning: var(--zg-color-warning);
+  --zg-badge-bg-error: var(--zg-color-error);
+  --zg-badge-bg-info: var(--zg-color-info);
+  --zg-badge-bg-neutral: var(--zg-color-surface-alt);
+
+  --zg-badge-text-primary: var(--zg-color-text-inverse);
+  --zg-badge-text-secondary: var(--zg-color-text-inverse);
+  --zg-badge-text-success: var(--zg-color-text-inverse);
+  --zg-badge-text-warning: var(--zg-color-text-primary);
+  --zg-badge-text-error: var(--zg-color-text-inverse);
+  --zg-badge-text-info: var(--zg-color-text-inverse);
+  --zg-badge-text-neutral: var(--zg-color-text-primary);
+
+  --zg-badge-height-sm: 1.25rem;
+  --zg-badge-height-md: 1.5rem;
+  --zg-badge-height-lg: 2rem;
+
+  --zg-badge-padding-x-sm: var(--zg-spacing-2);
+  --zg-badge-padding-x-md: var(--zg-spacing-3);
+  --zg-badge-padding-x-lg: var(--zg-spacing-4);
+
+  --zg-badge-min-width-sm: 1.25rem;
+  --zg-badge-min-width-md: 1.5rem;
+  --zg-badge-min-width-lg: 2rem;
+
+  --zg-badge-font-size-sm: var(--zg-font-size-xs);
+  --zg-badge-font-size-md: var(--zg-font-size-sm);
+  --zg-badge-font-size-lg: var(--zg-font-size-base);
+  --zg-badge-font-weight: var(--zg-font-weight-medium);
+  --zg-badge-font-family: var(--zg-font-family-base);
+  --zg-badge-line-height: 1;
+
+  --zg-badge-radius-default: var(--zg-radius-base);
+  --zg-badge-radius-pill: var(--zg-radius-full);
+  --zg-badge-radius-square: var(--zg-radius-sm);
+
+  --zg-badge-close-gap: var(--zg-spacing-1);
+  --zg-badge-close-size: 1rem;
+  --zg-badge-close-hover-opacity: 0.7;
+
+  --zg-badge-dot-size-sm: 0.5rem;
+  --zg-badge-dot-size-md: 0.625rem;
+  --zg-badge-dot-size-lg: 0.75rem;
+
+  --zg-badge-transition: var(--zg-transition-fast);
+}

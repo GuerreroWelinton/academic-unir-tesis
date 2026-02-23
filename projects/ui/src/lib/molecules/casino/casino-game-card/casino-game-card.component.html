@@ -1,0 +1,74 @@
+<article class="zg-game-card__surface" [attr.aria-disabled]="disabled()">
+  <div class="zg-game-card__media">
+    @if (imageUrl()) {
+      <img
+        class="zg-game-card__image"
+        [ngSrc]="imageUrl()"
+        [alt]="effectiveImageAlt()"
+        fill
+        sizes="(max-width: 640px) 45vw, 20vw"
+        loading="lazy"
+      />
+    } @else {
+      <div class="zg-game-card__image-placeholder" aria-hidden="true"></div>
+    }
+
+    <div class="zg-game-card__top-row">
+      <ng-content select="[badge]"></ng-content>
+
+      @if (showFavorite()) {
+        <button
+          type="button"
+          class="zg-game-card__icon-button zg-game-card__favorite"
+          [disabled]="disabled()"
+          [attr.aria-label]="favoriteAriaLabel()"
+          [attr.aria-pressed]="favorite()"
+          (click)="onFavoriteClick($event)"
+        >
+          <span class="zg-game-card__icon-slot">
+            <ng-content select="[favorite-icon]"></ng-content>
+          </span>
+          <span class="zg-game-card__icon-fallback" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              width="14"
+              height="14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              focusable="false"
+            >
+              <path
+                d="M12 21.35 10.55 20.03C5.4 15.36 2 12.28 2 8.5A4.5 4.5 0 0 1 6.5 4C8.24 4 9.91 4.81 11 6.08 12.09 4.81 13.76 4 15.5 4A4.5 4.5 0 0 1 20 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35Z"
+              />
+            </svg>
+          </span>
+        </button>
+      }
+    </div>
+
+    <div class="zg-game-card__overlay">
+      <button
+        type="button"
+        class="zg-game-card__play-button"
+        [disabled]="disabled()"
+        [attr.aria-label]="playAriaLabel()"
+        (click)="onPlayClick($event)"
+      >
+        <span class="zg-game-card__icon-slot">
+          <ng-content select="[play-icon]"></ng-content>
+        </span>
+        {{ ctaLabel() }}
+      </button>
+    </div>
+  </div>
+
+  <div class="zg-game-card__content">
+    <h3 class="zg-game-card__title">{{ title() }}</h3>
+    @if (provider()) {
+      <p class="zg-game-card__provider">{{ provider() }}</p>
+    }
+  </div>
+</article>

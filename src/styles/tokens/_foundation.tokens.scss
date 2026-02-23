@@ -1,0 +1,235 @@
+:root {
+  // ============================================
+  // LAYER 1: PRIMITIVE TOKENS (Raw Color Scales)
+  // ============================================
+
+  // Green scale
+  --zg-green-950: #051810;
+  --zg-green-900: #0a2c18;
+  --zg-green-800: #114b2a;
+  --zg-green-700: #186b3c;
+  --zg-green-600: #1f8b4e;
+  --zg-green-500: #42c148;
+  --zg-green-400: #00c42e;
+  --zg-green-300: #5cd662;
+  --zg-green-200: #8fe789;
+  --zg-green-100: #d4fd2b;
+  --zg-green-50: #e8ffe5;
+
+  // Orange scale
+  --zg-orange-900: #992900;
+  --zg-orange-800: #cc3700;
+  --zg-orange-700: #ff4500;
+  --zg-orange-600: #ff5a1f;
+  --zg-orange-500: #ff7000;
+  --zg-orange-400: #ff9347;
+  --zg-orange-300: #ffb380;
+  --zg-orange-200: #ffd4b3;
+  --zg-orange-100: #fff0e6;
+
+  // Red scale
+  --zg-red-900: #8b0000;
+  --zg-red-800: #b30000;
+  --zg-red-700: #e1070e;
+  --zg-red-600: #ff0000;
+  --zg-red-500: #ff3333;
+  --zg-red-400: #ff6666;
+  --zg-red-300: #ff9999;
+  --zg-red-200: #ffcccc;
+  --zg-red-100: #f8d7da;
+  --zg-red-50: #fff5f5;
+
+  // Yellow scale
+  --zg-yellow-900: #7a5f0a;
+  --zg-yellow-800: #9c7a0d;
+  --zg-yellow-700: #c49910;
+  --zg-yellow-600: #f7c30e;
+  --zg-yellow-500: #ffd43b;
+  --zg-yellow-400: #ffe066;
+  --zg-yellow-300: #ffeb99;
+  --zg-yellow-200: #fef3c7;
+  --zg-yellow-100: #fffbeb;
+
+  // Blue scale
+  --zg-blue-900: #1a3f5c;
+  --zg-blue-800: #1e4d6f;
+  --zg-blue-700: #256182;
+  --zg-blue-600: #2d75a0;
+  --zg-blue-500: #3b82f6;
+  --zg-blue-400: #60a5fa;
+  --zg-blue-300: #93c5fd;
+  --zg-blue-200: #bfdbfe;
+  --zg-blue-100: #dbeafe;
+
+  // Neutral scale
+  --zg-neutral-100: #ffffff;
+  --zg-neutral-200: #fafafa;
+  --zg-neutral-300: #f5f5f5;
+  --zg-neutral-400: #e4e4e7;
+  --zg-neutral-500: #cccccc;
+  --zg-neutral-600: #999999;
+  --zg-neutral-700: #666666;
+  --zg-neutral-800: #333333;
+  --zg-neutral-900: #000000;
+
+  // ============================================
+  // LAYER 2: SEMANTIC TOKENS (Intention-based)
+  // ============================================
+
+  // Primary brand colors
+  --zg-color-primary: var(--zg-green-800);
+  --zg-color-primary-hover: var(--zg-green-900);
+  --zg-color-primary-active: var(--zg-green-900);
+  --zg-color-primary-light: var(--zg-green-500);
+  --zg-color-primary-lighter: var(--zg-green-300);
+
+  // Secondary colors
+  --zg-color-secondary: var(--zg-green-500);
+  --zg-color-secondary-hover: var(--zg-green-400);
+  --zg-color-secondary-active: var(--zg-green-400);
+
+  // Accent & Highlight
+  --zg-color-accent: var(--zg-green-400);
+  --zg-color-highlight: var(--zg-green-100);
+
+  // Semantic feedback colors
+  --zg-color-success: var(--zg-green-500);
+  --zg-color-success-hover: var(--zg-green-400);
+  --zg-color-success-active: var(--zg-green-600);
+  --zg-color-success-light: var(--zg-green-200);
+  --zg-color-warning: var(--zg-yellow-600);
+  --zg-color-warning-hover: var(--zg-yellow-500);
+  --zg-color-warning-active: var(--zg-yellow-700);
+  --zg-color-warning-light: var(--zg-yellow-200);
+  --zg-color-error: var(--zg-red-600);
+  --zg-color-error-hover: var(--zg-red-700);
+  --zg-color-error-active: var(--zg-red-800);
+  --zg-color-error-light: var(--zg-red-100);
+  --zg-color-info: var(--zg-blue-700);
+  --zg-color-info-hover: var(--zg-blue-600);
+  --zg-color-info-active: var(--zg-blue-800);
+  --zg-color-info-light: var(--zg-blue-100);
+
+  // iGaming specific semantic colors
+  --zg-color-bet-builder: var(--zg-orange-500);
+  --zg-color-live: var(--zg-red-700);
+  --zg-color-favorite: var(--zg-yellow-500);
+
+  // Surface & UI colors
+  --zg-color-surface: var(--zg-neutral-100);
+  --zg-color-surface-alt: var(--zg-neutral-300);
+  --zg-color-surface-hover: var(--zg-neutral-400);
+  --zg-color-border: var(--zg-neutral-400);
+  --zg-color-border-dark: var(--zg-neutral-600);
+
+  // Text colors
+  --zg-color-text-primary: var(--zg-neutral-900);
+  --zg-color-text-secondary: var(--zg-neutral-700);
+  --zg-color-text-disabled: var(--zg-neutral-600);
+  --zg-color-text-inverse: var(--zg-neutral-100);
+  --zg-color-text-info: var(--zg-neutral-700);
+
+  // Background colors
+  --zg-color-bg-primary: var(--zg-neutral-100);
+  --zg-color-bg-secondary: var(--zg-neutral-200);
+  --zg-color-bg-dark: var(--zg-neutral-800);
+  --zg-color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --zg-color-bg-card: var(--zg-neutral-300);
+  --zg-color-bg-header: var(--zg-color-primary);
+
+  // Bet status colors
+  --zg-color-bet-open: var(--zg-yellow-600);
+  --zg-color-bet-won: var(--zg-green-200);
+  --zg-color-bet-lost: var(--zg-red-500);
+  --zg-color-bet-other: var(--zg-blue-700);
+
+  // ============================================
+  // TYPOGRAPHY TOKENS
+  // ============================================
+
+  --zg-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --zg-font-family-secondary: 'Teko', sans-serif;
+
+  --zg-font-size-xs: 0.75rem;
+  --zg-font-size-sm: 0.875rem;
+  --zg-font-size-base: 1rem;
+  --zg-font-size-md: 1.125rem;
+  --zg-font-size-lg: 1.25rem;
+  --zg-font-size-xl: 1.5rem;
+  --zg-font-size-2xl: 1.875rem;
+  --zg-font-size-3xl: 2.25rem;
+  --zg-font-size-4xl: 3rem;
+  --zg-font-size-5xl: 3.75rem;
+
+  --zg-font-weight-light: 300;
+  --zg-font-weight-regular: 400;
+  --zg-font-weight-medium: 500;
+  --zg-font-weight-semibold: 600;
+  --zg-font-weight-bold: 700;
+
+  --zg-line-height-tight: 1.25;
+  --zg-line-height-normal: 1.5;
+  --zg-line-height-relaxed: 1.75;
+
+  // ============================================
+  // SPACING TOKENS
+  // ============================================
+
+  --zg-spacing-0: 0;
+  --zg-spacing-1: 0.25rem;
+  --zg-spacing-2: 0.5rem;
+  --zg-spacing-3: 0.75rem;
+  --zg-spacing-4: 1rem;
+  --zg-spacing-5: 1.25rem;
+  --zg-spacing-6: 1.5rem;
+  --zg-spacing-8: 2rem;
+  --zg-spacing-10: 2.5rem;
+  --zg-spacing-12: 3rem;
+  --zg-spacing-16: 4rem;
+  --zg-spacing-20: 5rem;
+  --zg-spacing-24: 6rem;
+
+  // ============================================
+  // RADIUS TOKENS
+  // ============================================
+
+  --zg-radius-none: 0;
+  --zg-radius-sm: 0.125rem;
+  --zg-radius-base: 0.5rem;
+  --zg-radius-md: 0.5rem;
+  --zg-radius-lg: 0.8rem;
+  --zg-radius-xl: 1rem;
+  --zg-radius-2xl: 1.5rem;
+  --zg-radius-full: 9999px;
+
+  // ============================================
+  // SHADOW TOKENS
+  // ============================================
+
+  --zg-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --zg-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --zg-shadow-base: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --zg-shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.15);
+  --zg-shadow-lg: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  --zg-shadow-xl: 0 12px 24px 0 rgba(0, 0, 0, 0.3);
+
+  // ============================================
+  // Z-INDEX TOKENS
+  // ============================================
+
+  --zg-z-index-dropdown: 1000;
+  --zg-z-index-sticky: 1020;
+  --zg-z-index-fixed: 1030;
+  --zg-z-index-modal-backdrop: 1040;
+  --zg-z-index-modal: 1050;
+  --zg-z-index-popover: 1060;
+  --zg-z-index-tooltip: 1070;
+
+  // ============================================
+  // TRANSITION TOKENS
+  // ============================================
+
+  --zg-transition-fast: 150ms ease-in-out;
+  --zg-transition-base: 250ms ease-in-out;
+  --zg-transition-slow: 350ms ease-in-out;
+}

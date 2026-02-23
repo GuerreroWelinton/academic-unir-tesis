@@ -1,78 +1,31 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 
-<Meta title="Introduction/Welcome" />
+<Meta title="Introduction/Getting Started" />
 
 # Welcome to the ZGames UI Library
 
-A modern, accessible, and reusable component library designed for iGaming experiences.
+A modern, accessible, and reusable UI component library for iGaming experiences.
 
 ## What is ZGames UI?
 
-ZGames UI is a design system and component library built with **Angular 21** that offers:
+ZGames UI is a design system and component library built with **Angular 21** that provides:
 
-- **Production-ready components** optimized for performance
-- **WCAG AA accessibility** built-in and validated
-- **Design tokens** for consistent theming
-- **Comprehensive documentation** with real-world examples
-- **Composable architecture** following the Container–Presentational pattern
+- Reusable standalone components
+- WCAG-oriented component development
+- Token-based theming
+- Storybook-driven documentation
+- A container-presentational architecture
 
 ## Why ZGames UI?
 
-This library was created to:
+This library exists to:
 
-1. **Reduce technical debt** by centralizing UI components
-2. **Ensure visual consistency** across products
-3. **Accelerate development** with tested, reusable components
-4. **Meet accessibility requirements** for iGaming regulations (MGA, UKGC)
-5. **Enable theming** to support multiple brands
+1. Reduce technical debt by centralizing reusable UI
+2. Enforce visual consistency across products
+3. Accelerate delivery with documented components
+4. Improve accessibility quality and evidence
 
-## 🏗️ Architecture Principles
-
-### Container–Presentational Pattern
-
-All components in this library are **presentational (dumb) components**:
-
-- ✅ Receive data via **signal input** (`input`)
-- ✅ Emit user actions via **signal output** (`output`)
-- ❌ Do not inject services or contain business logic
-- ❌ Do not make API calls or side-effects
-
-**Smart containers** live in your application, not in the library.
-
-### Design Tokens
-
-Each component uses **custom CSS properties** (design tokens) for styles:
-
-```css
-/* ❌ Don't do this */
-background: #9c27b0;
-
-/* ✅ Do this */
-background: var(--zg-color-primary);
-```
-
-This enables:
-
-- Dynamic theming
-- Client customization
-- Consistent visual language
-
-### Atomic Design
-
-We adopt the **Atomic Design** approach to structure our library and guide component evolution. This provides a common language for designers and developers and improves reusability:
-
-- **Atoms**: The smallest, independent elements (e.g., `Button`, `Badge`, `Input`). The foundation of the system.
-- **Molecules**: Combinations of atoms forming functional units (e.g., a `Card` with `Badge` and `Button`).
-- **Organisms**: More complex, self-contained compositions (e.g., `Modal`, full UI sections).
-
-How we apply it:
-
-- Components are organized in folders: `atoms/`, `molecules/`, `organisms/`.
-- Consistent conventions (`variant`, `size`, `disabled`) for easy consumption.
-- Design tokens are defined at the base and consumed by atoms, propagating consistency upward.
-- This structure facilitates testing, documentation, and maintenance as the library grows.
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Installation
 
@@ -101,41 +54,129 @@ export class MyComponent {
 }
 ```
 
-## ♿ Accessibility
+### Explore Components
 
-Each component is validated against **WCAG 2.1 Level AA** standards.
+Use the Storybook sidebar to:
 
-By default, the **a11y** Storybook addon is configured to run checks for **WCAG 2.1 Level AA**.
+- view live component examples
+- test states and variants
+- review accessibility behavior
+- copy usage snippets
 
-You will find accessibility information in the **Accessibility** tab of each component story, including:
+## Accessibility
 
-- Issues that require fixing
-- Passed tests that meet WCAG
-- Manual checks to verify
+Components are validated against **WCAG 2.1 Level AA**.
 
-## 🎨 Tech Stack
+By default, Storybook's **a11y** addon runs WCAG 2.1 AA checks.
 
-- **Angular 21** – Modern standalone components with Signals
-- **Storybook 10** – Component explorer and documentation
-- **axe-core** – Automated accessibility testing
-- **Chromatic** – Visual regression testing
-- **Vitest** – Fast unit testing
-- **TypeScript** – Strongly typed development
+Use each story's **Accessibility** tab to review:
 
-## 🤝 Contributing
+- issues to fix
+- passed checks
+- additional manual checks
+
+## Tech Stack
+
+- **Angular 21**: standalone components with Signals
+- **Storybook 10**: component explorer and docs
+- **axe-core**: automated accessibility checks
+- **Chromatic**: visual regression checks
+- **Vitest**: unit testing
+- **TypeScript**: strict typing
+
+## Usage Boundaries
+
+Use ZGames UI for:
+
+- reusable presentational UI components
+- token-based, documented interface building
+
+Avoid using ZGames UI for:
+
+- business/domain logic
+- API/data orchestration or app-level side effects
+
+## Contributing
 
 See our <a href="https://github.com/GuerreroWelinton/academic-unir-tesis/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contribution Guide</a> for:
 
-- Workflow for developing components
-- Testing requirements
-- Design tokens guide
-- Accessibility checklist
+- branching and PR rules
+- CI/local validation flow
+- testing requirements
+- accessibility checklist
 
-## 📖 Explore the components
+## Documentation & Packages
 
-Browse the library in the sidebar to:
-
-- See live examples of components
-- Test states and variants
-- Check accessibility compliance
-- Copy code snippets
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+      <th>What you'll find</th>
+    </tr>
+  </thead>
+  <tbody style={{ backgroundColor: '#ffffff' }}>
+    <tr style={{ backgroundColor: '#ffffff' }}>
+      <td>UI technical docs (Compodoc)</td>
+      <td>
+        <a
+          href="https://guerrerowelinton.github.io/academic-unir-tesis/docs/ui/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          docs/ui
+        </a>
+      </td>
+      <td>
+        Component API details, inputs/outputs, and generated technical references for{' '}
+        <code>@zgames/ui</code>.
+      </td>
+    </tr>
+    <tr style={{ backgroundColor: '#ffffff' }}>
+      <td>Design-tokens technical docs (Compodoc)</td>
+      <td>
+        <a
+          href="https://guerrerowelinton.github.io/academic-unir-tesis/docs/design-tokens/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          docs/design-tokens
+        </a>
+      </td>
+      <td>
+        Token architecture, theming utilities, and type-safe token references for{' '}
+        <code>@zgames/design-tokens</code>.
+      </td>
+    </tr>
+    <tr style={{ backgroundColor: '#ffffff' }}>
+      <td>
+        NPM package: <code>@zgames/ui</code>
+      </td>
+      <td>
+        <a
+          href="https://www.npmjs.com/package/@zgames/ui"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @zgames/ui
+        </a>
+      </td>
+      <td>Installation, published versions, and package metadata for the UI library.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#ffffff' }}>
+      <td>
+        NPM package: <code>@zgames/design-tokens</code>
+      </td>
+      <td>
+        <a
+          href="https://www.npmjs.com/package/@zgames/design-tokens"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @zgames/design-tokens
+        </a>
+      </td>
+      <td>Installation, published versions, and package metadata for the design-tokens library.</td>
+    </tr>
+  </tbody>
+</table>

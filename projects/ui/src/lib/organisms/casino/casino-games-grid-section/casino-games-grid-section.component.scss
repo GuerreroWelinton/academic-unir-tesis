@@ -1,0 +1,33 @@
+:host {
+  display: block;
+}
+
+.zg-casino-games-grid-section__surface {
+  display: grid;
+  gap: var(--zg-casino-games-grid-section-gap);
+}
+
+.zg-casino-games-grid-section__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--zg-casino-games-grid-section-actions-gap);
+}
+
+.zg-casino-games-grid-section__grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--zg-casino-games-grid-section-card-min-width), 1fr)
+  );
+  gap: var(--zg-casino-games-grid-section-grid-gap);
+}
+
+.zg-casino-games-grid-section__empty {
+  margin: 0;
+  color: var(--zg-casino-games-grid-section-empty-color);
+  font-family: var(--zg-casino-games-grid-section-empty-font-family);
+  font-size: var(--zg-casino-games-grid-section-empty-font-size);
+  font-weight: var(--zg-casino-games-grid-section-empty-font-weight);
+  line-height: var(--zg-line-height-normal);
+}

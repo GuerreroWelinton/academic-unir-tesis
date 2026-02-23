@@ -1,0 +1,22 @@
+<header class="zg-casino-catalog-header__surface">
+  @if (breadcrumbs().length > 0) {
+    <zg-breadcrumb
+      class="zg-casino-catalog-header__breadcrumb"
+      [items]="breadcrumbs()"
+      [ariaLabel]="breadcrumbAriaLabel()"
+      (itemClicked)="onBreadcrumbItemClicked($event)"
+    ></zg-breadcrumb>
+  }
+
+  <div class="zg-casino-catalog-header__content">
+    <h1 class="zg-casino-catalog-header__title">{{ title() }}</h1>
+
+    @if (countLabel(); as countLabel) {
+      <p class="zg-casino-catalog-header__count">{{ countLabel }}</p>
+    }
+  </div>
+
+  <div class="zg-casino-catalog-header__actions">
+    <ng-content select="[zg-casino-catalog-header-actions]"></ng-content>
+  </div>
+</header>

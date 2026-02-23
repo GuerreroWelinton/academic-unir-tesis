@@ -48,8 +48,6 @@
     "@angular/forms": "^21.1.0",
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
-    "@zgames/design-tokens": "^1.0.1",
-    "@zgames/ui": "^1.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -63,6 +61,8 @@
     "@angular/platform-browser-dynamic": "^21.1.0",
     "@chromatic-com/storybook": "^5.0.0",
     "@compodoc/compodoc": "^1.2.1",
+    "@ng-icons/core": "^33.1.0",
+    "@ng-icons/lucide": "^33.1.0",
     "@storybook/addon-a11y": "^10.2.4",
     "@storybook/addon-docs": "^10.2.4",
     "@storybook/angular": "^10.2.4",

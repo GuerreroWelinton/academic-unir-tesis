@@ -1,8 +1,8 @@
-import type { Preview } from '@storybook/angular';
 import { setCompodocJson } from '@storybook/addon-docs/angular';
+import type { Preview } from '@storybook/angular';
 import docJson from '../documentation.json';
-import { withTheme, globalTypes } from './theme-decorator';
 import customTheme from './custom-theme';
+import { globalTypes, withTheme } from './theme-decorator';
 
 setCompodocJson(docJson);
 
@@ -18,11 +18,7 @@ const preview: Preview = {
       theme: customTheme,
     },
     backgrounds: {
-      default: 'light',
-      values: [
-        { name: 'dark', value: '#000000' },
-        { name: 'light', value: '#E5E5E5' },
-      ],
+      disable: true,
     },
     a11y: {
       options: {
@@ -33,7 +29,7 @@ const preview: Preview = {
   // Add theme decorator globally
   decorators: [withTheme],
   // Add client/theme toolbar controls
-  globalTypes: globalTypes as any,
+  globalTypes: globalTypes,
 };
 
 export default preview;

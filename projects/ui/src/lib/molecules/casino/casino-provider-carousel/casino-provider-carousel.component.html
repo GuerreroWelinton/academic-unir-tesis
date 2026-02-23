@@ -1,0 +1,54 @@
+<section class="zg-casino-provider-carousel__region" [attr.aria-label]="ariaLabel()">
+  @if (items().length === 0) {
+    <p class="zg-casino-provider-carousel__empty">{{ emptyMessage() }}</p>
+  } @else {
+    <div class="zg-casino-provider-carousel__viewport">
+      <ul
+        class="zg-casino-provider-carousel__track"
+        [class.zg-casino-provider-carousel__track--animated]="isAnimated()"
+        [style.--zg-casino-provider-carousel-animation-duration]="animationDuration()"
+      >
+        @for (item of items(); track item.id) {
+          <li class="zg-casino-provider-carousel__item">
+            <button
+              type="button"
+              class="zg-casino-provider-carousel__item-button"
+              [disabled]="item.disabled === true"
+              [attr.data-provider-id]="item.id"
+              [attr.aria-label]="item.name"
+              (click)="onProviderClick(item)"
+            >
+              <img
+                class="zg-casino-provider-carousel__logo"
+                [ngSrc]="item.logoUrl"
+                [alt]="getProviderLogoAlt(item)"
+                [width]="logoWidth()"
+                [height]="logoHeight()"
+                loading="lazy"
+              />
+              <span class="zg-casino-provider-carousel__name">{{ item.name }}</span>
+            </button>
+          </li>
+        }
+
+        @if (isAnimated()) {
+          @for (item of items(); track item.id + '-clone') {
+            <li class="zg-casino-provider-carousel__item" aria-hidden="true">
+              <div class="zg-casino-provider-carousel__item-button" tabindex="-1">
+                <img
+                  class="zg-casino-provider-carousel__logo"
+                  [ngSrc]="item.logoUrl"
+                  [alt]=""
+                  [width]="logoWidth()"
+                  [height]="logoHeight()"
+                  loading="lazy"
+                />
+                <span class="zg-casino-provider-carousel__name">{{ item.name }}</span>
+              </div>
+            </li>
+          }
+        }
+      </ul>
+    </div>
+  }
+</section>

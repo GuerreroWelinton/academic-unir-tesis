@@ -1,0 +1,50 @@
+:root {
+  --zg-input-bg: var(--zg-color-surface);
+  --zg-input-bg-disabled: var(--zg-color-surface-alt);
+  --zg-input-border: var(--zg-color-border);
+  --zg-input-border-focused: var(--zg-color-primary);
+  --zg-input-border-disabled: var(--zg-color-border-dark);
+  --zg-input-error-border: var(--zg-color-error);
+
+  --zg-input-radius: var(--zg-radius-md);
+
+  --zg-input-label-color: var(--zg-color-text-primary);
+  --zg-input-label-font-size: var(--zg-font-size-md);
+  --zg-input-label-font-weight: var(--zg-font-weight-medium);
+  --zg-input-label-margin-bottom: var(--zg-spacing-2);
+
+  --zg-input-font-size: var(--zg-font-size-md);
+  --zg-input-font-size-sm: var(--zg-font-size-sm);
+  --zg-input-font-size-lg: var(--zg-font-size-lg);
+  --zg-input-font-family: var(--zg-font-family-base);
+  --zg-input-color: var(--zg-color-text-primary);
+  --zg-input-color-disabled: var(--zg-color-text-disabled);
+  --zg-input-placeholder-color: var(--zg-color-text-secondary);
+
+  --zg-input-padding-x-sm: var(--zg-spacing-2);
+  --zg-input-padding-x-md: var(--zg-spacing-4);
+  --zg-input-padding-x-lg: var(--zg-spacing-8);
+  --zg-input-padding-y-md: var(--zg-spacing-2);
+
+  --zg-input-height-sm: 2rem;
+  --zg-input-height-md: 2.5rem;
+  --zg-input-height-lg: 3rem;
+
+  --zg-input-clear-color: var(--zg-color-text-secondary);
+  --zg-input-clear-padding: var(--zg-spacing-2);
+  --zg-input-icon-color: var(--zg-color-text-secondary);
+  --zg-input-icon-size: 1rem;
+
+  --zg-input-error-color: var(--zg-color-error);
+  --zg-input-error-font-size: var(--zg-font-size-sm);
+  --zg-input-error-margin-top: var(--zg-spacing-2);
+
+  --zg-input-helper-color: var(--zg-color-text-secondary);
+  --zg-input-helper-font-size: var(--zg-font-size-sm);
+  --zg-input-helper-margin-top: var(--zg-spacing-2);
+
+  --zg-input-focus-ring: var(--zg-color-primary-active);
+  --zg-input-focus-ring-width: 2px;
+  --zg-input-transition: var(--zg-transition-fast);
+  --zg-input-icon-gap: var(--zg-spacing-2);
+}

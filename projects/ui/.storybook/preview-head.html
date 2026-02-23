@@ -1,58 +1,7 @@
-<!-- Google Fonts for Design System -->
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-  rel="stylesheet"
-/>
-
-<!-- Storybook Typography Override - Apply Inter to all text -->
 <style>
-  /* Apply Inter font to Storybook UI and documentation elements ONLY */
-  /* Do NOT apply to library components (zg-*) to avoid overriding their styles */
-  body,
-  #storybook-root,
-  #storybook-docs,
-  .sb-show-main,
-  .docs-story,
-  .sbdocs,
-  .sbdocs-wrapper,
-  .sbdocs-content {
-    font-family:
-      'Inter',
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      sans-serif !important;
-  }
-
-  /* Typography in story templates (but not inside components) */
-  .docs-story p:not([class*='zg-']),
-  .docs-story div:not([class*='zg-']):not([class*='sb-']),
-  .docs-story span:not([class*='zg-']),
-  .docs-story h1:not([class*='zg-']),
-  .docs-story h2:not([class*='zg-']),
-  .docs-story h3:not([class*='zg-']),
-  .docs-story h4:not([class*='zg-']),
-  .docs-story h5:not([class*='zg-']),
-  .docs-story h6:not([class*='zg-']),
-  .docs-story ul:not([class*='zg-']),
-  .docs-story ol:not([class*='zg-']),
-  .docs-story li:not([class*='zg-']),
-  .docs-story a:not([class*='zg-']) {
-    font-family:
-      'Inter',
-      -apple-system,
-      BlinkMacSystemFont,
-      'Segoe UI',
-      sans-serif;
-  }
-
-  /* Typography defaults */
   body {
     font-size: 16px;
     line-height: 1.5;
-    color: #000000;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -101,25 +50,5 @@
   strong,
   b {
     font-weight: 600;
-  }
-
-  /* Keep monospace fonts for code */
-  code,
-  pre,
-  kbd,
-  samp {
-    font-family: 'Courier New', Courier, monospace !important;
-  }
-
-  /* Override Storybook docs specific elements */
-  .sbdocs-h1,
-  .sbdocs-h2,
-  .sbdocs-h3,
-  .sbdocs-h4 {
-    font-family: 'Inter', sans-serif !important;
-  }
-
-  .sbdocs-p {
-    font-family: 'Inter', sans-serif !important;
   }
 </style>

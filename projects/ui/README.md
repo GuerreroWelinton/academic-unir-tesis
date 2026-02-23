@@ -13,7 +13,7 @@ Modern, accessible, and themeable Angular UI component library for iGaming, buil
 ## Installation
 
 ```bash
-npm install @zgames/ui @zgames/zgames-design-tokens
+npm install @zgames/ui @zgames/design-tokens
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ import { ZgButtonComponent } from '@zgames/ui';
 
 ## Theming
 
-All styles use CSS variables from @zgames/zgames-design-tokens. See the main README for theming strategies.
+All styles use CSS variables from @zgames/design-tokens. See the main README for theming strategies.
 
 ## Build
 

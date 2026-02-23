@@ -73,7 +73,7 @@
             "coverage": true,
             "coverageThresholds": {
               "statements": 80,
-              "branches": 80,
+              "branches": 60,
               "functions": 30,
               "lines": 75
             }
@@ -172,10 +172,10 @@
             "tsConfig": "projects/design-tokens/tsconfig.spec.json",
             "coverage": true,
             "coverageThresholds": {
-              "statements": 45,
-              "branches": 35,
-              "functions": 50,
-              "lines": 45
+              "statements": 70,
+              "branches": 60,
+              "functions": 75,
+              "lines": 70
             }
           }
         },

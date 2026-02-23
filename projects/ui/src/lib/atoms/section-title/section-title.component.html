@@ -1,0 +1,12 @@
+<div class="zg-section-title__text" role="heading" [attr.aria-level]="ariaLevel()">
+  {{ label() }}
+</div>
+
+@if (showAccent()) {
+  <div class="zg-section-title__accent" aria-hidden="true">
+    <span class="zg-section-title__accent-base"></span>
+    <span class="zg-section-title__accent-warning"></span>
+    <span class="zg-section-title__accent-success"></span>
+    <span class="zg-section-title__accent-success-2"></span>
+  </div>
+}

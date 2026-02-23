@@ -58,7 +58,7 @@ The classification and component index are maintained and explored from the **St
 
 The library supports **runtime theme switching** for multiple casino clients. Each client can have multiple theme variants (light, dark, custom).
 
-- Client themes are configured in [projects/ui/src/themes/client-themes.ts](projects/ui/src/themes/client-themes.ts)
+- Client themes are configured in the demo consumer at [src/app/themes/client-themes.ts](src/app/themes/client-themes.ts)
 - Themes can override semantic and primitive tokens
 - Storybook includes a toolbar to preview all client themes
 
@@ -74,6 +74,15 @@ The library supports **runtime theme switching** for multiple casino clients. Ea
 ```bash
 npm install
 ```
+
+### Local Library Resolution
+
+During local development, imports use the canonical namespace `@zgames/*` and are resolved via root `tsconfig.json` paths to workspace sources:
+
+- `@zgames/ui` -> `projects/ui/src/public-api.ts`
+- `@zgames/design-tokens` -> `projects/design-tokens/src/public-api.ts`
+
+Published npm packages are used in external consumers and release validation, not as the source of truth while developing in this repository.
 
 ### Development Server
 
@@ -124,8 +133,10 @@ zg-ui/
 │           │   ├── organisms/
 │           │   ├── templates/
 │           │   └── pages/
-│           └── themes/
-│               └── client-themes.ts
+└── src/
+    └── app/
+        └── themes/
+            └── client-themes.ts
 ```
 
 ## 🎨 Design Tokens
@@ -151,28 +162,34 @@ Consistent spacing from `4` to `64` using a 4px base unit.
 ### Applying a Client Theme
 
 ```typescript
-import { applyClientTheme } from '@zg/ui/themes/client-themes';
+import { applyThemeFromRegistry } from '@zgames/design-tokens';
+import { CLIENT_THEMES, type ClientId } from './src/app/themes/client-themes';
 
 // Apply a theme at runtime
-applyClientTheme('client1', 'dark');
-applyClientTheme('client2', 'christmas');
+applyThemeFromRegistry(CLIENT_THEMES, 'client1' as ClientId, { variant: 'dark' });
+applyThemeFromRegistry(CLIENT_THEMES, 'client2' as ClientId, { variant: 'christmas' });
 ```
 
 ### Creating a Custom Theme
 
 ```typescript
-import { createTheme, Theme } from '@zg/design-tokens';
+import { applyThemeFromRegistry, type ThemeRegistry } from '@zgames/design-tokens';
 
-const myTheme: Theme = {
-  colorPrimary: '#00ff00',
-  colorSuccess: '#00cc00',
-  // ... other semantic tokens
-  primitives: {
-    green800: '#006600', // Override primitives
+const MY_THEMES: ThemeRegistry<'custom'> = {
+  custom: {
+    light: {
+      color: {
+        primary: '#00ff00',
+        success: '#00cc00',
+      },
+      primitives: {
+        green800: '#006600',
+      },
+    },
   },
 };
 
-createTheme(myTheme);
+applyThemeFromRegistry(MY_THEMES, 'custom', { variant: 'light' });
 ```
 
 ## 🧪 Testing
