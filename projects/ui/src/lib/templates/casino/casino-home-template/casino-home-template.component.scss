@@ -1,0 +1,60 @@
+:host {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  --zg-casino-home-template-gutter: var(--zg-spacing-4);
+}
+
+.zg-casino-home-template__surface {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--zg-spacing-6);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding-inline: var(--zg-casino-home-template-gutter);
+  box-sizing: border-box;
+}
+
+.zg-casino-home-template__surface > * {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.zg-casino-home-template__hero,
+.zg-casino-home-template__search,
+.zg-casino-home-template__categories,
+.zg-casino-home-template__sections {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  gap: var(--zg-spacing-4);
+}
+
+.zg-casino-home-template__hero > *,
+.zg-casino-home-template__search > *,
+.zg-casino-home-template__categories > *,
+.zg-casino-home-template__sections > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 48rem) {
+  :host {
+    --zg-casino-home-template-gutter: var(--zg-spacing-3);
+  }
+
+  .zg-casino-home-template__surface {
+    gap: var(--zg-spacing-5);
+  }
+
+  .zg-casino-home-template__hero,
+  .zg-casino-home-template__search,
+  .zg-casino-home-template__categories,
+  .zg-casino-home-template__sections {
+    gap: var(--zg-spacing-5);
+  }
+}
