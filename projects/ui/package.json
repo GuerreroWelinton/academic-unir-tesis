@@ -1,6 +1,6 @@
 {
   "name": "@zgames/ui",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Foundation UI component library for ZGames Technology (iGaming) built with Angular 21 and documented with Storybook, providing reusable atoms/molecules, design tokens, and accessibility/performance validation.",
   "author": "Welinton Guerrero",
   "repository": {
@@ -23,7 +23,7 @@
   "peerDependencies": {
     "@angular/common": "^21.1.0",
     "@angular/core": "^21.1.0",
-    "@zgames/design-tokens": "1.0.1"
+    "@zgames/design-tokens": "^2.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

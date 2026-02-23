@@ -36,11 +36,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build demo app
-        run: npx ng build zg-ui --configuration production --base-href "/${{ github.event.repository.name }}/demo/" --deploy-url "/${{ github.event.repository.name }}/demo/"
+      - name: Build app for GitHub Pages root
+        run: npx ng build zg-ui --configuration production --base-href "/${{ github.event.repository.name }}/" --deploy-url "/${{ github.event.repository.name }}/"
 
-      - name: Build app and libraries
-        run: npm run build:all
+      - name: Build libraries only
+        run: |
+          npm run build:ui
+          npm run build:design-tokens
 
       - name: Build Storybook
         run: npm run build-storybook
@@ -57,7 +59,7 @@ jobs:
         run: |
           mkdir -p gh-pages/docs
           mkdir -p gh-pages/coverage
-          cp -r dist/zg-ui/browser gh-pages/demo
+          cp -r dist/zg-ui/browser/* gh-pages/
           cp -r dist/storybook/ui gh-pages/storybook
           cp -r docs/ui gh-pages/docs/ui
           cp -r docs/design-tokens gh-pages/docs/design-tokens
