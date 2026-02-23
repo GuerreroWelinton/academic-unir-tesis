@@ -415,6 +415,7 @@ export const Default: Story = {
        <zg-category-filter-tabs
           zg-casino-home-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           layoutMode="scroll"
           selectedId="slots"
        ></zg-category-filter-tabs>
@@ -498,6 +499,7 @@ export const HomeWithoutHero: Story = {
         <zg-category-filter-tabs
           zg-casino-home-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="live"
         ></zg-category-filter-tabs>
 
@@ -556,6 +558,7 @@ export const ProviderFocusedStructure: Story = {
         <zg-category-filter-tabs
           zg-casino-home-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="table-cards"
         ></zg-category-filter-tabs>
 
@@ -606,6 +609,7 @@ export const CarouselHeavyStructure: Story = {
         <zg-category-filter-tabs
           zg-casino-home-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="slots"
         ></zg-category-filter-tabs>
 
@@ -655,6 +659,7 @@ export const MixedSectionOrder: Story = {
         <zg-category-filter-tabs
           zg-casino-home-template-categories
           [items]="categories"
+          [chipVariant]="'filled'"
           selectedId="slots"
         ></zg-category-filter-tabs>
 

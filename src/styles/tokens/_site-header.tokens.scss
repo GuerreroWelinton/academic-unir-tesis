@@ -5,8 +5,8 @@
   --zg-site-header-control-min-height: calc(var(--zg-spacing-8) + var(--zg-spacing-1));
 
   --zg-site-header-surface-gap: var(--zg-spacing-4);
-  --zg-site-header-surface-padding: var(--zg-spacing-3) var(--zg-spacing-4);
-  --zg-site-header-surface-radius: var(--zg-radius-md);
+  --zg-site-header-surface-padding: var(--zg-spacing-4) var(--zg-spacing-3);
+  --zg-site-header-surface-radius: 0 0 var(--zg-radius-md) var(--zg-radius-md);
   --zg-site-header-surface-border-color: var(--zg-color-primary);
   --zg-site-header-surface-bg: var(--zg-color-primary);
 
