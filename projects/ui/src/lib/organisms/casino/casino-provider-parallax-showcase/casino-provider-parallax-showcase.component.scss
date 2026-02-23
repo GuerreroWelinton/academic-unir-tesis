@@ -5,7 +5,7 @@
 .zg-casino-provider-parallax-showcase__surface {
   position: relative;
   overflow: hidden;
-  border-radius: 0;
+  border-radius: var(--zg-radius-lg);
   min-height: var(--zg-casino-provider-parallax-showcase-min-height);
   background-size: cover;
   background-position: var(--zg-casino-provider-parallax-showcase-background-position);
@@ -39,11 +39,9 @@
   z-index: 1;
   display: grid;
   grid-template-columns: var(--zg-casino-provider-parallax-showcase-content-columns);
-  min-height: inherit;
-  height: 100%;
   align-items: end;
   gap: var(--zg-casino-provider-parallax-showcase-content-gap);
-  padding: 0;
+  padding: var(--zg-casino-provider-parallax-showcase-content-padding);
 }
 
 .zg-casino-provider-parallax-showcase__intro {
@@ -66,7 +64,6 @@
 .zg-casino-provider-parallax-showcase__games {
   min-width: 0;
   align-self: end;
-  margin-top: auto;
   justify-self: end;
   width: fit-content;
   max-width: 100%;
