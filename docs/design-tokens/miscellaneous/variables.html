@@ -1,0 +1,1732 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@zgames/design-tokens documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@zgames/design-tokens documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#badgeTokens" title="src/lib/tokens/badge.tokens.ts" ><b>badgeTokens</b>&nbsp;&nbsp;&nbsp;(src/.../badge.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#breadcrumbTokens" title="src/lib/tokens/breadcrumb.tokens.ts" ><b>breadcrumbTokens</b>&nbsp;&nbsp;&nbsp;(src/.../breadcrumb.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#buttonTokens" title="src/lib/tokens/button.tokens.ts" ><b>buttonTokens</b>&nbsp;&nbsp;&nbsp;(src/.../button.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#casinoCatalogHeaderTokens" title="src/lib/tokens/casino-catalog-header.tokens.ts" ><b>casinoCatalogHeaderTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-catalog-header.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#casinoGameCardTokens" title="src/lib/tokens/casino-game-card.tokens.ts" ><b>casinoGameCardTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-game-card.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#casinoGamesGridSectionTokens" title="src/lib/tokens/casino-games-grid-section.tokens.ts" ><b>casinoGamesGridSectionTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-games-grid-section.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#casinoHomeHeroTokens" title="src/lib/tokens/casino-home-hero.tokens.ts" ><b>casinoHomeHeroTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-home-hero.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#casinoProviderCarouselTokens" title="src/lib/tokens/casino-provider-carousel.tokens.ts" ><b>casinoProviderCarouselTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-provider-carousel.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#casinoProviderParallaxShowcaseTokens" title="src/lib/tokens/casino-provider-parallax-showcase.tokens.ts" ><b>casinoProviderParallaxShowcaseTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-provider-parallax-showcase.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#casinoRankedGamesCarouselSectionTokens" title="src/lib/tokens/casino-ranked-games-carousel-section.tokens.ts" ><b>casinoRankedGamesCarouselSectionTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-ranked-games-carousel-section.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#casinoSearchBarTokens" title="src/lib/tokens/casino-search-bar.tokens.ts" ><b>casinoSearchBarTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-search-bar.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#casinoTwoRowGamesCarouselSectionTokens" title="src/lib/tokens/casino-two-row-games-carousel-section.tokens.ts" ><b>casinoTwoRowGamesCarouselSectionTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-two-row-games-carousel-section.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#chipTokens" title="src/lib/tokens/chip.tokens.ts" ><b>chipTokens</b>&nbsp;&nbsp;&nbsp;(src/.../chip.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#colorTokens" title="src/lib/tokens/foundation.tokens.ts" ><b>colorTokens</b>&nbsp;&nbsp;&nbsp;(src/.../foundation.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#contentSectionHeaderTokens" title="src/lib/tokens/content-section-header.tokens.ts" ><b>contentSectionHeaderTokens</b>&nbsp;&nbsp;&nbsp;(src/.../content-section-header.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DesignTokens" title="src/lib/design-tokens.ts" ><b>DesignTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#gameCardTokens" title="src/lib/tokens/casino-game-card.tokens.ts" ><b>gameCardTokens</b>&nbsp;&nbsp;&nbsp;(src/.../casino-game-card.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#inputTokens" title="src/lib/tokens/input.tokens.ts" ><b>inputTokens</b>&nbsp;&nbsp;&nbsp;(src/.../input.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#luckyPickerTokens" title="src/lib/tokens/lucky-picker.tokens.ts" ><b>luckyPickerTokens</b>&nbsp;&nbsp;&nbsp;(src/.../lucky-picker.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#radiusTokens" title="src/lib/tokens/foundation.tokens.ts" ><b>radiusTokens</b>&nbsp;&nbsp;&nbsp;(src/.../foundation.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#sectionActionsTokens" title="src/lib/tokens/section-actions.tokens.ts" ><b>sectionActionsTokens</b>&nbsp;&nbsp;&nbsp;(src/.../section-actions.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#sectionTitleTokens" title="src/lib/tokens/section-title.tokens.ts" ><b>sectionTitleTokens</b>&nbsp;&nbsp;&nbsp;(src/.../section-title.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#shadowTokens" title="src/lib/tokens/foundation.tokens.ts" ><b>shadowTokens</b>&nbsp;&nbsp;&nbsp;(src/.../foundation.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#siteHeaderTokens" title="src/lib/tokens/site-header.tokens.ts" ><b>siteHeaderTokens</b>&nbsp;&nbsp;&nbsp;(src/.../site-header.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#spacingTokens" title="src/lib/tokens/foundation.tokens.ts" ><b>spacingTokens</b>&nbsp;&nbsp;&nbsp;(src/.../foundation.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#transitionTokens" title="src/lib/tokens/foundation.tokens.ts" ><b>transitionTokens</b>&nbsp;&nbsp;&nbsp;(src/.../foundation.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#typographyThemeTokens" title="src/lib/tokens/foundation.tokens.ts" ><b>typographyThemeTokens</b>&nbsp;&nbsp;&nbsp;(src/.../foundation.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#typographyTokens" title="src/lib/tokens/foundation.tokens.ts" ><b>typographyTokens</b>&nbsp;&nbsp;&nbsp;(src/.../foundation.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#zIndexTokens" title="src/lib/tokens/foundation.tokens.ts" ><b>zIndexTokens</b>&nbsp;&nbsp;&nbsp;(src/.../foundation.tokens.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/lib/tokens/badge.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="badgeTokens"></a>
+                    <span class="name">
+                        <span ><b>badgeTokens</b></span>
+                        <a href="#badgeTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  bgPrimary: &#x27;--zg-badge-bg-primary&#x27;,
+  bgSecondary: &#x27;--zg-badge-bg-secondary&#x27;,
+  bgSuccess: &#x27;--zg-badge-bg-success&#x27;,
+  bgWarning: &#x27;--zg-badge-bg-warning&#x27;,
+  bgError: &#x27;--zg-badge-bg-error&#x27;,
+  bgInfo: &#x27;--zg-badge-bg-info&#x27;,
+  bgNeutral: &#x27;--zg-badge-bg-neutral&#x27;,
+  textPrimary: &#x27;--zg-badge-text-primary&#x27;,
+  textSecondary: &#x27;--zg-badge-text-secondary&#x27;,
+  textSuccess: &#x27;--zg-badge-text-success&#x27;,
+  textWarning: &#x27;--zg-badge-text-warning&#x27;,
+  textError: &#x27;--zg-badge-text-error&#x27;,
+  textInfo: &#x27;--zg-badge-text-info&#x27;,
+  textNeutral: &#x27;--zg-badge-text-neutral&#x27;,
+  heightSm: &#x27;--zg-badge-height-sm&#x27;,
+  heightMd: &#x27;--zg-badge-height-md&#x27;,
+  heightLg: &#x27;--zg-badge-height-lg&#x27;,
+  paddingXSm: &#x27;--zg-badge-padding-x-sm&#x27;,
+  paddingXMd: &#x27;--zg-badge-padding-x-md&#x27;,
+  paddingXLg: &#x27;--zg-badge-padding-x-lg&#x27;,
+  minWidthSm: &#x27;--zg-badge-min-width-sm&#x27;,
+  minWidthMd: &#x27;--zg-badge-min-width-md&#x27;,
+  minWidthLg: &#x27;--zg-badge-min-width-lg&#x27;,
+  fontSizeSm: &#x27;--zg-badge-font-size-sm&#x27;,
+  fontSizeMd: &#x27;--zg-badge-font-size-md&#x27;,
+  fontSizeLg: &#x27;--zg-badge-font-size-lg&#x27;,
+  fontWeight: &#x27;--zg-badge-font-weight&#x27;,
+  fontFamily: &#x27;--zg-badge-font-family&#x27;,
+  lineHeight: &#x27;--zg-badge-line-height&#x27;,
+  radiusDefault: &#x27;--zg-badge-radius-default&#x27;,
+  radiusPill: &#x27;--zg-badge-radius-pill&#x27;,
+  radiusSquare: &#x27;--zg-badge-radius-square&#x27;,
+  closeGap: &#x27;--zg-badge-close-gap&#x27;,
+  closeSize: &#x27;--zg-badge-close-size&#x27;,
+  closeHoverOpacity: &#x27;--zg-badge-close-hover-opacity&#x27;,
+  dotSizeSm: &#x27;--zg-badge-dot-size-sm&#x27;,
+  dotSizeMd: &#x27;--zg-badge-dot-size-md&#x27;,
+  dotSizeLg: &#x27;--zg-badge-dot-size-lg&#x27;,
+  transition: &#x27;--zg-badge-transition&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/breadcrumb.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="breadcrumbTokens"></a>
+                    <span class="name">
+                        <span ><b>breadcrumbTokens</b></span>
+                        <a href="#breadcrumbTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  gap: &#x27;--zg-breadcrumb-gap&#x27;,
+  itemGap: &#x27;--zg-breadcrumb-item-gap&#x27;,
+  linkColor: &#x27;--zg-breadcrumb-link-color&#x27;,
+  linkColorHover: &#x27;--zg-breadcrumb-link-color-hover&#x27;,
+  currentColor: &#x27;--zg-breadcrumb-current-color&#x27;,
+  separatorColor: &#x27;--zg-breadcrumb-separator-color&#x27;,
+  fontFamily: &#x27;--zg-breadcrumb-font-family&#x27;,
+  fontSize: &#x27;--zg-breadcrumb-font-size&#x27;,
+  fontWeight: &#x27;--zg-breadcrumb-font-weight&#x27;,
+  lineHeight: &#x27;--zg-breadcrumb-line-height&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/button.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buttonTokens"></a>
+                    <span class="name">
+                        <span ><b>buttonTokens</b></span>
+                        <a href="#buttonTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  bgPrimary: &#x27;--zg-button-bg-primary&#x27;,
+  bgPrimaryHover: &#x27;--zg-button-bg-primary-hover&#x27;,
+  bgPrimaryActive: &#x27;--zg-button-bg-primary-active&#x27;,
+  bgSecondary: &#x27;--zg-button-bg-secondary&#x27;,
+  bgSecondaryHover: &#x27;--zg-button-bg-secondary-hover&#x27;,
+  bgSecondaryActive: &#x27;--zg-button-bg-secondary-active&#x27;,
+  bgAccent: &#x27;--zg-button-bg-accent&#x27;,
+  bgAccentHover: &#x27;--zg-button-bg-accent-hover&#x27;,
+  bgAccentActive: &#x27;--zg-button-bg-accent-active&#x27;,
+  bgDanger: &#x27;--zg-button-bg-danger&#x27;,
+  bgDangerHover: &#x27;--zg-button-bg-danger-hover&#x27;,
+  bgDangerActive: &#x27;--zg-button-bg-danger-active&#x27;,
+  bgGhost: &#x27;--zg-button-bg-ghost&#x27;,
+  bgGhostHover: &#x27;--zg-button-bg-ghost-hover&#x27;,
+  bgGhostActive: &#x27;--zg-button-bg-ghost-active&#x27;,
+  textPrimary: &#x27;--zg-button-text-primary&#x27;,
+  textSecondary: &#x27;--zg-button-text-secondary&#x27;,
+  textAccent: &#x27;--zg-button-text-accent&#x27;,
+  textDanger: &#x27;--zg-button-text-danger&#x27;,
+  textGhost: &#x27;--zg-button-text-ghost&#x27;,
+  borderPrimary: &#x27;--zg-button-border-primary&#x27;,
+  borderSecondary: &#x27;--zg-button-border-secondary&#x27;,
+  borderAccent: &#x27;--zg-button-border-accent&#x27;,
+  borderDanger: &#x27;--zg-button-border-danger&#x27;,
+  borderGhost: &#x27;--zg-button-border-ghost&#x27;,
+  heightSm: &#x27;--zg-button-height-sm&#x27;,
+  heightMd: &#x27;--zg-button-height-md&#x27;,
+  heightLg: &#x27;--zg-button-height-lg&#x27;,
+  paddingXSm: &#x27;--zg-button-padding-x-sm&#x27;,
+  paddingXMd: &#x27;--zg-button-padding-x-md&#x27;,
+  paddingXLg: &#x27;--zg-button-padding-x-lg&#x27;,
+  paddingYSm: &#x27;--zg-button-padding-y-sm&#x27;,
+  paddingYMd: &#x27;--zg-button-padding-y-md&#x27;,
+  paddingYLg: &#x27;--zg-button-padding-y-lg&#x27;,
+  iconGap: &#x27;--zg-button-icon-gap&#x27;,
+  radiusDefault: &#x27;--zg-button-radius-default&#x27;,
+  radiusPill: &#x27;--zg-button-radius-pill&#x27;,
+  radiusSquare: &#x27;--zg-button-radius-square&#x27;,
+  fontFamily: &#x27;--zg-button-font-family&#x27;,
+  fontFamilySecondary: &#x27;--zg-button-font-family-secondary&#x27;,
+  fontSizeSm: &#x27;--zg-button-font-size-sm&#x27;,
+  fontSizeMd: &#x27;--zg-button-font-size-md&#x27;,
+  fontSizeLg: &#x27;--zg-button-font-size-lg&#x27;,
+  fontWeight: &#x27;--zg-button-font-weight&#x27;,
+  disabledOpacity: &#x27;--zg-button-disabled-opacity&#x27;,
+  transition: &#x27;--zg-button-transition&#x27;,
+  focusRingColor: &#x27;--zg-button-focus-ring-color&#x27;,
+  focusRingWidth: &#x27;--zg-button-focus-ring-width&#x27;,
+  focusRingOffset: &#x27;--zg-button-focus-ring-offset&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/casino-catalog-header.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casinoCatalogHeaderTokens"></a>
+                    <span class="name">
+                        <span ><b>casinoCatalogHeaderTokens</b></span>
+                        <a href="#casinoCatalogHeaderTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  gap: &#x27;--zg-casino-catalog-header-gap&#x27;,
+  contentGap: &#x27;--zg-casino-catalog-header-content-gap&#x27;,
+  actionsGap: &#x27;--zg-casino-catalog-header-actions-gap&#x27;,
+  titleColor: &#x27;--zg-casino-catalog-header-title-color&#x27;,
+  titleFontFamily: &#x27;--zg-casino-catalog-header-title-font-family&#x27;,
+  titleFontSize: &#x27;--zg-casino-catalog-header-title-font-size&#x27;,
+  titleFontWeight: &#x27;--zg-casino-catalog-header-title-font-weight&#x27;,
+  titleLineHeight: &#x27;--zg-casino-catalog-header-title-line-height&#x27;,
+  countColor: &#x27;--zg-casino-catalog-header-count-color&#x27;,
+  countFontFamily: &#x27;--zg-casino-catalog-header-count-font-family&#x27;,
+  countFontSize: &#x27;--zg-casino-catalog-header-count-font-size&#x27;,
+  countFontWeight: &#x27;--zg-casino-catalog-header-count-font-weight&#x27;,
+  countLineHeight: &#x27;--zg-casino-catalog-header-count-line-height&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/casino-game-card.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casinoGameCardTokens"></a>
+                    <span class="name">
+                        <span ><b>casinoGameCardTokens</b></span>
+                        <a href="#casinoGameCardTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  bg: &#x27;--zg-casino-game-card-bg&#x27;,
+  borderColor: &#x27;--zg-casino-game-card-border-color&#x27;,
+  radius: &#x27;--zg-casino-game-card-radius&#x27;,
+  shadow: &#x27;--zg-casino-game-card-shadow&#x27;,
+  overlayBg: &#x27;--zg-casino-game-card-overlay-bg&#x27;,
+  placeholderBg: &#x27;--zg-casino-game-card-placeholder-bg&#x27;,
+  titleColor: &#x27;--zg-casino-game-card-title-color&#x27;,
+  providerColor: &#x27;--zg-casino-game-card-provider-color&#x27;,
+  iconButtonBg: &#x27;--zg-casino-game-card-icon-button-bg&#x27;,
+  iconColor: &#x27;--zg-casino-game-card-icon-color&#x27;,
+  favoriteColor: &#x27;--zg-casino-game-card-favorite-color&#x27;,
+  favoriteActiveColor: &#x27;--zg-casino-game-card-favorite-active-color&#x27;,
+  playButtonBg: &#x27;--zg-casino-game-card-play-button-bg&#x27;,
+  playButtonColor: &#x27;--zg-casino-game-card-play-button-color&#x27;,
+  aspectRatioPortrait: &#x27;--zg-casino-game-card-aspect-ratio-portrait&#x27;,
+  aspectRatioSquare: &#x27;--zg-casino-game-card-aspect-ratio-square&#x27;,
+  topRowOffset: &#x27;--zg-casino-game-card-top-row-offset&#x27;,
+  topRowGap: &#x27;--zg-casino-game-card-top-row-gap&#x27;,
+  overlayPadding: &#x27;--zg-casino-game-card-overlay-padding&#x27;,
+  contentGap: &#x27;--zg-casino-game-card-content-gap&#x27;,
+  textGap: &#x27;--zg-casino-game-card-text-gap&#x27;,
+  iconButtonSize: &#x27;--zg-casino-game-card-icon-button-size&#x27;,
+  playButtonHeight: &#x27;--zg-casino-game-card-play-button-height&#x27;,
+  playButtonPaddingX: &#x27;--zg-casino-game-card-play-button-padding-x&#x27;,
+  playButtonGap: &#x27;--zg-casino-game-card-play-button-gap&#x27;,
+  disabledOpacity: &#x27;--zg-casino-game-card-disabled-opacity&#x27;,
+  transition: &#x27;--zg-casino-game-card-transition&#x27;,
+  focusRingColor: &#x27;--zg-casino-game-card-focus-ring-color&#x27;,
+  focusRingWidth: &#x27;--zg-casino-game-card-focus-ring-width&#x27;,
+  focusRingOffset: &#x27;--zg-casino-game-card-focus-ring-offset&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gameCardTokens"></a>
+                    <span class="name">
+                        <span ><b>gameCardTokens</b></span>
+                        <a href="#gameCardTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>casinoGameCardTokens</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/casino-games-grid-section.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casinoGamesGridSectionTokens"></a>
+                    <span class="name">
+                        <span ><b>casinoGamesGridSectionTokens</b></span>
+                        <a href="#casinoGamesGridSectionTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  gap: &#x27;--zg-casino-games-grid-section-gap&#x27;,
+  actionsGap: &#x27;--zg-casino-games-grid-section-actions-gap&#x27;,
+  gridGap: &#x27;--zg-casino-games-grid-section-grid-gap&#x27;,
+  cardMinWidth: &#x27;--zg-casino-games-grid-section-card-min-width&#x27;,
+  emptyColor: &#x27;--zg-casino-games-grid-section-empty-color&#x27;,
+  emptyFontFamily: &#x27;--zg-casino-games-grid-section-empty-font-family&#x27;,
+  emptyFontSize: &#x27;--zg-casino-games-grid-section-empty-font-size&#x27;,
+  emptyFontWeight: &#x27;--zg-casino-games-grid-section-empty-font-weight&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/casino-home-hero.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casinoHomeHeroTokens"></a>
+                    <span class="name">
+                        <span ><b>casinoHomeHeroTokens</b></span>
+                        <a href="#casinoHomeHeroTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  minHeight: &#x27;--zg-casino-home-hero-min-height&#x27;,
+  minHeightDesktop: &#x27;--zg-casino-home-hero-min-height-desktop&#x27;,
+  radius: &#x27;--zg-casino-home-hero-radius&#x27;,
+  backgroundPosition: &#x27;--zg-casino-home-hero-background-position&#x27;,
+  overlayOpacity: &#x27;--zg-casino-home-hero-overlay-opacity&#x27;,
+  paddingX: &#x27;--zg-casino-home-hero-padding-x&#x27;,
+  paddingY: &#x27;--zg-casino-home-hero-padding-y&#x27;,
+  paddingXDesktop: &#x27;--zg-casino-home-hero-padding-x-desktop&#x27;,
+  paddingYDesktop: &#x27;--zg-casino-home-hero-padding-y-desktop&#x27;,
+  contentGap: &#x27;--zg-casino-home-hero-content-gap&#x27;,
+  contentMaxWidth: &#x27;--zg-casino-home-hero-content-max-width&#x27;,
+  contentMaxWidthDesktop: &#x27;--zg-casino-home-hero-content-max-width-desktop&#x27;,
+  titleColor: &#x27;--zg-casino-home-hero-title-color&#x27;,
+  titleFontFamily: &#x27;--zg-casino-home-hero-title-font-family&#x27;,
+  titleFontSize: &#x27;--zg-casino-home-hero-title-font-size&#x27;,
+  titleFontWeight: &#x27;--zg-casino-home-hero-title-font-weight&#x27;,
+  titleLineHeight: &#x27;--zg-casino-home-hero-title-line-height&#x27;,
+  titleShadow: &#x27;--zg-casino-home-hero-title-shadow&#x27;,
+  descriptionColor: &#x27;--zg-casino-home-hero-description-color&#x27;,
+  descriptionFontFamily: &#x27;--zg-casino-home-hero-description-font-family&#x27;,
+  descriptionFontSize: &#x27;--zg-casino-home-hero-description-font-size&#x27;,
+  descriptionFontWeight: &#x27;--zg-casino-home-hero-description-font-weight&#x27;,
+  descriptionLineHeight: &#x27;--zg-casino-home-hero-description-line-height&#x27;,
+  highlightColor: &#x27;--zg-casino-home-hero-highlight-color&#x27;,
+  highlightFontFamily: &#x27;--zg-casino-home-hero-highlight-font-family&#x27;,
+  highlightFontSize: &#x27;--zg-casino-home-hero-highlight-font-size&#x27;,
+  highlightFontWeight: &#x27;--zg-casino-home-hero-highlight-font-weight&#x27;,
+  highlightLineHeight: &#x27;--zg-casino-home-hero-highlight-line-height&#x27;,
+  captionColor: &#x27;--zg-casino-home-hero-caption-color&#x27;,
+  captionFontFamily: &#x27;--zg-casino-home-hero-caption-font-family&#x27;,
+  captionFontSize: &#x27;--zg-casino-home-hero-caption-font-size&#x27;,
+  captionFontWeight: &#x27;--zg-casino-home-hero-caption-font-weight&#x27;,
+  captionLineHeight: &#x27;--zg-casino-home-hero-caption-line-height&#x27;,
+  textShadow: &#x27;--zg-casino-home-hero-text-shadow&#x27;,
+  characterWidthMobile: &#x27;--zg-casino-home-hero-character-width-mobile&#x27;,
+  characterHeightDesktop: &#x27;--zg-casino-home-hero-character-height-desktop&#x27;,
+  characterShadow: &#x27;--zg-casino-home-hero-character-shadow&#x27;,
+  zoomDuration: &#x27;--zg-casino-home-hero-zoom-duration&#x27;,
+  zoomScaleMin: &#x27;--zg-casino-home-hero-zoom-scale-min&#x27;,
+  zoomScaleMax: &#x27;--zg-casino-home-hero-zoom-scale-max&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/casino-provider-carousel.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casinoProviderCarouselTokens"></a>
+                    <span class="name">
+                        <span ><b>casinoProviderCarouselTokens</b></span>
+                        <a href="#casinoProviderCarouselTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  gap: &#x27;--zg-casino-provider-carousel-gap&#x27;,
+  paddingY: &#x27;--zg-casino-provider-carousel-padding-y&#x27;,
+  maskFadeSize: &#x27;--zg-casino-provider-carousel-mask-fade-size&#x27;,
+  defaultAnimationDuration: &#x27;--zg-casino-provider-carousel-default-animation-duration&#x27;,
+  itemMinWidth: &#x27;--zg-casino-provider-carousel-item-min-width&#x27;,
+  itemMinHeight: &#x27;--zg-casino-provider-carousel-item-min-height&#x27;,
+  itemPaddingY: &#x27;--zg-casino-provider-carousel-item-padding-y&#x27;,
+  itemPaddingX: &#x27;--zg-casino-provider-carousel-item-padding-x&#x27;,
+  itemRadius: &#x27;--zg-casino-provider-carousel-item-radius&#x27;,
+  itemBg: &#x27;--zg-casino-provider-carousel-item-bg&#x27;,
+  itemBorderColor: &#x27;--zg-casino-provider-carousel-item-border-color&#x27;,
+  itemBorderColorHover: &#x27;--zg-casino-provider-carousel-item-border-color-hover&#x27;,
+  contentGap: &#x27;--zg-casino-provider-carousel-content-gap&#x27;,
+  logoHeight: &#x27;--zg-casino-provider-carousel-logo-height&#x27;,
+  logoMaxWidth: &#x27;--zg-casino-provider-carousel-logo-max-width&#x27;,
+  nameColor: &#x27;--zg-casino-provider-carousel-name-color&#x27;,
+  nameFontFamily: &#x27;--zg-casino-provider-carousel-name-font-family&#x27;,
+  nameFontSize: &#x27;--zg-casino-provider-carousel-name-font-size&#x27;,
+  nameFontWeight: &#x27;--zg-casino-provider-carousel-name-font-weight&#x27;,
+  emptyColor: &#x27;--zg-casino-provider-carousel-empty-color&#x27;,
+  emptyPaddingY: &#x27;--zg-casino-provider-carousel-empty-padding-y&#x27;,
+  emptyPaddingX: &#x27;--zg-casino-provider-carousel-empty-padding-x&#x27;,
+  disabledOpacity: &#x27;--zg-casino-provider-carousel-disabled-opacity&#x27;,
+  transition: &#x27;--zg-casino-provider-carousel-transition&#x27;,
+  focusRingColor: &#x27;--zg-casino-provider-carousel-focus-ring-color&#x27;,
+  focusRingWidth: &#x27;--zg-casino-provider-carousel-focus-ring-width&#x27;,
+  focusRingOffset: &#x27;--zg-casino-provider-carousel-focus-ring-offset&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/casino-provider-parallax-showcase.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casinoProviderParallaxShowcaseTokens"></a>
+                    <span class="name">
+                        <span ><b>casinoProviderParallaxShowcaseTokens</b></span>
+                        <a href="#casinoProviderParallaxShowcaseTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  minHeight: &#x27;--zg-casino-provider-parallax-showcase-min-height&#x27;,
+  backgroundPosition: &#x27;--zg-casino-provider-parallax-showcase-background-position&#x27;,
+  overlayColor: &#x27;--zg-casino-provider-parallax-showcase-overlay-color&#x27;,
+  overlayStrengthStart: &#x27;--zg-casino-provider-parallax-showcase-overlay-strength-start&#x27;,
+  overlayStrengthEnd: &#x27;--zg-casino-provider-parallax-showcase-overlay-strength-end&#x27;,
+  contentColumns: &#x27;--zg-casino-provider-parallax-showcase-content-columns&#x27;,
+  contentGap: &#x27;--zg-casino-provider-parallax-showcase-content-gap&#x27;,
+  contentPadding: &#x27;--zg-casino-provider-parallax-showcase-content-padding&#x27;,
+  introGap: &#x27;--zg-casino-provider-parallax-showcase-intro-gap&#x27;,
+  titleColor: &#x27;--zg-casino-provider-parallax-showcase-title-color&#x27;,
+  titleFontFamily: &#x27;--zg-casino-provider-parallax-showcase-title-font-family&#x27;,
+  titleFontSize: &#x27;--zg-casino-provider-parallax-showcase-title-font-size&#x27;,
+  titleFontWeight: &#x27;--zg-casino-provider-parallax-showcase-title-font-weight&#x27;,
+  titleLineHeight: &#x27;--zg-casino-provider-parallax-showcase-title-line-height&#x27;,
+  gamesTextColor: &#x27;--zg-casino-provider-parallax-showcase-games-text-color&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/casino-ranked-games-carousel-section.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casinoRankedGamesCarouselSectionTokens"></a>
+                    <span class="name">
+                        <span ><b>casinoRankedGamesCarouselSectionTokens</b></span>
+                        <a href="#casinoRankedGamesCarouselSectionTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  gap: &#x27;--zg-casino-ranked-games-carousel-section-gap&#x27;,
+  rankInsetInlineStart: &#x27;--zg-casino-ranked-games-carousel-section-rank-inset-inline-start&#x27;,
+  rankInsetBlockStart: &#x27;--zg-casino-ranked-games-carousel-section-rank-inset-block-start&#x27;,
+  rankFontFamily: &#x27;--zg-casino-ranked-games-carousel-section-rank-font-family&#x27;,
+  rankFontSize: &#x27;--zg-casino-ranked-games-carousel-section-rank-font-size&#x27;,
+  rankFontWeight: &#x27;--zg-casino-ranked-games-carousel-section-rank-font-weight&#x27;,
+  rankLineHeight: &#x27;--zg-casino-ranked-games-carousel-section-rank-line-height&#x27;,
+  rankStrokeWidth: &#x27;--zg-casino-ranked-games-carousel-section-rank-stroke-width&#x27;,
+  rankStrokeColor: &#x27;--zg-casino-ranked-games-carousel-section-rank-stroke-color&#x27;,
+  rankOpacity: &#x27;--zg-casino-ranked-games-carousel-section-rank-opacity&#x27;,
+  itemGapInlineEnd: &#x27;--zg-casino-ranked-games-carousel-section-item-gap-inline-end&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/casino-search-bar.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casinoSearchBarTokens"></a>
+                    <span class="name">
+                        <span ><b>casinoSearchBarTokens</b></span>
+                        <a href="#casinoSearchBarTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  gap: &#x27;--zg-casino-search-bar-gap&#x27;,
+  iconColor: &#x27;--zg-casino-search-bar-icon-color&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/casino-two-row-games-carousel-section.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="casinoTwoRowGamesCarouselSectionTokens"></a>
+                    <span class="name">
+                        <span ><b>casinoTwoRowGamesCarouselSectionTokens</b></span>
+                        <a href="#casinoTwoRowGamesCarouselSectionTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  gap: &#x27;--zg-casino-two-row-games-carousel-section-gap&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/chip.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="chipTokens"></a>
+                    <span class="name">
+                        <span ><b>chipTokens</b></span>
+                        <a href="#chipTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  bgFilled: &#x27;--zg-chip-bg-filled&#x27;,
+  bgOutlined: &#x27;--zg-chip-bg-outlined&#x27;,
+  bgGhost: &#x27;--zg-chip-bg-ghost&#x27;,
+  bgFilledSelected: &#x27;--zg-chip-bg-filled-selected&#x27;,
+  bgOutlinedSelected: &#x27;--zg-chip-bg-outlined-selected&#x27;,
+  bgGhostSelected: &#x27;--zg-chip-bg-ghost-selected&#x27;,
+  bgFilledHover: &#x27;--zg-chip-bg-filled-hover&#x27;,
+  bgOutlinedHover: &#x27;--zg-chip-bg-outlined-hover&#x27;,
+  bgGhostHover: &#x27;--zg-chip-bg-ghost-hover&#x27;,
+  bgFilledSelectedHover: &#x27;--zg-chip-bg-filled-selected-hover&#x27;,
+  bgOutlinedSelectedHover: &#x27;--zg-chip-bg-outlined-selected-hover&#x27;,
+  bgGhostSelectedHover: &#x27;--zg-chip-bg-ghost-selected-hover&#x27;,
+  borderFilled: &#x27;--zg-chip-border-filled&#x27;,
+  borderOutlined: &#x27;--zg-chip-border-outlined&#x27;,
+  borderGhost: &#x27;--zg-chip-border-ghost&#x27;,
+  borderFilledSelected: &#x27;--zg-chip-border-filled-selected&#x27;,
+  borderOutlinedSelected: &#x27;--zg-chip-border-outlined-selected&#x27;,
+  borderGhostSelected: &#x27;--zg-chip-border-ghost-selected&#x27;,
+  textFilled: &#x27;--zg-chip-text-filled&#x27;,
+  textOutlined: &#x27;--zg-chip-text-outlined&#x27;,
+  textGhost: &#x27;--zg-chip-text-ghost&#x27;,
+  textFilledSelected: &#x27;--zg-chip-text-filled-selected&#x27;,
+  textOutlinedSelected: &#x27;--zg-chip-text-outlined-selected&#x27;,
+  textGhostSelected: &#x27;--zg-chip-text-ghost-selected&#x27;,
+  textDisabled: &#x27;--zg-chip-text-disabled&#x27;,
+  heightSm: &#x27;--zg-chip-height-sm&#x27;,
+  heightMd: &#x27;--zg-chip-height-md&#x27;,
+  heightLg: &#x27;--zg-chip-height-lg&#x27;,
+  paddingXSm: &#x27;--zg-chip-padding-x-sm&#x27;,
+  paddingXMd: &#x27;--zg-chip-padding-x-md&#x27;,
+  paddingXLg: &#x27;--zg-chip-padding-x-lg&#x27;,
+  fontSizeSm: &#x27;--zg-chip-font-size-sm&#x27;,
+  fontSizeMd: &#x27;--zg-chip-font-size-md&#x27;,
+  fontSizeLg: &#x27;--zg-chip-font-size-lg&#x27;,
+  fontWeight: &#x27;--zg-chip-font-weight&#x27;,
+  fontFamily: &#x27;--zg-chip-font-family&#x27;,
+  lineHeight: &#x27;--zg-chip-line-height&#x27;,
+  iconGap: &#x27;--zg-chip-icon-gap&#x27;,
+  radius: &#x27;--zg-chip-radius&#x27;,
+  borderWidth: &#x27;--zg-chip-border-width&#x27;,
+  disabledOpacity: &#x27;--zg-chip-disabled-opacity&#x27;,
+  transition: &#x27;--zg-chip-transition&#x27;,
+  focusRingColor: &#x27;--zg-chip-focus-ring-color&#x27;,
+  focusRingWidth: &#x27;--zg-chip-focus-ring-width&#x27;,
+  focusRingOffset: &#x27;--zg-chip-focus-ring-offset&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/foundation.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="colorTokens"></a>
+                    <span class="name">
+                        <span ><b>colorTokens</b></span>
+                        <a href="#colorTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  primary: &#x27;--zg-color-primary&#x27;,
+  primaryHover: &#x27;--zg-color-primary-hover&#x27;,
+  primaryActive: &#x27;--zg-color-primary-active&#x27;,
+  primaryLight: &#x27;--zg-color-primary-light&#x27;,
+  primaryLighter: &#x27;--zg-color-primary-lighter&#x27;,
+  secondary: &#x27;--zg-color-secondary&#x27;,
+  secondaryHover: &#x27;--zg-color-secondary-hover&#x27;,
+  secondaryActive: &#x27;--zg-color-secondary-active&#x27;,
+  accent: &#x27;--zg-color-accent&#x27;,
+  highlight: &#x27;--zg-color-highlight&#x27;,
+  success: &#x27;--zg-color-success&#x27;,
+  successHover: &#x27;--zg-color-success-hover&#x27;,
+  successActive: &#x27;--zg-color-success-active&#x27;,
+  successLight: &#x27;--zg-color-success-light&#x27;,
+  warning: &#x27;--zg-color-warning&#x27;,
+  warningHover: &#x27;--zg-color-warning-hover&#x27;,
+  warningActive: &#x27;--zg-color-warning-active&#x27;,
+  warningLight: &#x27;--zg-color-warning-light&#x27;,
+  error: &#x27;--zg-color-error&#x27;,
+  errorHover: &#x27;--zg-color-error-hover&#x27;,
+  errorActive: &#x27;--zg-color-error-active&#x27;,
+  errorLight: &#x27;--zg-color-error-light&#x27;,
+  info: &#x27;--zg-color-info&#x27;,
+  infoHover: &#x27;--zg-color-info-hover&#x27;,
+  infoActive: &#x27;--zg-color-info-active&#x27;,
+  infoLight: &#x27;--zg-color-info-light&#x27;,
+  betBuilder: &#x27;--zg-color-bet-builder&#x27;,
+  live: &#x27;--zg-color-live&#x27;,
+  favorite: &#x27;--zg-color-favorite&#x27;,
+  betOpen: &#x27;--zg-color-bet-open&#x27;,
+  betWon: &#x27;--zg-color-bet-won&#x27;,
+  betLost: &#x27;--zg-color-bet-lost&#x27;,
+  betOther: &#x27;--zg-color-bet-other&#x27;,
+  surface: &#x27;--zg-color-surface&#x27;,
+  surfaceAlt: &#x27;--zg-color-surface-alt&#x27;,
+  surfaceHover: &#x27;--zg-color-surface-hover&#x27;,
+  border: &#x27;--zg-color-border&#x27;,
+  borderDark: &#x27;--zg-color-border-dark&#x27;,
+  textPrimary: &#x27;--zg-color-text-primary&#x27;,
+  textSecondary: &#x27;--zg-color-text-secondary&#x27;,
+  textDisabled: &#x27;--zg-color-text-disabled&#x27;,
+  textInverse: &#x27;--zg-color-text-inverse&#x27;,
+  textInfo: &#x27;--zg-color-text-info&#x27;,
+  bgPrimary: &#x27;--zg-color-bg-primary&#x27;,
+  bgSecondary: &#x27;--zg-color-bg-secondary&#x27;,
+  bgDark: &#x27;--zg-color-bg-dark&#x27;,
+  bgOverlay: &#x27;--zg-color-bg-overlay&#x27;,
+  bgCard: &#x27;--zg-color-bg-card&#x27;,
+  bgHeader: &#x27;--zg-color-bg-header&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="radiusTokens"></a>
+                    <span class="name">
+                        <span ><b>radiusTokens</b></span>
+                        <a href="#radiusTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  none: &#x27;--zg-radius-none&#x27;,
+  sm: &#x27;--zg-radius-sm&#x27;,
+  base: &#x27;--zg-radius-base&#x27;,
+  md: &#x27;--zg-radius-md&#x27;,
+  lg: &#x27;--zg-radius-lg&#x27;,
+  xl: &#x27;--zg-radius-xl&#x27;,
+  &#x27;2xl&#x27;: &#x27;--zg-radius-2xl&#x27;,
+  full: &#x27;--zg-radius-full&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="shadowTokens"></a>
+                    <span class="name">
+                        <span ><b>shadowTokens</b></span>
+                        <a href="#shadowTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  xs: &#x27;--zg-shadow-xs&#x27;,
+  sm: &#x27;--zg-shadow-sm&#x27;,
+  base: &#x27;--zg-shadow-base&#x27;,
+  md: &#x27;--zg-shadow-md&#x27;,
+  lg: &#x27;--zg-shadow-lg&#x27;,
+  xl: &#x27;--zg-shadow-xl&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="spacingTokens"></a>
+                    <span class="name">
+                        <span ><b>spacingTokens</b></span>
+                        <a href="#spacingTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  0: &#x27;--zg-spacing-0&#x27;,
+  1: &#x27;--zg-spacing-1&#x27;,
+  2: &#x27;--zg-spacing-2&#x27;,
+  3: &#x27;--zg-spacing-3&#x27;,
+  4: &#x27;--zg-spacing-4&#x27;,
+  5: &#x27;--zg-spacing-5&#x27;,
+  6: &#x27;--zg-spacing-6&#x27;,
+  8: &#x27;--zg-spacing-8&#x27;,
+  10: &#x27;--zg-spacing-10&#x27;,
+  12: &#x27;--zg-spacing-12&#x27;,
+  16: &#x27;--zg-spacing-16&#x27;,
+  20: &#x27;--zg-spacing-20&#x27;,
+  24: &#x27;--zg-spacing-24&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transitionTokens"></a>
+                    <span class="name">
+                        <span ><b>transitionTokens</b></span>
+                        <a href="#transitionTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  fast: &#x27;--zg-transition-fast&#x27;,
+  base: &#x27;--zg-transition-base&#x27;,
+  slow: &#x27;--zg-transition-slow&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typographyThemeTokens"></a>
+                    <span class="name">
+                        <span ><b>typographyThemeTokens</b></span>
+                        <a href="#typographyThemeTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  fontFamilyBase: &#x27;--zg-font-family-base&#x27;,
+  fontFamilySecondary: &#x27;--zg-font-family-secondary&#x27;,
+  fontSizeXs: &#x27;--zg-font-size-xs&#x27;,
+  fontSizeSm: &#x27;--zg-font-size-sm&#x27;,
+  fontSizeBase: &#x27;--zg-font-size-base&#x27;,
+  fontSizeMd: &#x27;--zg-font-size-md&#x27;,
+  fontSizeLg: &#x27;--zg-font-size-lg&#x27;,
+  fontSizeXl: &#x27;--zg-font-size-xl&#x27;,
+  fontSize2xl: &#x27;--zg-font-size-2xl&#x27;,
+  fontSize3xl: &#x27;--zg-font-size-3xl&#x27;,
+  fontSize4xl: &#x27;--zg-font-size-4xl&#x27;,
+  fontSize5xl: &#x27;--zg-font-size-5xl&#x27;,
+  fontWeightLight: &#x27;--zg-font-weight-light&#x27;,
+  fontWeightRegular: &#x27;--zg-font-weight-regular&#x27;,
+  fontWeightMedium: &#x27;--zg-font-weight-medium&#x27;,
+  fontWeightSemibold: &#x27;--zg-font-weight-semibold&#x27;,
+  fontWeightBold: &#x27;--zg-font-weight-bold&#x27;,
+  lineHeightTight: &#x27;--zg-line-height-tight&#x27;,
+  lineHeightNormal: &#x27;--zg-line-height-normal&#x27;,
+  lineHeightRelaxed: &#x27;--zg-line-height-relaxed&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="typographyTokens"></a>
+                    <span class="name">
+                        <span ><b>typographyTokens</b></span>
+                        <a href="#typographyTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  fontFamilyBase: &#x27;--zg-font-family-base&#x27;,
+  fontFamilySecondary: &#x27;--zg-font-family-secondary&#x27;,
+  fontSize: {
+    xs: &#x27;--zg-font-size-xs&#x27;,
+    sm: &#x27;--zg-font-size-sm&#x27;,
+    base: &#x27;--zg-font-size-base&#x27;,
+    md: &#x27;--zg-font-size-md&#x27;,
+    lg: &#x27;--zg-font-size-lg&#x27;,
+    xl: &#x27;--zg-font-size-xl&#x27;,
+    &#x27;2xl&#x27;: &#x27;--zg-font-size-2xl&#x27;,
+    &#x27;3xl&#x27;: &#x27;--zg-font-size-3xl&#x27;,
+    &#x27;4xl&#x27;: &#x27;--zg-font-size-4xl&#x27;,
+    &#x27;5xl&#x27;: &#x27;--zg-font-size-5xl&#x27;,
+  },
+  fontWeight: {
+    light: &#x27;--zg-font-weight-light&#x27;,
+    regular: &#x27;--zg-font-weight-regular&#x27;,
+    medium: &#x27;--zg-font-weight-medium&#x27;,
+    semibold: &#x27;--zg-font-weight-semibold&#x27;,
+    bold: &#x27;--zg-font-weight-bold&#x27;,
+  },
+  lineHeight: {
+    tight: &#x27;--zg-line-height-tight&#x27;,
+    normal: &#x27;--zg-line-height-normal&#x27;,
+    relaxed: &#x27;--zg-line-height-relaxed&#x27;,
+  },
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zIndexTokens"></a>
+                    <span class="name">
+                        <span ><b>zIndexTokens</b></span>
+                        <a href="#zIndexTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  dropdown: &#x27;--zg-z-index-dropdown&#x27;,
+  sticky: &#x27;--zg-z-index-sticky&#x27;,
+  fixed: &#x27;--zg-z-index-fixed&#x27;,
+  modalBackdrop: &#x27;--zg-z-index-modal-backdrop&#x27;,
+  modal: &#x27;--zg-z-index-modal&#x27;,
+  popover: &#x27;--zg-z-index-popover&#x27;,
+  tooltip: &#x27;--zg-z-index-tooltip&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/content-section-header.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contentSectionHeaderTokens"></a>
+                    <span class="name">
+                        <span ><b>contentSectionHeaderTokens</b></span>
+                        <a href="#contentSectionHeaderTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  gap: &#x27;--zg-content-section-header-gap&#x27;,
+  actionsOffset: &#x27;--zg-content-section-header-actions-offset&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/design-tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DesignTokens"></a>
+                    <span class="name">
+                        <span ><b>DesignTokens</b></span>
+                        <a href="#DesignTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  color: colorTokens,
+  typography: typographyTokens,
+  spacing: spacingTokens,
+  radius: radiusTokens,
+  shadow: shadowTokens,
+  zIndex: zIndexTokens,
+  transition: transitionTokens,
+  button: buttonTokens,
+  input: inputTokens,
+  badge: badgeTokens,
+  chip: chipTokens,
+  casinoCatalogHeader: casinoCatalogHeaderTokens,
+  casinoHomeHero: casinoHomeHeroTokens,
+  casinoGamesGridSection: casinoGamesGridSectionTokens,
+  breadcrumb: breadcrumbTokens,
+  sectionTitle: sectionTitleTokens,
+  sectionActions: sectionActionsTokens,
+  contentSectionHeader: contentSectionHeaderTokens,
+  siteHeader: siteHeaderTokens,
+  casinoGameCard: casinoGameCardTokens,
+  casinoRankedGamesCarouselSection: casinoRankedGamesCarouselSectionTokens,
+  casinoProviderCarousel: casinoProviderCarouselTokens,
+  casinoSearchBar: casinoSearchBarTokens,
+  casinoTwoRowGamesCarouselSection: casinoTwoRowGamesCarouselSectionTokens,
+  casinoProviderParallaxShowcase: casinoProviderParallaxShowcaseTokens,
+  luckyPicker: luckyPickerTokens,
+  gameCard: casinoGameCardTokens,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/input.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inputTokens"></a>
+                    <span class="name">
+                        <span ><b>inputTokens</b></span>
+                        <a href="#inputTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  bg: &#x27;--zg-input-bg&#x27;,
+  bgDisabled: &#x27;--zg-input-bg-disabled&#x27;,
+  border: &#x27;--zg-input-border&#x27;,
+  borderFocused: &#x27;--zg-input-border-focused&#x27;,
+  borderDisabled: &#x27;--zg-input-border-disabled&#x27;,
+  errorBorder: &#x27;--zg-input-error-border&#x27;,
+  radius: &#x27;--zg-input-radius&#x27;,
+  labelColor: &#x27;--zg-input-label-color&#x27;,
+  labelFontSize: &#x27;--zg-input-label-font-size&#x27;,
+  labelFontWeight: &#x27;--zg-input-label-font-weight&#x27;,
+  labelMarginBottom: &#x27;--zg-input-label-margin-bottom&#x27;,
+  fontSize: &#x27;--zg-input-font-size&#x27;,
+  fontSizeSm: &#x27;--zg-input-font-size-sm&#x27;,
+  fontSizeLg: &#x27;--zg-input-font-size-lg&#x27;,
+  fontFamily: &#x27;--zg-input-font-family&#x27;,
+  color: &#x27;--zg-input-color&#x27;,
+  colorDisabled: &#x27;--zg-input-color-disabled&#x27;,
+  placeholderColor: &#x27;--zg-input-placeholder-color&#x27;,
+  paddingXSm: &#x27;--zg-input-padding-x-sm&#x27;,
+  paddingXMd: &#x27;--zg-input-padding-x-md&#x27;,
+  paddingXLg: &#x27;--zg-input-padding-x-lg&#x27;,
+  paddingYMd: &#x27;--zg-input-padding-y-md&#x27;,
+  heightSm: &#x27;--zg-input-height-sm&#x27;,
+  heightMd: &#x27;--zg-input-height-md&#x27;,
+  heightLg: &#x27;--zg-input-height-lg&#x27;,
+  clearColor: &#x27;--zg-input-clear-color&#x27;,
+  clearPadding: &#x27;--zg-input-clear-padding&#x27;,
+  iconColor: &#x27;--zg-input-icon-color&#x27;,
+  iconSize: &#x27;--zg-input-icon-size&#x27;,
+  errorColor: &#x27;--zg-input-error-color&#x27;,
+  errorFontSize: &#x27;--zg-input-error-font-size&#x27;,
+  errorMarginTop: &#x27;--zg-input-error-margin-top&#x27;,
+  helperColor: &#x27;--zg-input-helper-color&#x27;,
+  helperFontSize: &#x27;--zg-input-helper-font-size&#x27;,
+  helperMarginTop: &#x27;--zg-input-helper-margin-top&#x27;,
+  focusRing: &#x27;--zg-input-focus-ring&#x27;,
+  focusRingWidth: &#x27;--zg-input-focus-ring-width&#x27;,
+  transition: &#x27;--zg-input-transition&#x27;,
+  iconGap: &#x27;--zg-input-icon-gap&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/lucky-picker.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="luckyPickerTokens"></a>
+                    <span class="name">
+                        <span ><b>luckyPickerTokens</b></span>
+                        <a href="#luckyPickerTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  bg: &#x27;--zg-lucky-picker-bg&#x27;,
+  bgHighlight: &#x27;--zg-lucky-picker-bg-highlight&#x27;,
+  borderColor: &#x27;--zg-lucky-picker-border-color&#x27;,
+  borderColorHighlight: &#x27;--zg-lucky-picker-border-color-highlight&#x27;,
+  radius: &#x27;--zg-lucky-picker-radius&#x27;,
+  titleColor: &#x27;--zg-lucky-picker-title-color&#x27;,
+  titleFontFamily: &#x27;--zg-lucky-picker-title-font-family&#x27;,
+  titleFontSize: &#x27;--zg-lucky-picker-title-font-size&#x27;,
+  titleFontWeight: &#x27;--zg-lucky-picker-title-font-weight&#x27;,
+  descriptionColor: &#x27;--zg-lucky-picker-description-color&#x27;,
+  descriptionFontFamily: &#x27;--zg-lucky-picker-description-font-family&#x27;,
+  descriptionFontSize: &#x27;--zg-lucky-picker-description-font-size&#x27;,
+  descriptionFontWeight: &#x27;--zg-lucky-picker-description-font-weight&#x27;,
+  gap: &#x27;--zg-lucky-picker-gap&#x27;,
+  contentGap: &#x27;--zg-lucky-picker-content-gap&#x27;,
+  paddingY: &#x27;--zg-lucky-picker-padding-y&#x27;,
+  paddingX: &#x27;--zg-lucky-picker-padding-x&#x27;,
+  paddingYSm: &#x27;--zg-lucky-picker-padding-y-sm&#x27;,
+  paddingXSm: &#x27;--zg-lucky-picker-padding-x-sm&#x27;,
+  paddingYLg: &#x27;--zg-lucky-picker-padding-y-lg&#x27;,
+  paddingXLg: &#x27;--zg-lucky-picker-padding-x-lg&#x27;,
+  disabledOpacity: &#x27;--zg-lucky-picker-disabled-opacity&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/section-actions.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sectionActionsTokens"></a>
+                    <span class="name">
+                        <span ><b>sectionActionsTokens</b></span>
+                        <a href="#sectionActionsTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  gap: &#x27;--zg-section-actions-gap&#x27;,
+  navGap: &#x27;--zg-section-actions-nav-gap&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/section-title.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sectionTitleTokens"></a>
+                    <span class="name">
+                        <span ><b>sectionTitleTokens</b></span>
+                        <a href="#sectionTitleTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  textColor: &#x27;--zg-section-title-text-color&#x27;,
+  textColorPrimary: &#x27;--zg-section-title-text-color-primary&#x27;,
+  textColorSuccess: &#x27;--zg-section-title-text-color-success&#x27;,
+  fontFamilyBase: &#x27;--zg-section-title-font-family-base&#x27;,
+  fontFamilySecondary: &#x27;--zg-section-title-font-family-secondary&#x27;,
+  fontWeight: &#x27;--zg-section-title-font-weight&#x27;,
+  lineHeight: &#x27;--zg-section-title-line-height&#x27;,
+  fontSizeSm: &#x27;--zg-section-title-font-size-sm&#x27;,
+  fontSizeMd: &#x27;--zg-section-title-font-size-md&#x27;,
+  fontSizeLg: &#x27;--zg-section-title-font-size-lg&#x27;,
+  gap: &#x27;--zg-section-title-gap&#x27;,
+  accentGap: &#x27;--zg-section-title-accent-gap&#x27;,
+  accentBaseWidth: &#x27;--zg-section-title-accent-base-width&#x27;,
+  accentSegmentWidth: &#x27;--zg-section-title-accent-segment-width&#x27;,
+  accentHeight: &#x27;--zg-section-title-accent-height&#x27;,
+  accentBaseColor: &#x27;--zg-section-title-accent-base-color&#x27;,
+  accentWarningColor: &#x27;--zg-section-title-accent-warning-color&#x27;,
+  accentSuccessColor: &#x27;--zg-section-title-accent-success-color&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/lib/tokens/site-header.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="siteHeaderTokens"></a>
+                    <span class="name">
+                        <span ><b>siteHeaderTokens</b></span>
+                        <a href="#siteHeaderTokens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  mobileBreakpoint: &#x27;--zg-site-header-mobile-breakpoint&#x27;,
+  logoMaxHeight: &#x27;--zg-site-header-logo-max-height&#x27;,
+  controlMinHeight: &#x27;--zg-site-header-control-min-height&#x27;,
+  surfaceGap: &#x27;--zg-site-header-surface-gap&#x27;,
+  surfacePadding: &#x27;--zg-site-header-surface-padding&#x27;,
+  surfaceRadius: &#x27;--zg-site-header-surface-radius&#x27;,
+  surfaceBorderColor: &#x27;--zg-site-header-surface-border-color&#x27;,
+  surfaceBg: &#x27;--zg-site-header-surface-bg&#x27;,
+  brandColor: &#x27;--zg-site-header-brand-color&#x27;,
+  brandFontFamily: &#x27;--zg-site-header-brand-font-family&#x27;,
+  brandFontSize: &#x27;--zg-site-header-brand-font-size&#x27;,
+  brandFontWeight: &#x27;--zg-site-header-brand-font-weight&#x27;,
+  brandLineHeight: &#x27;--zg-site-header-brand-line-height&#x27;,
+  menuToggleBorderColor: &#x27;--zg-site-header-menu-toggle-border-color&#x27;,
+  menuToggleBg: &#x27;--zg-site-header-menu-toggle-bg&#x27;,
+  menuToggleColor: &#x27;--zg-site-header-menu-toggle-color&#x27;,
+  menuToggleFontFamily: &#x27;--zg-site-header-menu-toggle-font-family&#x27;,
+  menuToggleFontSize: &#x27;--zg-site-header-menu-toggle-font-size&#x27;,
+  menuTogglePaddingInline: &#x27;--zg-site-header-menu-toggle-padding-inline&#x27;,
+  menuToggleRadius: &#x27;--zg-site-header-menu-toggle-radius&#x27;,
+  menuToggleGap: &#x27;--zg-site-header-menu-toggle-gap&#x27;,
+  menuIconSize: &#x27;--zg-site-header-menu-icon-size&#x27;,
+  menuIconStrokeWidth: &#x27;--zg-site-header-menu-icon-stroke-width&#x27;,
+  menuIconOffset: &#x27;--zg-site-header-menu-icon-offset&#x27;,
+  navListGap: &#x27;--zg-site-header-nav-list-gap&#x27;,
+  navItemPaddingInline: &#x27;--zg-site-header-nav-item-padding-inline&#x27;,
+  navItemRadius: &#x27;--zg-site-header-nav-item-radius&#x27;,
+  navItemColor: &#x27;--zg-site-header-nav-item-color&#x27;,
+  navItemFontFamily: &#x27;--zg-site-header-nav-item-font-family&#x27;,
+  navItemFontSize: &#x27;--zg-site-header-nav-item-font-size&#x27;,
+  navItemFontWeight: &#x27;--zg-site-header-nav-item-font-weight&#x27;,
+  navItemLineHeight: &#x27;--zg-site-header-nav-item-line-height&#x27;,
+  navItemHoverOpacity: &#x27;--zg-site-header-nav-item-hover-opacity&#x27;,
+  navItemUnderlineOffset: &#x27;--zg-site-header-nav-item-underline-offset&#x27;,
+  navItemHoverUnderlineColor: &#x27;--zg-site-header-nav-item-hover-underline-color&#x27;,
+  navItemActiveColor: &#x27;--zg-site-header-nav-item-active-color&#x27;,
+  navItemActiveFontWeight: &#x27;--zg-site-header-nav-item-active-font-weight&#x27;,
+  navItemActiveUnderlineColor: &#x27;--zg-site-header-nav-item-active-underline-color&#x27;,
+  navItemActiveUnderlineThickness: &#x27;--zg-site-header-nav-item-active-underline-thickness&#x27;,
+  navItemTransition: &#x27;--zg-site-header-nav-item-transition&#x27;,
+  actionsGap: &#x27;--zg-site-header-actions-gap&#x27;,
+  actionPaddingInline: &#x27;--zg-site-header-action-padding-inline&#x27;,
+  actionRadius: &#x27;--zg-site-header-action-radius&#x27;,
+  actionFontFamily: &#x27;--zg-site-header-action-font-family&#x27;,
+  actionFontSize: &#x27;--zg-site-header-action-font-size&#x27;,
+  actionFontWeight: &#x27;--zg-site-header-action-font-weight&#x27;,
+  actionSecondaryBorderColor: &#x27;--zg-site-header-action-secondary-border-color&#x27;,
+  actionSecondaryBg: &#x27;--zg-site-header-action-secondary-bg&#x27;,
+  actionSecondaryColor: &#x27;--zg-site-header-action-secondary-color&#x27;,
+  actionPrimaryBg: &#x27;--zg-site-header-action-primary-bg&#x27;,
+  actionPrimaryColor: &#x27;--zg-site-header-action-primary-color&#x27;,
+  mobileSurfaceGap: &#x27;--zg-site-header-mobile-surface-gap&#x27;,
+  mobileSurfacePadding: &#x27;--zg-site-header-mobile-surface-padding&#x27;,
+  mobileNavGap: &#x27;--zg-site-header-mobile-nav-gap&#x27;,
+  mobileNavItemRadius: &#x27;--zg-site-header-mobile-nav-item-radius&#x27;,
+} as const</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1617 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@zgames/ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@zgames/ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ZgCasinoGamesCarouselSectionComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts</code>
+</p>
+
+
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">host</td>
+                <td class="col-md-9"><code>{<br>}</code></td>
+            </tr>
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>zg-casino-games-carousel-section</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                                <code><a href="../components/ZgButtonComponent.html" target="_self" >ZgButtonComponent</a></code>
+                                <code><a href="../components/ZgSectionTitleComponent.html" target="_self" >ZgSectionTitleComponent</a></code>
+                                <code><a href="../components/ZgSectionActionsComponent.html" target="_self" >ZgSectionActionsComponent</a></code>
+                                <code><a href="../components/ZgContentSectionHeaderComponent.html" target="_self" >ZgContentSectionHeaderComponent</a></code>
+                                <code><a href="../components/ZgHorizontalListLayoutComponent.html" target="_self" >ZgHorizontalListLayoutComponent</a></code>
+                                <code><a href="../components/ZgCasinoGameCardComponent.html" target="_self" >ZgCasinoGameCardComponent</a></code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./casino-games-carousel-section.component.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./casino-games-carousel-section.component.scss</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#canScrollNext" >canScrollNext</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#canScrollPrev" >canScrollPrev</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#effectiveActionsSize" >effectiveActionsSize</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#listLayout" >listLayout</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#onFavoriteRequested" >onFavoriteRequested</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#onNextClicked" >onNextClicked</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#onPlayRequested" >onPlayRequested</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#onPreviousClicked" >onPreviousClicked</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#onScrollStateChange" >onScrollStateChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#onViewAllClicked" >onViewAllClicked</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#actionsGroupAriaLabel" >actionsGroupAriaLabel</a>
+                            </li>
+                            <li>
+                                <a href="#actionsSize" >actionsSize</a>
+                            </li>
+                            <li>
+                                <a href="#allActionLabel" >allActionLabel</a>
+                            </li>
+                            <li>
+                                <a href="#cardWidth" >cardWidth</a>
+                            </li>
+                            <li>
+                                <a href="#items" >items</a>
+                            </li>
+                            <li>
+                                <a href="#listAriaLabel" >listAriaLabel</a>
+                            </li>
+                            <li>
+                                <a href="#scrollStep" >scrollStep</a>
+                            </li>
+                            <li>
+                                <a href="#sectionAriaLabel" >sectionAriaLabel</a>
+                            </li>
+                            <li>
+                                <a href="#showAllAction" >showAllAction</a>
+                            </li>
+                            <li>
+                                <a href="#showTitleAccent" >showTitleAccent</a>
+                            </li>
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                            <li>
+                                <a href="#titleSize" >titleSize</a>
+                            </li>
+                            <li>
+                                <a href="#titleTone" >titleTone</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#favoriteRequested" >favoriteRequested</a>
+                            </li>
+                            <li>
+                                <a href="#nextClicked" >nextClicked</a>
+                            </li>
+                            <li>
+                                <a href="#playRequested" >playRequested</a>
+                            </li>
+                            <li>
+                                <a href="#previousClicked" >previousClicked</a>
+                            </li>
+                            <li>
+                                <a href="#viewAllClicked" >viewAllClicked</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="actionsGroupAriaLabel"></a>
+                        <b>actionsGroupAriaLabel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Carousel actions&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:70</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="actionsSize"></a>
+                        <b>actionsSize</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ButtonSize" target="_self" >ButtonSize | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:64</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="allActionLabel"></a>
+                        <b>allActionLabel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;All&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:72</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="cardWidth"></a>
+                        <b>cardWidth</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>180</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:76</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="items"></a>
+                        <b>items</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CasinoGamesCarouselSectionItem.html" target="_self" >readonly CasinoGamesCarouselSectionItem[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:67</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="listAriaLabel"></a>
+                        <b>listAriaLabel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Games carousel&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:68</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="scrollStep"></a>
+                        <b>scrollStep</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>360</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:75</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="sectionAriaLabel"></a>
+                        <b>sectionAriaLabel</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Casino games section&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:69</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showAllAction"></a>
+                        <b>showAllAction</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:73</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="showTitleAccent"></a>
+                        <b>showTitleAccent</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:65</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Most bet games&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:61</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="titleSize"></a>
+                        <b>titleSize</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#SectionTitleSize" target="_self" >SectionTitleSize</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;md&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:63</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="titleTone"></a>
+                        <b>titleTone</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#SectionTitleTone" target="_self" >SectionTitleTone</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;primary&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:62</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="favoriteRequested"></a>
+                        <b>favoriteRequested</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CasinoGamesCarouselSectionItem.html" target="_self" >CasinoGamesCarouselSectionItem</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:82</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nextClicked"></a>
+                        <b>nextClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:80</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="playRequested"></a>
+                        <b>playRequested</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CasinoGamesCarouselSectionItem.html" target="_self" >CasinoGamesCarouselSectionItem</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:81</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="previousClicked"></a>
+                        <b>previousClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:79</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="viewAllClicked"></a>
+                        <b>viewAllClicked</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:78</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onFavoriteRequested"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>onFavoriteRequested</b></span>
+                        <a href="#onFavoriteRequested"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onFavoriteRequested(item: <a href="../interfaces/CasinoGamesCarouselSectionItem.html" target="_self">CasinoGamesCarouselSectionItem</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CasinoGamesCarouselSectionItem.html" target="_self" >CasinoGamesCarouselSectionItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onNextClicked"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>onNextClicked</b></span>
+                        <a href="#onNextClicked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onNextClicked()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPlayRequested"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>onPlayRequested</b></span>
+                        <a href="#onPlayRequested"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onPlayRequested(item: <a href="../interfaces/CasinoGamesCarouselSectionItem.html" target="_self">CasinoGamesCarouselSectionItem</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CasinoGamesCarouselSectionItem.html" target="_self" >CasinoGamesCarouselSectionItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPreviousClicked"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>onPreviousClicked</b></span>
+                        <a href="#onPreviousClicked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onPreviousClicked()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="94"
+                                    class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onScrollStateChange"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>onScrollStateChange</b></span>
+                        <a href="#onScrollStateChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onScrollStateChange(state: <a href="../interfaces/HorizontalListScrollState.html" target="_self">HorizontalListScrollState</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>state</td>
+                                            <td>
+                                                            <code><a href="../interfaces/HorizontalListScrollState.html" target="_self" >HorizontalListScrollState</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onViewAllClicked"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>onViewAllClicked</b></span>
+                        <a href="#onViewAllClicked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onViewAllClicked()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canScrollNext"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>canScrollNext</b></span>
+                        <a href="#canScrollNext"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canScrollPrev"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>canScrollPrev</b></span>
+                        <a href="#canScrollPrev"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>signal(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="effectiveActionsSize"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>effectiveActionsSize</b></span>
+                        <a href="#effectiveActionsSize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>computed&lt;ButtonSize&gt;(() &#x3D;&gt; {
+    return this.actionsSize() ?? this.titleSize();
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listLayout"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>listLayout</b></span>
+                        <a href="#listLayout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/ZgHorizontalListLayoutComponent.html" target="_self" >ZgHorizontalListLayoutComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;listLayout&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  ViewChild,
+  computed,
+  input,
+  output,
+  signal,
+} from &#x27;@angular/core&#x27;;
+import { type ButtonSize, ZgButtonComponent } from &#x27;../../../atoms/button/button.component&#x27;;
+import {
+  type SectionTitleSize,
+  type SectionTitleTone,
+  ZgSectionTitleComponent,
+} from &#x27;../../../atoms/section-title/section-title.component&#x27;;
+import {
+  type GameCardAspectRatio,
+  ZgCasinoGameCardComponent,
+} from &#x27;../../../molecules/casino/casino-game-card/casino-game-card.component&#x27;;
+import {
+  type HorizontalListScrollState,
+  ZgHorizontalListLayoutComponent,
+} from &#x27;../../../molecules/shared/horizontal-list-layout/horizontal-list-layout.component&#x27;;
+import { ZgContentSectionHeaderComponent } from &#x27;../../../molecules/shared/content-section-header/content-section-header.component&#x27;;
+import { ZgSectionActionsComponent } from &#x27;../../../molecules/shared/section-actions/section-actions.component&#x27;;
+
+export interface CasinoGamesCarouselSectionItem {
+  id: string;
+  title: string;
+  provider?: string;
+  imageUrl: string;
+  imageAlt?: string;
+  ctaLabel?: string;
+  favorite?: boolean;
+  disabled?: boolean;
+  showFavorite?: boolean;
+  aspectRatio?: GameCardAspectRatio;
+}
+
+@Component({
+  selector: &#x27;zg-casino-games-carousel-section&#x27;,
+  standalone: true,
+  imports: [
+    ZgButtonComponent,
+    ZgSectionTitleComponent,
+    ZgSectionActionsComponent,
+    ZgContentSectionHeaderComponent,
+    ZgHorizontalListLayoutComponent,
+    ZgCasinoGameCardComponent,
+  ],
+  templateUrl: &#x27;./casino-games-carousel-section.component.html&#x27;,
+  styleUrl: &#x27;./casino-games-carousel-section.component.scss&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  host: {
+    &#x27;[class]&#x27;: &#x27;&quot;zg-casino-games-carousel-section&quot;&#x27;,
+  },
+})
+export class ZgCasinoGamesCarouselSectionComponent {
+  @ViewChild(&#x27;listLayout&#x27;) private listLayout?: ZgHorizontalListLayoutComponent;
+
+  title &#x3D; input&lt;string&gt;(&#x27;Most bet games&#x27;);
+  titleTone &#x3D; input&lt;SectionTitleTone&gt;(&#x27;primary&#x27;);
+  titleSize &#x3D; input&lt;SectionTitleSize&gt;(&#x27;md&#x27;);
+  actionsSize &#x3D; input&lt;ButtonSize | null&gt;(null);
+  showTitleAccent &#x3D; input&lt;boolean&gt;(true);
+
+  items &#x3D; input&lt;readonly CasinoGamesCarouselSectionItem[]&gt;([]);
+  listAriaLabel &#x3D; input&lt;string&gt;(&#x27;Games carousel&#x27;);
+  sectionAriaLabel &#x3D; input&lt;string&gt;(&#x27;Casino games section&#x27;);
+  actionsGroupAriaLabel &#x3D; input&lt;string&gt;(&#x27;Carousel actions&#x27;);
+
+  allActionLabel &#x3D; input&lt;string&gt;(&#x27;All&#x27;);
+  showAllAction &#x3D; input&lt;boolean&gt;(true);
+
+  scrollStep &#x3D; input&lt;number&gt;(360);
+  cardWidth &#x3D; input&lt;number&gt;(180);
+
+  viewAllClicked &#x3D; output&lt;void&gt;();
+  previousClicked &#x3D; output&lt;void&gt;();
+  nextClicked &#x3D; output&lt;void&gt;();
+  playRequested &#x3D; output&lt;CasinoGamesCarouselSectionItem&gt;();
+  favoriteRequested &#x3D; output&lt;CasinoGamesCarouselSectionItem&gt;();
+
+  protected canScrollPrev &#x3D; signal(false);
+  protected canScrollNext &#x3D; signal(false);
+  protected effectiveActionsSize &#x3D; computed&lt;ButtonSize&gt;(() &#x3D;&gt; {
+    return this.actionsSize() ?? this.titleSize();
+  });
+
+  protected onViewAllClicked(): void {
+    this.viewAllClicked.emit();
+  }
+
+  protected onPreviousClicked(): void {
+    this.previousClicked.emit();
+    this.listLayout?.scrollPrev();
+  }
+
+  protected onNextClicked(): void {
+    this.nextClicked.emit();
+    this.listLayout?.scrollNext();
+  }
+
+  protected onScrollStateChange(state: HorizontalListScrollState): void {
+    this.canScrollPrev.set(state.canScrollPrev);
+    this.canScrollNext.set(state.canScrollNext);
+  }
+
+  protected onPlayRequested(item: CasinoGamesCarouselSectionItem): void {
+    this.playRequested.emit(item);
+  }
+
+  protected onFavoriteRequested(item: CasinoGamesCarouselSectionItem): void {
+    this.favoriteRequested.emit(item);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;zg-casino-games-carousel-section__surface&quot; [attr.aria-label]&#x3D;&quot;sectionAriaLabel()&quot;&gt;
+  &lt;zg-content-section-header&gt;
+    &lt;zg-section-title
+      zg-content-section-header-title
+      [label]&#x3D;&quot;title()&quot;
+      [tone]&#x3D;&quot;titleTone()&quot;
+      [size]&#x3D;&quot;titleSize()&quot;
+      [showAccent]&#x3D;&quot;showTitleAccent()&quot;
+    &gt;&lt;/zg-section-title&gt;
+
+    &lt;zg-section-actions
+      zg-content-section-header-actions
+      [groupAriaLabel]&#x3D;&quot;actionsGroupAriaLabel()&quot;
+    &gt;
+      @if (showAllAction()) {
+        &lt;zg-button
+          zg-section-actions-all
+          variant&#x3D;&quot;primary&quot;
+          shape&#x3D;&quot;pill&quot;
+          [size]&#x3D;&quot;effectiveActionsSize()&quot;
+          (clicked)&#x3D;&quot;onViewAllClicked()&quot;
+        &gt;
+          {{ allActionLabel() }}
+        &lt;/zg-button&gt;
+      }
+
+      &lt;zg-button
+        zg-section-actions-prev
+        variant&#x3D;&quot;secondary&quot;
+        shape&#x3D;&quot;square&quot;
+        [size]&#x3D;&quot;effectiveActionsSize()&quot;
+        aria-label&#x3D;&quot;Previous games&quot;
+        [disabled]&#x3D;&quot;!canScrollPrev()&quot;
+        (clicked)&#x3D;&quot;onPreviousClicked()&quot;
+      &gt;
+        ‹
+      &lt;/zg-button&gt;
+      &lt;zg-button
+        zg-section-actions-next
+        variant&#x3D;&quot;secondary&quot;
+        shape&#x3D;&quot;square&quot;
+        [size]&#x3D;&quot;effectiveActionsSize()&quot;
+        aria-label&#x3D;&quot;Next games&quot;
+        [disabled]&#x3D;&quot;!canScrollNext()&quot;
+        (clicked)&#x3D;&quot;onNextClicked()&quot;
+      &gt;
+        ›
+      &lt;/zg-button&gt;
+    &lt;/zg-section-actions&gt;
+  &lt;/zg-content-section-header&gt;
+
+  &lt;zg-horizontal-list-layout
+    #listLayout
+    [ariaLabel]&#x3D;&quot;listAriaLabel()&quot;
+    layoutMode&#x3D;&quot;scroll&quot;
+    [scrollStep]&#x3D;&quot;scrollStep()&quot;
+    (scrollStateChange)&#x3D;&quot;onScrollStateChange($event)&quot;
+  &gt;
+    @for (item of items(); track item.id) {
+      &lt;li zg-horizontal-list-layout-items [style.width.px]&#x3D;&quot;cardWidth()&quot;&gt;
+        &lt;zg-casino-game-card
+          [title]&#x3D;&quot;item.title&quot;
+          [provider]&#x3D;&quot;item.provider ?? &#x27;&#x27;&quot;
+          [imageUrl]&#x3D;&quot;item.imageUrl&quot;
+          [imageAlt]&#x3D;&quot;item.imageAlt ?? &#x27;&#x27;&quot;
+          [ctaLabel]&#x3D;&quot;item.ctaLabel ?? &#x27;Play now&#x27;&quot;
+          [favorite]&#x3D;&quot;item.favorite ?? false&quot;
+          [disabled]&#x3D;&quot;item.disabled ?? false&quot;
+          [showFavorite]&#x3D;&quot;item.showFavorite ?? true&quot;
+          [aspectRatio]&#x3D;&quot;item.aspectRatio ?? &#x27;portrait&#x27;&quot;
+          (playClicked)&#x3D;&quot;onPlayRequested(item)&quot;
+          (favoriteClicked)&#x3D;&quot;onFavoriteRequested(item)&quot;
+        &gt;&lt;/zg-casino-game-card&gt;
+      &lt;/li&gt;
+    }
+  &lt;/zg-horizontal-list-layout&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="zg-casino-games-carousel-section__surface" [attr.aria-label]="sectionAriaLabel()">  <zg-content-section-header>    <zg-section-title      zg-content-section-header-title      [label]="title()"      [tone]="titleTone()"      [size]="titleSize()"      [showAccent]="showTitleAccent()"    ></zg-section-title>    <zg-section-actions      zg-content-section-header-actions      [groupAriaLabel]="actionsGroupAriaLabel()"    >      @if (showAllAction()) {        <zg-button          zg-section-actions-all          variant="primary"          shape="pill"          [size]="effectiveActionsSize()"          (clicked)="onViewAllClicked()"        >          {{ allActionLabel() }}        </zg-button>      }      <zg-button        zg-section-actions-prev        variant="secondary"        shape="square"        [size]="effectiveActionsSize()"        aria-label="Previous games"        [disabled]="!canScrollPrev()"        (clicked)="onPreviousClicked()"      >        ‹      </zg-button>      <zg-button        zg-section-actions-next        variant="secondary"        shape="square"        [size]="effectiveActionsSize()"        aria-label="Next games"        [disabled]="!canScrollNext()"        (clicked)="onNextClicked()"      >        ›      </zg-button>    </zg-section-actions>  </zg-content-section-header>  <zg-horizontal-list-layout    #listLayout    [ariaLabel]="listAriaLabel()"    layoutMode="scroll"    [scrollStep]="scrollStep()"    (scrollStateChange)="onScrollStateChange($event)"  >    @for (item of items(); track item.id) {      <li zg-horizontal-list-layout-items [style.width.px]="cardWidth()">        <zg-casino-game-card          [title]="item.title"          [provider]="item.provider ?? \'\'"          [imageUrl]="item.imageUrl"          [imageAlt]="item.imageAlt ?? \'\'"          [ctaLabel]="item.ctaLabel ?? \'Play now\'"          [favorite]="item.favorite ?? false"          [disabled]="item.disabled ?? false"          [showFavorite]="item.showFavorite ?? true"          [aspectRatio]="item.aspectRatio ?? \'portrait\'"          (playClicked)="onPlayRequested(item)"          (favoriteClicked)="onFavoriteRequested(item)"        ></zg-casino-game-card>      </li>    }  </zg-horizontal-list-layout></section></div>'
+    var COMPONENTS = [{'name': 'ZgBadgeComponent', 'selector': 'zg-badge'},{'name': 'ZgBreadcrumbComponent', 'selector': 'zg-breadcrumb'},{'name': 'ZgButtonComponent', 'selector': 'zg-button'},{'name': 'ZgCasinoCatalogHeaderComponent', 'selector': 'zg-casino-catalog-header'},{'name': 'ZgCasinoGameCardComponent', 'selector': 'zg-casino-game-card, zg-game-card'},{'name': 'ZgCasinoGamesCarouselSectionComponent', 'selector': 'zg-casino-games-carousel-section'},{'name': 'ZgCasinoGamesGridSectionComponent', 'selector': 'zg-casino-games-grid-section'},{'name': 'ZgCasinoGamesGridTemplateComponent', 'selector': 'zg-casino-games-grid-template'},{'name': 'ZgCasinoHomeHeroComponent', 'selector': 'zg-casino-home-hero'},{'name': 'ZgCasinoHomeTemplateComponent', 'selector': 'zg-casino-home-template'},{'name': 'ZgCasinoProviderCarouselComponent', 'selector': 'zg-casino-provider-carousel'},{'name': 'ZgCasinoProviderParallaxShowcaseComponent', 'selector': 'zg-casino-provider-parallax-showcase'},{'name': 'ZgCasinoRankedGamesCarouselSectionComponent', 'selector': 'zg-casino-ranked-games-carousel-section'},{'name': 'ZgCasinoSearchBarComponent', 'selector': 'zg-casino-search-bar'},{'name': 'ZgCasinoTwoRowGamesCarouselSectionComponent', 'selector': 'zg-casino-two-row-games-carousel-section'},{'name': 'ZgCategoryFilterTabsComponent', 'selector': 'zg-category-filter-tabs'},{'name': 'ZgChipComponent', 'selector': 'zg-chip'},{'name': 'ZgContentSectionHeaderComponent', 'selector': 'zg-content-section-header'},{'name': 'ZgHorizontalListLayoutComponent', 'selector': 'zg-horizontal-list-layout'},{'name': 'ZgInputComponent', 'selector': 'zg-input'},{'name': 'ZgLuckyPickerComponent', 'selector': 'zg-lucky-picker'},{'name': 'ZgSectionActionsComponent', 'selector': 'zg-section-actions'},{'name': 'ZgSectionTitleComponent', 'selector': 'zg-section-title'},{'name': 'ZgSiteHeaderComponent', 'selector': 'zg-site-header'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ZgCasinoGamesCarouselSectionComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ZgCasinoGamesCarouselSectionComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

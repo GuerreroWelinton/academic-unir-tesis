@@ -1,0 +1,1194 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@zgames/ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@zgames/ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-typealiases">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Type aliases</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#BadgeShape" title="src/lib/atoms/badge/badge.component.ts" ><b>BadgeShape</b>&nbsp;&nbsp;&nbsp;(src/.../badge.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BadgeSize" title="src/lib/atoms/badge/badge.component.ts" ><b>BadgeSize</b>&nbsp;&nbsp;&nbsp;(src/.../badge.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BadgeVariant" title="src/lib/atoms/badge/badge.component.ts" ><b>BadgeVariant</b>&nbsp;&nbsp;&nbsp;(src/.../badge.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ButtonFontFamily" title="src/lib/atoms/button/button.component.ts" ><b>ButtonFontFamily</b>&nbsp;&nbsp;&nbsp;(src/.../button.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ButtonShape" title="src/lib/atoms/button/button.component.ts" ><b>ButtonShape</b>&nbsp;&nbsp;&nbsp;(src/.../button.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ButtonSize" title="src/lib/atoms/button/button.component.ts" ><b>ButtonSize</b>&nbsp;&nbsp;&nbsp;(src/.../button.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ButtonType" title="src/lib/atoms/button/button.component.ts" ><b>ButtonType</b>&nbsp;&nbsp;&nbsp;(src/.../button.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ButtonVariant" title="src/lib/atoms/button/button.component.ts" ><b>ButtonVariant</b>&nbsp;&nbsp;&nbsp;(src/.../button.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoGameCardAspectRatio" title="src/lib/molecules/casino/casino-game-card/casino-game-card.component.ts" ><b>CasinoGameCardAspectRatio</b>&nbsp;&nbsp;&nbsp;(src/.../casino-game-card.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CategoryFilterTabsLayoutMode" title="src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.component.ts" ><b>CategoryFilterTabsLayoutMode</b>&nbsp;&nbsp;&nbsp;(src/.../category-filter-tabs.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ChipSize" title="src/lib/atoms/chip/chip.component.ts" ><b>ChipSize</b>&nbsp;&nbsp;&nbsp;(src/.../chip.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ChipVariant" title="src/lib/atoms/chip/chip.component.ts" ><b>ChipVariant</b>&nbsp;&nbsp;&nbsp;(src/.../chip.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GameCardAspectRatio" title="src/lib/molecules/casino/casino-game-card/casino-game-card.component.ts" ><b>GameCardAspectRatio</b>&nbsp;&nbsp;&nbsp;(src/.../casino-game-card.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#HorizontalListLayoutMode" title="src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.component.ts" ><b>HorizontalListLayoutMode</b>&nbsp;&nbsp;&nbsp;(src/.../horizontal-list-layout.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#InputSize" title="src/lib/atoms/input/input.component.ts" ><b>InputSize</b>&nbsp;&nbsp;&nbsp;(src/.../input.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#InputType" title="src/lib/atoms/input/input.component.ts" ><b>InputType</b>&nbsp;&nbsp;&nbsp;(src/.../input.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LuckyPickerSize" title="src/lib/molecules/casino/lucky-picker/lucky-picker.component.ts" ><b>LuckyPickerSize</b>&nbsp;&nbsp;&nbsp;(src/.../lucky-picker.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LuckyPickerTone" title="src/lib/molecules/casino/lucky-picker/lucky-picker.component.ts" ><b>LuckyPickerTone</b>&nbsp;&nbsp;&nbsp;(src/.../lucky-picker.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SectionTitleFontFamily" title="src/lib/atoms/section-title/section-title.component.ts" ><b>SectionTitleFontFamily</b>&nbsp;&nbsp;&nbsp;(src/.../section-title.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SectionTitleSize" title="src/lib/atoms/section-title/section-title.component.ts" ><b>SectionTitleSize</b>&nbsp;&nbsp;&nbsp;(src/.../section-title.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SectionTitleTone" title="src/lib/atoms/section-title/section-title.component.ts" ><b>SectionTitleTone</b>&nbsp;&nbsp;&nbsp;(src/.../section-title.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/atoms/badge/badge.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../badge.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/atoms/button/button.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../button.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/atoms/chip/chip.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../chip.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/atoms/input/input.component.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../input.component.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/atoms/section-title/section-title.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../section-title.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-catalog-header.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-game-card.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-provider-carousel.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-search-bar.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../lucky-picker.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../breadcrumb.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../category-filter-tabs.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/shared/content-section-header/content-section-header.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../content-section-header.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../horizontal-list-layout.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/molecules/shared/section-actions/section-actions.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../section-actions.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-games-carousel-section.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-games-grid-section.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-home-hero.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-provider-parallax-showcase.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-ranked-games-carousel-section.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-two-row-games-carousel-section.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/organisms/shared/site-header/site-header.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../site-header.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-games-grid-template.stories.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Story" title="src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts" ><b>Story</b>&nbsp;&nbsp;&nbsp;(src/.../casino-home-template.stories.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/lib/atoms/badge/badge.component.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BadgeShape"></a>
+                    <span class="name "><b>BadgeShape</b><a href="#BadgeShape"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Badge shape variants</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;default&quot; | &quot;pill&quot; | &quot;square&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BadgeSize"></a>
+                    <span class="name "><b>BadgeSize</b><a href="#BadgeSize"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Badge size variants</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BadgeVariant"></a>
+                    <span class="name "><b>BadgeVariant</b><a href="#BadgeVariant"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Badge visual variants</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;primary&quot; | &quot;secondary&quot; | &quot;success&quot; | &quot;warning&quot; | &quot;error&quot; | &quot;info&quot; | &quot;neutral&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/atoms/button/button.component.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ButtonFontFamily"></a>
+                    <span class="name "><b>ButtonFontFamily</b><a href="#ButtonFontFamily"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Button font family variants</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;base&quot; | &quot;secondary&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ButtonShape"></a>
+                    <span class="name "><b>ButtonShape</b><a href="#ButtonShape"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Button shape variants</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;default&quot; | &quot;pill&quot; | &quot;square&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ButtonSize"></a>
+                    <span class="name "><b>ButtonSize</b><a href="#ButtonSize"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Button size variants</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ButtonType"></a>
+                    <span class="name "><b>ButtonType</b><a href="#ButtonType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Native button type attribute</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;button&quot; | &quot;submit&quot; | &quot;reset&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ButtonVariant"></a>
+                    <span class="name "><b>ButtonVariant</b><a href="#ButtonVariant"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Button visual variants</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;primary&quot; | &quot;secondary&quot; | &quot;accent&quot; | &quot;danger&quot; | &quot;ghost&quot; | &quot;gradient&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/casino/casino-game-card/casino-game-card.component.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoGameCardAspectRatio"></a>
+                    <span class="name "><b>CasinoGameCardAspectRatio</b><a href="#CasinoGameCardAspectRatio"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;portrait&quot; | &quot;square&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GameCardAspectRatio"></a>
+                    <span class="name "><b>GameCardAspectRatio</b><a href="#GameCardAspectRatio"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#CasinoGameCardAspectRatio" target="_self" >CasinoGameCardAspectRatio</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.component.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CategoryFilterTabsLayoutMode"></a>
+                    <span class="name "><b>CategoryFilterTabsLayoutMode</b><a href="#CategoryFilterTabsLayoutMode"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;scroll&quot; | &quot;wrap&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/atoms/chip/chip.component.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ChipSize"></a>
+                    <span class="name "><b>ChipSize</b><a href="#ChipSize"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Chip size variants</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ChipVariant"></a>
+                    <span class="name "><b>ChipVariant</b><a href="#ChipVariant"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Chip visual variants</p>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;filled&quot; | &quot;outlined&quot; | &quot;ghost&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.component.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="HorizontalListLayoutMode"></a>
+                    <span class="name "><b>HorizontalListLayoutMode</b><a href="#HorizontalListLayoutMode"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;scroll&quot; | &quot;wrap&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/atoms/input/input.component.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InputSize"></a>
+                    <span class="name "><b>InputSize</b><a href="#InputSize"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InputType"></a>
+                    <span class="name "><b>InputType</b><a href="#InputType"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;text&quot; | &quot;password&quot; | &quot;email&quot; | &quot;number&quot; | &quot;search&quot; | &quot;tel&quot; | &quot;url&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/casino/lucky-picker/lucky-picker.component.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LuckyPickerSize"></a>
+                    <span class="name "><b>LuckyPickerSize</b><a href="#LuckyPickerSize"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LuckyPickerTone"></a>
+                    <span class="name "><b>LuckyPickerTone</b><a href="#LuckyPickerTone"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;default&quot; | &quot;highlight&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/atoms/section-title/section-title.component.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SectionTitleFontFamily"></a>
+                    <span class="name "><b>SectionTitleFontFamily</b><a href="#SectionTitleFontFamily"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;base&quot; | &quot;secondary&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SectionTitleSize"></a>
+                    <span class="name "><b>SectionTitleSize</b><a href="#SectionTitleSize"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SectionTitleTone"></a>
+                    <span class="name "><b>SectionTitleTone</b><a href="#SectionTitleTone"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>&quot;default&quot; | &quot;primary&quot; | &quot;success&quot;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/atoms/badge/badge.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgBadgeComponent.html" target="_self" >StoryObj&lt;ZgBadgeComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/atoms/button/button.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgButtonComponent.html" target="_self" >StoryObj&lt;ZgButtonComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/atoms/chip/chip.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgChipComponent.html" target="_self" >StoryObj&lt;ZgChipComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/atoms/input/input.component.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgInputComponent.html" target="_self" >StoryObj&lt;ZgInputComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/atoms/section-title/section-title.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgSectionTitleComponent.html" target="_self" >StoryObj&lt;ZgSectionTitleComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoCatalogHeaderComponent.html" target="_self" >StoryObj&lt;ZgCasinoCatalogHeaderComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoGameCardComponent.html" target="_self" >StoryObj&lt;ZgCasinoGameCardComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoProviderCarouselComponent.html" target="_self" >StoryObj&lt;ZgCasinoProviderCarouselComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoSearchBarComponent.html" target="_self" >StoryObj&lt;ZgCasinoSearchBarComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgLuckyPickerComponent.html" target="_self" >StoryObj&lt;ZgLuckyPickerComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgBreadcrumbComponent.html" target="_self" >StoryObj&lt;ZgBreadcrumbComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCategoryFilterTabsComponent.html" target="_self" >StoryObj&lt;ZgCategoryFilterTabsComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgContentSectionHeaderComponent.html" target="_self" >StoryObj&lt;ZgContentSectionHeaderComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgHorizontalListLayoutComponent.html" target="_self" >StoryObj&lt;ZgHorizontalListLayoutComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/molecules/shared/section-actions/section-actions.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgSectionActionsComponent.html" target="_self" >StoryObj&lt;ZgSectionActionsComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoGamesCarouselSectionComponent.html" target="_self" >StoryObj&lt;ZgCasinoGamesCarouselSectionComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoGamesGridSectionComponent.html" target="_self" >StoryObj&lt;ZgCasinoGamesGridSectionComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoHomeHeroComponent.html" target="_self" >StoryObj&lt;ZgCasinoHomeHeroComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoProviderParallaxShowcaseComponent.html" target="_self" >StoryObj&lt;ZgCasinoProviderParallaxShowcaseComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoRankedGamesCarouselSectionComponent.html" target="_self" >StoryObj&lt;ZgCasinoRankedGamesCarouselSectionComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoTwoRowGamesCarouselSectionComponent.html" target="_self" >StoryObj&lt;ZgCasinoTwoRowGamesCarouselSectionComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/organisms/shared/site-header/site-header.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgSiteHeaderComponent.html" target="_self" >StoryObj&lt;ZgSiteHeaderComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoGamesGridTemplateComponent.html" target="_self" >StoryObj&lt;ZgCasinoGamesGridTemplateComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Story"></a>
+                    <span class="name "><b>Story</b><a href="#Story"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../components/ZgCasinoHomeTemplateComponent.html" target="_self" >StoryObj&lt;ZgCasinoHomeTemplateComponent&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-typealiases';
+            var COMPODOC_CURRENT_PAGE_URL = 'typealiases.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

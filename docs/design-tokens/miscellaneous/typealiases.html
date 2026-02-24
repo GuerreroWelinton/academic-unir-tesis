@@ -1,0 +1,768 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@zgames/design-tokens documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@zgames/design-tokens documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-typealiases">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Type aliases</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#BadgeTokens" title="src/lib/design-tokens.types.ts" ><b>BadgeTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BreadcrumbTokens" title="src/lib/design-tokens.types.ts" ><b>BreadcrumbTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ButtonTokens" title="src/lib/design-tokens.types.ts" ><b>ButtonTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoCatalogHeaderTokens" title="src/lib/design-tokens.types.ts" ><b>CasinoCatalogHeaderTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoGameCardTokens" title="src/lib/design-tokens.types.ts" ><b>CasinoGameCardTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoGamesGridSectionTokens" title="src/lib/design-tokens.types.ts" ><b>CasinoGamesGridSectionTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoHomeHeroTokens" title="src/lib/design-tokens.types.ts" ><b>CasinoHomeHeroTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoProviderCarouselTokens" title="src/lib/design-tokens.types.ts" ><b>CasinoProviderCarouselTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoProviderParallaxShowcaseTokens" title="src/lib/design-tokens.types.ts" ><b>CasinoProviderParallaxShowcaseTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoRankedGamesCarouselSectionTokens" title="src/lib/design-tokens.types.ts" ><b>CasinoRankedGamesCarouselSectionTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoSearchBarTokens" title="src/lib/design-tokens.types.ts" ><b>CasinoSearchBarTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CasinoTwoRowGamesCarouselSectionTokens" title="src/lib/design-tokens.types.ts" ><b>CasinoTwoRowGamesCarouselSectionTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ChipTokens" title="src/lib/design-tokens.types.ts" ><b>ChipTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ContentSectionHeaderTokens" title="src/lib/design-tokens.types.ts" ><b>ContentSectionHeaderTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#InputTokens" title="src/lib/design-tokens.types.ts" ><b>InputTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LuckyPickerTokens" title="src/lib/design-tokens.types.ts" ><b>LuckyPickerTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RadiusTokens" title="src/lib/design-tokens.types.ts" ><b>RadiusTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SectionActionsTokens" title="src/lib/design-tokens.types.ts" ><b>SectionActionsTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SectionTitleTokens" title="src/lib/design-tokens.types.ts" ><b>SectionTitleTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SemanticColorTokens" title="src/lib/design-tokens.types.ts" ><b>SemanticColorTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ShadowTokens" title="src/lib/design-tokens.types.ts" ><b>ShadowTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SiteHeaderTokens" title="src/lib/design-tokens.types.ts" ><b>SiteHeaderTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SpacingTokens" title="src/lib/design-tokens.types.ts" ><b>SpacingTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ThemeRegistry" title="src/lib/design-tokens.types.ts" ><b>ThemeRegistry</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TokenMap" title="src/lib/design-tokens.ts" ><b>TokenMap</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TokenOverrides" title="src/lib/design-tokens.types.ts" ><b>TokenOverrides</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TransitionTokens" title="src/lib/design-tokens.types.ts" ><b>TransitionTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TypographyTokens" title="src/lib/design-tokens.types.ts" ><b>TypographyTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ZIndexTokens" title="src/lib/design-tokens.types.ts" ><b>ZIndexTokens</b>&nbsp;&nbsp;&nbsp;(src/.../design-tokens.types.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/lib/design-tokens.types.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BadgeTokens"></a>
+                    <span class="name "><b>BadgeTokens</b><a href="#BadgeTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BreadcrumbTokens"></a>
+                    <span class="name "><b>BreadcrumbTokens</b><a href="#BreadcrumbTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ButtonTokens"></a>
+                    <span class="name "><b>ButtonTokens</b><a href="#ButtonTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoCatalogHeaderTokens"></a>
+                    <span class="name "><b>CasinoCatalogHeaderTokens</b><a href="#CasinoCatalogHeaderTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoGameCardTokens"></a>
+                    <span class="name "><b>CasinoGameCardTokens</b><a href="#CasinoGameCardTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoGamesGridSectionTokens"></a>
+                    <span class="name "><b>CasinoGamesGridSectionTokens</b><a href="#CasinoGamesGridSectionTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoHomeHeroTokens"></a>
+                    <span class="name "><b>CasinoHomeHeroTokens</b><a href="#CasinoHomeHeroTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoProviderCarouselTokens"></a>
+                    <span class="name "><b>CasinoProviderCarouselTokens</b><a href="#CasinoProviderCarouselTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoProviderParallaxShowcaseTokens"></a>
+                    <span class="name "><b>CasinoProviderParallaxShowcaseTokens</b><a href="#CasinoProviderParallaxShowcaseTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoRankedGamesCarouselSectionTokens"></a>
+                    <span class="name "><b>CasinoRankedGamesCarouselSectionTokens</b><a href="#CasinoRankedGamesCarouselSectionTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoSearchBarTokens"></a>
+                    <span class="name "><b>CasinoSearchBarTokens</b><a href="#CasinoSearchBarTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CasinoTwoRowGamesCarouselSectionTokens"></a>
+                    <span class="name "><b>CasinoTwoRowGamesCarouselSectionTokens</b><a href="#CasinoTwoRowGamesCarouselSectionTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ChipTokens"></a>
+                    <span class="name "><b>ChipTokens</b><a href="#ChipTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ContentSectionHeaderTokens"></a>
+                    <span class="name "><b>ContentSectionHeaderTokens</b><a href="#ContentSectionHeaderTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InputTokens"></a>
+                    <span class="name "><b>InputTokens</b><a href="#InputTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LuckyPickerTokens"></a>
+                    <span class="name "><b>LuckyPickerTokens</b><a href="#LuckyPickerTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RadiusTokens"></a>
+                    <span class="name "><b>RadiusTokens</b><a href="#RadiusTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SectionActionsTokens"></a>
+                    <span class="name "><b>SectionActionsTokens</b><a href="#SectionActionsTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SectionTitleTokens"></a>
+                    <span class="name "><b>SectionTitleTokens</b><a href="#SectionTitleTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SemanticColorTokens"></a>
+                    <span class="name "><b>SemanticColorTokens</b><a href="#SemanticColorTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ShadowTokens"></a>
+                    <span class="name "><b>ShadowTokens</b><a href="#ShadowTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SiteHeaderTokens"></a>
+                    <span class="name "><b>SiteHeaderTokens</b><a href="#SiteHeaderTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SpacingTokens"></a>
+                    <span class="name "><b>SpacingTokens</b><a href="#SpacingTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ThemeRegistry"></a>
+                    <span class="name "><b>ThemeRegistry</b><a href="#ThemeRegistry"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../interfaces/Theme.html" target="_self" >Record&lt;TClient | Record&lt;string, Theme&gt;&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TokenOverrides"></a>
+                    <span class="name "><b>TokenOverrides</b><a href="#TokenOverrides"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Partial&lt;Record&lt;T, string&gt;&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TransitionTokens"></a>
+                    <span class="name "><b>TransitionTokens</b><a href="#TransitionTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TypographyTokens"></a>
+                    <span class="name "><b>TypographyTokens</b><a href="#TypographyTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ZIndexTokens"></a>
+                    <span class="name "><b>ZIndexTokens</b><a href="#ZIndexTokens"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>        <code><a href="../miscellaneous/typealiases.html#TokenOverrides" target="_self" >TokenOverrides&lt;unknown&gt;</a></code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>src/lib/design-tokens.ts</h3>
+    <section data-compodoc="block-typealias">
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TokenMap"></a>
+                    <span class="name "><b>TokenMap</b><a href="#TokenMap"><span class="icon ion-ios-link"></span></a></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <code>    <code>Record&lt;string | string&gt;</code>
+</code>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-typealiases';
+            var COMPODOC_CURRENT_PAGE_URL = 'typealiases.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,1633 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@zgames/design-tokens documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@zgames/design-tokens documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Theme</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/lib/design-tokens.types.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#badge" 
+>
+                                            badge
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#breadcrumb" 
+>
+                                            breadcrumb
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#button" 
+>
+                                            button
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#casinoCatalogHeader" 
+>
+                                            casinoCatalogHeader
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#casinoGameCard" 
+>
+                                            casinoGameCard
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#casinoGamesGridSection" 
+>
+                                            casinoGamesGridSection
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#casinoHomeHero" 
+>
+                                            casinoHomeHero
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#casinoProviderCarousel" 
+>
+                                            casinoProviderCarousel
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#casinoProviderParallaxShowcase" 
+>
+                                            casinoProviderParallaxShowcase
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#casinoRankedGamesCarouselSection" 
+>
+                                            casinoRankedGamesCarouselSection
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#casinoSearchBar" 
+>
+                                            casinoSearchBar
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#casinoTwoRowGamesCarouselSection" 
+>
+                                            casinoTwoRowGamesCarouselSection
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#chip" 
+>
+                                            chip
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#color" 
+>
+                                            color
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#contentSectionHeader" 
+>
+                                            contentSectionHeader
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#input" 
+>
+                                            input
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#luckyPicker" 
+>
+                                            luckyPicker
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#primitives" 
+>
+                                            primitives
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#radius" 
+>
+                                            radius
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#sectionActions" 
+>
+                                            sectionActions
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#sectionTitle" 
+>
+                                            sectionTitle
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#shadow" 
+>
+                                            shadow
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#siteHeader" 
+>
+                                            siteHeader
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#spacing" 
+>
+                                            spacing
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#transition" 
+>
+                                            transition
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#typography" 
+>
+                                            typography
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#zIndex" 
+>
+                                            zIndex
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="badge"></a>
+                                        <span class="name "><b>badge</b>
+                                            <a href="#badge">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>badge:         <code><a href="../miscellaneous/typealiases.html#BadgeTokens" target="_self" >BadgeTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#BadgeTokens" target="_self" >BadgeTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="breadcrumb"></a>
+                                        <span class="name "><b>breadcrumb</b>
+                                            <a href="#breadcrumb">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>breadcrumb:         <code><a href="../miscellaneous/typealiases.html#BreadcrumbTokens" target="_self" >BreadcrumbTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#BreadcrumbTokens" target="_self" >BreadcrumbTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="button"></a>
+                                        <span class="name "><b>button</b>
+                                            <a href="#button">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>button:         <code><a href="../miscellaneous/typealiases.html#ButtonTokens" target="_self" >ButtonTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ButtonTokens" target="_self" >ButtonTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casinoCatalogHeader"></a>
+                                        <span class="name "><b>casinoCatalogHeader</b>
+                                            <a href="#casinoCatalogHeader">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casinoCatalogHeader:         <code><a href="../miscellaneous/typealiases.html#CasinoCatalogHeaderTokens" target="_self" >CasinoCatalogHeaderTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CasinoCatalogHeaderTokens" target="_self" >CasinoCatalogHeaderTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casinoGameCard"></a>
+                                        <span class="name "><b>casinoGameCard</b>
+                                            <a href="#casinoGameCard">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casinoGameCard:         <code><a href="../miscellaneous/typealiases.html#CasinoGameCardTokens" target="_self" >CasinoGameCardTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CasinoGameCardTokens" target="_self" >CasinoGameCardTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casinoGamesGridSection"></a>
+                                        <span class="name "><b>casinoGamesGridSection</b>
+                                            <a href="#casinoGamesGridSection">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casinoGamesGridSection:         <code><a href="../miscellaneous/typealiases.html#CasinoGamesGridSectionTokens" target="_self" >CasinoGamesGridSectionTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CasinoGamesGridSectionTokens" target="_self" >CasinoGamesGridSectionTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casinoHomeHero"></a>
+                                        <span class="name "><b>casinoHomeHero</b>
+                                            <a href="#casinoHomeHero">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casinoHomeHero:         <code><a href="../miscellaneous/typealiases.html#CasinoHomeHeroTokens" target="_self" >CasinoHomeHeroTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CasinoHomeHeroTokens" target="_self" >CasinoHomeHeroTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casinoProviderCarousel"></a>
+                                        <span class="name "><b>casinoProviderCarousel</b>
+                                            <a href="#casinoProviderCarousel">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casinoProviderCarousel:         <code><a href="../miscellaneous/typealiases.html#CasinoProviderCarouselTokens" target="_self" >CasinoProviderCarouselTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CasinoProviderCarouselTokens" target="_self" >CasinoProviderCarouselTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casinoProviderParallaxShowcase"></a>
+                                        <span class="name "><b>casinoProviderParallaxShowcase</b>
+                                            <a href="#casinoProviderParallaxShowcase">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casinoProviderParallaxShowcase:         <code><a href="../miscellaneous/typealiases.html#CasinoProviderParallaxShowcaseTokens" target="_self" >CasinoProviderParallaxShowcaseTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CasinoProviderParallaxShowcaseTokens" target="_self" >CasinoProviderParallaxShowcaseTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casinoRankedGamesCarouselSection"></a>
+                                        <span class="name "><b>casinoRankedGamesCarouselSection</b>
+                                            <a href="#casinoRankedGamesCarouselSection">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casinoRankedGamesCarouselSection:         <code><a href="../miscellaneous/typealiases.html#CasinoRankedGamesCarouselSectionTokens" target="_self" >CasinoRankedGamesCarouselSectionTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CasinoRankedGamesCarouselSectionTokens" target="_self" >CasinoRankedGamesCarouselSectionTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casinoSearchBar"></a>
+                                        <span class="name "><b>casinoSearchBar</b>
+                                            <a href="#casinoSearchBar">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casinoSearchBar:         <code><a href="../miscellaneous/typealiases.html#CasinoSearchBarTokens" target="_self" >CasinoSearchBarTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CasinoSearchBarTokens" target="_self" >CasinoSearchBarTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="casinoTwoRowGamesCarouselSection"></a>
+                                        <span class="name "><b>casinoTwoRowGamesCarouselSection</b>
+                                            <a href="#casinoTwoRowGamesCarouselSection">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>casinoTwoRowGamesCarouselSection:         <code><a href="../miscellaneous/typealiases.html#CasinoTwoRowGamesCarouselSectionTokens" target="_self" >CasinoTwoRowGamesCarouselSectionTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#CasinoTwoRowGamesCarouselSectionTokens" target="_self" >CasinoTwoRowGamesCarouselSectionTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="chip"></a>
+                                        <span class="name "><b>chip</b>
+                                            <a href="#chip">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>chip:         <code><a href="../miscellaneous/typealiases.html#ChipTokens" target="_self" >ChipTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ChipTokens" target="_self" >ChipTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="color"></a>
+                                        <span class="name "><b>color</b>
+                                            <a href="#color">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>color:         <code><a href="../miscellaneous/typealiases.html#SemanticColorTokens" target="_self" >SemanticColorTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#SemanticColorTokens" target="_self" >SemanticColorTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="contentSectionHeader"></a>
+                                        <span class="name "><b>contentSectionHeader</b>
+                                            <a href="#contentSectionHeader">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>contentSectionHeader:         <code><a href="../miscellaneous/typealiases.html#ContentSectionHeaderTokens" target="_self" >ContentSectionHeaderTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ContentSectionHeaderTokens" target="_self" >ContentSectionHeaderTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="input"></a>
+                                        <span class="name "><b>input</b>
+                                            <a href="#input">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>input:         <code><a href="../miscellaneous/typealiases.html#InputTokens" target="_self" >InputTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#InputTokens" target="_self" >InputTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="luckyPicker"></a>
+                                        <span class="name "><b>luckyPicker</b>
+                                            <a href="#luckyPicker">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>luckyPicker:         <code><a href="../miscellaneous/typealiases.html#LuckyPickerTokens" target="_self" >LuckyPickerTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#LuckyPickerTokens" target="_self" >LuckyPickerTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="primitives"></a>
+                                        <span class="name "><b>primitives</b>
+                                            <a href="#primitives">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>primitives:         <code><a href="../interfaces/PrimitiveTokens.html" target="_self" >PrimitiveTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/PrimitiveTokens.html" target="_self" >PrimitiveTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="radius"></a>
+                                        <span class="name "><b>radius</b>
+                                            <a href="#radius">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>radius:         <code><a href="../miscellaneous/typealiases.html#RadiusTokens" target="_self" >RadiusTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#RadiusTokens" target="_self" >RadiusTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="sectionActions"></a>
+                                        <span class="name "><b>sectionActions</b>
+                                            <a href="#sectionActions">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>sectionActions:         <code><a href="../miscellaneous/typealiases.html#SectionActionsTokens" target="_self" >SectionActionsTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#SectionActionsTokens" target="_self" >SectionActionsTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="sectionTitle"></a>
+                                        <span class="name "><b>sectionTitle</b>
+                                            <a href="#sectionTitle">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>sectionTitle:         <code><a href="../miscellaneous/typealiases.html#SectionTitleTokens" target="_self" >SectionTitleTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#SectionTitleTokens" target="_self" >SectionTitleTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="shadow"></a>
+                                        <span class="name "><b>shadow</b>
+                                            <a href="#shadow">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>shadow:         <code><a href="../miscellaneous/typealiases.html#ShadowTokens" target="_self" >ShadowTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ShadowTokens" target="_self" >ShadowTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="siteHeader"></a>
+                                        <span class="name "><b>siteHeader</b>
+                                            <a href="#siteHeader">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>siteHeader:         <code><a href="../miscellaneous/typealiases.html#SiteHeaderTokens" target="_self" >SiteHeaderTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#SiteHeaderTokens" target="_self" >SiteHeaderTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="spacing"></a>
+                                        <span class="name "><b>spacing</b>
+                                            <a href="#spacing">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>spacing:         <code><a href="../miscellaneous/typealiases.html#SpacingTokens" target="_self" >SpacingTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#SpacingTokens" target="_self" >SpacingTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="transition"></a>
+                                        <span class="name "><b>transition</b>
+                                            <a href="#transition">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>transition:         <code><a href="../miscellaneous/typealiases.html#TransitionTokens" target="_self" >TransitionTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#TransitionTokens" target="_self" >TransitionTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="typography"></a>
+                                        <span class="name "><b>typography</b>
+                                            <a href="#typography">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>typography:         <code><a href="../miscellaneous/typealiases.html#TypographyTokens" target="_self" >TypographyTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#TypographyTokens" target="_self" >TypographyTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="zIndex"></a>
+                                        <span class="name "><b>zIndex</b>
+                                            <a href="#zIndex">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>zIndex:         <code><a href="../miscellaneous/typealiases.html#ZIndexTokens" target="_self" >ZIndexTokens</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#ZIndexTokens" target="_self" >ZIndexTokens</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type {
+  badgeTokens,
+  breadcrumbTokens,
+  buttonTokens,
+  casinoGameCardTokens,
+  casinoProviderParallaxShowcaseTokens,
+  casinoRankedGamesCarouselSectionTokens,
+  casinoProviderCarouselTokens,
+  casinoSearchBarTokens,
+  casinoTwoRowGamesCarouselSectionTokens,
+  chipTokens,
+  casinoCatalogHeaderTokens,
+  casinoHomeHeroTokens,
+  casinoGamesGridSectionTokens,
+  colorTokens,
+  contentSectionHeaderTokens,
+  inputTokens,
+  luckyPickerTokens,
+  radiusTokens,
+  sectionActionsTokens,
+  sectionTitleTokens,
+  siteHeaderTokens,
+  shadowTokens,
+  spacingTokens,
+  transitionTokens,
+  typographyThemeTokens,
+  zIndexTokens,
+} from &#x27;./tokens&#x27;;
+
+export type TokenOverrides&lt;T extends Record&lt;string, string&gt;&gt; &#x3D; Partial&lt;Record&lt;keyof T, string&gt;&gt;;
+
+/**
+ * Primitive color scales for theming.
+ * These are raw values, not semantic aliases.
+ */
+export interface PrimitiveTokens {
+  green950?: string;
+  green900?: string;
+  green800?: string;
+  green700?: string;
+  green600?: string;
+  green500?: string;
+  green400?: string;
+  green300?: string;
+  green200?: string;
+  green100?: string;
+  green50?: string;
+  orange900?: string;
+  orange800?: string;
+  orange700?: string;
+  orange600?: string;
+  orange500?: string;
+  orange400?: string;
+  orange300?: string;
+  orange200?: string;
+  orange100?: string;
+  red900?: string;
+  red800?: string;
+  red700?: string;
+  red600?: string;
+  red500?: string;
+  red400?: string;
+  red300?: string;
+  red200?: string;
+  red100?: string;
+  red50?: string;
+  yellow900?: string;
+  yellow800?: string;
+  yellow700?: string;
+  yellow600?: string;
+  yellow500?: string;
+  yellow400?: string;
+  yellow300?: string;
+  yellow200?: string;
+  yellow100?: string;
+  blue900?: string;
+  blue800?: string;
+  blue700?: string;
+  blue600?: string;
+  blue500?: string;
+  blue400?: string;
+  blue300?: string;
+  blue200?: string;
+  blue100?: string;
+  neutral100?: string;
+  neutral200?: string;
+  neutral300?: string;
+  neutral400?: string;
+  neutral500?: string;
+  neutral600?: string;
+  neutral700?: string;
+  neutral800?: string;
+  neutral900?: string;
+}
+
+export type SemanticColorTokens &#x3D; TokenOverrides&lt;typeof colorTokens&gt;;
+export type TypographyTokens &#x3D; TokenOverrides&lt;typeof typographyThemeTokens&gt;;
+export type SpacingTokens &#x3D; TokenOverrides&lt;typeof spacingTokens&gt;;
+export type RadiusTokens &#x3D; TokenOverrides&lt;typeof radiusTokens&gt;;
+export type ShadowTokens &#x3D; TokenOverrides&lt;typeof shadowTokens&gt;;
+export type ZIndexTokens &#x3D; TokenOverrides&lt;typeof zIndexTokens&gt;;
+export type TransitionTokens &#x3D; TokenOverrides&lt;typeof transitionTokens&gt;;
+export type ButtonTokens &#x3D; TokenOverrides&lt;typeof buttonTokens&gt;;
+export type InputTokens &#x3D; TokenOverrides&lt;typeof inputTokens&gt;;
+export type BadgeTokens &#x3D; TokenOverrides&lt;typeof badgeTokens&gt;;
+export type ChipTokens &#x3D; TokenOverrides&lt;typeof chipTokens&gt;;
+export type CasinoCatalogHeaderTokens &#x3D; TokenOverrides&lt;typeof casinoCatalogHeaderTokens&gt;;
+export type CasinoHomeHeroTokens &#x3D; TokenOverrides&lt;typeof casinoHomeHeroTokens&gt;;
+export type CasinoGamesGridSectionTokens &#x3D; TokenOverrides&lt;typeof casinoGamesGridSectionTokens&gt;;
+export type BreadcrumbTokens &#x3D; TokenOverrides&lt;typeof breadcrumbTokens&gt;;
+export type CasinoGameCardTokens &#x3D; TokenOverrides&lt;typeof casinoGameCardTokens&gt;;
+export type CasinoRankedGamesCarouselSectionTokens &#x3D; TokenOverrides&lt;
+  typeof casinoRankedGamesCarouselSectionTokens
+&gt;;
+export type CasinoProviderCarouselTokens &#x3D; TokenOverrides&lt;typeof casinoProviderCarouselTokens&gt;;
+export type CasinoSearchBarTokens &#x3D; TokenOverrides&lt;typeof casinoSearchBarTokens&gt;;
+export type CasinoTwoRowGamesCarouselSectionTokens &#x3D; TokenOverrides&lt;
+  typeof casinoTwoRowGamesCarouselSectionTokens
+&gt;;
+export type CasinoProviderParallaxShowcaseTokens &#x3D; TokenOverrides&lt;
+  typeof casinoProviderParallaxShowcaseTokens
+&gt;;
+export type LuckyPickerTokens &#x3D; TokenOverrides&lt;typeof luckyPickerTokens&gt;;
+export type SectionTitleTokens &#x3D; TokenOverrides&lt;typeof sectionTitleTokens&gt;;
+export type SectionActionsTokens &#x3D; TokenOverrides&lt;typeof sectionActionsTokens&gt;;
+export type ContentSectionHeaderTokens &#x3D; TokenOverrides&lt;typeof contentSectionHeaderTokens&gt;;
+export type SiteHeaderTokens &#x3D; TokenOverrides&lt;typeof siteHeaderTokens&gt;;
+
+export interface Theme {
+  primitives?: PrimitiveTokens;
+  color?: SemanticColorTokens;
+  typography?: TypographyTokens;
+  spacing?: SpacingTokens;
+  radius?: RadiusTokens;
+  shadow?: ShadowTokens;
+  zIndex?: ZIndexTokens;
+  transition?: TransitionTokens;
+  button?: ButtonTokens;
+  input?: InputTokens;
+  badge?: BadgeTokens;
+  chip?: ChipTokens;
+  casinoCatalogHeader?: CasinoCatalogHeaderTokens;
+  casinoHomeHero?: CasinoHomeHeroTokens;
+  casinoGamesGridSection?: CasinoGamesGridSectionTokens;
+  breadcrumb?: BreadcrumbTokens;
+  casinoGameCard?: CasinoGameCardTokens;
+  casinoRankedGamesCarouselSection?: CasinoRankedGamesCarouselSectionTokens;
+  casinoProviderCarousel?: CasinoProviderCarouselTokens;
+  casinoSearchBar?: CasinoSearchBarTokens;
+  casinoTwoRowGamesCarouselSection?: CasinoTwoRowGamesCarouselSectionTokens;
+  casinoProviderParallaxShowcase?: CasinoProviderParallaxShowcaseTokens;
+  luckyPicker?: LuckyPickerTokens;
+  sectionTitle?: SectionTitleTokens;
+  sectionActions?: SectionActionsTokens;
+  contentSectionHeader?: ContentSectionHeaderTokens;
+  siteHeader?: SiteHeaderTokens;
+}
+
+export type ThemeRegistry&lt;TClient extends string &#x3D; string&gt; &#x3D; Record&lt;TClient, Record&lt;string, Theme&gt;&gt;;
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Theme.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
