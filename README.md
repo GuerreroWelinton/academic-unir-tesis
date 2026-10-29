@@ -6,7 +6,7 @@ A modern, accessible, and themeable Angular component library for iGaming applic
 
 ## 📋 Overview
 
-This is an MVP of a reusable UI component library for ZGames Technology. The library follows Angular best practices, prioritizes accessibility (WCAG), and provides a consistent design system with multi-client theming capabilities.
+**The public version of a private system.** This is my Master's thesis project (Trabajo de Fin de Máster, UNIR): an MVP of a reusable UI component library built with the same architecture I use at ZGames Technology, an iGaming company whose production system is private. The library follows Angular best practices, prioritizes accessibility (WCAG), and provides a consistent design system with multi-client theming capabilities.
 
 ## 🏗️ Architecture
 
