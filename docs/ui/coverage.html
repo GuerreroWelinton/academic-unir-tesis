@@ -1,0 +1,3795 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@zgames/ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+        <link rel="stylesheet" href="./styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">@zgames/ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content coverage">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Documentation coverage</li>
+</ol>
+
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgBadgeComponent.html">src/lib/atoms/badge/badge.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgBadgeComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(12/12)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#BadgeShape">src/lib/atoms/badge/badge.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>BadgeShape</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#BadgeSize">src/lib/atoms/badge/badge.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>BadgeSize</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#BadgeVariant">src/lib/atoms/badge/badge.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>BadgeVariant</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#DotMode">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>DotMode</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#NumericWithMax">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>NumericWithMax</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Removable">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Removable</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/atoms/badge/badge.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgButtonComponent.html">src/lib/atoms/button/button.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgButtonComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(15/15)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#ButtonFontFamily">src/lib/atoms/button/button.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>ButtonFontFamily</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#ButtonShape">src/lib/atoms/button/button.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>ButtonShape</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#ButtonSize">src/lib/atoms/button/button.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>ButtonSize</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#ButtonType">src/lib/atoms/button/button.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>ButtonType</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#ButtonVariant">src/lib/atoms/button/button.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>ButtonVariant</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#FontFamilies">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>FontFamilies</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Shapes">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Shapes</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/atoms/button/button.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgChipComponent.html">src/lib/atoms/chip/chip.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgChipComponent</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(11/11)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#ChipSize">src/lib/atoms/chip/chip.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>ChipSize</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#ChipVariant">src/lib/atoms/chip/chip.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>ChipVariant</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractiveToggle">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractiveToggle</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#SelectedVariants">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>SelectedVariants</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/atoms/chip/chip.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#HelperAndError">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>HelperAndError</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractiveClear">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractiveClear</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/atoms/input/input.component.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgInputComponent.html">src/lib/atoms/input/input.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgInputComponent</td>
+            <td align="right" data-sort="71">
+                <span class="coverage-percent">71 %</span>
+                <span class="coverage-count">(23/32)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#nextInputId">src/lib/atoms/input/input.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>nextInputId</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#InputSize">src/lib/atoms/input/input.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>InputSize</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#InputType">src/lib/atoms/input/input.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>InputType</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgSectionTitleComponent.html">src/lib/atoms/section-title/section-title.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgSectionTitleComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#SectionTitleFontFamily">src/lib/atoms/section-title/section-title.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>SectionTitleFontFamily</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#SectionTitleSize">src/lib/atoms/section-title/section-title.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>SectionTitleSize</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#SectionTitleTone">src/lib/atoms/section-title/section-title.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>SectionTitleTone</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EmptyAndEdgeCases">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EmptyAndEdgeCases</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#FontFamilies">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>FontFamilies</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/atoms/section-title/section-title.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoCatalogHeaderComponent.html">src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoCatalogHeaderComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/casino/casino-catalog-header/casino-catalog-header.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoGameCardComponent.html">src/lib/molecules/casino/casino-game-card/casino-game-card.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoGameCardComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/17)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#CasinoGameCardAspectRatio">src/lib/molecules/casino/casino-game-card/casino-game-card.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>CasinoGameCardAspectRatio</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#GameCardAspectRatio">src/lib/molecules/casino/casino-game-card/casino-game-card.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>GameCardAspectRatio</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Disabled">src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Disabled</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/casino/casino-game-card/casino-game-card.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoProviderCarouselComponent.html">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoProviderCarouselComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/CasinoProviderCarouselItem.html">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CasinoProviderCarouselItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#baseProviders">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>baseProviders</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EmptyAndEdgeCases">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EmptyAndEdgeCases</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/casino/casino-provider-carousel/casino-provider-carousel.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoSearchBarComponent.html">src/lib/molecules/casino/casino-search-bar/casino-search-bar.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoSearchBarComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Controlled">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Controlled</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EmptyAndEdgeCases">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EmptyAndEdgeCases</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Placeholders">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Placeholders</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ProvidersAction">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ProvidersAction</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#SubmitInteraction">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>SubmitInteraction</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/casino/casino-search-bar/casino-search-bar.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgLuckyPickerComponent.html">src/lib/molecules/casino/lucky-picker/lucky-picker.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgLuckyPickerComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#LuckyPickerSize">src/lib/molecules/casino/lucky-picker/lucky-picker.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>LuckyPickerSize</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#LuckyPickerTone">src/lib/molecules/casino/lucky-picker/lucky-picker.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>LuckyPickerTone</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/casino/lucky-picker/lucky-picker.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgBreadcrumbComponent.html">src/lib/molecules/shared/breadcrumb/breadcrumb.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgBreadcrumbComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/BreadcrumbItem.html">src/lib/molecules/shared/breadcrumb/breadcrumb.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>BreadcrumbItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/shared/breadcrumb/breadcrumb.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCategoryFilterTabsComponent.html">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCategoryFilterTabsComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/CategoryFilterTabItem.html">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CategoryFilterTabItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#CategoryFilterTabsLayoutMode">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>CategoryFilterTabsLayoutMode</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractiveSelection">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractiveSelection</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#sampleItems">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>sampleItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/shared/category-filter-tabs/category-filter-tabs.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgContentSectionHeaderComponent.html">src/lib/molecules/shared/content-section-header/content-section-header.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgContentSectionHeaderComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/shared/content-section-header/content-section-header.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgHorizontalListLayoutComponent.html">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgHorizontalListLayoutComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/HorizontalListScrollState.html">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>HorizontalListScrollState</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#HorizontalListLayoutMode">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.component.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>HorizontalListLayoutMode</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/DemoChipItem.html">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>interface</td>
+            <td>DemoChipItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#OtherAtoms">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>OtherAtoms</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#sampleItems">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>sampleItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#WithGameCards">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>WithGameCards</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgSectionActionsComponent.html">src/lib/molecules/shared/section-actions/section-actions.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgSectionActionsComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/molecules/shared/section-actions/section-actions.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/molecules/shared/section-actions/section-actions.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/molecules/shared/section-actions/section-actions.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/molecules/shared/section-actions/section-actions.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/molecules/shared/section-actions/section-actions.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/molecules/shared/section-actions/section-actions.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/molecules/shared/section-actions/section-actions.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/molecules/shared/section-actions/section-actions.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/molecules/shared/section-actions/section-actions.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoGamesCarouselSectionComponent.html">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoGamesCarouselSectionComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/29)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/CasinoGamesCarouselSectionItem.html">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CasinoGamesCarouselSectionItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#sampleItems">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>sampleItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/organisms/casino/casino-games-carousel-section/casino-games-carousel-section.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoGamesGridSectionComponent.html">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoGamesGridSectionComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EmptyAndEdgeCases">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EmptyAndEdgeCases</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#sampleItems">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>sampleItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/organisms/casino/casino-games-grid-section/casino-games-grid-section.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoHomeHeroComponent.html">src/lib/organisms/casino/casino-home-hero/casino-home-hero.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoHomeHeroComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/20)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EmptyAndEdgeCases">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EmptyAndEdgeCases</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/organisms/casino/casino-home-hero/casino-home-hero.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoProviderParallaxShowcaseComponent.html">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoProviderParallaxShowcaseComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#sampleItems">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>sampleItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/organisms/casino/casino-provider-parallax-showcase/casino-provider-parallax-showcase.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoRankedGamesCarouselSectionComponent.html">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoRankedGamesCarouselSectionComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/30)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/CasinoRankedGamesCarouselItem.html">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CasinoRankedGamesCarouselItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#sampleItems">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>sampleItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/organisms/casino/casino-ranked-games-carousel-section/casino-ranked-games-carousel-section.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoTwoRowGamesCarouselSectionComponent.html">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoTwoRowGamesCarouselSectionComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/32)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/CasinoTwoRowGamesCarouselSectionItem.html">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CasinoTwoRowGamesCarouselSectionItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/TwoRowColumn.html">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>TwoRowColumn</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#InteractivePreview">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>InteractivePreview</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#sampleItems">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>sampleItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Sizes">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Sizes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#States">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>States</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Variants">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Variants</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/organisms/casino/casino-two-row-games-carousel-section/casino-two-row-games-carousel-section.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgSiteHeaderComponent.html">src/lib/organisms/shared/site-header/site-header.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgSiteHeaderComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/23)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./interfaces/SiteHeaderNavItem.html">src/lib/organisms/shared/site-header/site-header.component.ts</a>
+            </td>
+            <td>interface</td>
+            <td>SiteHeaderNavItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/organisms/shared/site-header/site-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/organisms/shared/site-header/site-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#defaultNavItems">src/lib/organisms/shared/site-header/site-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>defaultNavItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#LongNavigation">src/lib/organisms/shared/site-header/site-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>LongNavigation</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/organisms/shared/site-header/site-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Minimal">src/lib/organisms/shared/site-header/site-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Minimal</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#WithDisabledItem">src/lib/organisms/shared/site-header/site-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>WithDisabledItem</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#WithoutAuthActions">src/lib/organisms/shared/site-header/site-header.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>WithoutAuthActions</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/organisms/shared/site-header/site-header.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoGamesGridTemplateComponent.html">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoGamesGridTemplateComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AccessibilityDemo">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AccessibilityDemo</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AllGamesPage">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AllGamesPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#baseGridGames">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>baseGridGames</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#categories">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>categories</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#gridGames">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>gridGames</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#mostBetGames">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>mostBetGames</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MostBetPage">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MostBetPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#mostPlayedGames">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>mostPlayedGames</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MostPlayedGamesPage">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MostPlayedGamesPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#siteHeaderNavItems">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>siteHeaderNavItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#WithoutCategories">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>WithoutCategories</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/templates/casino/casino-games-grid-template/casino-games-grid-template.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./components/ZgCasinoHomeTemplateComponent.html">src/lib/templates/casino/casino-home-template/casino-home-template.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ZgCasinoHomeTemplateComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#allGamesExtraItems">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>allGamesExtraItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#allGamesTwoRowItems">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>allGamesTwoRowItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#CarouselHeavyStructure">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>CarouselHeavyStructure</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#categories">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>categories</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Composition">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Composition</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#Default">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>Default</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#HomeWithoutHero">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>HomeWithoutHero</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="very-good">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#meta">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>meta</td>
+            <td align="right" data-sort="100">
+                <span class="coverage-percent">100 %</span>
+                <span class="coverage-count">(1/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MixedSectionOrder">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MixedSectionOrder</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#portraitGames">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>portraitGames</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ProviderFocusedStructure">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ProviderFocusedStructure</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#providerItems">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>providerItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#siteHeaderNavItems">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>siteHeaderNavItems</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#squareGames">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>variable</td>
+            <td>squareGames</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#Story">src/lib/templates/casino/casino-home-template/casino-home-template.stories.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>Story</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

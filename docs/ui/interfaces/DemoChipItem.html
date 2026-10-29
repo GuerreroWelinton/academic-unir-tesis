@@ -1,0 +1,886 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>@zgames/ui documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+        <link rel="stylesheet" href="../styles/material.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">@zgames/ui documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DemoChipItem</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/lib/molecules/shared/horizontal-list-layout/horizontal-list-layout.stories.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#disabled" 
+>
+                                            disabled
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#id" 
+>
+                                            id
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#label" 
+>
+                                            label
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#selected" 
+>
+                                            selected
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#size" 
+>
+                                            size
+                                        </a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#variant" 
+>
+                                            variant
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="disabled"></a>
+                                        <span class="name "><b>disabled</b>
+                                            <a href="#disabled">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>disabled:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="id"></a>
+                                        <span class="name "><b>id</b>
+                                            <a href="#id">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>id:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="label"></a>
+                                        <span class="name "><b>label</b>
+                                            <a href="#label">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>label:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="selected"></a>
+                                        <span class="name "><b>selected</b>
+                                            <a href="#selected">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>selected:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="size"></a>
+                                        <span class="name "><b>size</b>
+                                            <a href="#size">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>size:     <code>&quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;sm&quot; | &quot;md&quot; | &quot;lg&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="variant"></a>
+                                        <span class="name "><b>variant</b>
+                                            <a href="#variant">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>variant:     <code>&quot;filled&quot; | &quot;outlined&quot; | &quot;ghost&quot;</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>&quot;filled&quot; | &quot;outlined&quot; | &quot;ghost&quot;</code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import type { Meta, StoryObj } from &#x27;@storybook/angular&#x27;;
+import { moduleMetadata } from &#x27;@storybook/angular&#x27;;
+import { expect } from &#x27;@storybook/jest&#x27;;
+import { userEvent, within } from &#x27;@storybook/testing-library&#x27;;
+import { NgIconComponent, provideIcons } from &#x27;@ng-icons/core&#x27;;
+import { lucideTag } from &#x27;@ng-icons/lucide&#x27;;
+import { ZgBadgeComponent } from &#x27;../../../atoms/badge/badge.component&#x27;;
+import { ZgButtonComponent } from &#x27;../../../atoms/button/button.component&#x27;;
+import { ZgChipComponent } from &#x27;../../../atoms/chip/chip.component&#x27;;
+import { ZgCasinoGameCardComponent } from &#x27;../../casino/casino-game-card/casino-game-card.component&#x27;;
+import { ZgHorizontalListLayoutComponent } from &#x27;./horizontal-list-layout.component&#x27;;
+
+interface DemoChipItem {
+  id: string;
+  label: string;
+  selected?: boolean;
+  disabled?: boolean;
+  variant?: &#x27;filled&#x27; | &#x27;outlined&#x27; | &#x27;ghost&#x27;;
+  size?: &#x27;sm&#x27; | &#x27;md&#x27; | &#x27;lg&#x27;;
+}
+
+const sampleItems: DemoChipItem[] &#x3D; [
+  { id: &#x27;all&#x27;, label: &#x27;All games&#x27;, selected: true },
+  { id: &#x27;slots&#x27;, label: &#x27;Slots&#x27; },
+  { id: &#x27;live&#x27;, label: &#x27;Live casino&#x27; },
+  { id: &#x27;crash&#x27;, label: &#x27;Crash&#x27; },
+];
+
+/**
+ * Horizontal List Layout for projecting any horizontal list content rendered by the consumer.
+ *
+ * ## Usage Guide
+ * **When to use:**
+ * - You need a reusable wrapper for horizontal item lists while keeping rendering logic in the consumer.
+ * - You need layout consistency without coupling this molecule to a specific atom.
+ * - You want full control over projected item content and behavior.
+ *
+ * **When NOT to use:**
+ * - If you want built-in selection logic and controlled state events; use &#x60;zg-category-filter-tabs&#x60;.
+ * - If there is no list/group semantics required for projected controls.
+ *
+ * ## Accessibility
+ * - Renders a semantic &#x60;nav&#x60; with configurable &#x60;aria-label&#x60;.
+ * - Consumer owns projected item semantics and interaction behavior.
+ */
+const meta: Meta&lt;ZgHorizontalListLayoutComponent&gt; &#x3D; {
+  title: &#x27;Molecules/Shared/Horizontal List Layout&#x27;,
+  component: ZgHorizontalListLayoutComponent,
+  tags: [&#x27;autodocs&#x27;],
+  parameters: {
+    docs: {
+      source: {
+        type: &#x27;dynamic&#x27;,
+      },
+    },
+  },
+  decorators: [
+    moduleMetadata({
+      imports: [
+        ZgBadgeComponent,
+        ZgButtonComponent,
+        ZgChipComponent,
+        ZgCasinoGameCardComponent,
+        NgIconComponent,
+      ],
+      providers: [provideIcons({ lucideTag })],
+    }),
+  ],
+  argTypes: {
+    ariaLabel: {
+      control: &#x27;text&#x27;,
+      description: &#x27;Accessible label used by the wrapping nav element&#x27;,
+      table: { defaultValue: { summary: &#x27;Horizontal list&#x27; } },
+    },
+    layoutMode: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;scroll&#x27;, &#x27;wrap&#x27;],
+      description: &#x27;Layout behavior: single-row scroll or multi-row wrap&#x27;,
+      table: { defaultValue: { summary: &#x27;scroll&#x27; } },
+    },
+    scrollStep: {
+      control: { type: &#x27;number&#x27;, min: 80, step: 20 },
+      description: &#x27;Horizontal pixels scrolled by public next/prev methods&#x27;,
+      table: { defaultValue: { summary: &#x27;320&#x27; } },
+    },
+    scrollBehavior: {
+      control: &#x27;select&#x27;,
+      options: [&#x27;auto&#x27;, &#x27;smooth&#x27;],
+      description: &#x27;Scroll behavior used by public next/prev methods&#x27;,
+      table: { defaultValue: { summary: &#x27;smooth&#x27; } },
+    },
+    scrollStateChange: {
+      action: &#x27;scrollStateChange&#x27;,
+      description: &#x27;Emitted when horizontal scroll availability changes&#x27;,
+      table: { category: &#x27;Events&#x27; },
+    },
+  },
+};
+
+export default meta;
+type Story &#x3D; StoryObj&lt;ZgHorizontalListLayoutComponent&gt;;
+
+export const Default: Story &#x3D; {
+  args: {
+    ariaLabel: &#x27;Casino categories&#x27;,
+    layoutMode: &#x27;scroll&#x27;,
+    scrollStep: 320,
+    scrollBehavior: &#x27;smooth&#x27;,
+  },
+  render: (args) &#x3D;&gt; ({
+    props: {
+      ...args,
+      items: sampleItems,
+    },
+    template: &#x60;
+      &lt;zg-horizontal-list-layout
+        [ariaLabel]&#x3D;&quot;ariaLabel&quot;
+        [layoutMode]&#x3D;&quot;layoutMode&quot;
+        [scrollStep]&#x3D;&quot;scrollStep&quot;
+        [scrollBehavior]&#x3D;&quot;scrollBehavior&quot;
+      &gt;
+        @for (item of items; track item.id) {
+          &lt;li zg-horizontal-list-layout-items&gt;
+            &lt;zg-chip
+              [selected]&#x3D;&quot;item.selected &#x3D;&#x3D;&#x3D; true&quot;
+              [disabled]&#x3D;&quot;item.disabled &#x3D;&#x3D;&#x3D; true&quot;
+              variant&#x3D;&quot;ghost&quot;
+              size&#x3D;&quot;md&quot;
+            &gt;
+              {{ item.label }}
+            &lt;/zg-chip&gt;
+          &lt;/li&gt;
+        }
+      &lt;/zg-horizontal-list-layout&gt;
+    &#x60;,
+  }),
+};
+
+export const Variants: Story &#x3D; {
+  parameters: { controls: { disable: true } },
+  render: () &#x3D;&gt; ({
+    props: {
+      items: [
+        { id: &#x27;all&#x27;, label: &#x27;All&#x27;, selected: true, variant: &#x27;ghost&#x27; },
+        { id: &#x27;slots&#x27;, label: &#x27;Slots&#x27;, variant: &#x27;outlined&#x27; },
+        { id: &#x27;live&#x27;, label: &#x27;Live&#x27;, variant: &#x27;filled&#x27; },
+      ] as DemoChipItem[],
+    },
+    template: &#x60;
+      &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Variant demo&quot;&gt;
+        @for (item of items; track item.id) {
+          &lt;li zg-horizontal-list-layout-items&gt;
+            &lt;zg-chip [selected]&#x3D;&quot;item.selected &#x3D;&#x3D;&#x3D; true&quot; [variant]&#x3D;&quot;item.variant || &#x27;ghost&#x27;&quot;&gt;
+              {{ item.label }}
+            &lt;/zg-chip&gt;
+          &lt;/li&gt;
+        }
+      &lt;/zg-horizontal-list-layout&gt;
+    &#x60;,
+  }),
+};
+
+export const States: Story &#x3D; {
+  parameters: { controls: { disable: true } },
+  render: () &#x3D;&gt; ({
+    props: {
+      items: [
+        { id: &#x27;all&#x27;, label: &#x27;All&#x27;, selected: true },
+        { id: &#x27;slots&#x27;, label: &#x27;Slots&#x27; },
+        { id: &#x27;live&#x27;, label: &#x27;Live&#x27;, disabled: true },
+      ] as DemoChipItem[],
+    },
+    template: &#x60;
+      &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;State demo&quot;&gt;
+        @for (item of items; track item.id) {
+          &lt;li zg-horizontal-list-layout-items&gt;
+            &lt;zg-chip [selected]&#x3D;&quot;item.selected &#x3D;&#x3D;&#x3D; true&quot; [disabled]&#x3D;&quot;item.disabled &#x3D;&#x3D;&#x3D; true&quot;&gt;
+              {{ item.label }}
+            &lt;/zg-chip&gt;
+          &lt;/li&gt;
+        }
+      &lt;/zg-horizontal-list-layout&gt;
+    &#x60;,
+  }),
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+    const liveButton &#x3D; canvas.getByRole(&#x27;button&#x27;, { name: /live/i });
+    const allButton &#x3D; canvas.getByRole(&#x27;button&#x27;, { name: /all/i });
+
+    await expect(liveButton).toBeDisabled();
+    await expect(allButton).toHaveAttribute(&#x27;aria-pressed&#x27;, &#x27;true&#x27;);
+  },
+};
+
+export const Sizes: Story &#x3D; {
+  parameters: { controls: { disable: true } },
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: grid; gap: var(--zg-spacing-3);&quot;&gt;
+        &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Small chip row&quot;&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip size&#x3D;&quot;sm&quot;&gt;All&lt;/zg-chip&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip size&#x3D;&quot;sm&quot;&gt;Slots&lt;/zg-chip&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip size&#x3D;&quot;sm&quot;&gt;Live&lt;/zg-chip&gt;&lt;/li&gt;
+        &lt;/zg-horizontal-list-layout&gt;
+
+        &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Medium chip row&quot;&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip size&#x3D;&quot;md&quot;&gt;All&lt;/zg-chip&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip size&#x3D;&quot;md&quot;&gt;Slots&lt;/zg-chip&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip size&#x3D;&quot;md&quot;&gt;Live&lt;/zg-chip&gt;&lt;/li&gt;
+        &lt;/zg-horizontal-list-layout&gt;
+
+        &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Large chip row&quot;&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip size&#x3D;&quot;lg&quot;&gt;All&lt;/zg-chip&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip size&#x3D;&quot;lg&quot;&gt;Slots&lt;/zg-chip&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip size&#x3D;&quot;lg&quot;&gt;Live&lt;/zg-chip&gt;&lt;/li&gt;
+        &lt;/zg-horizontal-list-layout&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+};
+
+export const Composition: Story &#x3D; {
+  parameters: { controls: { disable: true } },
+  render: () &#x3D;&gt; ({
+    props: {
+      items: [
+        { id: &#x27;tagged-all&#x27;, label: &#x27;All games&#x27; },
+        { id: &#x27;tagged-slots&#x27;, label: &#x27;Slots&#x27; },
+      ] as DemoChipItem[],
+    },
+    template: &#x60;
+      &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Chip composition with icon&quot;&gt;
+        @for (item of items; track item.id) {
+          &lt;li zg-horizontal-list-layout-items&gt;
+            &lt;zg-chip&gt;
+              &lt;ng-container icon-left&gt;
+                &lt;ng-icon name&#x3D;&quot;lucideTag&quot; size&#x3D;&quot;1rem&quot; aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/ng-icon&gt;
+              &lt;/ng-container&gt;
+              {{ item.label }}
+            &lt;/zg-chip&gt;
+          &lt;/li&gt;
+        }
+      &lt;/zg-horizontal-list-layout&gt;
+    &#x60;,
+  }),
+};
+
+export const OtherAtoms: Story &#x3D; {
+  parameters: { controls: { disable: true } },
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display:grid;gap:var(--zg-spacing-3);&quot;&gt;
+        &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Quick actions&quot;&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-button variant&#x3D;&quot;secondary&quot; size&#x3D;&quot;sm&quot;&gt;Deposit&lt;/zg-button&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-button variant&#x3D;&quot;accent&quot; size&#x3D;&quot;sm&quot;&gt;Withdraw&lt;/zg-button&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-button variant&#x3D;&quot;ghost&quot; size&#x3D;&quot;sm&quot;&gt;History&lt;/zg-button&gt;&lt;/li&gt;
+        &lt;/zg-horizontal-list-layout&gt;
+
+        &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Status badges&quot;&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-badge variant&#x3D;&quot;success&quot;&gt;Live&lt;/zg-badge&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-badge variant&#x3D;&quot;warning&quot;&gt;Maintenance&lt;/zg-badge&gt;&lt;/li&gt;
+          &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-badge variant&#x3D;&quot;info&quot;&gt;New&lt;/zg-badge&gt;&lt;/li&gt;
+        &lt;/zg-horizontal-list-layout&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+};
+
+export const WithGameCards: Story &#x3D; {
+  parameters: { controls: { disable: true } },
+  render: () &#x3D;&gt; ({
+    props: {
+      cards: [
+        {
+          id: &#x27;blackjack-8&#x27;,
+          title: &#x27;Blackjack 8&#x27;,
+          provider: &#x27;Lucky Streak&#x27;,
+          imageUrl: &#x27;https://placehold.co/260x360?text&#x3D;Blackjack+8&#x27;,
+        },
+        {
+          id: &#x27;bonus-poker&#x27;,
+          title: &#x27;Bonus Poker&#x27;,
+          provider: &#x27;Genii&#x27;,
+          imageUrl: &#x27;https://placehold.co/260x360?text&#x3D;Bonus+Poker&#x27;,
+        },
+        {
+          id: &#x27;aces-faces&#x27;,
+          title: &#x27;Aces and Faces&#x27;,
+          provider: &#x27;Genii&#x27;,
+          imageUrl: &#x27;https://placehold.co/260x360?text&#x3D;Aces+and+Faces&#x27;,
+        },
+      ],
+    },
+    template: &#x60;
+      &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Featured games&quot; layoutMode&#x3D;&quot;scroll&quot;&gt;
+        @for (card of cards; track card.id) {
+          &lt;li zg-horizontal-list-layout-items style&#x3D;&quot;width: 180px;&quot;&gt;
+            &lt;zg-casino-game-card
+              [title]&#x3D;&quot;card.title&quot;
+              [provider]&#x3D;&quot;card.provider&quot;
+              [imageUrl]&#x3D;&quot;card.imageUrl&quot;
+              ctaLabel&#x3D;&quot;Play now&quot;
+            &gt;&lt;/zg-casino-game-card&gt;
+          &lt;/li&gt;
+        }
+      &lt;/zg-horizontal-list-layout&gt;
+    &#x60;,
+  }),
+};
+
+export const InteractivePreview: Story &#x3D; {
+  parameters: { controls: { disable: true } },
+  render: () &#x3D;&gt; ({
+    props: {
+      selectedId: &#x27;all&#x27;,
+      items: sampleItems,
+      onChipClick: function (id: string) {
+        this[&#x27;selectedId&#x27;] &#x3D; id;
+      },
+    },
+    template: &#x60;
+      &lt;div style&#x3D;&quot;display: grid; gap: var(--zg-spacing-2);&quot;&gt;
+        &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Interactive categories&quot;&gt;
+          @for (item of items; track item.id) {
+            &lt;li zg-horizontal-list-layout-items&gt;
+              &lt;zg-chip
+                [selected]&#x3D;&quot;selectedId &#x3D;&#x3D;&#x3D; item.id&quot;
+                (clicked)&#x3D;&quot;onChipClick(item.id)&quot;
+              &gt;
+                {{ item.label }}
+              &lt;/zg-chip&gt;
+            &lt;/li&gt;
+          }
+        &lt;/zg-horizontal-list-layout&gt;
+        &lt;div style&#x3D;&quot;font-size: var(--zg-font-size-sm); color: var(--zg-color-text-secondary);&quot;&gt;
+          Selected: {{ selectedId }}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &#x60;,
+  }),
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+    const slotsButton &#x3D; canvas.getByRole(&#x27;button&#x27;, { name: /slots/i });
+    await userEvent.click(slotsButton);
+    await expect(canvas.getByText(/selected: slots/i)).toBeTruthy();
+  },
+};
+
+export const AccessibilityDemo: Story &#x3D; {
+  name: &#x27;Accessibility Demo&#x27;,
+  parameters: { controls: { disable: true } },
+  render: () &#x3D;&gt; ({
+    template: &#x60;
+      &lt;zg-horizontal-list-layout ariaLabel&#x3D;&quot;Casino category filters&quot;&gt;
+        &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip [selected]&#x3D;&quot;true&quot;&gt;All games&lt;/zg-chip&gt;&lt;/li&gt;
+        &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip&gt;Slots&lt;/zg-chip&gt;&lt;/li&gt;
+        &lt;li zg-horizontal-list-layout-items&gt;&lt;zg-chip&gt;Live casino&lt;/zg-chip&gt;&lt;/li&gt;
+      &lt;/zg-horizontal-list-layout&gt;
+    &#x60;,
+  }),
+  play: async ({ canvasElement }) &#x3D;&gt; {
+    const canvas &#x3D; within(canvasElement);
+    const nav &#x3D; canvas.getByLabelText(/casino category filters/i);
+    const allButton &#x3D; canvas.getByRole(&#x27;button&#x27;, { name: /all games/i });
+
+    await expect(nav.tagName.toLowerCase()).toBe(&#x27;nav&#x27;);
+    await expect(allButton).toHaveAttribute(&#x27;aria-pressed&#x27;, &#x27;true&#x27;);
+  },
+};
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DemoChipItem.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
